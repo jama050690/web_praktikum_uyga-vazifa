@@ -1,0 +1,49 @@
+.container {
+  width: 1120;
+  height: 745;
+  opacity: 1;
+}
+#Sarlovha {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 156%;
+  color: #000;
+  text-align: center;
+}
+.title {
+  width: 952px;
+  height: 177px;
+  margin: 20px auto;
+}
+.text {
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 175%;
+  color: #7d7987;
+}
+
+.box {
+  border-radius: 20px;
+  fill: #fff;
+  box-shadow: 10px 40px 50px 0 rgba(229, 233, 246, 0.4);
+  width: 350px;
+  height: 354px;
+  padding: 5px;
+  padding-left: 20px;
+}
+.title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 233%;
+  color: #000;
+}
+.pre-table {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 233%;
+  color: #000;
+}
