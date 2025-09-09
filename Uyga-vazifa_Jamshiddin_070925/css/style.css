@@ -1,0 +1,253 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 4px;
+  max-width: 1280px;
+  /* margin-left: 300px; */
+}
+.main-header__brand {
+  display: inline-block;
+  vertical-align: middle;
+}
+.main-header__brand img {
+  width: 160px;
+  height: 41px;
+}
+.main-navigation {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 35em;
+}
+.main-navigation__item {
+  display: inline-block;
+  padding: 10px;
+}
+.main-navigation__item a {
+  margin-bottom: 20px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 18px;
+  color: #1f1534;
+  text-transform: capitalize;
+  opacity: 0.5;
+}
+#birinchi {
+  color: #1f1534;
+  opacity: 1;
+}
+.qator {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 150px 0px;
+  padding: 50px 0px;
+}
+
+.qator-text {
+  width: 446px;
+  height: 233px;
+}
+
+.qator-text h1 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: 117%;
+  color: #000;
+  font-size: 36px;
+  margin-bottom: 25px;
+}
+.qator-text h1#fs-48 {
+  font-size: 48px;
+}
+
+button {
+  width: 200px;
+  height: 56px;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 111%;
+  color: #458ff6;
+  border-radius: 55px;
+  border: 1px solid #458ff6;
+  fill: none;
+  margin-top: 50px;
+}
+
+.title {
+  justify-content: center;
+  text-align: center;
+  height: 177px;
+}
+.matn {
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 167%;
+  text-align: left;
+  color: #7d7987;
+}
+.matn.center {
+  text-align: center;
+}
+.matn.pl-30 {
+  padding-left: 30px;
+  max-width: 445px;
+  font-size: 21px;
+}
+.kichik-chiziq {
+  display: flex;
+  justify-self: center;
+  border-radius: 5px;
+  width: 56px;
+  height: 2px;
+  background: #000;
+  margin: 20px 0;
+}
+.kichik-chiziq.left {
+  justify-self: left;
+}
+.parent {
+  display: flex;
+  margin: 30px 0px;
+}
+
+.box-1 {
+  width: 350px;
+  height: 354px;
+  padding: 20px 20px;
+  margin-left: 20px;
+}
+.box-1_ikki {
+  width: 431px;
+  height: 405px;
+}
+.img_1 {
+  width: 92px;
+  height: 90px;
+}
+.pre-table {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 233%;
+  color: #000;
+}
+.text {
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 175%;
+  color: #7d7987;
+  margin-top: 10px;
+  width: 261px;
+  height: 84px;
+}
+
+.btn-learn-more {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-learn-more a {
+  padding: 14px 27px;
+  font-size: 18px;
+  cursor: pointer;
+  outline: none;
+  border: 0.5px solid blue;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.button:hover {
+  color: white;
+  background: rgba(0, 0, 255, 0.616);
+}
+.photo {
+  width: 650px;
+  height: 477px;
+}
+.photo.flex {
+  display: flex;
+  width: 141px;
+  height: 141px;
+}
+.qator-text-2 h1 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 156%;
+  color: #000;
+}
+.qator.review {
+  height: 502px;
+  font-family: var(--font-family);
+  display: flex;
+  justify-content: center;
+}
+.box-testimonial {
+  border-radius: 24px;
+  width: 1120px;
+  height: 425px;
+  background: linear-gradient(223deg, #67c3f3 0%, #5a98f2 100%);
+}
+.paragraf {
+  padding-top: 60px;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 133%;
+  color: #fff;
+  text-align: center;
+}
+
+.testimonial {
+  display: flex;
+  justify-content: space-around;
+}
+.reviewer {
+  display: flex;
+  justify-content: center;
+}
+.reviewer.person {
+  flex-direction: column;
+  width: 100%;
+  padding-left: 30px;
+}
+
+.reviewer.person.name {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 218%;
+  color: #fff;
+  padding-bottom: 5px;
+}
+.reviewer.person.job {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 267%;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0.5;
+}
+.reviewer.text {
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 158%;
+  color: rgba(255, 255, 255, 0.9);
+  width: 408px;
+}
