@@ -18,7 +18,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding-top: 4px;
-  max-width: 1280px;
+  max-width: 1216px;
   /* margin-left: 300px; */
 }
 .main-header__brand {
@@ -222,28 +222,24 @@ button {
 }
 .reviewer {
   display: flex;
-  justify-content: center;
-}
-.reviewer.person {
-  flex-direction: column;
-  width: 100%;
-  padding-left: 30px;
+  align-items: center;
+  gap: 10px;
 }
 
-.reviewer.person.name {
+.name {
   font-weight: 700;
   font-size: 22px;
   line-height: 218%;
   color: #fff;
-  padding-bottom: 5px;
 }
-.reviewer.person.job {
+.job {
   font-weight: 400;
   font-size: 18px;
   line-height: 267%;
   color: rgba(255, 255, 255, 0.85);
   opacity: 0.5;
 }
+
 .reviewer.text {
   font-weight: 400;
   font-size: 19px;
