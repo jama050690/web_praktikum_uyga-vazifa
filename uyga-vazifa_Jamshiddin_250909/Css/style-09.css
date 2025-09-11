@@ -37,7 +37,8 @@ a {
   height: 2px;
   background: #000;
 }
-.button {
+
+button {
   border-radius: 55px;
   border: 2px solid #458ff6;
   font-family: var(--second-family);
@@ -45,8 +46,14 @@ a {
   font-size: 18px;
   line-height: 111%;
   color: #458ff6;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 200px;
   height: 56px;
+}
+button.btn__left {
+  display: inline-block;
 }
 .button:hover {
   color: white;
@@ -249,4 +256,56 @@ a {
   color: rgba(255, 255, 255, 0.9);
   width: 408px;
   height: 120px;
+}
+.article_box {
+  margin-bottom: 79;
+  text-align: center;
+}
+.article_title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 156%;
+  color: #000;
+  margin-bottom: 8px;
+}
+.article__line {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 6px;
+  background: #000;
+  margin-bottom: 66px;
+}
+
+.article_list {
+  display: flex;
+  justify-content: space-around;
+}
+.article__item {
+  border-radius: 20px;
+  width: 350px;
+  height: 512px;
+  background: #fff;
+  margin-bottom: 69px;
+}
+.article__item_title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 152%;
+  color: #000;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  width: 245px;
+}
+.article__item_text {
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 175%;
+  color: #7d7987;
+  margin-bottom: 25px;
+  width: 266px;
+  height: 84px;
 }
