@@ -260,14 +260,12 @@ body {
   background: #fff;
   border-radius: 5px;
   height: 304px;
-}
-#form div {
-  display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 24px;
   align-items: center;
 }
+
 .input-field {
   margin-bottom: 16px;
   border-radius: 5px;
