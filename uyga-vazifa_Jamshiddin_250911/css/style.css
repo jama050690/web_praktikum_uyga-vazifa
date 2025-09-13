@@ -237,6 +237,9 @@ body {
 /* order */
 .order.bg-blue {
   padding-bottom: 56px;
+  max-width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .bg-blue {
   background: #00bafc;
@@ -284,6 +287,9 @@ body {
 }
 /* Footer style */
 .footer {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1300px;
   display: flex;
   gap: 100px;
   padding: 56px 100px;
