@@ -235,6 +235,9 @@ body {
 }
 
 /* order */
+.order.bg-blue {
+  padding-bottom: 56px;
+}
 .bg-blue {
   background: #00bafc;
 }
@@ -278,4 +281,35 @@ body {
   font-size: 16px;
   line-height: 150%;
   color: #000;
+}
+/* Footer style */
+.footer {
+  display: flex;
+  gap: 100px;
+  padding: 56px 100px;
+  height: 338px;
+  background-color: #191919;
+}
+.footer__block {
+  width: 320px;
+  height: 162px;
+}
+
+.footer__list li a {
+  color: #fff;
+}
+.footer__content {
+  width: 320px;
+  height: 162px;
+}
+.footer__title {
+  padding-bottom: 16px;
+}
+.footer__list li {
+  padding-bottom: 8px;
+}
+.footer__list li {
+  display: flex;
+  justify-items: center;
+  gap: 18px 10px;
 }
