@@ -14,11 +14,13 @@ a {
 body {
   font-family: "Be Vietnam", sans-serif;
 }
+
 .container {
+  width: 1110px;
   margin-left: auto;
   margin-right: auto;
-  width: 1110px;
 }
+
 .title {
   font-weight: 700;
   line-height: 114%;
@@ -89,6 +91,7 @@ body {
 .manage__block {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 165px;
 }
 
 .manage__title {
@@ -122,4 +125,96 @@ body {
 }
 .manage__item:nth-child(3) {
   background-image: url(../rasmlar/manage_rasm.png);
+}
+/* Testimonilas section */
+.testimonilas {
+  padding-bottom: 161px;
+}
+.testimonilas__title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 95px;
+}
+.testimonilas__block {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+.testimonilas__box {
+  text-align: center;
+}
+
+.testimonilas__box-2 {
+  text-align: center;
+}
+.testimonilas__sub-title {
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.testimonilas__text {
+  width: 460px;
+  margin-bottom: 97px;
+}
+.but {
+  display: inline-block;
+}
+.nav__btn_block {
+  display: flex;
+  justify-content: center;
+}
+/*Simplify section  */
+.simplify {
+  background-color: #f3603c;
+}
+.simplify__block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.simplify__title {
+  padding: 62px 0;
+  text-align: center;
+  width: 445px;
+  color: #fff;
+  font-size: 40px;
+}
+.sim {
+  font-size: 13px;
+  background-color: #ffffff;
+  color: #f3603c;
+}
+/* Footer section */
+.footer {
+  background-color: #1d1e25;
+}
+.footer__block {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 63px;
+  padding-bottom: 60px;
+}
+.footer__brand {
+  display: grid;
+}
+.footer__img {
+  margin-bottom: 91px;
+}
+.footer__item:not(:last-child) {
+  margin-bottom: 13px;
+}
+.footer__item {
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+}
+.footer__item a {
+  color: #fff;
+}
+.footer__text {
+  margin-top: 58px;
+  font-size: 13px;
+  text-align: right;
+  color: #9196a8;
 }
