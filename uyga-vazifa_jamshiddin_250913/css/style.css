@@ -118,13 +118,13 @@ body {
   background-repeat: no-repeat;
 }
 .manage__item:nth-child(1) {
-  background-image: url(../rasmlar/manage_but.png);
+  background-image: url(../img/manage_but.png);
 }
 .manage__item:nth-child(2) {
-  background-image: url(../rasmlar/manage_img-1.png);
+  background-image: url(../img/manage_img-1.png);
 }
 .manage__item:nth-child(3) {
-  background-image: url(../rasmlar/manage_rasm.png);
+  background-image: url(../img/manage_rasm.png);
 }
 /* Testimonilas section */
 .testimonilas {
