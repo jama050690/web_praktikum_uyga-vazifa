@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -21,11 +22,10 @@ a {
 }
 /*Umumiy style lar berildi*/
 .title {
-  font-family: var(--second-family);
+  font-family: "Mulish", sans-serif;
   font-weight: 700;
 }
 .text {
-  font-family: var(--font-family);
   font-weight: 300;
   font-size: 21px;
   line-height: 152%;
@@ -41,7 +41,6 @@ a {
 button {
   border-radius: 55px;
   border: 2px solid #458ff6;
-  font-family: var(--second-family);
   font-weight: 700;
   font-size: 18px;
   line-height: 111%;
@@ -69,7 +68,6 @@ button.btn__left {
   display: flex;
   align-items: center;
   gap: 30px;
-  font-family: var(--second-family);
   font-weight: 400;
   font-size: 18px;
   color: #1f1534;
@@ -258,6 +256,9 @@ button.btn__left {
   height: 120px;
 }
 /* article section */
+.article {
+  padding-bottom: 129px;
+}
 .article_box {
   margin-bottom: 79;
   text-align: center;
@@ -309,4 +310,41 @@ button.btn__left {
   margin-bottom: 25px;
   width: 266px;
   height: 84px;
+}
+/* Footer Section */
+.footer {
+  background-color: #61aff3;
+}
+.footer__block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 117px;
+  padding-bottom: 114px;
+}
+.footer__block img {
+  margin-bottom: 18px;
+}
+.footer__text.mb {
+  margin-bottom: 30px;
+}
+.footer__text {
+  width: 384px;
+  font-size: 18px;
+  line-height: 156%;
+  color: #fff;
+}
+.footer__list_title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 300%;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.footer__item a {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 211%;
+  color: #fff;
+  margin-bottom: 14px;
 }
