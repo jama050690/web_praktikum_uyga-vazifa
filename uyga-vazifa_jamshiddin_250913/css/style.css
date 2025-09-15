@@ -209,12 +209,20 @@ body {
   font-size: 15px;
   letter-spacing: -0.02em;
 }
+.footer__into_box {
+  display: flex;
+  align-items: center;
+}
 .footer__item a {
   color: #fff;
 }
 .footer__text {
-  margin-top: 58px;
+  margin-top: 60px;
   font-size: 13px;
   text-align: right;
   color: #9196a8;
+}
+.fot {
+  background-color: #fff;
+  color: #8d8d8d;
 }
