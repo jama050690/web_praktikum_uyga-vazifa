@@ -189,7 +189,6 @@ body {
   margin-bottom: 25px;
 }
 .service__link {
-  width: 133px;
   font-weight: 700;
   font-size: 17px;
   letter-spacing: 0.03em;
@@ -251,6 +250,7 @@ body {
   display: flex;
   justify-content: space-between;
   column-gap: 47px;
+  margin-bottom: 81px;
 }
 .events__item {
   border-radius: 15px;
@@ -299,14 +299,4 @@ body {
   letter-spacing: 0.03em;
   text-align: right;
   color: #373737;
-}
-.events__link {
-  font-weight: 700;
-  font-size: 17px;
-  letter-spacing: 0.03em;
-  color: #717cff;
-  padding-right: 41px;
-  background-repeat: no-repeat;
-  background-image: url(../image/arrow_forward_24px.png);
-  background-position: right center;
 }
