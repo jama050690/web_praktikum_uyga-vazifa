@@ -151,7 +151,7 @@ body {
   margin-bottom: 48px;
   column-gap: 92px;
 }
-.content__title {
+.content__subtitle {
   font-weight: 500;
   font-size: 14px;
   line-height: 143%;
@@ -161,7 +161,7 @@ body {
   opacity: 0.87;
   margin-bottom: 16px;
 }
-.content__subtitle {
+.content__title {
   font-weight: 600;
   font-size: 48px;
   line-height: 121%;
@@ -248,7 +248,7 @@ body {
   padding: 32px 117px 32px 64px;
 }
 .expertise__item:not(3) {
-  margin-bootom: 12px;
+  margin-bottom: 12px;
 }
 .expertise__item:nth-child(2) {
   background-repeat: no-repeat;
@@ -322,7 +322,7 @@ body {
   background-image: url(../image/service_img-2.png);
   background-position: left 45px top;
 }
-. .top {
+.top {
   margin-top: 16px;
 }
 .margin {
@@ -444,4 +444,191 @@ body {
   position: absolute;
   padding-bottom: 160px;
   width: 395px;
+}
+/* Customers Section Styles */
+.customers__block {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 153px;
+}
+.customers__content {
+  position: relative;
+  margin-top: 102px;
+  width: 502px;
+}
+.customers__kub {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.customers__content .content__title {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+.customers__sub_title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 156%;
+  color: var(--background-color);
+  margin-bottom: 16px;
+}
+.customers__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--background-color);
+  margin-bottom: 24px;
+}
+.customer__list {
+  display: flex;
+  column-gap: 12px;
+}
+.customer__box {
+  width: 624px;
+  position: relative;
+  margin-top: 96px;
+}
+.line__ver {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.embelem {
+  position: absolute;
+  top: 0;
+  right: 40px;
+}
+.customers__box_title {
+  width: 408px;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  margin-left: 40px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 150%;
+  color: var(--background-color);
+}
+.customers__box_info {
+  display: flex;
+  margin-left: 40px;
+  column-gap: 180px;
+}
+.box__info_block {
+  display: flex;
+  column-gap: 16px;
+}
+
+.customers__box_name {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 175%;
+  color: var(--background-color);
+  opacity: 0.87;
+}
+.customer__job {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  color: var(--background-color);
+  opacity: 0.6;
+  margin-bottom: 66px;
+}
+.info__logo {
+  margin-bottom: 66px;
+  background-color: var(--color);
+}
+.customer__item {
+  margin-bottom: 14px;
+}
+.customers__sub_text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--black);
+}
+.customers__sub_text-2 {
+  font-size: 12px;
+  line-height: 133%;
+}
+.customers__list_2 {
+  margin-bottom: 104px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 21px;
+}
+.customers__item-1 {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(210, 210, 210);
+}
+.active {
+  width: 14px;
+  height: 14px;
+  background-color: var(--black);
+}
+/*News  Section St*/
+.news {
+  position: relative;
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+.news__kub {
+  padding-bottom: 19px;
+}
+.news__block .p {
+  margin-top: 19px;
+  margin-bottom: 48px;
+}
+.news__box {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: center;
+}
+.content__subtitle-date {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  opacity: 0.6;
+  color: var(--background-color);
+}
+/* Newsletter Section Styles */
+.newsletter__big_box {
+  position: relative;
+  background: #666dff;
+}
+.newsletter__block {
+  display: flex;
+}
+.newsletter__content .content__subtitle {
+  color: var(--white);
+  padding-left: 96px;
+  margin-bottom: 13px;
+}
+.newsletter__content .content__box_title {
+  padding-left: 93px;
+  padding-bottom: 96px;
+  width: 488px;
+  color: var(--white);
+  margin-right: 122px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.email {
+  margin-top: 80px;
+  text-align: left;
+  width: 454px;
+  height: 64px;
+  background-color: var(--white);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #b0979d;
+}
+.newsletter__line {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
