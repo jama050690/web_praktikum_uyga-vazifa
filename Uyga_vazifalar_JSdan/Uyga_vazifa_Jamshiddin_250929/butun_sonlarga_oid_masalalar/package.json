@@ -1,0 +1,14 @@
+{
+  "name": "butun_sonlarga_oid_masalalar",
+  "version": "1.0.0",
+  "main": "topshiriq_2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}

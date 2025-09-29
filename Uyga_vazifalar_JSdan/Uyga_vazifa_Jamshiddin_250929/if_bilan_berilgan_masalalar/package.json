@@ -1,0 +1,15 @@
+{
+  "name": "if_bilan_berilgan_masalalar",
+  "version": "1.0.0",
+  "module": "commonjs",
+  "main": "topshiriq_5.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jamshiddin Babajonov",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
