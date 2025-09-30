@@ -5,5 +5,5 @@ const prompt = require("prompt-sync")();
 
 let f = Number(prompt("Butun son kiriting: "));
 let k = 1024;
-let result = f / 1024;
+let result = f / k;
 console.log(result);
