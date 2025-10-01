@@ -2,10 +2,12 @@
 //  A va B bu sonlarning kattasini o’zlashtirsin . Agar teng bo’lsa 0 ni o’zlashtirsin .
 // A va B ning qiymati console ga chiqarilsin.
 
+const prompt = require("prompt-sync")();
+
 let a = Number("Butun son berilsin");
 let b = Number("Butun son berilsin");
-a = 4;
-b = 4;
+a = 3;
+b = 42;
 
 if (a > b) {
   b = a;

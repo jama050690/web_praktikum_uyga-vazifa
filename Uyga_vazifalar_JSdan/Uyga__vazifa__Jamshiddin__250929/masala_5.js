@@ -4,6 +4,8 @@
 // Agar 18 da bo’lsangiz “ avto maktabda o’qishingiz mumkin”  yozuvi console da chiqsin
 // Agar 18 dan kichik bolsa “ siz avto transport boshqaruvga ruxsat beruvchi guvohnoma olishga huquqingiz mavjud emas”  yozuvi console da chiqsin
 
+const prompt = require("prompt-sync")();
+
 let age = 35;
 
 if (age > 18) {

@@ -3,6 +3,7 @@
 // Natija: 11
 // Decrement (son qiymatini 1 ga kamaytirish)
 // Natija: 10
+const prompt = require("prompt-sync")();
 
 let son = 10;
 console.log(++son);

@@ -1,4 +1,5 @@
 // Juft yoki toqlikni tekshirish
+const prompt = require("prompt-sync")();
 
 let son1 = 7;
 let son2 = 8;
