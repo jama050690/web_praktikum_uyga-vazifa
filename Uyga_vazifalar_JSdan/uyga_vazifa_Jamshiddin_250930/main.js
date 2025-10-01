@@ -116,6 +116,46 @@ function masala_7() {
   }
 }
 
+// a va b butun sonlari berilgan (a < b). a dan b gacha bo’lgan
+//  barcha butun sonlar ko’paytmasini chiqaruvchi programma tuzilsin.
+
+function masala_8() {
+  console.log("Masala 8...");
+  let a = Number(prompt("Butun son kiriting"));
+  let b = Number(prompt("Butun son kiriting"));
+
+  if (a >= b) {
+    console.log("a < b bo'lishi kerak");
+  } else {
+    let kopaytma = 1;
+    for (let i = a; i < b; ++i) {
+      kopaytma *= i;
+    }
+    console.log(kopaytma);
+  }
+}
+
+// a va b butun sonlari berilgan (a < b). a dan b gacha bo’lgan barcha
+//  butun sonlar kvadratlarining yig’indisini chiqaruvchi programma tuzilsin.
+
+function masala_9() {
+  console.log("Masala ...");
+  let a = Number(prompt("Butun son kiriting"));
+  let b = Number(prompt("Butun son kiriting"));
+
+  if (a >= b) {
+    console.log("a < b bo'lishi kerak");
+  } else {
+    let kopaytma = 1;
+    yigindi = 0;
+    for (let i = a; i < b; ++i) {
+      kopaytma = i ** 2;
+      yigindi += kopaytma;
+    }
+    console.log(yigindi);
+  }
+}
+
 let displayCommands;
 ("----=== MASALA RAQAMLARI ===----\n");
 "1-masala - 1\n" +
@@ -124,7 +164,9 @@ let displayCommands;
   "4-masala - 4\n" +
   "5-masala - 5\n" +
   "6-masala - 6\n" +
-  "7-masala - 7\n";
+  "7-masala - 7\n" +
+  "8-masala - 8\n" +
+  "9-masala - 9\n";
 
 console.log(displayCommands);
 
@@ -147,14 +189,19 @@ switch (num) {
   case 5:
     masala_5();
     break;
-
   case 6:
     masala_6();
     break;
-
   case 7:
     masala_7();
     break;
+  case 8:
+    masala_8();
+    break;
+  case 9:
+    masala_9();
+    break;
+
     break;
     //   case n:
     //     masala_n();
