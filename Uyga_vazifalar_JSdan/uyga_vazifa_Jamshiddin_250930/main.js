@@ -139,7 +139,7 @@ function masala_8() {
 //  butun sonlar kvadratlarining yig’indisini chiqaruvchi programma tuzilsin.
 
 function masala_9() {
-  console.log("Masala ...");
+  console.log("Masala 9 ...");
   let a = Number(prompt("Butun son kiriting"));
   let b = Number(prompt("Butun son kiriting"));
 
@@ -202,9 +202,5 @@ switch (num) {
     masala_9();
     break;
 
-    break;
-    //   case n:
-    //     masala_n();
-    //     break;
     console.log("Masala raqami noto'g'ri kiritildi. Qayta urinib ko'ring.");
 }
