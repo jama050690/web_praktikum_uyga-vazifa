@@ -69,9 +69,27 @@ function masala_4() {
   }
 }
 
+// Bir kg konfetning narxi berilgan (haqiqiy son).
+// 0.1, 0.2, ..., 0.9, 1 kg konfetni narxini chiqaruvchi programma tuzilsin.
+
+function masala_5() {
+  console.log("Masala 5...");
+  let narx = Number(prompt("Haqiqiy son kiriting"));
+  let kg = 1;
+
+  for (let i = 0.1; i <= 1; i += 0.1) {
+    let summa = narx * i;
+    console.log(i.toFixed(1) + " kg = " + summa.toFixed(2));
+  }
+}
+
 let displayCommands;
 ("----=== MASALA RAQAMLARI ===----\n");
-"1-masala - 1\n" + "2-masala - 2\n" + "3-masala - 3\n" + "4-masala - 4\n";
+"1-masala - 1\n" +
+  "2-masala - 2\n" +
+  "3-masala - 3\n" +
+  "4-masala - 4\n" +
+  "5-masala - 5\n";
 
 console.log(displayCommands);
 
@@ -91,7 +109,9 @@ switch (num) {
   case 4:
     masala_4();
     break;
-
+  case 5:
+    masala_5();
+    break;
     break;
     //   case n:
     //     masala_n();
