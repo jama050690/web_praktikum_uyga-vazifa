@@ -129,6 +129,20 @@ function masala_8() {
   }
 }
 
+// 1 dan 100 gacha bo‘lgan sonlardan 3 va 5 ga bir vaqtda bo‘linadiganlarini ekranga chiqar.
+
+function masala_9() {
+  console.log("Masala 9...");
+  let n = 100;
+  let i = 1;
+  while (n >= i) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log(i);
+    }
+    i++;
+  }
+}
+
 let displayCommands;
 ("----=== MASALA RAQAMLARI ===----\n");
 "1-masala - 1\n" +
