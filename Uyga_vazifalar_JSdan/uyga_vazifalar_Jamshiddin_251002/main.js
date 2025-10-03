@@ -142,8 +142,26 @@ function masala_9() {
     i++;
   }
 }
+// A va B musbat sonlar berilgan(A>B). A uzunlikdagi kesmada maksimal darajada
+// B kesma joylashtirilgan.A esmaning bo'sh qiymatini aniqlovchi programma tuzilsin.
+// Ko'paytiruv va bo'luv ammalari ishlatman.
+
+function masala_10() {
+  console.log("Masala 10...");
+
+  let A = Number(prompt("Butun son kiriting: "));
+  let B = Number(prompt("Butun son kiriting: "));
+  let qoldiq = A;
+
+  do {
+    qoldiq = qoldiq - B;
+  } while (qoldiq >= B);
+
+  console.log("Bo'sh qism:", qoldiq);
+}
 
 let displayCommands;
+
 ("----=== MASALA RAQAMLARI ===----\n");
 "1-masala - 1\n" +
   "2-masala - 2\n" +
