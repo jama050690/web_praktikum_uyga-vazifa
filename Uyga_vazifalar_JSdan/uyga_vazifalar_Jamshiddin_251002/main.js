@@ -211,6 +211,54 @@ function masala_12() {
     console.log("Qoldiq:", qoldiq);
   }
 }
+
+// n butun soni berilgan (n>0).Agar n soni 3 ning darajasi "3-ning darajasi",
+//  aks holda "3-ning darajasi emas" degan natija chiqaruvchi programma
+//  tuzilsin. Qoldiqli bo'lish va bo'lish ammalarini ishlatmang.
+
+function masala_13() {
+  console.log("Masala 13...");
+
+  let n = Number(prompt("N sonini kiriting: "));
+
+  if (n <= 0) {
+    console.log("n musbat bo'lishi kerak");
+  } else {
+    let son = 1;
+
+    while (son < n) {
+      son = son * 3;
+    }
+    if (son === n) {
+      console.log("3-ning darajasi");
+    } else {
+      console.log("3-ning darajasi emas");
+    }
+  }
+}
+
+// 2 sonining qandaydir darajasini bildiruvchi n butun soni berilgan (n>0). n=2**k. k ni aniqlovchi programma tuzilsin.
+
+function masala_14() {
+  console.log("Masala 14...");
+
+  let n = Number(prompt("N sonini kiriting: "));
+
+  let temp = n;
+  while (temp % 2 === 0) temp /= 2;
+  if (temp !== 1) {
+    console.log("n 2 ning darajasi emas.");
+  } else {
+    let k = 0;
+    while (n > 1) {
+      n = n / 2;
+      k++;
+    }
+
+    console.log("k =", k);
+  }
+}
+
 let displayCommands;
 
 ("----=== MASALA RAQAMLARI ===----\n");
