@@ -143,23 +143,74 @@ function masala_9() {
   }
 }
 // A va B musbat sonlar berilgan(A>B). A uzunlikdagi kesmada maksimal darajada
-// B kesma joylashtirilgan.A esmaning bo'sh qiymatini aniqlovchi programma tuzilsin.
+// B kesma joylashtirilgan.A kesmaning bo'sh qiymatini aniqlovchi programma tuzilsin.
 // Ko'paytiruv va bo'luv ammalari ishlatman.
 
 function masala_10() {
   console.log("Masala 10...");
 
-  let A = Number(prompt("Butun son kiriting: "));
-  let B = Number(prompt("Butun son kiriting: "));
+  let A = Number(prompt("A sonini kiriting (A > B bo'lishi kerak): "));
+  let B = Number(prompt("B sonini kiriting: "));
+
   let qoldiq = A;
 
   do {
     qoldiq = qoldiq - B;
   } while (qoldiq >= B);
 
-  console.log("Bo'sh qism:", qoldiq);
+  if (A <= B) {
+    console.log(" Xato: A soni B dan katta bo'lishi kerak!");
+  } else {
+    console.log("Bo'sh qism:", qoldiq);
+  }
 }
 
+// A va B musbat sonlar berilgan(A>B). A uzunlikdagi kesmada
+// B kesmani nechta marta joylashtirilganini aniqlovchi programma tuzilgan.
+// Ko'paytiruv va bo'luv ammalari ishlatman.
+function masala_11() {
+  console.log("Masala 11...");
+
+  let A = Number(prompt("Butun son kiriting: "));
+  let B = Number(prompt("Butun son kiriting: "));
+
+  if (A <= B) {
+    console.log("Xato: A soni B dan katta bo'lishi kerak!");
+  } else {
+    let butun = 0;
+    let qoldiq = A;
+
+    do {
+      qoldiq = qoldiq - B;
+      butun++;
+    } while (qoldiq >= B);
+
+    console.log("Joylahgan B kesmalar soni:", butun);
+  }
+}
+// N va K butun musbar sonlar berilgan.Faqat ayirish va qo'shish amalarini bajarib N sonining
+// K soniga bo'lganda qoldiq va butun qismini aniqlovchi programa tuzilsin.
+function masala_12() {
+  console.log("Masala 12...");
+
+  let n = Number(prompt("N sonini kiriting: "));
+  let k = Number(prompt("K sonini kiriting: "));
+
+  if (n < k) {
+    console.log(" n soni k dan katta yoki teng bo'lishi kerak!");
+  } else {
+    let butun = 0;
+    let qoldiq = n;
+
+    do {
+      qoldiq = qoldiq - k;
+      butun++;
+    } while (qoldiq >= k);
+
+    console.log("Butun:", butun);
+    console.log("Qoldiq:", qoldiq);
+  }
+}
 let displayCommands;
 
 ("----=== MASALA RAQAMLARI ===----\n");
