@@ -71,6 +71,23 @@ function masala_5() {
     i--;
   }
 }
+
+// 1 dan 30 gacha bo‘lgan sonlarning faqat juft sonlarini va ularning kvadratlarini chiqar.
+
+function masala_6() {
+  console.log("Masala 6 ...");
+
+  let i = 1;
+  let n = 30;
+
+  while (i <= n) {
+    if (i % 2 === 0) {
+      console.log(i, i ** 2);
+    }
+    i++;
+  }
+}
+
 let displayCommands;
 ("----=== MASALA RAQAMLARI ===----\n");
 "1-masala - 1\n" +
