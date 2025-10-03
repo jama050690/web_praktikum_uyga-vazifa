@@ -88,6 +88,47 @@ function masala_6() {
   }
 }
 
+// 1 dan 20 gacha bo‘lgan sonlardan faqat 5 ga bo‘linadiganlarini chiqar va ularni sanab ber (nechta ekanini top).
+
+function masala_7() {
+  console.log("Masala 7 ...");
+
+  let i = 1;
+  let n = 20;
+  let count = 0;
+  while (n >= i) {
+    if (i % 5 == 0) {
+      console.log(i);
+      count++;
+    }
+    i++;
+  }
+  console.log("5 ga bo'linadigan sonlar: ", count);
+}
+
+// Fibonachchi sonlarini chiqar (faqat dastlabki 10 ta soni: 0, 1, 1, 2, 3, 5, 8, ...).
+
+function masala_8() {
+  console.log("Masala 8...");
+
+  let a = 0;
+  let b = 1;
+
+  console.log(a);
+  console.log(b);
+
+  let count = 2;
+
+  while (count < 10) {
+    let fibonachchi = a + b;
+    console.log(fibonachchi);
+
+    a = b;
+    b = fibonachchi;
+    count++;
+  }
+}
+
 let displayCommands;
 ("----=== MASALA RAQAMLARI ===----\n");
 "1-masala - 1\n" +
