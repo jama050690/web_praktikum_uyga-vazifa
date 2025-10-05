@@ -144,7 +144,7 @@ function masala_9() {
 }
 // A va B musbat sonlar berilgan(A>B). A uzunlikdagi kesmada maksimal darajada
 // B kesma joylashtirilgan.A kesmaning bo'sh qiymatini aniqlovchi programma tuzilsin.
-// Ko'paytiruv va bo'luv ammalari ishlatman.
+// Ko'paytiruv va bo'luv ammalari ishlatmang.
 
 function masala_10() {
   console.log("Masala 10...");
@@ -167,7 +167,7 @@ function masala_10() {
 
 // A va B musbat sonlar berilgan(A>B). A uzunlikdagi kesmada
 // B kesmani nechta marta joylashtirilganini aniqlovchi programma tuzilgan.
-// Ko'paytiruv va bo'luv ammalari ishlatman.
+// Ko'paytiruv va bo'luv ammalari ishlatmang.
 function masala_11() {
   console.log("Masala 11...");
 
