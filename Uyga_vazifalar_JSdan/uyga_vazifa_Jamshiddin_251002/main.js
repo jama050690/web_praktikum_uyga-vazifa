@@ -169,9 +169,6 @@ function masala_10() {
   return s;
 }
 
-let resault = masala_10();
-console.log("Yig‘indi s =", resault);
-
 // n butun soni berilgan (n > 0). Quyidagi yig‘indini hisoblovchi programma tuzilsin.
 // S = n² + (n+1)² + (n+2)² + ⋯ + (2n)²
 
@@ -184,13 +181,54 @@ function masala_11() {
   }
   return s;
 }
+// // n butun soni berilgan (n > 0). Quyidagi ko‘paytmani hisoblovchi programma tuzilsin.
+// S = 1·1 * 1·2 * 1·3 ⋯ n (n ta ko‘payuvchi)
 
-let resault1 = masala_11();
-console.log("Yig‘indi s =", resault1);
+function masala_12() {
+  console.log("Masala 12...");
+  let n = Number(prompt("Butun son kiriting: "));
+  let s = 1;
+  for (let i = 1; i <= n; i++) {
+    s *= i;
+  }
+  return s;
+}
 
-let displayCommands;
-("----=== MASALA RAQAMLARI ===----\n");
-"1-masala - 1\n" +
+// n butun soni berilgan (n > 0). Quyidagi yig‘indini hisoblovchi programma tuzilsin.
+// S = 1 - 1·1 + 1·2 - 1·3 + ⋯ (n ta qo‘shiluvchi, ishoralar almashib keladi. Shart operatoridan foydalanmang)
+
+function masala_13() {
+  console.log("Masala 13...");
+  let n = Number(prompt("Butun son kiriting: "));
+  let s = 1;
+  for (let i = 1; i < n; i++) {
+    s += Math.pow(-1, i) * i;
+  }
+  return s;
+}
+
+// n butun soni berilgan (n > 0). Shu sonning kvadratini quyidagi
+//  formula asosida hisoblovchi programma tuzilsin.
+// n² = 1 + 3 + 5 + ⋯ + (2n - 1)
+// Har bir qo‘shiluvchini ekranga chiqarib boring. Natijada ekranda
+// 1 dan n gacha bo‘lgan sonlar kvadrati chiqariladi.
+
+function masala_14() {
+  console.log("Masala 14...");
+  let n = Number(prompt("Butun son kiriting: "));
+  let a = 0;
+  let b = 1;
+  for (let i = 1; i <= n; i++) {
+    a += b;
+    console.log(`${i} ^ 2 = ${a}`);
+    b += 2;
+  }
+  return n;
+}
+
+let displayCommands =
+  "----=== MASALA RAQAMLARI ===----\n" +
+  "1-masala - 1\n" +
   "2-masala - 2\n" +
   "3-masala - 3\n" +
   "4-masala - 4\n" +
@@ -200,11 +238,15 @@ let displayCommands;
   "8-masala - 8\n" +
   "9-masala - 9\n" +
   "10-masala - 10\n" +
-  "11-masala - 11\n";
+  "11-masala - 11\n" +
+  "12-masala - 12\n" +
+  "13-masala - 13\n" +
+  "14-masala - 14\n";
 
 console.log(displayCommands);
 
 console.log("Masala raqamini kiriting: ");
+let result;
 
 let num = Number(prompt());
 switch (num) {
@@ -236,12 +278,22 @@ switch (num) {
     masala_9();
     break;
   case 10:
-    masala_10();
+    result = masala_10();
     break;
   case 11:
-    masala_11();
+    result = masala_11();
+    break;
+  case 12:
+    result = masala_12();
+    break;
+  case 13:
+    result = masala_13();
+    break;
+  case 14:
+    result = masala_14();
     break;
 
   default:
     console.log("Masala raqami noto'g'ri kiritildi. Qayta urinib ko'ring.");
 }
+console.log(result);
