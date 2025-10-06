@@ -156,6 +156,38 @@ function masala_9() {
   }
 }
 
+// n butun soni berilgan (n > 0). Quyidagi yig‘indini hisoblovchi programma tuzilsin.
+// S = 1 + 1/2 + 1/3 + ⋯ + 1/n
+
+function masala_10() {
+  console.log("Masala 10...");
+  let n = Number(prompt("Butun son kiriting: "));
+  let s = 0;
+  for (let i = n; i <= 2 * n; i++) {
+    s += i / i;
+  }
+  return s;
+}
+
+let resault = masala_10();
+console.log("Yig‘indi s =", resault);
+
+// n butun soni berilgan (n > 0). Quyidagi yig‘indini hisoblovchi programma tuzilsin.
+// S = n² + (n+1)² + (n+2)² + ⋯ + (2n)²
+
+function masala_11() {
+  console.log("Masala 11...");
+  let n = Number(prompt("Butun son kiriting: "));
+  let s = 0;
+  for (let i = n; i <= 2 * n; i++) {
+    s += i ** 2;
+  }
+  return s;
+}
+
+let resault1 = masala_11();
+console.log("Yig‘indi s =", resault1);
+
 let displayCommands;
 ("----=== MASALA RAQAMLARI ===----\n");
 "1-masala - 1\n" +
@@ -166,7 +198,9 @@ let displayCommands;
   "6-masala - 6\n" +
   "7-masala - 7\n" +
   "8-masala - 8\n" +
-  "9-masala - 9\n";
+  "9-masala - 9\n" +
+  "10-masala - 10\n" +
+  "11-masala - 11\n";
 
 console.log(displayCommands);
 
@@ -201,6 +235,13 @@ switch (num) {
   case 9:
     masala_9();
     break;
+  case 10:
+    masala_10();
+    break;
+  case 11:
+    masala_11();
+    break;
 
+  default:
     console.log("Masala raqami noto'g'ri kiritildi. Qayta urinib ko'ring.");
 }
