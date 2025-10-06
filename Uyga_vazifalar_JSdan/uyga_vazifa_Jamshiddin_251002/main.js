@@ -226,6 +226,145 @@ function masala_14() {
   return n;
 }
 
+// n butun soni berilgan (n > 0). Shu sonning kvadratini quyidagi
+//  formula asosida hisoblovchi programma tuzilsin.
+// n² = 1 + 3 + 5 + ⋯ + (2n - 1)
+// Har bir qo‘shiluvchini ekranga chiqarib boring. Natijada ekranda
+// 1 dan n gacha bo‘lgan sonlar kvadrati chiqariladi.
+
+// const masala_14 = () => {
+//   console.log("masala_14...");
+//   let n = Number(prompt("Butun son kiriting(n > 0): "));
+//   let sum = 0;
+//   let odd = 1;
+
+//   for (let i = 1; i <= n; i++) {
+//     sum += odd;
+//     console.log(`${i} ^ 2 = ${sum}`);
+//     odd += 2;
+//   }
+//   return n;
+// };
+
+//  1-masala
+
+// // n butun soni berilgan (n > 0).
+// // 1 dan n gacha bo‘lgan sonlarning kvadratlari yig‘indisini hisoblang.
+
+// // Masalan:
+// // n = 4 → 1² + 2² + 3² + 4² = 30
+
+// const masala_14 = () => {
+//   console.log("masala_14...");
+//   let n = Number(prompt("Butun son kiriting(n > 0): "));
+//   let result = 0;
+//   for (let i = 1; i <= n; i++) {
+//     result += i ** 2;
+//   }
+//   return result;
+// };
+
+// //  2-masala
+
+// // n butun soni berilgan (n > 0).
+// // 1 dan n gacha bo‘lgan faqat toq sonlarning kvadratlari yig‘indisini hisoblang.
+
+// //  Masalan:
+// // n = 5 → 1² + 3² + 5² = 35
+
+// const masala_14 = () => {
+//   console.log("masala_14...");
+//   let n = Number(prompt("Butun son kiriting(n > 0): "));
+//   let result = 0;
+//   for (let i = 1; i <= n; i += 2) {
+//     result += i ** 2;
+//   }
+
+//   return result;
+// };
+
+// n butun soni va a haqiqiy soni berilgan (n > 0). a ning n-darajasini aniqlovchi programma tuzilsin.
+// aⁿ = a * a * a ⋯ a (n ta)
+
+function masala_15() {
+  console.log("Masala 15...");
+  let a = Number(prompt("a sonini kiriting: "));
+  let n = Number(prompt("n sonini kiriting (n > 0): "));
+
+  let result = 1;
+
+  for (let i = 1; i <= n; i++) {
+    result *= a;
+  }
+
+  console.log(`${a} ning ${n}-darajasi = ${result}`);
+  return result;
+}
+
+// n butun soni va b haqiqiy soni berilgan (n > 0). b ning n-darajasini aniqlovchi programma tuzilsin.
+// bⁿ = b* b * b ⋯ b (n ta)
+
+// function masala_16() {
+//   console.log("masala_16...");
+//   let n = Number(prompt("Butun son kiriting"));
+//   let b = Number(prompt("Butun son kiriting"));
+//   let result = 1;
+//   for (let i = 0; i < n; i++) {
+//     result *= b;
+//   }
+//   console.log(` ${b} ning ${n} darajasi= ${result}`);
+//  return result;
+// }
+
+// n butun soni va c haqiqiy soni berilgan (n > 0). c ning n-darajasini aniqlovchi programma tuzilsin.
+// cⁿ = c* c * c ⋯ c (n ta)
+
+// function masala_15() {
+//   console.log("masala_15...");
+//   let c = Number(prompt("Butun son kiriting"));
+//   let n = Number(prompt("Butun son kiriting"));
+//   let result = 1;
+//   for (let i = 0; i < n; i++) {
+//     result *= c;
+//   }
+//   console.log(`${c}  ning ${n} darajasi = ${result}`);
+
+//   return result;
+// }
+
+// n butun soni va a haqiqiy soni berilgan (n > 0). Bir sikldan
+// foydalanib a ning 1 dan n gacha bo‘lgan barcha darajalarini chiqaruvchi programma tuzilsin.
+
+const masala_16 = () => {
+  console.log("masala_16...");
+
+  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+  let a = Number(prompt("a haqiqiy sonini kiriting: "));
+  for (let i = 1; i <= n; i++) {
+    let result = a ** i;
+    console.log(`${a} ning ${i} dan =${result}`);
+  }
+  return result;
+};
+
+// n butun soni va a haqiqiy soni berilgan (n > 0). Bir sikldan foydalanib
+//  quyidagi a ning 1 dan n gacha bo‘lgan barcha darajalarini chiqaruvchi va
+// yig‘indini hisoblovchi programma tuzilsin.
+// 1 + a + a² + a³ + ⋯ + aⁿ
+
+const masala_17 = () => {
+  console.log("masala_17...");
+  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+  let a = Number(prompt("a haqiqiy sonini kiriting: "));
+  let result = 0;
+  for (let i = 0; i <= n; i++) {
+    let sum = a ** i;
+    result += sum;
+    console.log(`${a} ning + ${n} gacha + ${sum} darajalari= ${result}`);
+  }
+  return result;
+};
+
 let displayCommands =
   "----=== MASALA RAQAMLARI ===----\n" +
   "1-masala - 1\n" +
@@ -241,8 +380,10 @@ let displayCommands =
   "11-masala - 11\n" +
   "12-masala - 12\n" +
   "13-masala - 13\n" +
-  "14-masala - 14\n";
-
+  "14-masala - 14\n" +
+  "15-masala - 15\n" +
+  "16-masala - 16\n" +
+  "17-masala - 17\n";
 console.log(displayCommands);
 
 console.log("Masala raqamini kiriting: ");
@@ -291,6 +432,15 @@ switch (num) {
     break;
   case 14:
     result = masala_14();
+    break;
+  case 15:
+    result = masala_15();
+    break;
+  case 16:
+    result = masala_16();
+    break;
+  case 17:
+    result = masala_17();
     break;
 
   default:
