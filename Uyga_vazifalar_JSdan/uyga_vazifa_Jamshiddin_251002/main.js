@@ -490,7 +490,8 @@ let displayCommands =
   "19-masala - 19\n" +
   "20-masala - 20\n" +
   "21-masala - 21\n" +
-  "22-masala - 22\n";
+  "22-masala - 22\n" +
+  "23-masala - 23\n";
 
 console.log(displayCommands);
 
