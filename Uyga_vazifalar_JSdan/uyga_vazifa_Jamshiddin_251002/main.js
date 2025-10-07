@@ -400,6 +400,49 @@ const masala_19 = () => {
   return natija;
 };
 
+// n butun soni berilgan (n > 0). Bir sikldan foydalanilgan holda quyidagi
+// yig‘indini hisoblovchi programma tuzilsin.
+// 1! + 2! + 3! + ... + n!
+const masala_20 = () => {
+  console.log("masala_20...");
+  let natija = 1;
+  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+  for (i = 1; i <= n; i++) {
+    natija += i;
+  }
+  console.log(`${natija}!`);
+  return natija;
+};
+
+// n butun soni berilgan (n > 0). Bir sikldan foydalanilgan holda quyidagi yig‘indin
+//  hisoblovchi programma tuzilsin. (Olingan natija taxminan e = exp(1) ga yaqinlashadi)
+// 1 + 1/(1!) + 1/(2!) + 1/(3!) + ... + 1/(n!)
+
+const masala_21 = () => {
+  console.log("masala_21...");
+  let natija = 1;
+  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+  for (i = 1; i <= n; i++) {
+    natija += 1 / i;
+  }
+  console.log(`${natija}!`);
+  return natija;
+};
+
+// n butun soni va x haqiqiy soni berilgan (n > 0). Quyidagi yig‘indini hisoblovchi programma tuzilsin. (Olingan natija taxminan eˣ ga yaqinlashadi)
+// 1 + x + x²/(2!) + x³/(3!) + ... + xⁿ/(n!)
+const masala_22 = () => {
+  console.log("masala_22...");
+  let natija = 1;
+  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+  let x = Number(prompt("x haqiqiy sonini kiriting: "));
+  for (i = 1; i <= n; i++) {
+    natija += x ** i / i;
+  }
+  console.log(` "e^x ga yaqinlashyapti: ",${natija}!`);
+  return natija;
+};
+
 let displayCommands =
   "----=== MASALA RAQAMLARI ===----\n" +
   "1-masala - 1\n" +
@@ -420,7 +463,10 @@ let displayCommands =
   "16-masala - 16\n" +
   "17-masala - 17\n" +
   "18-masala - 18\n" +
-  "19-masala - 19\n";
+  "19-masala - 19\n" +
+  "20-masala - 20\n" +
+  "21-masala - 21\n" +
+  "22-masala - 22\n";
 console.log(displayCommands);
 
 console.log("Masala raqamini kiriting: ");
@@ -484,6 +530,15 @@ switch (num) {
     break;
   case 19:
     result = masala_19();
+    break;
+  case 20:
+    result = masala_20();
+    break;
+  case 21:
+    result = masala_21();
+    break;
+  case 22:
+    result = masala_22();
     break;
 
   default:
