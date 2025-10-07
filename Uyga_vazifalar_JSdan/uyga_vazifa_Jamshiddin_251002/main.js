@@ -512,6 +512,22 @@ const masala_24 = () => {
   return natija;
 };
 
+// n butun soni va x haqiqiy soni berilgan (n > 0, |x| < 1).
+// Quyidagi yig‘indini hisoblovchi programma tuzilsin.
+// x − x²/2 + x³/3 − ... + (−1)ⁿ⁻¹ xⁿ / n
+
+const masala_25 = () => {
+  console.log("masala_25...");
+  let natija = 0;
+  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+  let x = Number(prompt("x haqiqiy sonini kiriting ( |x| < 1): "));
+  for (i = 1; i <= n; i++) {
+    natija += ((-1) ** (i - 1) * x ** i) / i;
+  }
+  console.log(` "ln(1+x) ga yaqinlashyapti: ",${natija}!`);
+  return natija;
+};
+
 let displayCommands =
   "----=== MASALA RAQAMLARI ===----\n" +
   "1-masala - 1\n" +
@@ -537,7 +553,8 @@ let displayCommands =
   "21-masala - 21\n" +
   "22-masala - 22\n" +
   "23-masala - 23\n" +
-  "24-masala - 24\n";
+  "24-masala - 24\n" +
+  "25-masala - 25\n";
 
 console.log(displayCommands);
 
@@ -617,6 +634,9 @@ switch (num) {
     break;
   case 24:
     result = masala_24();
+    break;
+  case 25:
+    result = masala_25();
     break;
 
   default:
