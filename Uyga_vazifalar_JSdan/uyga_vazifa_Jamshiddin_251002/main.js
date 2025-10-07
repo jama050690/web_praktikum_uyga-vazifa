@@ -371,7 +371,7 @@ const masala_17 = () => {
 // Shart operatoridan foydalanilmasin.
 
 const masala_18 = () => {
-  console.log("masala_1...");
+  console.log("masala_19...");
   let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
   let a = Number(prompt("a haqiqiy sonini kiriting: "));
   let result = 0;
@@ -383,6 +383,21 @@ const masala_18 = () => {
     );
   }
   return result;
+};
+
+// n butun soni berilgan (n > 0). Birdan n gacha bo‘lgan sonlar ko‘paytmasini chiqaruvchi programma tuzilsin.
+// n! = 1 * 2 * ⋯ * n
+// Birdan n gacha bo‘lgan sonlar ko‘paytmasi n faktorial deyiladi.
+
+const masala_19 = () => {
+  console.log("masala_19...");
+  let natija = 1;
+  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+  for (i = 1; i <= n; i++) {
+    natija *= i;
+  }
+  console.log(`${n} !=${natija}`);
+  return natija;
 };
 
 let displayCommands =
@@ -404,7 +419,8 @@ let displayCommands =
   "15-masala - 15\n" +
   "16-masala - 16\n" +
   "17-masala - 17\n" +
-  "18-masala - 18\n";
+  "18-masala - 18\n" +
+  "19-masala - 19\n";
 console.log(displayCommands);
 
 console.log("Masala raqamini kiriting: ");
@@ -465,6 +481,9 @@ switch (num) {
     break;
   case 18:
     result = masala_18();
+    break;
+  case 19:
+    result = masala_19();
     break;
 
   default:
