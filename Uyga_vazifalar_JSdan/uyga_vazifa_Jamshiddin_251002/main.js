@@ -443,6 +443,30 @@ const masala_22 = () => {
   return natija;
 };
 
+// // n butun soni va x haqiqiy soni berilgan (n > 0). Quyidagi yig‘indini
+// hisoblovchi programma tuzilsin. (Olingan natija taxminan sin(x) ga yaqinlashadi)
+// x − x³/(3!) + x⁵/(5!) − ... + (−1)ⁿ x²ⁿ⁺¹ / (2n+1)!
+
+const masala_23 = () => {
+  console.log("masala_23...");
+  let natija = 0;
+  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+  let x = Number(prompt("x haqiqiy sonini kiriting: "));
+  let factorial = (num) => {
+    if (num === 0 || num === 1) return 1;
+    let result = 1;
+    for (let i = 2; i <= num; i++) {
+      result *= i;
+    }
+    return result;
+  };
+  for (i = 0; i <= n; i++) {
+    natija += ((-1) ** i * x ** (2 * i + 1)) / factorial(2 * i + 1);
+  }
+  console.log(` "sin(x) ga yaqinlashyapti: ",${natija}!`);
+  return natija;
+};
+
 let displayCommands =
   "----=== MASALA RAQAMLARI ===----\n" +
   "1-masala - 1\n" +
@@ -467,6 +491,7 @@ let displayCommands =
   "20-masala - 20\n" +
   "21-masala - 21\n" +
   "22-masala - 22\n";
+
 console.log(displayCommands);
 
 console.log("Masala raqamini kiriting: ");
@@ -539,6 +564,9 @@ switch (num) {
     break;
   case 22:
     result = masala_22();
+    break;
+  case 23:
+    result = masala_23();
     break;
 
   default:
