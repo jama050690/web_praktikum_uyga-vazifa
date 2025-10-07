@@ -297,7 +297,7 @@ function masala_15() {
     result *= a;
   }
 
-  console.log(`${a} ning ${n}-darajasi = ${result}`);
+  console.log(`${a} ning ${n}-darajasi = ${result} "yigindi"`);
   return result;
 }
 
@@ -365,6 +365,26 @@ const masala_17 = () => {
   return result;
 };
 
+// n butun soni va a haqiqiy soni berilgan (n > 0). Bir sikldan foydalanib quyidagi
+//  a ning 1 dan n gacha bo‘lgan barcha darajalarini chiqaruvchi va yig‘indini hisoblovchi
+//  programma tuzilsin. 1 - a + a² - a³ + ⋯ + (-1)ⁿ aⁿ
+// Shart operatoridan foydalanilmasin.
+
+const masala_18 = () => {
+  console.log("masala_1...");
+  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+  let a = Number(prompt("a haqiqiy sonini kiriting: "));
+  let result = 0;
+  for (let i = 0; i <= n; i++) {
+    let sum = (-1) ** i * a ** i;
+    result += sum;
+    console.log(
+      `${a} "ning" + ${n} "gacha" + ${sum} darajalari= ${result} "yigindi"`
+    );
+  }
+  return result;
+};
+
 let displayCommands =
   "----=== MASALA RAQAMLARI ===----\n" +
   "1-masala - 1\n" +
@@ -383,7 +403,8 @@ let displayCommands =
   "14-masala - 14\n" +
   "15-masala - 15\n" +
   "16-masala - 16\n" +
-  "17-masala - 17\n";
+  "17-masala - 17\n" +
+  "18-masala - 18\n";
 console.log(displayCommands);
 
 console.log("Masala raqamini kiriting: ");
@@ -441,6 +462,9 @@ switch (num) {
     break;
   case 17:
     result = masala_17();
+    break;
+  case 18:
+    result = masala_18();
     break;
 
   default:
