@@ -1,6 +1,6 @@
-// k va n butun sonlari berilgan (n > 0). k sonini n marta chiqaruvchi programma tuzilsin.
-
 const prompt = require("prompt-sync")();
+// masala-1;
+// k va n butun sonlari berilgan (n > 0). k sonini n marta chiqaruvchi programma tuzilsin.
 
 function masala_1() {
   console.log("Masala 1...");
@@ -16,7 +16,7 @@ function masala_1() {
     }
   }
 }
-
+// masala-2;
 // a va b butun sonlari berilgan (a < b). a va b sonlari orasidagi barcha butun sonlarni (a va b ni ham) chiqaruvchi va
 // chiqarilgan sonlar sonini chiqaruvchi programma tuzilsin. (a va b xam chiqarilsin).
 
@@ -37,6 +37,7 @@ function masala_2() {
   }
 }
 
+// masala-3;
 // a va b butun sonlari berilgan (a < b). a va b sonlari orasidagi barcha butun sonlarni (a va b dan tashqari) kamayish
 // tartibida chiqaruvchi va chiqarilgan sonlar sonini chiqaruvchi progma tuzilsin.
 
@@ -58,6 +59,7 @@ function masala_3() {
   }
 }
 
+// masala-4;
 // Bir kg konfetning narxi berilgan (haqiqiy son). 1, 2, ..., 10 kg konfetni
 // narxini chiqaruvchi programma tuzilsin.
 function masala_4() {
@@ -69,6 +71,7 @@ function masala_4() {
   }
 }
 
+// masala-5;
 // Bir kg konfetning narxi berilgan (haqiqiy son).
 // 0.1, 0.2, ..., 0.9, 1 kg konfetni narxini chiqaruvchi programma tuzilsin.
 
@@ -83,6 +86,7 @@ function masala_5() {
   }
 }
 
+// masala-6;
 // Bir kg konfetning narxi berilgan (haqiqiy son).
 // 1.2, 1.4, ..., 2 kg konfetni narxini chiqaruvchi programma tuzilsin.
 
@@ -97,6 +101,7 @@ function masala_6() {
   }
 }
 
+// masala-7;
 // a va b butun sonlari berilgan (a < b).
 // a dan b gacha bo’lgan barcha butun sonlar yig’indisini chiqaruvchi programma tuzilsin.
 
@@ -116,6 +121,7 @@ function masala_7() {
   }
 }
 
+// masala-8;
 // a va b butun sonlari berilgan (a < b). a dan b gacha bo’lgan
 //  barcha butun sonlar ko’paytmasini chiqaruvchi programma tuzilsin.
 
@@ -135,6 +141,7 @@ function masala_8() {
   }
 }
 
+// masala-9;
 // a va b butun sonlari berilgan (a < b). a dan b gacha bo’lgan barcha
 //  butun sonlar kvadratlarining yig’indisini chiqaruvchi programma tuzilsin.
 
@@ -156,6 +163,7 @@ function masala_9() {
   }
 }
 
+// masala-10;
 // n butun soni berilgan (n > 0). Quyidagi yig‘indini hisoblovchi programma tuzilsin.
 // S = 1 + 1/2 + 1/3 + ⋯ + 1/n
 
@@ -169,6 +177,7 @@ function masala_10() {
   return s;
 }
 
+// masala-11;
 // n butun soni berilgan (n > 0). Quyidagi yig‘indini hisoblovchi programma tuzilsin.
 // S = n² + (n+1)² + (n+2)² + ⋯ + (2n)²
 
@@ -181,6 +190,8 @@ function masala_11() {
   }
   return s;
 }
+
+// masala-12;
 // // n butun soni berilgan (n > 0). Quyidagi ko‘paytmani hisoblovchi programma tuzilsin.
 // S = 1·1 * 1·2 * 1·3 ⋯ n (n ta ko‘payuvchi)
 
@@ -194,6 +205,7 @@ function masala_12() {
   return s;
 }
 
+// masala-13;
 // n butun soni berilgan (n > 0). Quyidagi yig‘indini hisoblovchi programma tuzilsin.
 // S = 1 - 1·1 + 1·2 - 1·3 + ⋯ (n ta qo‘shiluvchi, ishoralar almashib keladi. Shart operatoridan foydalanmang)
 
@@ -207,6 +219,7 @@ function masala_13() {
   return s;
 }
 
+// masala-14;
 // n butun soni berilgan (n > 0). Shu sonning kvadratini quyidagi
 //  formula asosida hisoblovchi programma tuzilsin.
 // n² = 1 + 3 + 5 + ⋯ + (2n - 1)
@@ -226,6 +239,7 @@ function masala_14() {
   return n;
 }
 
+// masala-15;
 // n butun soni berilgan (n > 0). Shu sonning kvadratini quyidagi
 //  formula asosida hisoblovchi programma tuzilsin.
 // n² = 1 + 3 + 5 + ⋯ + (2n - 1)
@@ -283,6 +297,7 @@ function masala_14() {
 //   return result;
 // };
 
+// masala-15;
 // n butun soni va a haqiqiy soni berilgan (n > 0). a ning n-darajasini aniqlovchi programma tuzilsin.
 // aⁿ = a * a * a ⋯ a (n ta)
 
@@ -332,6 +347,7 @@ function masala_15() {
 //   return result;
 // }
 
+// masala-16;
 // n butun soni va a haqiqiy soni berilgan (n > 0). Bir sikldan
 // foydalanib a ning 1 dan n gacha bo‘lgan barcha darajalarini chiqaruvchi programma tuzilsin.
 
@@ -347,6 +363,7 @@ const masala_16 = () => {
   return result;
 };
 
+// masala-17;
 // n butun soni va a haqiqiy soni berilgan (n > 0). Bir sikldan foydalanib
 //  quyidagi a ning 1 dan n gacha bo‘lgan barcha darajalarini chiqaruvchi va
 // yig‘indini hisoblovchi programma tuzilsin.
@@ -365,6 +382,7 @@ const masala_17 = () => {
   return result;
 };
 
+// masala-18;
 // n butun soni va a haqiqiy soni berilgan (n > 0). Bir sikldan foydalanib quyidagi
 //  a ning 1 dan n gacha bo‘lgan barcha darajalarini chiqaruvchi va yig‘indini hisoblovchi
 //  programma tuzilsin. 1 - a + a² - a³ + ⋯ + (-1)ⁿ aⁿ
@@ -383,23 +401,24 @@ const masala_18 = () => {
     );
   }
   return result;
+
+  // masala-19;
+  // n butun soni berilgan (n > 0). Birdan n gacha bo‘lgan sonlar ko‘paytmasini chiqaruvchi programma tuzilsin.
+  // n! = 1 * 2 * ⋯ * n
+  // Birdan n gacha bo‘lgan sonlar ko‘paytmasi n faktorial deyiladi.
+
+  const masala_19 = () => {
+    console.log("masala_19...");
+    let natija = 1;
+    let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+    for (i = 1; i <= n; i++) {
+      natija *= i;
+    }
+    console.log(`${n} !=${natija}`);
+    return natija;
+  };
 };
-
-// n butun soni berilgan (n > 0). Birdan n gacha bo‘lgan sonlar ko‘paytmasini chiqaruvchi programma tuzilsin.
-// n! = 1 * 2 * ⋯ * n
-// Birdan n gacha bo‘lgan sonlar ko‘paytmasi n faktorial deyiladi.
-
-const masala_19 = () => {
-  console.log("masala_19...");
-  let natija = 1;
-  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
-  for (i = 1; i <= n; i++) {
-    natija *= i;
-  }
-  console.log(`${n} !=${natija}`);
-  return natija;
-};
-
+// masala-20;
 // n butun soni berilgan (n > 0). Bir sikldan foydalanilgan holda quyidagi
 // yig‘indini hisoblovchi programma tuzilsin.
 // 1! + 2! + 3! + ... + n!
@@ -414,6 +433,7 @@ const masala_20 = () => {
   return natija;
 };
 
+// masala-21;
 // n butun soni berilgan (n > 0). Bir sikldan foydalanilgan holda quyidagi yig‘indin
 //  hisoblovchi programma tuzilsin. (Olingan natija taxminan e = exp(1) ga yaqinlashadi)
 // 1 + 1/(1!) + 1/(2!) + 1/(3!) + ... + 1/(n!)
@@ -429,6 +449,7 @@ const masala_21 = () => {
   return natija;
 };
 
+// masala-22;
 // n butun soni va x haqiqiy soni berilgan (n > 0). Quyidagi yig‘indini hisoblovchi programma tuzilsin. (Olingan natija taxminan eˣ ga yaqinlashadi)
 // 1 + x + x²/(2!) + x³/(3!) + ... + xⁿ/(n!)
 const masala_22 = () => {
@@ -443,6 +464,7 @@ const masala_22 = () => {
   return natija;
 };
 
+// masala-23;
 // // n butun soni va x haqiqiy soni berilgan (n > 0). Quyidagi yig‘indini
 // hisoblovchi programma tuzilsin. (Olingan natija taxminan sin(x) ga yaqinlashadi)
 // x − x³/(3!) + x⁵/(5!) − ... + (−1)ⁿ x²ⁿ⁺¹ / (2n+1)!
@@ -464,6 +486,29 @@ const masala_23 = () => {
     natija += ((-1) ** i * x ** (2 * i + 1)) / factorial(2 * i + 1);
   }
   console.log(` "sin(x) ga yaqinlashyapti: ",${natija}!`);
+  return natija;
+};
+// masala-24;
+// n butun soni va x haqiqiy soni berilgan (n > 0). Quyidagi yig‘indini hisoblovchi programma tuzilsin. (Olingan natija taxminan cos(x) ga yaqinlashadi)
+// 1 − x²/(2!) + x⁴/(4!) − ... + (−1)ⁿ x²ⁿ / (2n)!
+
+const masala_24 = () => {
+  console.log("masala_24...");
+  let natija = 1;
+  let n = Number(prompt("n butun sonini kiriting ( n > 0): "));
+  let x = Number(prompt("x haqiqiy sonini kiriting: "));
+  let factorial = (num) => {
+    if (num === 0 || num === 1) return 1;
+    let result = 1;
+    for (let i = 2; i <= num; i++) {
+      result *= i;
+    }
+    return result;
+  };
+  for (i = 1; i <= n; i++) {
+    natija += ((-1) ** i * x ** (2 * i)) / factorial(2 * i);
+  }
+  console.log(` "cos(x) ga yaqinlashyapti: ",${natija}!`);
   return natija;
 };
 
@@ -491,7 +536,8 @@ let displayCommands =
   "20-masala - 20\n" +
   "21-masala - 21\n" +
   "22-masala - 22\n" +
-  "23-masala - 23\n";
+  "23-masala - 23\n" +
+  "24-masala - 24\n";
 
 console.log(displayCommands);
 
@@ -568,6 +614,9 @@ switch (num) {
     break;
   case 23:
     result = masala_23();
+    break;
+  case 24:
+    result = masala_24();
     break;
 
   default:
