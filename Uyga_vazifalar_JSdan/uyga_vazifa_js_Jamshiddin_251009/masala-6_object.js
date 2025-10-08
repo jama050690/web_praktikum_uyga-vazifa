@@ -52,7 +52,7 @@ console.log(
     kitob2.holat ? "O'qilgan" : "O'qilmagan"
   }`
 );
-console.log(kitob2.sotishMumkinmi());
+
 console.log(`Holat: ${kitob2.holat ? "O'qilgan" : "O'qilmagan"}`);
 console.log(kitob2.sotishMumkinmi());
 
@@ -62,7 +62,7 @@ console.log(
     kitob3.holat ? "O'qilgan" : "O'qilmagan"
   }`
 );
-console.log(kitob3.sotishMumkinmi());
+
 console.log(`Nashr yili: ${kitob3.nashr_yili}`);
 console.log(`Holat: ${kitob3.holat ? "O'qilgan" : "O'qilmagan"}`);
 console.log(kitob3.sotishMumkinmi());

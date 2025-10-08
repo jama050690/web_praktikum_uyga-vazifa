@@ -26,3 +26,8 @@ avtomobil.texnik_holati.rang = "qora";
 console.log("Avtomobil ma'lumotlari:");
 console.log(`Marka: ${avtomobil.marka}`);
 console.log(`Model: ${avtomobil.model}`);
+console.log(`Yil: ${avtomobil.yil}`);
+console.log("Texnik holat:");
+console.log(`Dvigatel hajmi: ${avtomobil.texnik_holati.dvigatel_hajmi} L`);
+console.log(`Ot kuchi: ${avtomobil.texnik_holati.ot_kuchi} HP`);
+console.log(`Rang: ${avtomobil.texnik_holati.rang}`);

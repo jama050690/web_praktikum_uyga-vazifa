@@ -9,14 +9,14 @@ const prompt = require("prompt-sync")();
 
 const cola = {
   bonus: function (n, k) {
-    let shishaCola = n;
-    let boshcola = n;
-    while (boshcola >= k) {
-      let yangiCola = Math.floor(boshcola / k);
-      shishaCola += yangiCola;
-      boshcola = (boshcola % k) + yangiCola;
+    let bottleCola = n;
+    let newCola = n;
+    while (newCola >= k) {
+      let extraCola = Math.floor(newCola / k);
+      bottleCola += extraCola;
+      newCola = (newCola % k) + extraCola;
     }
-    return shishaCola;
+    return bottleCola;
   },
 };
 let n = parseInt(

@@ -26,7 +26,7 @@ const talaba = {
     const ball = Object.values(this.baholar);
     return Math.max(...ball);
   },
-  ortachaBaho() {
+  ortachaBall() {
     const ball = Object.values(this.baholar);
     const jami = ball.reduce((a, b) => a + b, 0);
     return (jami / ball.length).toFixed(2);
@@ -39,4 +39,4 @@ console.log(
   `Baholar: Tarix - ${talaba.baholar.tarix}, Ingliz tili - ${talaba.baholar.inglizTili}, Informatika - ${talaba.baholar.informatika}`
 );
 console.log(`Eng yuqori ball: ${talaba.engYuqoriBall()}`);
-console.log(`O'rtacha baho: ${talaba.ortachaBaho()}`);
+console.log(`O'rtacha baho: ${talaba.ortachaBall()}`);
