@@ -38,31 +38,15 @@ const kitob3 = {
     return this.holat ? "Sotish mumkin emas" : "Sotish mumkin";
   },
 };
-console.log("Kitob 1:");
 console.log(
-  `kitob1: ${kitob1.nomi}, ${kitob1.muallif}, ${kitob1.nashr_yili}, ${
-    kitob1.holat ? "O'qilgan" : "O'qilmagan"
-  }`
+  `Kitob: ${kitob1.nomi}, Muallif: ${kitob1.muallif}, Nashr yili: ${kitob1.nashr_yili}`
 );
 console.log(kitob1.sotishMumkinmi());
-
-console.log("\nKitob 2:");
 console.log(
-  `kitob2: ${kitob2.nomi}, ${kitob2.muallif}, ${kitob2.nashr_yili}, ${
-    kitob2.holat ? "O'qilgan" : "O'qilmagan"
-  }`
+  `Kitob: ${kitob2.nomi}, Muallif: ${kitob2.muallif}, Nashr yili: ${kitob2.nashr_yili}`
 );
-
-console.log(`Holat: ${kitob2.holat ? "O'qilgan" : "O'qilmagan"}`);
 console.log(kitob2.sotishMumkinmi());
-
-console.log("\nKitob 3:");
 console.log(
-  `kitob3: ${kitob3.nomi}, ${kitob3.muallif}, ${kitob3.nashr_yili}, ${
-    kitob3.holat ? "O'qilgan" : "O'qilmagan"
-  }`
+  `Kitob: ${kitob3.nomi}, Muallif: ${kitob3.muallif}, Nashr yili: ${kitob3.nashr_yili}`
 );
-
-console.log(`Nashr yili: ${kitob3.nashr_yili}`);
-console.log(`Holat: ${kitob3.holat ? "O'qilgan" : "O'qilmagan"}`);
 console.log(kitob3.sotishMumkinmi());
