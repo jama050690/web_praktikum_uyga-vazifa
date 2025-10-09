@@ -19,7 +19,7 @@ const avtomobil = {
   texnik_holati: {
     dvigatel_hajmi: 3.0,
     ot_kuchi: 250,
-    rang: "qora",
+    rang: "oq",
   },
 };
 avtomobil.texnik_holati.rang = "qora";

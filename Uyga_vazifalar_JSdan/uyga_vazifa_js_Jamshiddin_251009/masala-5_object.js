@@ -27,8 +27,10 @@ const talaba = {
     return Math.max(...ball);
   },
   ortachaBall() {
-    const ball = Object.values(this.baholar);
-    const jami = ball.reduce((a, b) => a + b, 0);
+    const ball = Object.values(this.baholar).filter(
+      (v) => typeof v === "number"
+    );
+    const jami = ball.reduce((c, b) => b + c, 0);
     return (jami / ball.length).toFixed(2);
   },
 };
