@@ -7,6 +7,8 @@ const prompt = require("prompt-sync")();
 //   qilingki maximalta Coca Cola iching, shu maximal qancha
 //   Coca Cola ichishingizni ayting!
 
+let n = Number(prompt("Dastlabki Coca Cola butilkalar sonini kiriting (n): "));
+let k = Number(prompt("Qaytariladigan butilkalar sonini kiriting (k): "));
 const cola = {
   bonus: function (n, k) {
     let bottleCola = n;
@@ -19,9 +21,5 @@ const cola = {
     return bottleCola;
   },
 };
-let n = parseInt(
-  prompt("Dastlabki Coca Cola butilkalar sonini kiriting (n): ")
-);
-let k = parseInt(prompt("Qaytariladigan butilkalar sonini kiriting (k): "));
 const maxCola = cola.bonus(n, k);
 console.log(`Siz maksimal ${maxCola} ta Coca Cola ichishingiz mumkin.`);
