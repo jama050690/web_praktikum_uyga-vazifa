@@ -30,7 +30,7 @@ const talaba = {
     const ball = Object.values(this.baholar).filter(
       (v) => typeof v === "number"
     );
-    const jami = ball.reduce((c, b) => b + c, 0);
+    const jami = ball.reduce((c, b) => b + c, 1);
     return (jami / ball.length).toFixed(2);
   },
 };
