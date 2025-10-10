@@ -5,7 +5,7 @@ const prompt = require("prompt-sync")();
 // let arr= [2, 5, 10, 7, 4, 6, 1, 0, 10, 8]   // Natija : [ 1, 2, 4,  5, 6, 7, 8, 10 ]
 
 let arr = [2, 5, 10, 7, 4, 6, 1, 0, 10, 8];
-const arrayJuft = (arr) => {
+const arrayTartib = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] > arr[j]) {
@@ -15,5 +15,7 @@ const arrayJuft = (arr) => {
       }
     }
   }
+  return arr;
 };
+let result = arrayTartib(arr);
 console.log(arr);
