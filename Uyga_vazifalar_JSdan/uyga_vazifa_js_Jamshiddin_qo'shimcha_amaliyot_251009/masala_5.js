@@ -1,3 +1,4 @@
+const prompt = require("prompt-sync")();
 // 5-topshiriq.
 // Berilgan mahsulotlar massividagi ob'ektlarni narxi bo'yicha kamayish tartibida tartiblang.
 
