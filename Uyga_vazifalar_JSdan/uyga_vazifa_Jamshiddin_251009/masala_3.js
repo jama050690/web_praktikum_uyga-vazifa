@@ -1,6 +1,6 @@
 const prompt = require("prompt-sync")();
 
-// masala_2;
+// masala_3;
 // ixtiyoriy array yarating va uning ichidagi juft va toq sonlar nechtaligini toping
 
 let arr = [2, 3, 4, 6, 13, 15, 35, 66];
