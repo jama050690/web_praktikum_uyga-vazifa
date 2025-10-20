@@ -2,8 +2,8 @@ import promptSync from "prompt-sync";
 import { arToqson } from "./masala_1_array.js";
 import { arDarajason } from "./masala_2_array.js";
 import { arrArifmetik } from "./masala_3_array.js";
-import fibArray from "./masala_4_array.js";
-import reverseArray from "./masala_5_array.js";
+import arrFibanaci from "./masala_4_array.js";
+import arrTeskari from "./masala_5_array.js";
 
 const prompt = promptSync();
 
@@ -16,11 +16,14 @@ let n3 = Number(prompt("Natural son kiriting: "));
 let N4 = Number(prompt("Massiv uzunligini kiriting: "));
 let toq = arToqson(n);
 let daraja = arDarajason(n1);
-
+let array = [];
+for (let i = 0; i < N4; i++) {
+  array.push(Number(prompt(`${i + 1}-elementni kiriting: `)));
+}
 console.log(`${n} ta toq sonlar:`, toq);
 console.log(`${n1} ta 2 ning darajalari:`, daraja);
 console.log(arrArifmetik(n2, A, D));
-console.log(`${n3} ta Fibonachchi sonlari:`, fibArray(n3));
+console.log(`${n3} ta Fibonachchi sonlari:`, arrFibanaci(n3));
 
-console.log("Asl massiv:", arr);
-console.log("Teskari tartibdagi massiv:", reverseArray([...arr]));
+console.log("Asl massiv:", array);
+console.log("Teskari tartibdagi massiv:", arrTeskari([...array]));

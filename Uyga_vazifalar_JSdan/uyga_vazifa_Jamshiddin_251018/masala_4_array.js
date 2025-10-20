@@ -4,7 +4,7 @@
 // elementlarini chiqaring.
 // F)=1;F1=1;F[k]=F[k-1]+F[k-2]; k=2,3,4,...
 
-export default function fibArray(n3) {
+export default function arrFibanaci(n3) {
   let arr = [];
   if (n3 <= 0) return arr;
   if (n3 >= 1) arr.push(1);
