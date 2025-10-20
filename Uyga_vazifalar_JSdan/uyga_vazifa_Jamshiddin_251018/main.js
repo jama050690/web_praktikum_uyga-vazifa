@@ -15,4 +15,4 @@ const arToqson = (son) => {
 };
 
 let result = arToqson(n);
-console.log("Dastlabki " + n + " ta toq son:", result);
+console.log(n + " ta toq son:", result);
