@@ -1,18 +1,12 @@
-const prompt = require("prompt-sync")();
+import promptSync from "prompt-sync";
+import { arToqson, arDarajason } from "./script.js";
 
-// masala-1:
-// n natural soni berilgan. Dastlabki n ta toq sondan tashkil topgan
-// massivni hosil qiling va elementlarini chiqaring.
+const prompt = promptSync();
 
 let n = Number(prompt("Natural son kiriting: "));
 
-const arToqson = (son) => {
-  let arr = [];
-  for (let i = 1; arr.length < son; i += 2) {
-    arr.push(i);
-  }
-  return arr;
-};
+let toq = arToqson(n);
+let daraja = arDarajason(n);
 
-let result = arToqson(n);
-console.log(n + " ta toq son:", result);
+console.log(`${n} ta toq sonlar:`, toq);
+console.log(`${n} ta 2 ning darajalari:`, daraja);
