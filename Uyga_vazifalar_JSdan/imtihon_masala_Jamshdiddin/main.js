@@ -115,7 +115,7 @@ let users1 = [
 const arrId = (id) => {
   for (let i = 0; i < users1.length; i++) {
     if (users1[i].id === id) {
-      return users[i];
+      return users1[i];
     }
   }
   return " id topilmadi!";
