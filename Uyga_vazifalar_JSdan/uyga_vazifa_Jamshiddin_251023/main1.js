@@ -30,3 +30,5 @@ class Product {
     return `Mahsulot: ${this.name}\nID: ${this.id}\nNarx: ${this.price}\nMiqdor: ${this.quantity}`;
   }
 }
+const newProduct = new Product(1234, "iPhone", 2500000, 100 + "ta");
+console.log(newProduct);
