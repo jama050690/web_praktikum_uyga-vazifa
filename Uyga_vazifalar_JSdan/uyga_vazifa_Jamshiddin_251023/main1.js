@@ -99,11 +99,11 @@ class Shop {
   }
   add_product(product) {
     this.products.push(product);
-    return `${product.name} do‘konga qo‘shildi.`;
+    return `${product.name} do'konga qo'shildi.`;
   }
   register_customer(customer) {
     this.customers.push(customer);
-    return `${customer.name} ro‘yxatga olindi.`;
+    return `${customer.name} ro'yxatga olindi.`;
   }
   find_product(name) {
     const found = this.products.find(
