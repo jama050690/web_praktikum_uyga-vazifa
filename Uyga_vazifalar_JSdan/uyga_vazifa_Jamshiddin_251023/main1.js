@@ -51,6 +51,63 @@ class Customer {
   }
 }
 
+class Sale {
+  constructor(customer, product, quantity, total_price, date) {
+    (this.customer = customer),
+      (this.product = product),
+      (this.quantity = quantity),
+      (this.total_price = total_price),
+      (this.date = date);
+  }
+  calculate_total() {
+    if (purchase_history.length === 0) {
+      return 0;
+    }
+    let total = 0;
+    this.purchase_history.forEach((element) => {
+      total += ClipboardItem.price * ClipboardItem.quantity;
+    });
+    return total;
+  }
+  process_sale(product, quantity) {
+    if (product.quantity < quantity) {
+      return "Omborda yetarli mahsulot yo‘q.";
+    }
+
+    const total_price = product.price * quantity;
+
+    if (this.balance < total_price) {
+      return "Balansda yetarli mablag‘ yo‘q.";
+    }
+    product.quantity -= quantity;
+    this.balance -= total_price;
+
+    this.purchase_history.push({
+      product_name: product.name,
+      quantity: quantity,
+      price: product.price,
+    });
+
+    return `Sotuv muvaffaqiyatli amalga oshirildi: ${product.name} (${quantity} dona).`;
+  }
+  print_receipt() {
+    if (this.purchase_history.length === 0) {
+      return "Xaridlar mavjud emas.";
+    }
+
+    let receipt = `\n----- CHEK -----\n`;
+    this.purchase_history.forEach((item, index) => {
+      const total = item.price * item.quantity;
+      receipt += `${index + 1}. ${item.product_name} | ${
+        item.quantity
+      } dona | ${item.price} so'm | jami: ${total} so'm\n`;
+    });
+
+    receipt += `-----------------\nUmumiy to'lov: ${this.calculate_total()} so‘m\n`;
+    receipt += `Qolgan balans: ${this.balance} so'm\n-----------------`;
+    return receipt;
+  }
+}
 // const newProduct = new Product(1234, "iPhone", 2500000, 100 + "ta");
 // console.log(newProduct);
 
