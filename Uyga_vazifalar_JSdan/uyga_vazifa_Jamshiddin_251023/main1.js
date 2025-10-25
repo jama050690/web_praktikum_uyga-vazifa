@@ -108,6 +108,40 @@ class Sale {
     return receipt;
   }
 }
+
+class Shop {
+  constructor(name, products, customers, sales, total_income) {
+    (this.name = name),
+      (this.products = []),
+      (this.customers = []),
+      (this.sales = []),
+      (this.total_income = 0);
+  }
+  add_product(product) {
+    this.product.push(product);
+    return `${(product, name)} do'konga qo'shildi`;
+  }
+  register_customer(customer) {
+    this.customers.push(customer);
+    return `${customer.name} ro'yhatga olindi`;
+  }
+
+  find_product(name) {
+    const found = this.products.find((p) => p.name === name);
+    return found ? found : "MAxsulot topil,adi";
+  }
+  show_all_products() {
+    if (this.products.length === 0) {
+      return "Hozircha mahsulot yo'q.";
+    }
+
+    let result = "Do'kondagi mahsulotlar:\n";
+    this.products.forEach((p, i) => {
+      result += `${i + 1}. ${p.name} — ${p.price} so'm (${p.quantity} dona)\n`;
+    });
+    return result;
+  }
+}
 // const newProduct = new Product(1234, "iPhone", 2500000, 100 + "ta");
 // console.log(newProduct);
 
