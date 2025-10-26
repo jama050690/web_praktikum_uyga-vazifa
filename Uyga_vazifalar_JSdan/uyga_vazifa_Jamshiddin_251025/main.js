@@ -105,3 +105,31 @@ console.log(
 for (let key of shop.keys()) {
   console.log(`${key} ${shop.get(key).name} ${shop.get(key).price}`);
 }
+
+// Topshiriq - 3: Funksiyalarni Map da Saqlash
+// Turli matematik operatsiyalarni Map da saqlang:
+
+// Key: operatsiya nomi ("add", "subtract", "multiply", "divide")
+// Value: mos funksiya
+// Map yarating va 4 ta operatsiyani qo'shing
+// Foydalanuvchidan operatsiya nomini va 2 ta son oling
+// Kerakli funksiyani Map dan olib, natijani hisoblang
+
+const prompt = require("prompt-sync")();
+let amarmetikAmalaar = new Map();
+
+amarmetikAmalaar.set("add", (a, b) => a + b);
+amarmetikAmalaar.set("subtract", (a, b) => a - b);
+amarmetikAmalaar.set("multiply", (a, b) => a * b);
+amarmetikAmalaar.set("divide", (a, b) => a / b);
+
+const opName = prompt(
+  "Operatsiyani kiriting (add, subtract, multiply, divide):"
+);
+const a = Number(prompt("1-sonni kiriting:"));
+const b = Number(prompt("2-sonni kiriting:"));
+
+const operation = amarmetikAmalaar.get(opName);
+
+const result = operation(a, b);
+console.log("Natija:", result);
