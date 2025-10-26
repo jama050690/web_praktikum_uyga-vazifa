@@ -47,7 +47,7 @@ console.log(`\nID ${deleteId} dagi talaba o'chirildi.`);
 
 console.log("\nQolgan talabalar:");
 for (let [id, student] of students) {
-  console.log(`ID: ${id}`, student);
+  console.log(`ID: ${id}`, students);
 }
 
 //Topshiriq - 2:  Mahsulotlar Savdo Tizimi
@@ -60,7 +60,7 @@ for (let [id, student] of students) {
 // Ma'lum bir mahsulot mavjudligini tekshiring (has())
 // Barcha mahsulotlar va narxlarini for loop bilan chiqaring
 
-console.log("Topshiriq-\n");
+console.log("Topshiriq-2\n");
 
 let shop = new Map();
 const prods = [
