@@ -7,6 +7,8 @@
 // Bitta talabani id orqali toping
 // Bitta talabani o'chiring
 
+console.log("Topshiriq-1\n");
+
 let students = new Map();
 students.set(1, {
   name: "Ahmad",
@@ -58,6 +60,8 @@ for (let [id, student] of students) {
 // Ma'lum bir mahsulot mavjudligini tekshiring (has())
 // Barcha mahsulotlar va narxlarini for loop bilan chiqaring
 
+console.log("Topshiriq-\n");
+
 let shop = new Map();
 
 shop.set("PROD001", {
@@ -95,7 +99,7 @@ for (let key of shop.keys()) {
   console.log(` ${key} ${shop.get(key).name}`);
 }
 
-console.log("Barcha mahsolot soni: ", shop.size);
+console.log("Barcha mahsolot soni: ", shop.size, "ta");
 const checkCode = "PROD003";
 console.log(
   ` ${checkCode} mavjudmi?,
@@ -103,7 +107,7 @@ console.log(
 );
 
 for (let key of shop.keys()) {
-  console.log(`${key} ${shop.get(key).name} ${shop.get(key).price}`);
+  console.log(`${key} ${shop.get(key).name} ${shop.get(key).price}\n`);
 }
 
 // Topshiriq - 3: Funksiyalarni Map da Saqlash
@@ -115,6 +119,7 @@ for (let key of shop.keys()) {
 // Foydalanuvchidan operatsiya nomini va 2 ta son oling
 // Kerakli funksiyani Map dan olib, natijani hisoblang
 
+console.log("Topshiriq-3\n");
 const prompt = require("prompt-sync")();
 let amarmetikAmalaar = new Map();
 
