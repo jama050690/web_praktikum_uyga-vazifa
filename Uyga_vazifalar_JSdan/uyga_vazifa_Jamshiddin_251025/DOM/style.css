@@ -12,7 +12,27 @@ ul {
 }
 
 body {
-  padding-left: 10px;
+  padding-left: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* color: white; */
+}
+input {
+  width: 90%;
+  height: 30px;
+  border: 1px solid;
+  border-radius: 3px;
+}
+textarea {
+  width: 90%;
+  height: 77px;
+  border-radius: 5px;
+}
+#btn {
+  border-radius: 5px;
+  background-color: #7354b0;
+  padding: 4px 8px;
+  color: white;
+}
+
+.profile {
+  background-color: #7359b5;
 }

@@ -20,13 +20,13 @@ btnEl.addEventListener("click", (e) => {
   if (name.length == 0 || Number(age) == 0 || city.length == 0) {
     alert("Iltimos barcha ma'lumotlarni kiriting");
   } else {
-    foydalanuvchi_profilEl.innerText = `
-    Foydalanuvchi profili
-    Ism: ${name} 
-    Yosh: ${age}
-    Shahar: ${city}
-    Bio: ${bio.length == 0 ? "Ma'lumot mavjud emas" : bio} 
+    foydalanuvchi_profilEl.innerHTML = `<i class="fa-solid fa-user"></i> Foydalanuvchi profili
+    <br>Ism: ${name} 
+    <br>Yosh: ${age}
+    <br>Shahar: ${city}
+    <br>Bio: ${bio.length == 0 ? "Ma'lumot mavjud emas" : bio} 
     `;
+    foydalanuvchi_profilEl.classList.add("profile");
   }
   console.log(profile);
 });
