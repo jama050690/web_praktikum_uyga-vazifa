@@ -13,11 +13,14 @@ class Student {
     this.course = course;
   }
   introduce() {
-    return `Mening ismim ${this.name},men ${this.age} yoshdaman.`;
+    return `Mening ismim ${this.name}, men ${this.age} yoshdaman `;
   }
   study() {
-    return `${this.name} ${this.course} kusrsida o'qiyapti`;
+    return `${this.name} ${this.course} kusrsida dars o'qiyapti`;
   }
 }
+
 let talaba = new Student("Ali", 20, "Frontend");
-console.log(talaba.introduce(), talaba.study());
+let talaba_2 = new Student("Vali", 23, "BackEnd");
+console.log(talaba.introduce());
+console.log(talaba.study());
