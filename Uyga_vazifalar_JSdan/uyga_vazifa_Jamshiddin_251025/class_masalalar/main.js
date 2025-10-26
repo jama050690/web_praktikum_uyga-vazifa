@@ -24,3 +24,5 @@ let talaba = new Student("Ali", 20, "Frontend");
 let talaba_2 = new Student("Vali", 23, "BackEnd");
 console.log(talaba.introduce());
 console.log(talaba.study());
+console.log(talaba_2.introduce());
+console.log(talaba_2.study());
