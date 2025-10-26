@@ -18,7 +18,7 @@ class Dog extends Animals {
     this.name = name;
   }
   bark() {
-    console.log(`${this.name} vov vov vov vov`);
+    console.log(`${this.name} huradi vov vov vov vov`);
   }
 }
 class Cat extends Animals {
@@ -27,10 +27,10 @@ class Cat extends Animals {
     this.name = name;
   }
   meow() {
-    console.log(`${this.name} meow meow meow`);
+    console.log(`${this.name} miyovlaydi meow meow meow`);
   }
 }
-class Bird extends Animal {
+class Bird extends Animals {
   constructor(name) {
     super();
     this.name = name;
@@ -45,7 +45,7 @@ const dog2 = new Dog("Rex");
 const cat1 = new Cat("Boroqvoy");
 const cat2 = new Cat("Momiqvoy");
 
-const bird1 = new Bird("Qushcha");
+const bird = new Bird("Qushcha");
 
 dog1.eat();
 dog1.sleep();
@@ -63,6 +63,6 @@ cat2.eat();
 cat2.sleep();
 cat2.meow();
 
-bird1.eat();
-bird1.sleep();
-bird1.fly();
+bird.eat();
+bird.sleep();
+bird.fly();
