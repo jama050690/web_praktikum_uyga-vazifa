@@ -8,14 +8,16 @@
 
 class Student {
   constructor(name, age, course) {
-    (this.name = name), (this.name = age), (this.name = course);
+    this.name = name;
+    this.age = age;
+    this.course = course;
   }
   introduce() {
-    return `Mening ismim ${this.name},men ${this.age} yoshdaman`;
+    return `Mening ismim ${this.name},men ${this.age} yoshdaman.`;
   }
   study() {
     return `${this.name} ${this.course} kusrsida o'qiyapti`;
   }
 }
 let talaba = new Student("Ali", 20, "Frontend");
-console.log(talaba);
+console.log(talaba.introduce(), talaba.study());
