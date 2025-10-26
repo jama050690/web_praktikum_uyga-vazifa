@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uyga vazifa (DOM)</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="profileForm">
+      <label for="ism">Ism:</label><br />
+      <input
+        id="ism"
+        type="text"
+        name="ism"
+        placeholder="Ismingizni kiriting"
+        required
+      />
+      <br /><br />
+
+      <label for="yosh">Yosh:</label><br />
+      <input
+        id="yosh"
+        type="number"
+        name="yosh"
+        placeholder="Yoshingizni kiriting"
+        required
+      />
+      <br /><br />
+
+      <label for="shahar">Shahar:</label><br />
+      <input
+        id="shahar"
+        type="text"
+        name="shahar"
+        placeholder="Shahringizni kiriting"
+        required
+      />
+      <br /><br />
+
+      <label for="bio">Bio:</label><br />
+      <textarea
+        id="bio"
+        name="bio"
+        placeholder="O'zingiz haqingizda yozing..."
+        required
+      ></textarea>
+      <br /><br />
+
+      <button type="submit" id="btn">Profil Yaratish</button>
+    </form>
+
+    <div id="foydalanuvchi_profil"></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
