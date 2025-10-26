@@ -17,5 +17,7 @@ btnEl.addEventListener("click", (PointerEvent) => {
     about.trim().length == 0
   ) {
     alert("Iltimos barcha ma`lumotlarni kiriting");
+  } else {
+    let result = foydalanuvchi_profilEl.value;
   }
 });
