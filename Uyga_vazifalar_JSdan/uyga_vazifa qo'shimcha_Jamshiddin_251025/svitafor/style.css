@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+ol,
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.main {
+  padding: 8px;
+  width: 200px;
+  height: 300px;
+  border: 5px solid black;
+  position: absolute;
+  top: 300px;
+  left: 500px;
+  background-color: black;
+}
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #eee;
+}
+
+.main {
+  width: 200px;
+  height: 400px;
+  border: 5px solid black;
+  border-radius: 20px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#qizil,
+#sariq,
+#yashil {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  background-color: #111;
+  box-shadow: 0 0 10px #222 inset;
+}
+.active-qizil {
+  background-color: red;
+  box-shadow: 0 0 20px red;
+}
+
+.active-sariq {
+  background-color: yellow;
+  box-shadow: 0 0 20px yellow;
+}
+
+.active-yashil {
+  background-color: green;
+  box-shadow: 0 0 20px green;
+}
