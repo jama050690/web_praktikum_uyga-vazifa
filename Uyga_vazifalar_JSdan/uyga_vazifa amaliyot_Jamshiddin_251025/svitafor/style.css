@@ -74,3 +74,14 @@ body {
   background-color: green;
   box-shadow: 0 0 20px green;
 }
+
+#red_number,
+#yellow_number,
+#green_number {
+  font-size: 44px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
