@@ -1,3 +1,5 @@
+console.log("Topshiriq-1:");
+
 class Animals {
   constructor(name, voise) {
     (this.name = name), (this.voise = voise);
@@ -24,6 +26,9 @@ let cat = new Cat(`Baraqvoy, mivoy miyov`);
 let dog = new Dog(`Rex`);
 console.log(cat.jump(3));
 console.log(dog.voise2());
+
+console.log("----------------------");
+console.log("Topshiriq-2:");
 
 // Texnologiyalar
 // Technology (ota class) yarating. Xususiyatlari: brand, price.
@@ -68,6 +73,9 @@ let laptop = new Laptop(30000);
 console.log(tehnologiya.getInfo());
 console.log(computer.getInfo());
 console.log(laptop.getInfo());
+
+console.log("----------------------");
+console.log("Topshiriq-3:");
 
 //Vehicle (ota class) yarating. Xususiyatlari: name, speed.
 // move() metodi bo‘lsin, u har bir transport harakatini bildirsin (masalan,
