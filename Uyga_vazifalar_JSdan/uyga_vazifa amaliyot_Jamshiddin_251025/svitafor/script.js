@@ -26,7 +26,7 @@ function startCountdown(seconds, color, next) {
     timer = setInterval(() => {
       count--;
       redNumberEl.innerText = count;
-      if (count <= 0) {
+      if (count < 0) {
         clearInterval(timer);
         next();
       }
@@ -39,7 +39,7 @@ function startCountdown(seconds, color, next) {
     timer = setInterval(() => {
       count--;
       yellowNumberEl.innerText = count;
-      if (count <= 0) {
+      if (count < 0) {
         clearInterval(timer);
         next();
       }
@@ -52,7 +52,7 @@ function startCountdown(seconds, color, next) {
     timer = setInterval(() => {
       count--;
       greenNumberEl.innerText = count;
-      if (count <= 0) {
+      if (count < 0) {
         clearInterval(timer);
         next();
       }
@@ -61,9 +61,9 @@ function startCountdown(seconds, color, next) {
 }
 
 function svetofor() {
-  startCountdown(30, "red", () => {
+  startCountdown(20, "red", () => {
     startCountdown(5, "yellow", () => {
-      startCountdown(30, "green", () => {
+      startCountdown(20, "green", () => {
         svetofor(); // qaytadan boshlanadi
       });
     });
