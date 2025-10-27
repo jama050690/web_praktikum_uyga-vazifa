@@ -1,3 +1,4 @@
+console.log("----------------------");
 console.log("Topshiriq-1:");
 
 class Animals {
@@ -30,14 +31,14 @@ console.log(dog.voise2());
 console.log("----------------------");
 console.log("Topshiriq-2:");
 
-// Texnologiyalar
-// Technology (ota class) yarating. Xususiyatlari: brand, price.
-// Computer (farzand class) yarating, u Technology dan meros olsin va
-// qo‘shimcha processor xususiyatiga ega bo‘lsin.
-// Laptop (farzand class) yarating, u Computer dan meros olsin va
-// qo‘shimcha batteryLife xususiyatiga ega bo‘lsin.
-// Har bir classda getInfo() metodini yozing, u mos ravishda to‘liq
-// ma’lumot qaytarsin
+/**Texnologiyalar
+Technology (ota class) yarating. Xususiyatlari: brand, price.
+Computer (farzand class) yarating, u Technology dan meros olsin va
+qo‘shimcha processor xususiyatiga ega bo‘lsin.
+Laptop (farzand class) yarating, u Computer dan meros olsin va
+qo‘shimcha batteryLife xususiyatiga ega bo‘lsin.
+Har bir classda getInfo() metodini yozing, u mos ravishda to‘liq
+ma’lumot qaytarsin */
 
 class Technology {
   constructor(brand, price) {
@@ -77,17 +78,17 @@ console.log(laptop.getInfo());
 console.log("----------------------");
 console.log("Topshiriq-3:");
 
-//Vehicle (ota class) yarating. Xususiyatlari: name, speed.
-// move() metodi bo‘lsin, u har bir transport harakatini bildirsin (masalan,
-// "Transport harakatlanmoqda").
-// Car (farzand class) yarating, u Vehicle dan meros olsin va move() metodini
-// override qilsin ("Mashina yo‘lda harakatlanmoqda").
-// Boat (farzand class) yarating, u Vehicle dan meros olsin va move() metodini
-// override qilsin ("Kema suvda harakatlanmoqda").
-// Airplane (farzand class) yarating, u Vehicle dan meros olsin va move()
-// metodini override qilsin ("Samolyot havoda uchmoqda").
-// Har bir transport obyektini yaratib, move() metodini chaqiring.
-// move() methodi har bir classda o’ziga xos ishlashi zarur.
+/** Vehicle (ota class) yarating. Xususiyatlari: name, speed.
+move() metodi bo‘lsin, u har bir transport harakatini bildirsin (masalan,
+"Transport harakatlanmoqda").
+Car (farzand class) yarating, u Vehicle dan meros olsin va move() metodini
+override qilsin ("Mashina yo‘lda harakatlanmoqda").
+Boat (farzand class) yarating, u Vehicle dan meros olsin va move() metodini
+override qilsin ("Kema suvda harakatlanmoqda").
+Airplane (farzand class) yarating, u Vehicle dan meros olsin va move()
+metodini override qilsin ("Samolyot havoda uchmoqda").
+Har bir transport obyektini yaratib, move() metodini chaqiring.
+move() methodi har bir classda o’ziga xos ishlashi zarur.*/
 
 class Vehicle {
   constructor(name, speed) {
