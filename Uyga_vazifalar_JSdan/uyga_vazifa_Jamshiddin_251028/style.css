@@ -12,33 +12,50 @@ a {
   text-decoration: none;
 }
 body {
-  background: linear-gradient();
+  background: linear-gradient(to right, hsl(228, 95%, 15%), #0a2ab994);
+  font-family: Arial, sans-serif;
+  height: 100vh;
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  height: 50%;
-}
-.container {
-  max-width: 1240px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
-.list_item {
-  margin: 5px 0;
-  padding: 5px;
-  border: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.container {
+  background-color: rgb(205, 15, 129);
+  padding: 60px 80px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
 }
-.delete-btn {
+h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: white;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+#input_title {
+  width: 150px;
+  margin: 5px 0;
+  padding: 11px 18px;
+  border: 1px solid #ccc;
+}
+#addBtn {
   background-color: crimson;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 11px 13px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 11px;
+}
+.delete-btn {
+  border-radius: 6px;
+  background-color: blue;
+  color: white;
+  padding: 10px 14px;
 }
