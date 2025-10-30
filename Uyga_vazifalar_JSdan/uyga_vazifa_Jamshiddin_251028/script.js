@@ -1,6 +1,11 @@
+const titleInput = document.getElementById("input_title");
 const list = document.getElementById("list");
 const addBtn = document.getElementById("addBtn");
 const delBtn = document.getElementById("delBtn");
+
+let tasks = [];
+
+const nowBet = () => {};
 
 addBtn.addEventListener("click", () => {
   const li = document.createElement("li");
