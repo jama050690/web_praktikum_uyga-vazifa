@@ -16,7 +16,7 @@ const renderList = () => {
     li.className = "list_item";
 
     const result = document.createElement("p");
-    result.textContent = task.title + " — Men CRUD ni o'rganyapman";
+    result.textContent = task.title;
     li.appendChild(result);
 
     const btn = document.createElement("button");

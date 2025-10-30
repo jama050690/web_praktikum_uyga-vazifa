@@ -22,11 +22,11 @@ body {
 
 .container {
   background-color: rgb(205, 15, 129);
-  padding: 60px 80px;
+  padding: 40px 20px 30px 20px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  max-width: 400px;
+  min-width: 395px;
+  min-height: 250px;
 }
 h2 {
   margin-bottom: 10px;
@@ -35,8 +35,8 @@ h2 {
 }
 
 #input_title {
-  width: 150px;
-  margin: 5px 0;
+  width: 250px;
+  margin: 12px 0;
   padding: 11px 18px;
   border: 1px solid #ccc;
 }
@@ -47,6 +47,11 @@ h2 {
   padding: 11px 13px;
   cursor: pointer;
   border-radius: 11px;
+}
+.list_item {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
 }
 .delete-btn {
   border-radius: 6px;
