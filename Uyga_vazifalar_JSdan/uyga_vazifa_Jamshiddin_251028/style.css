@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 ul,
 ol {
   list-style: none;
@@ -6,7 +11,13 @@ ol {
 a {
   text-decoration: none;
 }
-
+body {
+  background: linear-gradient();
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 50%;
+}
 .container {
   max-width: 1240px;
   margin-left: auto;
@@ -15,13 +26,19 @@ a {
   padding-right: 20px;
 }
 
-.title {
-  color: royalblue;
+.list_item {
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.block {
-  border: 1px solid red;
-  padding: 20px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+.delete-btn {
+  background-color: crimson;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
