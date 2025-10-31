@@ -11,6 +11,11 @@ ul {
 body {
   background: linear-gradient(to right, hsl(228, 95%, 15%), #0a2ab994);
   font-family: Arial, sans-serif;
+  justify-items: center;
+}
+
+.container {
+  width: 500px;
 }
 .form {
   padding: 10px;
@@ -72,6 +77,7 @@ p {
 }
 
 .btn_box {
+  column-gap: 5px;
   width: 145px;
   display: flex;
   align-items: center;
