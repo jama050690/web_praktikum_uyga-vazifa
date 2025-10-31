@@ -10,8 +10,10 @@ const refreshUI = () => {
       (item) => `
         <div class="item">
           <p>${item.text}</p>
-          <button class="deleteBtn" id="${item.id}">Delete</button>
-          <button class="editBtn" id="${item.id}">Edit</button>
+          <div class="btn_box">
+            <button class="deleteBtn" id="${item.id}">Delete</button>
+            <button class="editBtn" id="${item.id}">Edit</button>
+          </div>
         </div>
       `
     )
@@ -32,7 +34,8 @@ boxEl.addEventListener("click", (e) => {
     inputList = inputList.filter((item) => item.id !== Number(obj.id));
   }
   if (obj.className === "editBtn") {
-    const newText = prompt("");
+    const existingObj = inputList.find((item) => item.id === Number(obj.id));
+    const newText = prompt("", existingObj.text);
     inputList = inputList.map((item) =>
       item.id === Number(obj.id) ? { ...item, text: newText } : item
     );

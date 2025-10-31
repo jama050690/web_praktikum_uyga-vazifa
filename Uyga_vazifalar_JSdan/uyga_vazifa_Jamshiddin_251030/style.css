@@ -1,6 +1,4 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 a {
@@ -13,33 +11,68 @@ ul {
 body {
   background: linear-gradient(to right, hsl(228, 95%, 15%), #0a2ab994);
   font-family: Arial, sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.content {
+.form {
   padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 500px;
-  max-height: 400px;
-  height: 200px;
   background-color: yellowgreen;
   border-radius: 11px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 20px;
 }
 .input {
-  width: 300px;
+  width: 90%;
   padding: 15px 15px;
   border-radius: 6px;
   border: 1px solid;
   color: black;
 }
-.btn {
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* margin: 10px; */
+}
+.btn,
+.deleteBtn,
+.editBtn {
   padding: 13px 18px;
   border-radius: 6px;
   background-color: blue;
   color: white;
+}
+
+.btn:hover {
+  background-color: rgb(212, 0, 255);
+}
+.deleteBtn:hover {
+  background-color: rgb(212, 0, 255);
+}
+.editBtn:hover {
+  background-color: rgb(212, 0, 255);
+}
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  word-wrap: break-word;
+  max-width: 80%;
+}
+
+.item {
+  width: 100%;
+  background-color: green;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn_box {
+  width: 145px;
+  display: flex;
+  align-items: center;
 }
