@@ -1,11 +1,9 @@
 const boxEl = document.querySelector(".box");
 const formEl = document.querySelector(".form_input");
-const inputEl = document.querySelectorAll(".input_1");
+const inputEl = document.querySelectorAll(".add-input");
 const main = document.querySelector(".main");
-const form2 = document.querySelector(".form_input2");
-const inputs2 = document.querySelectorAll(".input_2");
 
-const url = "http://localhost:3600/tasks";
+const url = "http://localhost:3600";
 const render = (data) => {
   box.innerHTML = data
     .map((item) => {
@@ -27,10 +25,10 @@ const getData = () => {
 };
 getData();
 
-form.addEvenListener("submit", (e) => {
+formEl.addEvenListener("submit", (e) => {
   e.preventDefault();
   let obj = {};
-  for (let i = 0; i < input.length; i++) {
+  for (let i = 0; i < inputEl.length; i++) {
     obj[inputEl[i].name] = inputEl[i].value;
     inputEl[i].value = "";
   }
@@ -78,6 +76,29 @@ box.addEvenListener("click", (e) => {
     `;
     boxEl.innerHTML = "";
     boxEl.appendChild(form);
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let obj = {};
+      for (let i = 0; i < inputs.length; i++) {
+        obj[inputs[i].name] = inputs[i].value;
+        inputs2[i].value = "";
+      }
+
+      fetch(`${url}/${modal.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      })
+        .then((res) => res.json())
+        .then(() => {
+          getData();
+          modal.classList.remove("active");
+        });
+    });
   }
   boxEl.innerHTML = `<p class="loading">LOADING...</p>`;
   modal.classList.add("active");
@@ -95,28 +116,5 @@ box.addEvenListener("click", (e) => {
     .then((res) => res.json())
     .then.apply(() => {
       getData();
-    });
-});
-
-form2.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  let obj = {};
-  for (let i = 0; i < inputs2.length; i++) {
-    obj[inputs2[i].name] = inputs2[i].value;
-    inputs2[i].value = "";
-  }
-
-  fetch(`${url}/${modal.id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(obj),
-  })
-    .then((res) => res.json())
-    .then(() => {
-      getData();
-      modal.classList.remove("active");
     });
 });
