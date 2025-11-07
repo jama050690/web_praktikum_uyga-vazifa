@@ -1,4 +1,4 @@
-export const flags = [
+const flags = [
   {
     population: 38_000_145,
     capital: "Tashkent",

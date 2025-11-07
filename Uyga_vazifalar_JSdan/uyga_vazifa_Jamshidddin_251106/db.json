@@ -1,0 +1,167 @@
+{
+  "user": [
+    {
+      "name": "user 1",
+      "id": 1
+    },
+    {
+      "name": "user 1",
+      "id": 2
+    },
+    {
+      "name": "user 1",
+      "id": 3
+    },
+    {
+      "name": "user 1",
+      "id": 4
+    }
+  ],
+  "todos": [
+    {
+      "title": "akrom",
+      "description": "nuriloox",
+      "id": 94
+    },
+    {
+      "title": "loremmmmmmm",
+      "description": "8888888888888",
+      "id": 95
+    },
+    {
+      "title": "999999999",
+      "description": "1111111111111",
+      "id": 96
+    },
+    {
+      "title": "awdawd",
+      "description": "egeaaeg",
+      "id": 97
+    },
+    {
+      "title": "agagae",
+      "description": "afawfwf",
+      "id": 98
+    },
+    {
+      "title": "agagae",
+      "description": "afawfwf",
+      "id": 99
+    },
+    {
+      "title": "afwafawf",
+      "description": "awgawgawg",
+      "id": 100
+    },
+    {
+      "description": "1111111111111111",
+      "title": "4444444444",
+      "id": 101
+    },
+    {
+      "title": "awdawd",
+      "description": "wwfwfawf",
+      "id": 103
+    },
+    {
+      "description": "111111111111111111",
+      "title": "333333333333",
+      "id": 104
+    },
+    {
+      "title": "OOOOOOOOOOOOO",
+      "description": "OOOOoooooOOOO",
+      "id": 105
+    },
+    {
+      "title": "Maruf",
+      "description": "ODIL",
+      "id": 106
+    },
+    {
+      "title": "Maruf",
+      "description": "ODIL",
+      "id": 107
+    },
+    {
+      "title": "adawd",
+      "description": "aegaga",
+      "id": 108
+    },
+    {
+      "title": "iqboljon",
+      "description": "redmi",
+      "id": 111
+    },
+    {
+      "title": "sirojiddin",
+      "description": "tashketskiy",
+      "id": 112
+    },
+    {
+      "title": "ali",
+      "description": "vali",
+      "id": 113
+    },
+    {
+      "title": "AAAAAAAA",
+      "description": "1111111112222222",
+      "id": 114
+    },
+    {
+      "title": "55555",
+      "description": "333333",
+      "id": 115
+    },
+    {
+      "title": "loremmm",
+      "description": "333333",
+      "id": 118
+    },
+    {
+      "title": "hoshimjon",
+      "description": "javohir",
+      "id": 119
+    },
+    {
+      "title": "7777777777777777",
+      "description": "77777777",
+      "id": 120
+    },
+    {
+      "title": "ekgsegseg",
+      "id": 124
+    },
+    {
+      "title": "alwjhkjawfawf",
+      "id": 126
+    }
+  ],
+  "photos": [
+    {
+      "id": 1,
+      "title": "lorem",
+      "url": "https://frankfurt.apollo.olxcdn.com/v1/files/vihwlml6us2a2-UZ/image;s=1296x1254"
+    },
+    {
+      "title": "awdawd",
+      "url": "https://img.freepik.com/free-vector/minimal-geometric-stripe-shape-background_1409-1014.jpg",
+      "id": 3
+    },
+    {
+      "title": "awjfknawf",
+      "url": "https://www.spottedbylocals.com/tashkent/files/rayhon-milliy-taomlar-tashkent-by-khurshid-daliev.jpg",
+      "id": 4
+    },
+    {
+      "title": "tuehejfaf",
+      "url": "https://img.bisyor.uz/web/uploads/items/cd501c44eae0c28z.jpg",
+      "id": 5
+    },
+    {
+      "title": "ajebgpaief",
+      "url": "https://www.foodologygeek.com/wp-content/uploads/2022/08/grilled-beef-shish-kabobs-recipe.jpg",
+      "id": 6
+    }
+  ]
+}

@@ -1,5 +1,3 @@
-import { loadState, saveState } from "./script.js";
-import { flags } from "./flags.js";
 const box = document.querySelector(".box");
 const selectEl = document.getElementById("regionFilter");
 const dark = document.querySelector(".text");

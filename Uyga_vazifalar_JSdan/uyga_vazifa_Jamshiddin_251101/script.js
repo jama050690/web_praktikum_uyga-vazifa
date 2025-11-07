@@ -1,4 +1,4 @@
-export function loadState(key) {
+function loadState(key) {
   try {
     const serializedState = localStorage.getItem(key);
 
@@ -10,7 +10,7 @@ export function loadState(key) {
   }
 }
 
-export function saveState(key, state) {
+function saveState(key, state) {
   try {
     const serializedState = JSON.stringify(state);
 
