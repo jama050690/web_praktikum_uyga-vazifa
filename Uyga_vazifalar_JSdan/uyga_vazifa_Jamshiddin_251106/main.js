@@ -9,12 +9,13 @@ const render = (data) => {
     .map((item) => {
       return `<div class="card">
                 <div>
-      <h3>${item.title}</h3>
-                <p>${item.description}</p></div>
+                  <h3>${item.title}</h3>
+                  <p>${item.description}</p>
+                </div>
                 <div>  
-                <button id="${item.id}_delete" class="delete_item">Delete</button>
-              <button id="${item.id}_edit" class="edit_item">Edit</button>
-              </div>
+                  <button id="${item.id}_delete" class="delete_item">Delete</button>
+                  <button id="${item.id}_edit" class="edit_item">Edit</button>
+                </div>
               </div>`;
     })
     .join("");
@@ -52,9 +53,10 @@ boxEl.addEventListener("click", (e) => {
   e.preventDefault();
   const el = e.target;
   const id = el.id.slice(0, el.id.indexOf("_"));
+
   if (el.className === "delete_item") {
     boxEl.innerHTML = '<p class="loading">LOADING...</p>';
-    fetch(`${url}/${el.id}`, {
+    fetch(`${url}/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
