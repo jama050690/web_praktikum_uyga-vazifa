@@ -1,7 +1,7 @@
-const boxEl = document.querySelector(".box");
 const formEl = document.querySelector(".form_input_main");
 const inputEl = document.querySelectorAll(".add_input");
-const mainEl = document.querySelector(".main");
+const main = document.querySelector(".main");
+const modal = document.querySelector(".form_div");
 
 const url = "http://localhost:3600/todos";
 const render = (data) => {
@@ -12,8 +12,8 @@ const render = (data) => {
       return `<div class="card">
                 <h1>${item.title}</h1>
                 <p>${item.description}</p>
-                <button id="${item.id}" class="delete_item">Delete</button>
-                <button id="${item.id}" class="delete_edit">Edit</button>
+                <button id="${item.id}_delete" class="delete_item">Delete</button>
+                <button id="${item.id}_edit" class="edit_item">Edit</button>
               </div>`;
     })
     .join("");
@@ -48,13 +48,17 @@ formEl.addEventListener("submit", (e) => {
   })
     .then((res) => res.json())
     .then(() => {
+      console.log("successfully added new item");
       getData();
     });
 });
 boxEl.addEventListener("click", (e) => {
-  boxEl.innerHTML = `<p class="loading">LOADING...</p>`;
+  e.preventDefault();
   const el = e.target;
+  const id = el.id.slice(0, el.id.indexOf("_"));
+
   if (el.className === "delete_item") {
+    boxEl.innerHTML = <p class="loading">LOADING...</p>;
     fetch(`${url}/${el.id}`, {
       method: "DELETE",
     })
@@ -62,66 +66,56 @@ boxEl.addEventListener("click", (e) => {
       .then.apply(() => {
         getData();
       });
-  }
-  if (el.className === "edit_item") {
+  } else if (el.className === "edit_item") {
+    boxEl.innerHTML = <p class="loading">LOADING...</p>;
     const form = document.createElement("form");
     form.className = "form_input";
-
     form.innerHTML = `
               <input
-            class="inputs"
-            type="text"
-            name="title"
-            placeholder="Enter your change text"
-          />
-                    <input
-            class="inputs"
-            type="text"
-            name="descreption"
-            placeholder="Enter your change text"          />
+                class="inputs"
+                type="text"
+                name="title"
+                placeholder="Enter your change text"
+              />
+              <input
+                class="inputs"
+                type="text"
+                name="descreption"
+                placeholder="Enter your change text"          
+              />
             <button type="submit">Send</button>
     `;
     boxEl.innerHTML = "";
-    boxEl.appendChild(form);
+    // boxEl.classList.add("active");
+    // boxEl.id = el.id;
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      const inputs = document.querySelectorAll(".inputs");
+      console.log(inputs);
+      const title = inputs[0].value;
+      const description = inputs[1].value;
+      boxEl.innerHTML = <p class="loading">LOADING...</p>;
+      modal.innerHTML = "";
+      modal.classList.toggle("hidden");
 
-      let obj = {};
-      for (let i = 0; i < inputs.length; i++) {
-        obj[inputs[i].name] = inputs[i].value;
-        inputs2[i].value = "";
-      }
-
-      fetch(`${url}/${modal.id}`, {
+      fetch(`${url}/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(obj),
+        body: JSON.stringify({ title, description }),
       })
         .then((res) => res.json())
         .then(() => {
+          console.log("successfully updated");
           getData();
-          modal.classList.remove("active");
+          modal.classList.toggle("hidden");
         });
     });
-  }
-  boxEl.innerHTML = `<p class="loading">LOADING...</p>`;
-  mainEl.classList.add("active");
-  mainEl.id = el.id;
-  // const title = prompt("Title");
-  // const descreption = prompt("Descreption");
-  fetch(`${url}/${el.id}`, {
-    method: "PATCH",
 
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ title, descreption }),
-  })
-    .then((res) => res.json())
-    .then.apply(() => {
-      getData();
-    });
+    // boxEl.appendChild(form);
+    modal.appendChild(form);
+    modal.classList.toggle("hidden");
+  }
 });
