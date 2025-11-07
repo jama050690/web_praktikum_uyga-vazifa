@@ -1,7 +1,7 @@
 const boxEl = document.querySelector(".box");
 const formEl = document.querySelector(".form_input_main");
 const inputEl = document.querySelectorAll(".add_input");
-const main = document.querySelector(".main");
+const mainEl = document.querySelector(".main");
 
 const url = "http://localhost:3600/todos";
 const render = (data) => {
@@ -108,8 +108,8 @@ boxEl.addEventListener("click", (e) => {
     });
   }
   boxEl.innerHTML = `<p class="loading">LOADING...</p>`;
-  modal.classList.add("active");
-  modal.id = el.id;
+  mainEl.classList.add("active");
+  mainEl.id = el.id;
   // const title = prompt("Title");
   // const descreption = prompt("Descreption");
   fetch(`${url}/${el.id}`, {
