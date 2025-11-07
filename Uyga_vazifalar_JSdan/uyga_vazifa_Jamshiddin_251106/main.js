@@ -1,31 +1,38 @@
 const boxEl = document.querySelector(".box");
-const formEl = document.querySelector(".form_input");
-const inputEl = document.querySelectorAll(".add-input");
+const formEl = document.querySelector(".form_input_main");
+const inputEl = document.querySelectorAll(".add_input");
 const main = document.querySelector(".main");
 
-const url = "http://localhost:3600";
+const url = "http://localhost:3600/todos";
 const render = (data) => {
-  box.innerHTML = data
+  console.log("man renderdaman.", data);
+
+  boxEl.innerHTML = data
     .map((item) => {
-      return `    <div class="card">
-      <h1>${item.title}</h1>
-      <p>${item.descreption}</p>
-      <button id="${item.id}" class="delete_item">Delete</button>
-      <button id="${item.id}" class="delete_edit">Edit</button>
-    </div>`;
+      return `<div class="card">
+                <h1>${item.title}</h1>
+                <p>${item.description}</p>
+                <button id="${item.id}" class="delete_item">Delete</button>
+                <button id="${item.id}" class="delete_edit">Edit</button>
+              </div>`;
     })
     .join("");
 };
 const getData = () => {
+  console.log("get data chaqiruvi");
+
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
+      console.log("Great! Man galdim~!");
+
       render(data);
     });
 };
 getData();
+console.log("Man formEla event qo'shaman.");
 
-formEl.addEvenListener("submit", (e) => {
+formEl.addEventListener("submit", (e) => {
   e.preventDefault();
   let obj = {};
   for (let i = 0; i < inputEl.length; i++) {
@@ -44,8 +51,8 @@ formEl.addEvenListener("submit", (e) => {
       getData();
     });
 });
-box.addEvenListener("click", (e) => {
-  box.innerHTML = `<p class="loading">LOADING...</p>`;
+boxEl.addEventListener("click", (e) => {
+  boxEl.innerHTML = `<p class="loading">LOADING...</p>`;
   const el = e.target;
   if (el.className === "delete_item") {
     fetch(`${url}/${el.id}`, {
