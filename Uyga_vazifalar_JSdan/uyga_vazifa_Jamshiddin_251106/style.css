@@ -16,6 +16,7 @@ body {
   justify-content: center;
   padding: 40px 20px;
 }
+
 .container {
   width: 100%;
   max-width: 1240px;
@@ -43,7 +44,10 @@ body {
 .edit_form {
   background-color: rgb(108, 38, 149);
 }
-
+.main {
+  display: flex;
+  justify-content: center;
+}
 input {
   width: 100%;
   border: 2px solid #000;
@@ -92,7 +96,7 @@ button:hover {
   align-items: center;
   justify-content: space-between;
   padding: 0 15px;
-  width: 100%;
+  width: 800px;
   height: 70px;
   background-color: #3b82f6;
   color: #fff;
@@ -121,4 +125,7 @@ button:hover {
   button {
     width: 100%;
   }
+}
+.hidden {
+  display: none !important;
 }
