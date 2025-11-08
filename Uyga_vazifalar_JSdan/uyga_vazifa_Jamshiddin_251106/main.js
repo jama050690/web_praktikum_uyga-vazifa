@@ -55,7 +55,6 @@ boxEl.addEventListener("click", (e) => {
   e.preventDefault();
   const el = e.target;
   const id = el.id.slice(0, el.id.indexOf("_"));
-
   if (el.className === "delete_item") {
     boxEl.innerHTML = '<p class="loading">LOADING...</p>';
     fetch(`${url}/${id}`, {
@@ -66,7 +65,6 @@ boxEl.addEventListener("click", (e) => {
         getData();
       });
   } else if (el.className === "edit_item") {
-    boxEl.innerHTML = `<p class="loading">LOADING...</p>`;
     mainEl.innerHTML = "";
     const form = document.createElement("form");
     form.className = "form_input";
