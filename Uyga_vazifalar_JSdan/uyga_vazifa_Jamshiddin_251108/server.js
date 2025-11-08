@@ -18,5 +18,5 @@ const app = express();
 
 const PORT = 3600;
 app.listen(PORT, () => {
-  console.log("Server is running on... http://localhost:3600");
+  console.log(`Server is running on... http://localhost:${PORT}`);
 });

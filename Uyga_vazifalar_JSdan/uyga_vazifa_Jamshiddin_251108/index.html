@@ -6,29 +6,32 @@
     <link rel="stylesheet" href="./style.css" />
     <title>CRUD Promise</title>
   </head>
+
   <body>
     <div class="container">
       <div class="main">
         <div class="main_content">
-          <form class="form_input">
+          <form class="form_input_main">
             <input
-              class="add-input"
+              class="add_input"
               type="text"
               name="title"
-              placeholder="Enter your text"
+              placeholder="Enter title"
+              required
             />
             <input
-              class="add-input"
+              class="add_input"
               type="text"
-              name="descreption"
-              placeholder="Enter your text"
+              name="description"
+              placeholder="Enter description"
+              required
             />
             <button type="submit">Send</button>
           </form>
         </div>
       </div>
-
       <div class="box"></div>
+      <div class="form_div hidden"></div>
     </div>
     <script src="main.js"></script>
   </body>
