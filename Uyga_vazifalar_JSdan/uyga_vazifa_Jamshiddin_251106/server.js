@@ -16,7 +16,7 @@ setTimeout(() => {
 
 const app = express();
 
-const PORT = 3600;
+const PORT = 3602;
 app.listen(PORT, () => {
-  console.log(`Server is running on... http://localhost:3600/tasks`);
+  console.log(`Server is running on... http://localhost:${PORT}/todos`);
 });

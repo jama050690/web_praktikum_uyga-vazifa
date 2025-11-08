@@ -1,9 +1,7 @@
-const formEl = document.querySelector(".form");
-const mainEl = document.querySelector(".main");
+const formEl = document.querySelector(".form_input");
 const boxEl = document.querySelector(".box");
-const blockEl = document.querySelector(".block");
 
-const url = "http://localhost:3600/tasks";
+const url = "http://localhost:3602/todos";
 
 const getData = async () => {
   try {
@@ -19,15 +17,11 @@ const render = (data) => {
   boxEl.innerHTML = data
     .map(
       (item) => `
-      <div class="card">
-        <div>
-          <h1>${item.title}</h1>
-          <p>${item.description}</p>
-        </div>
-        <div>
-          <button id="${item.id}_delete" class="delete_btn">Delete</button>
-          <button id="${item.id}_edit" class="edit_btn">Edit</button>
-        </div>
+      <div class="card" data-id="${item.id}">
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+        <button class="delete_btn">Delete</button>
+        <button class="edit_btn">Edit</button>
       </div>`
     )
     .join("");
@@ -36,78 +30,62 @@ const render = (data) => {
 formEl.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const title = formEl.querySelector('input[name="title"]').value;
-  const description = formEl.querySelector('input[name="description"]').value;
+  const titleInput = formEl.querySelector('input[name="title"]');
+  const descInput = formEl.querySelector('input[name="description"]');
 
-  const obj = { title, description };
+  const title = titleInput.value.trim();
+  const description = descInput.value.trim();
+
+  if (!title || !description) return alert("Fill all fields!");
 
   try {
-    const res = await fetch(url, {
+    await fetch(url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(obj),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title, description }),
     });
-
-    await res.json();
-    getData();
     formEl.reset();
+    getData();
   } catch (error) {
     console.error("POST error:", error);
   }
 });
-
 boxEl.addEventListener("click", async (e) => {
-  e.preventDefault();
-  const el = e.target;
+  const card_2 = e.target.closest(".card");
+  const id = card_2.dataset.id;
 
-  // DELETE
-  if (el.classList.contains("delete_btn")) {
-    const id = el.id.split("_")[0];
-    try {
-      await fetch(`${url}/${id}`, { method: "DELETE" });
-      getData();
-    } catch (error) {
-      console.error("DELETE error:", error);
-    }
-  } else if (el.classList.contains("edit_btn")) {
-    const id = el.id.split("_")[0];
+  if (e.target.classList.contains("delete_btn")) {
+    await fetch(`${url}/${id}`, { method: "DELETE" });
+    getData();
+  }
 
-    const form = document.createElement("form");
-    form.className = "form_input";
-    form.innerHTML = `
-      <input class="inputs" type="text" name="title" placeholder="Enter new title" required />
-      <input class="inputs" type="text" name="description" placeholder="Enter new description" required />
-      <button type="submit">Update</button>
+  if (e.target.classList.contains("edit_btn")) {
+    card_2.innerHTML = `
+      <form class="edit_form">
+        <input type="text" class="inputs" name="title" placeholder="New title" required />
+        <input type="text"  class="inputs" name="description" placeholder="New description" required />
+        <button type="submit">Save</button>
+      </form>
     `;
 
-    blockEl.innerHTML = "";
-    blockEl.appendChild(form);
+    const editForm = card_2.querySelector(".edit_form");
 
-    form.addEventListener("submit", async (e) => {
+    editForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const title = editForm.querySelector('input[name="title"]').value;
+      const description = editForm.querySelector(
+        'input[name="description"]'
+      ).value;
 
-      const title = form.querySelector('input[name="title"]').value;
-      const description = form.querySelector('input[name="description"]').value;
+      await fetch(`${url}/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, description }),
+      });
 
-      const obj = { title, description };
-
-      try {
-        await fetch(`${url}/${id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(obj),
-        });
-
-        getData();
-        blockEl.innerHTML = "";
-      } catch (error) {
-        console.error("EDIT error:", error);
-      }
+      getData();
     });
   }
 });
+
 getData();

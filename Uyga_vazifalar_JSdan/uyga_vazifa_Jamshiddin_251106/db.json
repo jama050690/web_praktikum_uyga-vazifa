@@ -19,36 +19,6 @@
   ],
   "todos": [
     {
-      "title": "AAAAAAAAAAAAA",
-      "description": "BBBBBBBBBBBBBBB",
-      "id": 107
-    },
-    {
-      "title": "adawd",
-      "description": "aegaga",
-      "id": 108
-    },
-    {
-      "title": "iqboljon",
-      "description": "redmi",
-      "id": 111
-    },
-    {
-      "title": "sirojiddin",
-      "description": "tashketskiy",
-      "id": 112
-    },
-    {
-      "title": "ali",
-      "description": "vali",
-      "id": 113
-    },
-    {
-      "title": "AAAAAAAA",
-      "description": "1111111112222222",
-      "id": 114
-    },
-    {
       "title": "55555",
       "description": "333333",
       "id": 115
@@ -100,6 +70,16 @@
       "title": "Ahmad ",
       "description": "Bratishka",
       "id": 131
+    },
+    {
+      "title": "AAAAAAAAAAAA",
+      "description": "DDDDDDDDDD",
+      "id": 132
+    },
+    {
+      "title": "aaaaaa",
+      "description": "DDDDDDDDDD",
+      "id": 133
     }
   ],
   "photos": [
