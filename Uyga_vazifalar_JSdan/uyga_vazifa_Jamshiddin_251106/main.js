@@ -1,3 +1,4 @@
+const mainEl = document.querySelector(".main");
 const boxEl = document.querySelector(".box");
 const formEl = document.querySelector(".form_input_main");
 const inputEl = document.querySelectorAll(".add_input");
@@ -30,6 +31,7 @@ const getData = () => {
 getData();
 
 formEl.addEventListener("submit", (e) => {
+  boxEl.innerHTML = '<p class="loading">LOADING...</p>';
   e.preventDefault();
   let obj = {};
   for (let i = 0; i < inputEl.length; i++) {
@@ -64,8 +66,8 @@ boxEl.addEventListener("click", (e) => {
         getData();
       });
   } else if (el.className === "edit_item") {
-    formEl.parentElement.parentElement.innerHTML = "";
     boxEl.innerHTML = `<p class="loading">LOADING...</p>`;
+    mainEl.innerHTML = "";
     const form = document.createElement("form");
     form.className = "form_input";
     form.innerHTML = `
@@ -88,12 +90,12 @@ boxEl.addEventListener("click", (e) => {
     boxEl.innerHTML = "";
 
     form.addEventListener("submit", (e) => {
+      boxEl.innerHTML = '<p class="loading">LOADING...</p>';
       e.preventDefault();
       const inputs = document.querySelectorAll(".inputs");
       console.log(inputs);
       const title = inputs[0].value;
       const description = inputs[1].value;
-      boxEl.innerHTML = '<p class="loading">LOADING...</p>';
       modal.innerHTML = "";
       modal.classList.toggle("hidden");
 
