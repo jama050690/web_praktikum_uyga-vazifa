@@ -1,4 +1,3 @@
 *.zip
-Uyga_vazifalar_JSdan/uyga_vazifa_Jamshiddin_251106/package-lock.json
-
+**/package-lock.json
 **/node_modules/
