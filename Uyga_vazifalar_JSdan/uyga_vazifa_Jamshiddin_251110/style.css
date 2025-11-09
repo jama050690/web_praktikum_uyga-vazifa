@@ -169,3 +169,32 @@ a {
   border: 1.5px solid #e5e7ea;
   color: var(--text-color);
 }
+.choose_list {
+  max-width: 1201px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 20px;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+
+.choose_list_item {
+  flex: 1 1 30%;
+  max-width: 380px;
+  padding: 30px 0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.15); /* 🔹 yarim shaffof oq */
+  backdrop-filter: blur(10px); /* 🔹 blur effekti (glass look) */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--text-color);
+}
+
+.choose_list_item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
