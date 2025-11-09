@@ -26,8 +26,7 @@ body {
   gap: 20px;
 }
 
-.form_input,
-.edit_form {
+.form_input {
   border: 3px solid #000;
   border-radius: 15px;
   width: 100%;
@@ -40,10 +39,19 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   background-color: rgb(188, 39, 191);
 }
-
 .edit_form {
+  border: 3px solid #000;
+  border-radius: 15px;
+  width: 420px;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   background-color: rgb(108, 38, 149);
 }
+
 .main {
   display: flex;
   justify-content: center;
