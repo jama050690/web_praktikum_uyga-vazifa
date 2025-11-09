@@ -101,7 +101,7 @@ a {
   height: 66px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 20px rgba(143, 222, 246, 0.968);
+  background: #fff;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -121,4 +121,5 @@ a {
 
 .main_enter {
   position: relative;
+  margin-bottom: 135px;
 }
