@@ -84,7 +84,14 @@ a {
   height: 58px;
   background: var(--bgc);
 }
-.form_input {
+.main_form {
+  position: absolute;
+  top: 90%;
+  left: 30%;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
@@ -92,6 +99,26 @@ a {
   border-radius: 100px;
   width: 600px;
   height: 66px;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
-  background: var(--bgc);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(143, 222, 246, 0.968);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.form_input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--text-color);
+  width: 80%;
+  height: 100%;
+  border-radius: 100px;
+  padding-left: 30px;
+}
+
+.main_enter {
+  position: relative;
 }
