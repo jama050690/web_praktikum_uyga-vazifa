@@ -97,7 +97,7 @@ boxEl.addEventListener("click", async (e) => {
     setTimeout(() => {
       modal.innerHTML = "";
       modal.appendChild(editForm);
-      modal.classList.remove("hidden"); // edit form modalda ko‘rinadi
+      modal.classList.remove("hidden");
     }, 400);
 
     editForm.addEventListener("submit", async (e) => {

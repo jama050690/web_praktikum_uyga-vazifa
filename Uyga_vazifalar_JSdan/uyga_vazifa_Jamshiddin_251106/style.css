@@ -69,7 +69,6 @@ button {
   justify-content: space-between;
   align-items: center;
 }
-/* MODAL (loading + edit form uchun) */
 .block {
   position: fixed;
   top: 0;
@@ -89,10 +88,11 @@ button {
 }
 
 .edit_form {
-  background: #fff;
+  background: blue;
   color: #000;
   padding: 25px 30px;
-  border-radius: 12px;
+  border: black solid 5px;
+  border-radius: 11px;
   display: flex;
   flex-direction: column;
   gap: 15px;
