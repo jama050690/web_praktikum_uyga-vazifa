@@ -3,33 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo CRUD Loading Fix</title>
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
   </head>
   <body>
-    <div class="content">
-      <div class="main">
-        <form class="form_input">
-          <input
-            type="text"
-            name="title"
-            class="add_input"
-            placeholder="Enter title"
-            required
-          />
-          <input
-            type="text"
-            name="description"
-            class="add_input"
-            placeholder="Enter title"
-            required
-          />
-          <button type="submit">Send</button>
-        </form>
-      </div>
+    <div class="container">
+      <form class="form_input">
+        <input type="text" name="title" placeholder="Enter title" required />
+        <input
+          type="text"
+          name="description"
+          placeholder="Enter description"
+          required
+        />
+        <button type="submit">Add</button>
+      </form>
+
       <div class="box"></div>
-      <div class="block"></div>
+      <div class="block hidden"></div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

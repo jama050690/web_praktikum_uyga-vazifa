@@ -18,89 +18,101 @@ const render = (data) => {
     .map(
       (item) => `
       <div class="card" data-id="${item.id}">
-        <h3>${item.title}</h3>
-        <p>${item.description}</p>
-        <button class="delete_btn">Delete</button>
-        <button class="edit_btn">Edit</button>
+        <div>
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+        </div>
+        <div>
+          <button class="edit_btn">Edit</button>
+          <button class="delete_btn">Delete</button>
+        </div>
       </div>`
     )
     .join("");
 };
 
+const waitForRepaint = () =>
+  new Promise((resolve) => requestAnimationFrame(resolve));
+
 formEl.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   boxEl.innerHTML = '<p class="loading">LOADING...</p>';
-  await new Promise((r) => setTimeout(r, 0)); // 👈 repaint uchun vaqt beramiz
+  await waitForRepaint();
 
-  const titleInput = formEl.querySelector('input[name="title"]');
-  const descInput = formEl.querySelector('input[name="description"]');
-
-  const title = titleInput.value.trim();
-  const description = descInput.value.trim();
+  const title = formEl.querySelector('input[name="title"]').value.trim();
+  const description = formEl
+    .querySelector('input[name="description"]')
+    .value.trim();
 
   if (!title || !description) return alert("Fill all fields!");
 
-  try {
-    await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, description }),
-    });
-    formEl.reset();
-    getData();
-  } catch (error) {
-    console.error("POST error:", error);
-  }
+  await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title, description }),
+  });
+
+  formEl.reset();
+  getData();
 });
 
 boxEl.addEventListener("click", async (e) => {
-  const card_2 = e.target.closest(".card");
-  const id = card_2?.dataset.id;
+  const card = e.target.closest(".card");
+  const id = card?.dataset.id;
   if (!id) return;
 
   if (e.target.classList.contains("delete_btn")) {
-    modal.innerHTML = '<p class="loading">LOADING...</p>';
+    modal.innerHTML = `
+      <div class="loading">
+        <div class="spinner"></div>
+        <p>Deleting...</p>
+      </div>`;
     modal.classList.remove("hidden");
-    await new Promise((r) => setTimeout(r, 0)); // 👈 repaint uchun
+    await waitForRepaint();
 
     await fetch(`${url}/${id}`, { method: "DELETE" });
+
     modal.classList.add("hidden");
     getData();
   }
 
   if (e.target.classList.contains("edit_btn")) {
-    modal.innerHTML = '<p class="loading">LOADING...</p>';
-    await new Promise((r) => setTimeout(r, 0)); // 👈 repaint uchun
-
-    formEl.classList.add("hidden");
-    document.querySelectorAll(".card").forEach((card) => {
-      card.style.display = "none";
-    });
+    modal.innerHTML = `
+      <div class="loading">
+        <div class="spinner"></div>
+        <p>Opening edit form...</p>
+      </div>`;
+    modal.classList.remove("hidden");
+    await waitForRepaint();
 
     const editForm = document.createElement("form");
     editForm.classList.add("edit_form");
     editForm.innerHTML = `
-      <input type="text" class="inputs" name="title" placeholder="New title" required />
-      <input type="text" class="inputs" name="description" placeholder="New description" required />
-      <button type="submit" class="save_btn">Save</button>
+      <input type="text" name="title" placeholder="New title" required />
+      <input type="text" name="description" placeholder="New description" required />
+      <button type="submit">Save</button>
     `;
 
-    modal.innerHTML = "";
-    modal.appendChild(editForm);
-    modal.classList.remove("hidden");
+    setTimeout(() => {
+      modal.innerHTML = "";
+      modal.appendChild(editForm);
+      modal.classList.remove("hidden"); // edit form modalda ko‘rinadi
+    }, 400);
 
     editForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      modal.innerHTML = '<p class="loading">LOADING...</p>';
-      await new Promise((r) => setTimeout(r, 0)); // 👈 repaint uchun
+      modal.innerHTML = `
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>Saving...</p>
+        </div>`;
+      await waitForRepaint();
 
       const title = editForm.querySelector('input[name="title"]').value.trim();
       const description = editForm
         .querySelector('input[name="description"]')
         .value.trim();
-
-      if (!title || !description) return alert("Fill all fields!");
 
       await fetch(`${url}/${id}`, {
         method: "PATCH",
@@ -109,11 +121,6 @@ boxEl.addEventListener("click", async (e) => {
       });
 
       modal.classList.add("hidden");
-      formEl.classList.remove("hidden");
-      document.querySelectorAll(".card").forEach((card) => {
-        card.style.display = "block";
-      });
-
       getData();
     });
   }
