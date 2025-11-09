@@ -123,3 +123,49 @@ a {
   position: relative;
   margin-bottom: 135px;
 }
+.choose {
+  padding-bottom: 156px;
+}
+.choose_box {
+  width: 575px;
+  margin-bottom: 40px;
+  background: var(--bgc);
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+}
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-self: center;
+}
+.choose_button1,
+.choose_button2,
+.choose_button3 {
+  border-radius: 100px;
+  height: 58px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.choose_button1 {
+  width: 155px;
+  color: #fff;
+  background: #299764;
+}
+.choose_button2 {
+  width: 170px;
+  border: 1.5px solid #e5e7ea;
+  background: var(--bgc);
+  color: var(--text-color);
+}
+.choose_button3 {
+  width: 119px;
+  background: var(--bgc);
+  border: 1.5px solid #e5e7ea;
+  color: var(--text-color);
+}
