@@ -131,8 +131,22 @@ a {
   margin-bottom: 40px;
   background: var(--bgc);
   display: flex;
-  justify-self: center;
+  gap: 10px;
   flex-direction: column;
+}
+.choose_sub_title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 36px;
+  color: var(--text-color);
+}
+.choose_sub_text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: var(--text-color);
 }
 .buttons {
   display: flex;
@@ -212,7 +226,7 @@ a {
 }
 p {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   color: var(--text-color);
 }
 .allbtn {
@@ -235,34 +249,46 @@ p {
 }
 
 .community_box {
+  background: var(--bg);
+  border-radius: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.community_block_left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 70px;
+  margin: 0;
 }
 .community_content {
   width: 330px;
-  height: 339px;
-  margin: 70px;
-  background: #fff;
+  background: var(--bgc);
 }
+
 .community_content_text {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  column-gap: 8px;
+  gap: 8px;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   color: #4285f4;
   margin-bottom: 16px;
 }
+
 .community_box_title {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 38px;
   line-height: 132%;
   color: var(--text-color);
-  margin-bottom: 30px;
 }
+
 .community_box_text {
   font-family: var(--font-family);
   font-weight: 500;
@@ -270,6 +296,7 @@ p {
   color: #555;
   margin: 30px 0 16px 0;
 }
+
 .community_btn {
   position: relative;
   display: inline-block;
@@ -277,10 +304,9 @@ p {
   border-radius: 50px;
   font-size: 20px;
   font-weight: 500;
-  background: #fff;
-  color: transparent;
-  cursor: pointer;
   border: none;
+  cursor: pointer;
+  background: #fff;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -293,6 +319,7 @@ p {
     #4f5bd5
   );
 }
+
 .community_btn::before {
   content: "";
   position: absolute;
@@ -311,4 +338,147 @@ p {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+}
+
+.community_block {
+  background: #299764;
+  width: 730px;
+  height: 479px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 50px 0 40px 40px;
+  position: relative;
+}
+
+.community_block_list {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+.community_block_list_item {
+  background: #fff;
+  border-radius: 16px;
+  width: 420px;
+  height: 333px;
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.list_item_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list_item_header img:first-child {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.list_item_content {
+  flex: 1;
+}
+
+.item_name {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  color: #111;
+  margin: 0;
+}
+
+.block_item_text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  color: #555;
+  margin: 2px 0 0;
+}
+.google,
+.google_icon {
+  width: 42px;
+  height: 42px;
+}
+.block_item_description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: #333;
+  margin-top: 16px;
+  flex: 1;
+}
+
+.end {
+  margin-top: auto;
+}
+
+hr {
+  border: none;
+  border-top: 1.5px solid #e5e7ea;
+  margin: 16px 0;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.stars img {
+  height: 16px;
+}
+div {
+  margin-right: 0;
+}
+.driver {
+  border-radius: 10px;
+  width: 546px;
+  height: 4px;
+  background: var(--bg);
+  opacity: 0.4;
+}
+.community_nav {
+  display: flex;
+  margin-top: 20px;
+  padding: 15px 0;
+  gap: 20px;
+}
+.bold_line {
+  width: 506px;
+  height: 4px;
+  position: relative;
+}
+.line_1 {
+  position: absolute;
+  background-color: #e5e7ea;
+  height: 4px;
+  border: 1px solid #0000;
+  width: 140px;
+  border-radius: 10px;
+}
+.line_2 {
+  width: 506px;
+  height: 4px;
+  opacity: 0.5;
+  background: #fff;
+  border-radius: 10px;
+}
+.reviews_arrows {
+  display: flex;
+  gap: 12px;
+}
+.prev,
+.next {
+  border-radius: 100px;
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  transform: rotate(-180deg);
 }
