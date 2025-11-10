@@ -172,12 +172,12 @@ a {
 .choose_list {
   max-width: 1201px;
   margin: 30px auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
-  align-items: center;
   row-gap: 20px;
   column-gap: 20px;
-  flex-wrap: wrap;
+  position: relative;
 }
 
 .choose_list_item {
@@ -185,8 +185,8 @@ a {
   max-width: 380px;
   padding: 30px 0;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.15); /* 🔹 yarim shaffof oq */
-  backdrop-filter: blur(10px); /* 🔹 blur effekti (glass look) */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -197,4 +197,36 @@ a {
 .choose_list_item:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+.choose_title,
+.choose_description {
+  margin: 0 24px;
+}
+.content {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 24px;
+  column-gap: 55px;
+  row-gap: 24px;
+}
+p {
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+}
+.allbtn {
+  position: absolute;
+  left: 50%;
+  border-radius: 100px;
+  padding: 18px 30px;
+  width: 173px;
+  height: 58px;
+  background: #299764;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
 }
