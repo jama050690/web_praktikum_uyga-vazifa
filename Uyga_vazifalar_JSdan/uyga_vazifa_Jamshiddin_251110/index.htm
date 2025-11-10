@@ -10,8 +10,10 @@
     <header>
       <div class="container">
         <div class="nav">
-          <img src="./images/Logo.svg" alt="Logo" />
           <ul class="nav_list">
+            <li>
+              <img src="./images/Logo.svg" alt="Logo" />
+            </li>
             <li class="nav_item">Categories</li>
             <select id="About_Us" class="nav_items">
               <option value="About_Us">About Us</option>
@@ -25,11 +27,15 @@
               <option value="FAQs">FAQs</option>
             </select>
           </ul>
-          <a href="">+1 855 420 0000</a>
-          <img class="sun" src="./images/sun.svg" alt="Image" />
-          <button class="login">
-            Login <img src="./images/next.svg" alt="Images" />
-          </button>
+          <div class="next_link">
+            <a href="">+1 855 420 0000</a>
+            <button class="dark_note">
+              <img src="./images/dark_mode.svg" alt="" />
+            </button>
+            <button class="login">
+              Login <img src="./images/next.svg" alt="Images" />
+            </button>
+          </div>
         </div>
       </div>
     </header>
@@ -143,12 +149,16 @@
               <p class="choose_description">Full-size Car</p>
               <img src="./images/car_6.png" alt="Photo" />
               <div class="content">
-                <p><img src="./images/User.svg" alt="Images" />5 Seats</p>
-                <p><img src="./images/gear.svg" alt="Images" />Automatic</p>
-                <p>
+                <p class="view_btn">
+                  <img src="./images/User.svg" alt="Images" />5 Seats
+                </p>
+                <p class="view_btn">
+                  <img src="./images/gear.svg" alt="Images" />Automatic
+                </p>
+                <p class="view_btn">
                   <img src="./images/File-user.svg" alt="Images" />21+ Years
                 </p>
-                <p>
+                <p class="view_btn">
                   <img src="./images/petrol.svg" alt="Images" />1-lit / .5 km
                 </p>
               </div>
@@ -233,7 +243,7 @@
                 </li>
               </ul>
               <div class="community_nav">
-                <div class="">
+                <div class="bold_line">
                   <div class="line_1"></div>
                   <div class="line_2"></div>
                 </div>
@@ -247,27 +257,29 @@
         </div>
       </section>
       <section class="brands">
-        <h3>More than 50 brands of cars</h3>
-        <ul class="brands_list">
-          <li class="brands_list_item">
-            <img src="./images/ford.svg" alt="Ford" />
-          </li>
-          <li class="brands_list_item">
-            <img src="./images/nissan.svg" alt="Nissan" />
-          </li>
-          <li class="brands_list_item">
-            <img src="./images/toyota.svg" alt="Toyota" />
-          </li>
-          <li class="brands_list_item">
-            <img src="./images/dodge.svg" alt="Dodge" />
-          </li>
-          <li class="brands_list_item">
-            <img src="./images/hyundai.svg" alt="Hyundai" />
-          </li>
-          <li class="brands_list_item">
-            <img src="./images/volkswagen.svg" alt="ylkswagen" />
-          </li>
-        </ul>
+        <div class="container">
+          <h3 class="brands_title">More than 50 brands of cars</h3>
+          <ul class="brands_list">
+            <li class="brands_list_item">
+              <img src="./images/ford.svg" alt="Ford" />
+            </li>
+            <li class="brands_list_item">
+              <img src="./images/nissan.svg" alt="Nissan" />
+            </li>
+            <li class="brands_list_item">
+              <img src="./images/toyota.svg" alt="Toyota" />
+            </li>
+            <li class="brands_list_item">
+              <img src="./images/dodge.svg" alt="Dodge" />
+            </li>
+            <li class="brands_list_item">
+              <img src="./images/hyundai.svg" alt="Hyundai" />
+            </li>
+            <li class="brands_list_item">
+              <img src="./images/volkswagen.svg" alt="ylkswagen" />
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
     <script src="main.js"></script>
