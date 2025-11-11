@@ -725,10 +725,20 @@ div {
     text-align: center;
   }
 }
-.footer_first hr {
+footer {
+  background: var(--bgc);
   padding-bottom: 40px;
 }
-
-.footer_second {
-  padding-top: 40px;
+.footer_second_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer_second_content {
+  width: 158px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text-color);
 }
