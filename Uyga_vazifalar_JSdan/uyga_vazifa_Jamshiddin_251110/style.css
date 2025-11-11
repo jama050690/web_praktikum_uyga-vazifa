@@ -31,7 +31,7 @@ ol {
   --text-color: #fff;
 }
 
-body {
+body .dark_mode {
   background-color: var(--bg);
   color: var(--text-color);
 }
@@ -664,6 +664,9 @@ div {
   mask: url("./images/Folder-lock.svg") no-repeat center;
   mask: url("./images/Folder-lock.svg") no-repeat center;
 }
+.footer_first {
+  padding-bottom: 40px;
+}
 .footer_first_block {
   display: flex;
   justify-content: space-between;
@@ -719,4 +722,11 @@ div {
     align-items: center;
     text-align: center;
   }
+}
+.footer_first hr {
+  padding-bottom: 40px;
+}
+
+.footer_second {
+  padding-top: 40px;
 }
