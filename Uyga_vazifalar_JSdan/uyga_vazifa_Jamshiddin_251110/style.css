@@ -31,7 +31,7 @@ ol {
   --text-color: #fff;
 }
 
-body .dark_mode {
+body {
   background-color: var(--bg);
   color: var(--text-color);
 }
@@ -70,9 +70,7 @@ a {
   font-size: 18px;
   color: var(--text-color);
 }
-.dark_note {
-  border: none;
-}
+
 .login {
   display: flex;
   align-items: center;
@@ -87,12 +85,16 @@ a {
   font-size: 18px;
   color: var(--text-color);
 }
-.sun {
+.dark {
+  display: flex;
   border-radius: 100px;
   padding: 18px;
   width: 58px;
   height: 58px;
   background: var(--bgc);
+}
+.dark_note_2 {
+  display: none;
 }
 .main_form {
   position: absolute;
