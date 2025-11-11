@@ -682,9 +682,8 @@ div {
 }
 .footer_first_lists {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
-  flex-wrap: wrap;
   gap: 110px;
   padding: 40px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
