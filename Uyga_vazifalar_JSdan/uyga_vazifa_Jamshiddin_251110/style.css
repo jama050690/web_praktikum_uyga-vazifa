@@ -137,6 +137,7 @@ a {
   padding-bottom: 156px;
 }
 .choose_box {
+  text-align: center;
   width: 575px;
   margin-bottom: 40px;
   background: var(--bgc);
@@ -288,7 +289,7 @@ a {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
-  color: #4285f4;
+  color: var(--text-color);
   margin-bottom: 16px;
 }
 
@@ -304,10 +305,9 @@ a {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 14px;
-  color: #555;
+  color: var(--text-color);
   margin: 30px 0 16px 0;
 }
-
 .community_btn {
   position: relative;
   display: inline-block;
@@ -511,4 +511,26 @@ div {
 .brands_list {
   display: flex;
   gap: 66px;
+}
+.choose_box 2 {
+  width: 684px;
+}
+.service_items {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
+  align-items: center;
+  width: 590px;
+  padding: 40px;
+  background: var(--bgc);
+  position: relative;
+}
+.service_items .choose_title {
+  font-size: 32px;
+  margin: 0;
+}
+.service_list {
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
 }
