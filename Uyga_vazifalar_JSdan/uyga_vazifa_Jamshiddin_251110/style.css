@@ -345,8 +345,8 @@ a {
     #962fbf,
     #4f5bd5
   );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 }
@@ -651,16 +651,73 @@ div {
   background-color: var(--text-color);
   mask: url("./images/Flask-alt.svg") no-repeat center;
   mask-size: contain;
-  -webkit-mask: url("./images/Flask-alt.svg") no-repeat center;
-  -webkit-mask-size: contain;
+  mask: url("./images/Flask-alt.svg") no-repeat center;
+  mask-size: contain;
 }
 
 .service_items_two:nth-child(2)::after {
-  -webkit-mask: url("./images/Heartbeat.svg") no-repeat center;
+  mask: url("./images/Heartbeat.svg") no-repeat center;
   mask: url("./images/Heartbeat.svg") no-repeat center;
 }
 
 .service_items_two:nth-child(3)::after {
-  -webkit-mask: url("./images/Folder-lock.svg") no-repeat center;
   mask: url("./images/Folder-lock.svg") no-repeat center;
+  mask: url("./images/Folder-lock.svg") no-repeat center;
+}
+.footer_first_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 65px;
+}
+.footer_nav {
+  max-width: 240px;
+}
+.footer_nav p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 167%;
+  color: var(--text-color);
+}
+.footer_first_lists {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 110px;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer_first_lists ul li {
+  margin-bottom: 10px;
+}
+.footer_first_lists a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+.footer_first_lists ul li:first-child a {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-color);
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .footer_first_lists {
+    justify-content: center;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer_first_lists {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
