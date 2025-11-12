@@ -63,10 +63,10 @@ const catalogEl = (data) => {
               <p class="choose_description">Economy Car</p>
               <img src="${item.image}" alt="${item.model}" />
               <div class="content">
-                <p class="icons_text">5 Seats</p>
-                <p class="icons_text">Automatic</p>
-                <p class="icons_text">${item.year}</p>
-                <p class="icons_text">$${item.priceEstimate}</p>
+                <p class="icons_text-1"><i class="fa-solid fa-car-wrench"></i>5 Seats</p>
+                <p class="icons_text-2"><i class="fa-solid fa-car"></i>Automatic</p>
+                <p class="icons_text-3"><i class="fa-solid fa-file"></i>${item.year}</p>
+                <p class="icons_tex-4"><i class="fa-solid fa-sack-dollar"></i> ${item.priceEstimate}</p>
               </div>
             </li>`
     )

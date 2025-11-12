@@ -302,61 +302,21 @@ a {
 .choose_description {
   margin: 0 24px;
 }
-.content {
-  display: grid;
-  justify-content: space-between;
-  grid-template-columns: repeat(2, 1fr);
-  margin: 0 24px;
-  column-gap: 40px;
-  row-gap: 24px;
-  color: var(--text-color);
-}
-.icons_text {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 16px;
+
+.icons_text-1,
+.icons_text-2,
+.icons_text-3,
+.icons_text-4 {
   display: flex;
   align-items: center;
-  gap: 5px;
+  width: 40px;
+  height: 40px;
+  gap: 12px;
+  color: var(--text-color, #222);
+  font-family: var(--font-family, sans-serif);
+  font-weight: 500;
+  font-size: 16px;
   margin: 8px 0;
-  padding-left: 24px;
-  position: relative;
-  color: var(--text-color);
-}
-
-.icons_text::before {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-right: 8px;
-}
-
-.icons_text:nth-child(1)::before {
-  background-image: url("/images/icons/human.svg");
-}
-body.light_mode .icons_text:nth-child(1)::before {
-  background-image: url("/images/icons/humanWhite.svg");
-}
-.icons_text:nth-child(2)::before {
-  background-image: url("/images/icons/oil.svg");
-}
-body.light_mode .icons_text:nth-child(2)::before {
-  background-image: url("/images/icons/oilWhite.svg");
-}
-.icons_text:nth-child(3)::before {
-  background-image: url("/images/icons/contact.svg");
-}
-body.light_mode .icons_text:nth-child(3)::before {
-  background-image: url("/images/icons/contactWhite.svg");
-}
-.icons_text:nth-child(4)::before {
-  background-image: url("/images/icons/expel.svg");
-}
-body.light_mode .icons_text:nth-child(4)::before {
-  background-image: url("/images/icons/expelWhite.svg");
 }
 
 .allbtn {
