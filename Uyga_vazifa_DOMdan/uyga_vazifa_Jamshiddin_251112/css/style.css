@@ -125,7 +125,7 @@ a {
 }
 
 .main_form {
-  position: absolute;
+  position: relative;
   top: 93%;
   left: 44%;
   z-index: 9999;
@@ -146,6 +146,7 @@ a {
 }
 
 .form_input {
+  position: absolute;
   border: none;
   outline: none;
   background: transparent;
@@ -163,7 +164,7 @@ a {
   position: relative;
   margin-bottom: 135px;
 }
-.main_emage {
+.main_enter_content {
   position: relative;
 }
 .choose {
