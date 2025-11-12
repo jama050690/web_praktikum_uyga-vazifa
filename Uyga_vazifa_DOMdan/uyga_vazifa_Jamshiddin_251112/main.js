@@ -31,8 +31,6 @@ const bannerImages = (data) => {
       <div class="main_enter_box">
     <div class="main_enter_text">
       <h1 class="main_enter_title">${item.model}</h1>
-      <p class="main_enter_description">lorem ipsum dolor sit amet, consectetur adipiscing elit,
-       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
     <img class="main_emage" src="${item.image}" alt="Photo" />
   </div>
