@@ -2,6 +2,8 @@ const darkEl = document.querySelector(".dark");
 const sun = document.querySelector(".dark_note_2");
 const moon = document.querySelector(".dark_note_1");
 const main_enter_content = document.querySelector(".main_enter_content");
+const choose_list = document.querySelector(".choose_list");
+const buttons = document.querySelectorAll(".choose_button");
 const baseUrl = "https://cars-project-six.vercel.app/";
 
 // Dark mode
@@ -38,6 +40,7 @@ const bannerImages = (data) => {
     )
     .join("");
 };
+// fetch banner images from API
 const bannerImageChange = () => {
   fetch("https://cars-project-six.vercel.app/api/banners")
     .then((res) => {
@@ -50,3 +53,46 @@ const bannerImageChange = () => {
 };
 
 bannerImageChange();
+
+// Render list of cars based on chosen model
+const catalogEl = (data) => {
+  choose_list.innerHTML = data
+    .map(
+      (item) => `<li class="choose_list_item">
+              <h3 class="choose_title">${item.model}</h3>
+              <p class="choose_description">Economy Car</p>
+              <img src="${item.image}" alt="${item.model}" />
+              <div class="content">
+                <p class="icons_text">5 Seats</p>
+                <p class="icons_text">Automatic</p>
+                <p class="icons_text">${item.year}</p>
+                <p class="icons_text">$${item.priceEstimate}</p>
+              </div>
+            </li>`
+    )
+    .join("");
+};
+// fetch list of cars from API
+const fetchCatalog = (cars) => {
+  fetch(`https://cars-project-six.vercel.app/${cars}`)
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      catalogEl(data);
+    })
+    .catch((err) => console.error("Fetch error:", err));
+};
+
+fetchCatalog(`bmw`);
+
+// Choose section buttons
+buttons.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    fetchCatalog(e.target.value);
+    for (let i of buttons) {
+      i.classList.remove("active");
+    }
+    item.classList.add("active");
+  });
+});

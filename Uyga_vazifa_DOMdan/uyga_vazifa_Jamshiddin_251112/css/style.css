@@ -234,7 +234,7 @@ a {
   justify-self: center;
 }
 .choose_button {
-  padding: 25px 25px;
+  padding: 20px 25px;
   border-radius: 100px;
   height: 58px;
   font-family: var(--font-family);
@@ -287,6 +287,11 @@ a {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   color: var(--text-color);
+}
+.choose_list_item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
 }
 
 .choose_list_item:hover {
