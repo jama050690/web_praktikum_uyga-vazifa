@@ -302,15 +302,18 @@ a {
 .choose_description {
   margin: 0 24px;
 }
-
+.content {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px;
+}
 .icons_text-1,
 .icons_text-2,
 .icons_text-3,
 .icons_text-4 {
   display: flex;
   align-items: center;
-  width: 40px;
-  height: 40px;
   gap: 12px;
   color: var(--text-color, #222);
   font-family: var(--font-family, sans-serif);
