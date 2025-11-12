@@ -161,12 +161,35 @@ a {
 }
 
 .main_enter {
-  position: relative;
   margin-bottom: 135px;
 }
-.main_enter_content {
+.main_enter_box {
   position: relative;
 }
+.main_enter_title {
+  position: fixed;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 48px;
+  color: var(--text-color);
+  margin-bottom: 16px;
+}
+.main_enter_description {
+  position: fixed;
+  position: absolute;
+  top: 26%;
+  left: 50%;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text-color);
+  max-width: 600px;
+}
+
 .choose {
   padding-bottom: 156px;
 }

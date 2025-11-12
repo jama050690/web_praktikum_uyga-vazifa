@@ -28,23 +28,27 @@ const bannerImages = (data) => {
   main_enter_content.innerHTML = data
     .map(
       (item) => `
+      <div class="main_enter_box">
     <div class="main_enter_text">
-      <h1 class="main_enter_title">${item.title}</h1>
-      <p class="main_enter_desc">${item.description}</p>
+      <h1 class="main_enter_title">${item.model}</h1>
+      <p class="main_enter_description">lorem ipsum dolor sit amet, consectetur adipiscing elit,
+       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
-    <img class="main_emage" src="${baseUrl}${data.image}" alt="Photo" />
-  `
+    <img class="main_emage" src="${item.image}" alt="Photo" />
+  </div>
+    `
     )
     .join("");
 };
-const bannerImageChange = async () => {
-  fetch(`${baseUrl}cars`)
-    .then((response) => response.json())
-    .then((data) => {
-      bannerImages(data[0]);
+const bannerImageChange = () => {
+  fetch("https://cars-project-six.vercel.app/api/banners")
+    .then((res) => {
+      return res.json();
     })
-    .catch((error) => {
-      console.error("Error fetching banner images:", error);
-    });
+    .then((data) => {
+      bannerImages(data);
+    })
+    .catch((err) => console.error("Fetch error:", err));
 };
+
 bannerImageChange();
