@@ -233,9 +233,8 @@ a {
   gap: 20px;
   justify-self: center;
 }
-.choose_button1,
-.choose_button2,
-.choose_button3 {
+.choose_button {
+  padding: 25px 25px;
   border-radius: 100px;
   height: 58px;
   font-family: var(--font-family);
@@ -245,7 +244,10 @@ a {
   border: none;
   cursor: pointer;
 }
-
+.active {
+  background-color: var(--btn-color);
+  color: var(--text-color);
+}
 .choose_button1 {
   width: 155px;
   background-color: var(--btn-color);
