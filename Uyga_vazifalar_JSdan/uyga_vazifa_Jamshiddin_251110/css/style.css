@@ -24,10 +24,10 @@ ol {
   --bg: #fff;
   --text-color: #202c36;
   --font-family: "Montserrat", sans-serif;
-  --icon-human: url(../img/icons/human.svg);
+  /* --icon-human: url(../img/icons/human.svg);
   --icon-contact: url(../img/icons/contact.svg);
   --icon-oil: url(../img/icons/oil.svg);
-  --icon-expel: url(../img/icons/expel.svg);
+  --icon-expel: url(../img/icons/expel.svg); */
 }
 
 .dark_mode {
@@ -265,51 +265,66 @@ a {
   margin: 0 24px;
 }
 .content {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
   margin: 0 24px;
-  column-gap: 55px;
+  column-gap: 40px;
   row-gap: 24px;
   color: var(--text-color);
 }
-.content p {
+.icons_text {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
   display: flex;
   align-items: center;
+  gap: 5px;
   margin: 8px 0;
   padding-left: 24px;
   position: relative;
+  color: var(--text-color);
 }
-.content p::before {
+.icons_text:nth-child(1)::before {
   content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: black;
+  background-image: url("/images/icons/human.svg");
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  background-color: var(--bgc);
-}
-.content p:nth-child(1)::before {
-  background-image: var(--icon-human);
+  background-size: cover;
 }
 
-.content p:nth-child(2)::before {
-  background-image: var(--icon-contact);
+.icons_text:nth-child(2)::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: black;
+  background-image: url("/images/icons/oil.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.content p:nth-child(3)::before {
-  background-image: var(--icon-oil);
+.icons_text:nth-child(3)::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("/images/icons/contact.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.content p:nth-child(4)::before {
-  background-image: var(--icon-expel);
+.icons_text:nth-child(4)::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("/images/icons/expel.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .allbtn {
@@ -720,20 +735,24 @@ div {
   width: 30px;
   height: 30px;
   background-color: var(--text-color);
-  mask: url("./images/Flask-alt.svg") no-repeat center;
-  mask-size: contain;
-  mask: url("./images/Flask-alt.svg") no-repeat center;
-  mask-size: contain;
+  background-image: url("/images/Flask-alt.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--text-color);
 }
 
 .service_items_two:nth-child(2)::after {
-  mask: url("./images/Heartbeat.svg") no-repeat center;
-  mask: url("./images/Heartbeat.svg") no-repeat center;
+  background-image: url("/images/Heartbeat.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--text-color);
 }
 
 .service_items_two:nth-child(3)::after {
-  mask: url("./images/Folder-lock.svg") no-repeat center;
-  mask: url("./images/Folder-lock.svg") no-repeat center;
+  background-image: url("/images/Folder-lock.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--text-color);
 }
 .footer_first {
   padding-bottom: 40px;
