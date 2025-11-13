@@ -917,7 +917,7 @@ footer {
 }
 
 .card-modal-content {
-  background: white;
+  background: var(--bg);
   padding: 20px;
   border-radius: 12px;
   max-width: 90%;
@@ -931,11 +931,15 @@ footer {
 }
 
 .card-close-btn {
+  margin-top: 20px;
+  border-radius: 40px;
+  padding: 5px 15px;
   position: absolute;
   top: -40px;
   right: 0;
-  font-size: 50px;
-  color: white;
+  font-size: 60px;
+  background: red;
+  color: var(--text-color);
   cursor: pointer;
   font-weight: bold;
   z-index: 1000000;
