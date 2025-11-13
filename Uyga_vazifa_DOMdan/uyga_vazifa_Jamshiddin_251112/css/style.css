@@ -90,7 +90,7 @@ body {
 
 .dropdown-content div {
   padding: 12px;
-  font-size: 24px;
+  font-size: 22px;
   font-family: var(--font-family);
   color: var(--text-color);
 }

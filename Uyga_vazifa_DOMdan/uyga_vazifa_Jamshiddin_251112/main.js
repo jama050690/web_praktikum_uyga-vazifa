@@ -126,3 +126,26 @@ dropdowns.forEach((dropdown) => {
 document.addEventListener("click", () => {
   dropdowns.forEach((d) => d.classList.remove("active"));
 });
+
+// const cardList = (data) => {
+//   body.innerHTML = data
+//     .map(
+//       (item) =>
+//         `<div class<div id="carModal" class="modal">
+//       <div class="modal-content">
+//         <span class="close">&times;</span>
+
+//         <h2 id="m-model">${item.model}</h2>
+//         <img id="m-image" class="modal-img" src="${item.image}" />
+
+//       </div>
+//       <div class="content">
+//                 <p class="icons_text-1"><i class="fa-solid fa-gears"></i></i>5 Seats</p>
+//                 <p class="icons_text-2"><i class="fa-solid fa-car"></i>Automatic</p>
+//                 <p class="icons_text-3"><i class="fa-solid fa-file"></i>${item.year}</p>
+//                 <p class="icons_text-4"><i class="fa-solid fa-sack-dollar"></i> ${item.priceEstimate}</p>
+//               </div>
+//     </div>`
+//     )
+//     .join();
+// };
