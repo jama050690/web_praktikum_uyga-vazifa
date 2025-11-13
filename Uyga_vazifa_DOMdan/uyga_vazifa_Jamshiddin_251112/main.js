@@ -172,5 +172,5 @@ function activateListModal() {
   });
 }
 document.querySelector(".login").addEventListener("click", () => {
-  window.location.href = ".login/register.html";
+  window.location.href = "./login/index.html";
 });
