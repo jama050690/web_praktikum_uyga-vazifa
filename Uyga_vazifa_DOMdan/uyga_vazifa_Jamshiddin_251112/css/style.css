@@ -906,3 +906,37 @@ footer {
   border: none;
   cursor: pointer;
 }
+.card-modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+}
+
+.card-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  transform: scale(1);
+  transition: transform 0.25s ease;
+  position: relative;
+}
+
+.card-modal-content.zoom {
+  transform: scale(0.5);
+}
+
+.card-close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1000000;
+}

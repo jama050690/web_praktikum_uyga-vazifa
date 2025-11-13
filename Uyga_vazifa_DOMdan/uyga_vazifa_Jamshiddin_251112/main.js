@@ -73,7 +73,10 @@ const catalogEl = (data) => {
             </li>`
     )
     .join("");
+
+  activateListModal();
 };
+
 // fetch list of cars from API
 const fetchCatalog = (cars) => {
   fetch(`https://cars-project-six.vercel.app/${cars}`)
@@ -127,25 +130,44 @@ document.addEventListener("click", () => {
   dropdowns.forEach((d) => d.classList.remove("active"));
 });
 
-// const cardList = (data) => {
-//   body.innerHTML = data
-//     .map(
-//       (item) =>
-//         `<div class<div id="carModal" class="modal">
-//       <div class="modal-content">
-//         <span class="close">&times;</span>
+// MODAL YARATISH
+const zoomBg = document.createElement("div");
+zoomBg.className = "card-modal-bg";
+const zoomCard = document.createElement("div");
+zoomCard.className = "card-modal-content";
+const zoomClose = document.createElement("span");
+zoomClose.className = "card-close-btn";
+zoomClose.innerHTML = "&times;";
 
-//         <h2 id="m-model">${item.model}</h2>
-//         <img id="m-image" class="modal-img" src="${item.image}" />
+zoomCard.appendChild(zoomClose);
+zoomBg.appendChild(zoomCard);
+document.body.appendChild(zoomBg);
 
-//       </div>
-//       <div class="content">
-//                 <p class="icons_text-1"><i class="fa-solid fa-gears"></i></i>5 Seats</p>
-//                 <p class="icons_text-2"><i class="fa-solid fa-car"></i>Automatic</p>
-//                 <p class="icons_text-3"><i class="fa-solid fa-file"></i>${item.year}</p>
-//                 <p class="icons_text-4"><i class="fa-solid fa-sack-dollar"></i> ${item.priceEstimate}</p>
-//               </div>
-//     </div>`
-//     )
-//     .join();
-// };
+zoomClose.onclick = () => {
+  zoomCard.classList.remove("zoom");
+  zoomBg.style.display = "none";
+};
+
+zoomBg.onclick = (e) => {
+  if (e.target === zoomBg) {
+    zoomCard.classList.remove("zoom");
+    zoomBg.style.display = "none";
+  }
+};
+
+function activateListModal() {
+  const cards = document.querySelectorAll(".choose_list_item");
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      zoomCard.innerHTML = card.innerHTML;
+      zoomCard.appendChild(zoomClose);
+
+      zoomBg.style.display = "flex";
+
+      setTimeout(() => {
+        zoomCard.classList.add("zoom");
+      }, 20);
+    });
+  });
+}
