@@ -60,12 +60,49 @@ body {
 .nav_items {
   background-color: var(--bgc);
 }
-.options {
+.dropdown {
+  position: relative;
+  width: 180px;
+  cursor: pointer;
+  user-select: none;
+  background: var(--bg);
   color: var(--text-color);
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 18px;
 }
+
+.dropbtn {
+  font-size: 22px;
+  background: var(--bgc);
+  color: var(--text-color);
+  padding: 12px;
+  border-radius: 6px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: var(--bg);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.dropdown-content div {
+  padding: 12px;
+  font-size: 24px;
+  font-family: var(--font-family);
+  color: var(--text-color);
+}
+
+.dropdown-content div:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
 .next_link {
   display: flex;
   align-items: center;
@@ -126,7 +163,8 @@ a {
 
 .main_form_input {
   position: relative;
-  transform: translate(-50%, -50%);
+  top: -33px;
+  transform: translateX(-50%);
 }
 .main_form {
   position: absolute;
@@ -598,6 +636,16 @@ div {
   height: auto;
   color: var(--text-color);
 }
+.brands_item {
+  transition: 0.3s ease;
+}
+body.light_mode .brands_item {
+  filter: invert(0);
+}
+body.dark_mode .brands_item {
+  filter: invert(1) brightness(2);
+}
+
 .choose_box two {
   width: 684px;
 }

@@ -19,17 +19,24 @@
               <img src="./images/Logo.svg" alt="Logo" />
             </li>
             <li class="nav_item">Categories</li>
-            <select id="About_Us" class="nav_items">
-              <option class="options" value="About_Us">About Us</option>
-              <option class="options" value="company">Company</option>
-              <option class="options" value="team">Team</option>
-              <option class="options" value="careers">Careers</option>
-            </select>
-            <select id="Helps" class="nav_items">
-              <option class="options" value="Help_Center">Help center</option>
-              <option class="options" value="support">Support</option>
-              <option class="options" value="FAQs">FAQs</option>
-            </select>
+            <div class="dropdown">
+              <div class="dropbtn">About Us ▼</div>
+              <div class="dropdown-content">
+                <div data-page="/about.html">About Us</div>
+                <div data-page="/company.html">Company</div>
+                <div data-page="/team.html">Team</div>
+                <div data-page="/careers.html">Careers</div>
+              </div>
+            </div>
+            <div class="dropdown">
+              <div class="dropbtn">Helps ▼</div>
+              <div class="dropdown-content">
+                <div data-page="/helps.html">Helps</div>
+                <div data-page="/help_center.html">Help center</div>
+                <div data-page="/support.html">Support</div>
+                <div data-page="/faqs.html">FAQs</div>
+              </div>
+            </div>
           </ul>
           <div class="next_link">
             <a href="">+1 855 420 0000</a>
@@ -176,22 +183,30 @@
           <h3 class="brands_title">More than 50 brands of cars</h3>
           <ul class="brands_list">
             <li class="brands_list_item">
-              <img src="./images/ford.svg" alt="Ford" />
+              <img class="brands_item" src="./images/ford.svg" alt="Ford" />
             </li>
             <li class="brands_list_item">
-              <img src="./images/nissan.svg" alt="Nissan" />
+              <img class="brands_item" src="./images/nissan.svg" alt="Nissan" />
             </li>
             <li class="brands_list_item">
-              <img src="./images/toyota.svg" alt="Toyota" />
+              <img class="brands_item" src="./images/toyota.svg" alt="Toyota" />
             </li>
             <li class="brands_list_item">
-              <img src="./images/dodge.svg" alt="Dodge" />
+              <img class="brands_item" src="./images/dodge.svg" alt="Dodge" />
             </li>
             <li class="brands_list_item">
-              <img src="./images/hyundai.svg" alt="Hyundai" />
+              <img
+                class="brands_item"
+                src="./images/hyundai.svg"
+                alt="Hyundai"
+              />
             </li>
             <li class="brands_list_item">
-              <img src="./images/volkswagen.svg" alt="ylkswagen" />
+              <img
+                class="brands_item"
+                src="./images/volkswagen.svg"
+                alt="ylkswagen"
+              />
             </li>
           </ul>
         </div>

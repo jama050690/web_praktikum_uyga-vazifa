@@ -3,7 +3,9 @@ const sun = document.querySelector(".dark_note_2");
 const moon = document.querySelector(".dark_note_1");
 const main_enter_content = document.querySelector(".main_enter_content");
 const choose_list = document.querySelector(".choose_list");
+const form_input = document.querySelector(".form_input");
 const buttons = document.querySelectorAll(".choose_button");
+
 const baseUrl = "https://cars-project-six.vercel.app/";
 
 // Dark mode
@@ -95,4 +97,32 @@ buttons.forEach((item) => {
     }
     item.classList.add("active");
   });
+});
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach((dropdown) => {
+  const dropBtn = dropdown.querySelector(".dropbtn");
+  const items = dropdown.querySelectorAll(".dropdown-content div");
+
+  dropBtn.onclick = (e) => {
+    e.stopPropagation();
+
+    dropdowns.forEach((d) => {
+      if (d !== dropdown) d.classList.remove("active");
+    });
+
+    dropdown.classList.toggle("active");
+  };
+
+  items.forEach((item) => {
+    item.onclick = () => {
+      dropBtn.textContent = item.textContent + " ▼";
+      dropdown.classList.remove("active");
+      window.location.href = item.getAttribute("data-page");
+    };
+  });
+});
+
+document.addEventListener("click", () => {
+  dropdowns.forEach((d) => d.classList.remove("active"));
 });
