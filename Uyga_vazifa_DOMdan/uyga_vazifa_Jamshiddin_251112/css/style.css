@@ -944,3 +944,20 @@ footer {
   font-weight: bold;
   z-index: 1000000;
 }
+
+#banner_img_btn_list {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  display: flex;
+  gap: 0.7rem;
+}
+.btn-banner {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--bg);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

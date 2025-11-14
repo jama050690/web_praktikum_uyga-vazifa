@@ -7,6 +7,7 @@ const form_input = document.querySelector(".form_input");
 const buttons = document.querySelectorAll(".choose_button");
 
 const baseUrl = "https://cars-project-six.vercel.app/";
+var bannerImages = [];
 
 // Dark mode
 let isDark = false;
@@ -27,34 +28,38 @@ darkEl.addEventListener("click", (e) => {
     moon.style.display = "block";
   }
 });
+
 // Banner images change
-const bannerImages = (data) => {
-  main_enter_content.innerHTML = data
-    .map(
-      (item) => `
-      <div class="main_enter_box">
-    <div class="main_enter_text">
-      <h1 class="main_enter_title">${item.model}</h1>
+const changeBannerImage = (index) => {
+  const item = bannerImages[index];
+  main_enter_content.innerHTML = `
+    <div class="main_enter_box">
+      <div class="main_enter_text">
+        <h1 class="main_enter_title">${item.model}</h1>
+      </div>
+      <img class="main_emage" src="${item.image}" alt="Photo" />
+      <div id="banner_img_btn_list">
+        <div class="btn-banner"> < </div>
+        <div class="btn-banner"> > </div>
+      </div>
     </div>
-    <img class="main_emage" src="${item.image}" alt="Photo" />
-  </div>
-    `
-    )
-    .join("");
+    `;
 };
+
 // fetch banner images from API
-const bannerImageChange = () => {
+const getBannerImages = () => {
   fetch("https://cars-project-six.vercel.app/api/banners")
     .then((res) => {
       return res.json();
     })
     .then((data) => {
-      bannerImages(data);
+      bannerImages = data;
+      changeBannerImage(0);
     })
     .catch((err) => console.error("Fetch error:", err));
 };
 
-bannerImageChange();
+getBannerImages();
 
 // Render list of cars based on chosen model
 const catalogEl = (data) => {
