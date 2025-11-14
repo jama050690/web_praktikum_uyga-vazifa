@@ -45,14 +45,12 @@ const changeBannerImage = (index) => {
         <div class="btn-arrow"> < </div>
         <div class="btn-arrow"> > </div>
       </div>
-    <div id="carusel-btn-list-left">
-      <div class="carusel-btn btn-long"></div>
-      <div class="carusel-btn btn-short"></div>
-      <div class="carusel-btn btn-short"></div>
-    </div>
+      <div id="carusel-btn-list-left">
       </div>
+    </div>
     `;
-  addEventsToBannerBtns();
+  addEventsToBannerBtnsRight();
+  addEventsToBannerBtnsLeft();
 };
 
 // fetch banner images from API
@@ -68,12 +66,12 @@ const getBannerImages = () => {
         bannerImages.length
       );
       changeBannerImage(bannerImageIndex);
-      addEventsToBannerBtns();
+      addEventsToBannerBtnsRight();
     })
     .catch((err) => console.error("Fetch error:", err));
 };
 
-const addEventsToBannerBtns = () => {
+const addEventsToBannerBtnsRight = () => {
   const btnList = document.getElementById("carusel-btn-list-right").children;
   const leftArrow = btnList[0];
   const rightArrow = btnList[1];
@@ -91,6 +89,25 @@ const addEventsToBannerBtns = () => {
     bannerImageIndex = nextRightImageIndex;
     changeBannerImage(bannerImageIndex);
   });
+};
+
+const addEventsToBannerBtnsLeft = () => {
+  const div = document.getElementById("carusel-btn-list-left");
+  let className = "carusel-btn";
+  for (let i = 0; i < bannerImages.length; i++) {
+    const btn = document.createElement("div");
+    if (i == bannerImageIndex) {
+      btn.className = className + " btn-long";
+    } else {
+      btn.className = className + " btn-short";
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        bannerImageIndex = i;
+        changeBannerImage(bannerImageIndex);
+      });
+    }
+    div.appendChild(btn);
+  }
 };
 // Render list of cars based on chosen model
 const catalogEl = (data) => {

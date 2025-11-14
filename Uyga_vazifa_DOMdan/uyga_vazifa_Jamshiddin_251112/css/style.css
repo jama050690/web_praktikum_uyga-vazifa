@@ -779,36 +779,36 @@ body.dark_mode .brands_item {
   width: 30px;
   height: 30px;
   background-color: transparent; /* <-- fon shaffof bo‘lsin */
-  background-image: url("/images/Flask-alt.svg");
+  background-image: url("../images/Flask-alt.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 /* Light Mode: oq ikonka ishlatiladi */
 body.light_mode .service_items_two::after {
-  background-image: url("/images/Flask-alt-light.svg");
+  background-image: url("../images/Flask-alt-light.svg");
 }
 
 /* 2-ikon */
 .service_items_two:nth-child(2)::after {
-  background-image: url("/images/Heartbeat.svg");
+  background-image: url("../images/Heartbeat.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 body.light_mode .service_items_two:nth-child(2)::after {
-  background-image: url("/images/Heartbeat-light.svg");
+  background-image: url("../images/Heartbeat-light.svg");
 }
 
 /* 3-ikon */
 .service_items_two:nth-child(3)::after {
-  background-image: url("/images/Folder-lock.svg");
+  background-image: url("../images/Folder-lock.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 body.light_mode .service_items_two:nth-child(3)::after {
-  background-image: url("/images/Folder-lock-light.svg");
+  background-image: url("../images/Folder-lock-light.svg");
 }
 
 .footer_first {
@@ -817,7 +817,7 @@ body.light_mode .service_items_two:nth-child(3)::after {
 .footer_first_block {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+
   gap: 65px;
 }
 .footer_nav {
@@ -976,13 +976,13 @@ footer {
 .carusel-btn {
   border-radius: 100px;
   height: 8px;
+  width: 8px;
   background-color: var(--bg);
 }
 .btn-long {
   width: 30px;
 }
 .btn-short {
-  width: 8px;
   opacity: 0.5;
   cursor: pointer;
 }
