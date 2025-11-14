@@ -5,9 +5,11 @@ const main_enter_content = document.querySelector(".main_enter_content");
 const choose_list = document.querySelector(".choose_list");
 const form_input = document.querySelector(".form_input");
 const buttons = document.querySelectorAll(".choose_button");
+const dropdowns = document.querySelectorAll(".dropdown");
 
 const baseUrl = "https://cars-project-six.vercel.app/";
 var bannerImages = [];
+var bannerImageIndex = 0;
 
 // Dark mode
 let isDark = false;
@@ -31,6 +33,7 @@ darkEl.addEventListener("click", (e) => {
 
 // Banner images change
 const changeBannerImage = (index) => {
+  console.log("banner rasmi o'zgardi indiks: ", index);
   const item = bannerImages[index];
   main_enter_content.innerHTML = `
     <div class="main_enter_box">
@@ -38,12 +41,18 @@ const changeBannerImage = (index) => {
         <h1 class="main_enter_title">${item.model}</h1>
       </div>
       <img class="main_emage" src="${item.image}" alt="Photo" />
-      <div id="banner_img_btn_list">
-        <div class="btn-banner"> < </div>
-        <div class="btn-banner"> > </div>
+      <div id="carusel-btn-list-right">
+        <div class="btn-arrow"> < </div>
+        <div class="btn-arrow"> > </div>
       </div>
+    <div id="carusel-btn-list-left">
+      <div class="carusel-btn btn-long"></div>
+      <div class="carusel-btn btn-short"></div>
+      <div class="carusel-btn btn-short"></div>
     </div>
+      </div>
     `;
+  addEventsToBannerBtns();
 };
 
 // fetch banner images from API
@@ -54,13 +63,35 @@ const getBannerImages = () => {
     })
     .then((data) => {
       bannerImages = data;
-      changeBannerImage(0);
+      console.log(
+        "banner rasmlari API dan olindi, soni: ",
+        bannerImages.length
+      );
+      changeBannerImage(bannerImageIndex);
+      addEventsToBannerBtns();
     })
     .catch((err) => console.error("Fetch error:", err));
 };
 
-getBannerImages();
-
+const addEventsToBannerBtns = () => {
+  const btnList = document.getElementById("carusel-btn-list-right").children;
+  const leftArrow = btnList[0];
+  const rightArrow = btnList[1];
+  let nextLeftImageIndex =
+    bannerImageIndex === 0 ? bannerImages.length - 1 : bannerImageIndex - 1;
+  let nextRightImageIndex =
+    bannerImageIndex === bannerImages.length - 1 ? 0 : bannerImageIndex + 1;
+  leftArrow.addEventListener("click", (e) => {
+    e.preventDefault();
+    bannerImageIndex = nextLeftImageIndex;
+    changeBannerImage(bannerImageIndex);
+  });
+  rightArrow.addEventListener("click", (e) => {
+    e.preventDefault();
+    bannerImageIndex = nextRightImageIndex;
+    changeBannerImage(bannerImageIndex);
+  });
+};
 // Render list of cars based on chosen model
 const catalogEl = (data) => {
   choose_list.innerHTML = data
@@ -90,81 +121,105 @@ const fetchCatalog = (cars) => {
     })
     .then((data) => {
       catalogEl(data);
+      console.log("catalog olindi");
     })
     .catch((err) => console.error("Fetch error:", err));
 };
 
-fetchCatalog(`bmw`);
+document.addEventListener("DOMContentLoaded", (e) => {
+  e.preventDefault();
+  getBannerImages();
+  fetchCatalog(`bmw`);
+  console.log(
+    "DOM contenti yuklab bo`lindi va qolgan hodisalarni yuklash boshlandi"
+  );
 
-// Choose section buttons
-buttons.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    fetchCatalog(e.target.value);
-    for (let i of buttons) {
-      i.classList.remove("active");
-    }
-    item.classList.add("active");
-  });
-});
-const dropdowns = document.querySelectorAll(".dropdown");
+  // Choose section buttons
+  buttons.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("section tugmalariga reaktiv hodisalar ulandi");
 
-dropdowns.forEach((dropdown) => {
-  const dropBtn = dropdown.querySelector(".dropbtn");
-  const items = dropdown.querySelectorAll(".dropdown-content div");
-
-  dropBtn.onclick = (e) => {
-    e.stopPropagation();
-
-    dropdowns.forEach((d) => {
-      if (d !== dropdown) d.classList.remove("active");
+      fetchCatalog(e.target.value);
+      for (let i of buttons) {
+        i.classList.remove("active");
+      }
+      item.classList.add("active");
     });
-
-    dropdown.classList.toggle("active");
-  };
-
-  items.forEach((item) => {
-    item.onclick = () => {
-      dropBtn.textContent = item.textContent + " ▼";
-      dropdown.classList.remove("active");
-      window.location.href = item.getAttribute("data-page");
-    };
   });
-});
 
-document.addEventListener("click", () => {
-  dropdowns.forEach((d) => d.classList.remove("active"));
-});
+  dropdowns.forEach((dropdown) => {
+    const dropBtn = dropdown.querySelector(".dropbtn");
+    const items = dropdown.querySelectorAll(".dropdown-content div");
 
-// MODAL YARATISH
-const zoomBg = document.createElement("div");
-zoomBg.className = "card-modal-bg";
-const zoomCard = document.createElement("div");
-zoomCard.className = "card-modal-content";
-const zoomClose = document.createElement("span");
-zoomClose.className = "card-close-btn";
-zoomClose.innerHTML = "&times;";
+    dropBtn.onclick = (e) => {
+      e.stopPropagation();
+      console.log("dropdownga reaktiv hodisa ulandi");
+      dropdowns.forEach((d) => {
+        if (d !== dropdown) d.classList.remove("active");
+      });
+      dropdown.classList.toggle("active");
+    };
 
-zoomCard.appendChild(zoomClose);
-zoomBg.appendChild(zoomCard);
-document.body.appendChild(zoomBg);
+    items.forEach((item) => {
+      console.log("dropdown elementlariga reaktiv hodisa ulandi");
 
-zoomClose.onclick = () => {
-  zoomCard.classList.remove("zoom");
-  zoomBg.style.display = "none";
-};
+      item.onclick = () => {
+        dropBtn.textContent = item.textContent + " ▼";
+        dropdown.classList.remove("active");
+        window.location.href = item.getAttribute("data-page");
+      };
+    });
+  });
+  document.addEventListener("click", (e) => {
+    e.preventDefault();
+    dropdowns.forEach((d) => d.classList.remove("active"));
+  });
 
-zoomBg.onclick = (e) => {
-  if (e.target === zoomBg) {
+  // MODAL YARATISH
+  const zoomBg = document.createElement("div");
+  zoomBg.className = "card-modal-bg";
+  const zoomCard = document.createElement("div");
+  zoomCard.className = "card-modal-content";
+  const zoomClose = document.createElement("span");
+  zoomClose.className = "card-close-btn";
+  zoomClose.innerHTML = "&times;";
+
+  zoomCard.appendChild(zoomClose);
+  zoomBg.appendChild(zoomCard);
+  document.body.appendChild(zoomBg);
+
+  zoomClose.onclick = (e) => {
+    e.preventDefault();
+    console.log("Zoom close reaktiv hodisasi ulandi");
+
     zoomCard.classList.remove("zoom");
     zoomBg.style.display = "none";
-  }
-};
+  };
+
+  zoomBg.onclick = (e) => {
+    e.preventDefault();
+    console.log("ZoomBg reaktiv hodisasi ulandi");
+
+    if (e.target === zoomBg) {
+      zoomCard.classList.remove("zoom");
+      zoomBg.style.display = "none";
+    }
+  };
+
+  document.querySelector(".login").addEventListener("click", () => {
+    window.location.href = "./login/index.html";
+  });
+});
 
 function activateListModal() {
   const cards = document.querySelectorAll(".choose_list_item");
 
   cards.forEach((card) => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("card elementlari hodisalari ulandi");
+
       zoomCard.innerHTML = card.innerHTML;
       zoomCard.appendChild(zoomClose);
 
@@ -176,6 +231,3 @@ function activateListModal() {
     });
   });
 }
-document.querySelector(".login").addEventListener("click", () => {
-  window.location.href = "./login/index.html";
-});

@@ -945,14 +945,14 @@ footer {
   z-index: 1000000;
 }
 
-#banner_img_btn_list {
+#carusel-btn-list-right {
   position: absolute;
   bottom: 3rem;
   right: 3rem;
   display: flex;
   gap: 0.7rem;
 }
-.btn-banner {
+.btn-arrow {
   width: 2rem;
   height: 2rem;
   background-color: var(--bg);
@@ -960,4 +960,29 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+.btn-arrow:hover {
+  background-color: var(--btn-color);
+}
+#carusel-btn-list-left {
+  position: absolute;
+  bottom: 4rem;
+  left: 3rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.carusel-btn {
+  border-radius: 100px;
+  height: 8px;
+  background-color: var(--bg);
+}
+.btn-long {
+  width: 30px;
+}
+.btn-short {
+  width: 8px;
+  opacity: 0.5;
+  cursor: pointer;
 }
