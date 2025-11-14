@@ -12,12 +12,16 @@ var bannerImages = [];
 var bannerImageIndex = 0;
 
 // Dark mode
-let isDark = false;
+var isDark = false;
 
 darkEl.addEventListener("click", (e) => {
   e.preventDefault();
   isDark = !isDark;
+  localStorage.setItem("mode", `${isDark}`);
+  changeMode();
+});
 
+const changeMode = () => {
   if (isDark) {
     document.body.classList.add("dark_mode");
     document.body.classList.remove("light_mode");
@@ -29,7 +33,7 @@ darkEl.addEventListener("click", (e) => {
     sun.style.display = "none";
     moon.style.display = "block";
   }
-});
+};
 
 // Banner images change
 const changeBannerImage = (index) => {
@@ -40,7 +44,7 @@ const changeBannerImage = (index) => {
       <div class="main_enter_text">
         <h1 class="main_enter_title">${item.model}</h1>
       </div>
-      <img class="main_emage" src="${item.image}" alt="Photo" />
+      <img class="main_image" src="${item.image}" alt="Photo" />
       <div id="carusel-btn-list-right">
         <div class="btn-arrow"> < </div>
         <div class="btn-arrow"> > </div>
@@ -145,6 +149,12 @@ const fetchCatalog = (cars) => {
 
 document.addEventListener("DOMContentLoaded", (e) => {
   e.preventDefault();
+  let mode = localStorage.getItem("mode");
+  if (mode != null) {
+    isDark = mode === "true";
+  }
+  changeMode();
+
   getBannerImages();
   fetchCatalog(`bmw`);
   console.log(

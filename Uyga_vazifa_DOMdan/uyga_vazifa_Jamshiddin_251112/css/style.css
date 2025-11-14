@@ -160,6 +160,10 @@ a {
   background-color: var(--bgc);
   color: var(--text-color);
 }
+.main_enter_content {
+  height: 670px;
+  width: 1200px;
+}
 
 .main_form_input {
   position: relative;
@@ -235,8 +239,10 @@ a {
   color: #fff;
   margin-bottom: 16px;
 }
-.main_emage {
-  max-width: 1200px;
+.main_image {
+  max-height: 670px;
+  width: 1200px;
+  object-fit: fill;
 }
 
 .choose {
@@ -955,12 +961,13 @@ footer {
 .btn-arrow {
   width: 2rem;
   height: 2rem;
-  background-color: var(--bg);
+  background-color: #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  color: #000;
 }
 .btn-arrow:hover {
   background-color: var(--btn-color);
@@ -977,7 +984,7 @@ footer {
   border-radius: 100px;
   height: 8px;
   width: 8px;
-  background-color: var(--bg);
+  background-color: #fff;
 }
 .btn-long {
   width: 30px;
