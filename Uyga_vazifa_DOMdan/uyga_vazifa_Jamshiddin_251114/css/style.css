@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+ol,
+ul {
+  list-style: none;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.box {
+  max-width: 1200px;
+}
+body {
+  background: rgb(224, 23, 231);
+  position: relative;
+}
+button {
+  background-color: blue;
+  color: black;
+  padding: 20px 30px;
+  border-radius: 20px;
+  font-size: 28px;
+}
+.card {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+  border: 3px solid black;
+  border-radius: 40px;
+  background-color: green;
+  color: black;
+  padding: 10px 15px;
+  font-size: 24px;
+}
+.showAll {
+  padding: 20px;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  background-color: orange;
+}
+p {
+  font-size: 22px;
+  color: black;
+}
+.card_1 {
+  position: absolute;
+  top: 10%;
+  right: 30%;
+  width: 30%;
+  height: 16%;
+  margin: 10px 0;
+  border: 3px solid black;
+  border-radius: 50px;
+  background-color: blue;
+  color: #fff;
+  padding: 50px 50px;
+  font-size: 24px;
+}
+.card_1 p {
+  color: #fff;
+}
+.delete {
+  margin-top: 20px;
+  background-color: tomato;
+  display: flex;
+  justify-self: center;
+}
