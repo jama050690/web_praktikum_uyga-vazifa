@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+ol,
+ul {
+  list-style: none;
+}
+.container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+:root {
+  --font-family: "Poppens", "san-serif";
+  --btn-color: #299764;
+  --bg: #fff;
+  --text-color: #202c36;
+}
+
+.dark_mode {
+  --bg: #202c36;
+  --bgc: #2b3945;
+  --text-color: #fff;
+}
+header {
+  margin-top: 28px;
+  padding-bottom: 26px;
+}
+.intro_box {
+  align-items: center;
+  display: flex;
+  justify-content: start;
+  gap: 787px;
+}
+.intro_block {
+  gap: 14px;
+  display: flex;
+}
+
+.intro_list {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.intro_list_item {
+  position: relative;
+  background-color: var(--bg);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--text-color);
+}
+.doira {
+  position: absolute;
+  top: -4px;
+  left: 15px;
+  border-radius: 50%;
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+.header_hero {
+  margin-top: 30px;
+}
+.hero_content,
+.logo {
+  display: flex;
+  align-items: center;
+}
+.hero_content {
+  gap: 275px;
+}
+.logo {
+  gap: 7px;
+}
+.hero_list {
+  width: 815px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero_item {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--text-color);
+}
+.kok {
+  color: blue;
+}
+.banner_box {
+  position: relative;
+  width: 1400px;
+  height: 653px;
+  background-image: url(./images/banner_img.png);
+  background-repeat: no-repeat;
+}
+.banner_title {
+  width: 500px;
+  height: 200px;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 150%;
+  letter-spacing: 0.01em;
+  position: absolute;
+  top: 250px;
+  left: 70px;
+  color: #fff;
+  font-family: var(--font-family);
+}
+.banner_list {
+  position: absolute;
+  display: flex;
+  bottom: -350px;
+  left: 120px;
+}
+.banner_list_item {
+  width: 417px;
+  background: var(--bg);
+  position: relative;
+}
+.banner_item_title {
+  width: 202px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+  color: var(--text-color);
+  position: absolute;
+  top: 30px;
+  left: 60px;
+}
+.banner_list_item img {
+  width: 417px;
+  height: 354px;
+  background: var(--bg);
+}
+.banner_item_text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  bottom: 65px;
+  left: 52px;
+}
+.narx {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+  text-decoration: line-through;
+  color: var(--text-color);
+  opacity: 0.5;
+}
+.skidka {
+  color: red;
+  cursor: pointer;
+}
+.asl_narx {
+  position: absolute;
+  bottom: 21px;
+  right: 22px;
+  font-family: var(--font3);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 180%;
+  letter-spacing: 0.02em;
+  color: #40bfff;
+}
+.two {
+  position: absolute;
+  top: 20px;
+}
+.three {
+  position: absolute;
+  top: -70px;
+}
+.seller {
+  padding-top: 330px;
+  padding-bottom: 113px;
+}
+.seller_title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 35px;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 26px;
+}
+.seller_list {
+  display: flex;
+  justify-self: center;
+  justify-content: space-between;
+  width: 627px;
+  margin-bottom: 23px;
+}
+.seller_list_item {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--text-color);
+  width: 272px;
+}
+.seller_list_item img {
+  width: 299px;
+  height: 272px;
+}
+.active a {
+  color: blue;
+}
+.div {
+  margin-left: 100px;
+}
+.seller_list_two_items_text {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+  color: var(--text-color);
+}
+.seller_text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 150px;
+}
+.seller_list_item p {
+  margin-left: 200px;
+}
+.price {
+  color: blue;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 180%;
+  letter-spacing: 0.03em;
+  margin-left: 60px;
+}
+.seller_link {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  color: #33a0ff;
+  text-align: center;
+  margin-top: 36px;
+}
