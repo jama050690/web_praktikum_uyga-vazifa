@@ -197,11 +197,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
   });
 
   // MODAL YARATISH
-  const zoomBg = document.createElement("div");
+  zoomBg = document.createElement("div");
   zoomBg.className = "card-modal-bg";
-  const zoomCard = document.createElement("div");
+  zoomCard = document.createElement("div");
   zoomCard.className = "card-modal-content";
-  const zoomClose = document.createElement("span");
+  zoomClose = document.createElement("span");
   zoomClose.className = "card-close-btn";
   zoomClose.innerHTML = "&times;";
 
