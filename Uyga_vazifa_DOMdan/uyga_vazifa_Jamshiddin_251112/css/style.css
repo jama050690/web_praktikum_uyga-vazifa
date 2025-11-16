@@ -923,7 +923,7 @@ footer {
 }
 
 .card-modal-content {
-  background: white;
+  background: var(--bg);
   padding: 20px;
   border-radius: 12px;
   max-width: 600px;
@@ -935,8 +935,6 @@ footer {
   transform: scale(1);
   transition: transform 0.2s ease;
 }
-
-/* rasm card ichida to‘g‘ri o‘tiradi */
 .card-modal-content img {
   width: 100%;
   height: auto;
@@ -944,13 +942,9 @@ footer {
   border-radius: 10px;
   object-fit: cover;
 }
-
-/* modal ochilganda smooth zoom */
 .card-modal-content.zoom {
   transform: scale(1);
 }
-
-/* close button screenshotdagidek: kichik yumaloq */
 .card-close-btn {
   position: absolute;
   top: 12px;
@@ -959,7 +953,7 @@ footer {
   height: 38px;
   border-radius: 50%;
   background: #ff4d4d;
-  color: white;
+  color: var(--text-color);
   font-size: 22px;
   font-weight: bold;
   display: flex;
