@@ -1,48 +1,34 @@
-// =========================
-//  SELECTORS
-// =========================
 const darkEl = document.querySelector(".dark");
 const sun = document.querySelector(".dark_note_2");
 const moon = document.querySelector(".dark_note_1");
-
 const seller_list_two = document.querySelector(".seller_list_two");
 const seller_list_item = document.querySelectorAll(".seller_list_item");
-
 const cartIcon = document.querySelector(".cart-icon");
 const badgeEl = document.querySelector(".doira");
 const headerTotalEl = document.querySelector(".total-header");
+var isDark = false;
 
-// Fake Store API
-const API_URL = "https://fakestoreapi.com/products";
+darkEl.addEventListener("click", (e) => {
+  e.preventDefault();
+  isDark = !isDark;
+  localStorage.setItem("mode", `${isDark}`);
+  changeMode();
+});
 
-// =========================
-//  DARK MODE
-// =========================
-let isDark = localStorage.getItem("mode") === "dark";
-
-function applyMode() {
+const changeMode = () => {
   if (isDark) {
     document.body.classList.add("dark_mode");
+    document.body.classList.remove("light_mode");
     sun.style.display = "block";
     moon.style.display = "none";
   } else {
+    document.body.classList.add("light_mode");
     document.body.classList.remove("dark_mode");
     sun.style.display = "none";
     moon.style.display = "block";
   }
-}
+};
 
-applyMode();
-
-darkEl.addEventListener("click", () => {
-  isDark = !isDark;
-  localStorage.setItem("mode", isDark ? "dark" : "light");
-  applyMode();
-});
-
-// =========================
-//  CART (LOCALSTORAGE)
-// =========================
 let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
 function saveCart() {
@@ -59,14 +45,10 @@ function updateHeaderCart() {
 
 updateHeaderCart();
 
-// header cart -> cart page
 cartIcon.addEventListener("click", () => {
   window.location.href = "cart.html";
 });
 
-// =========================
-//  PRODUCTS (BEST SELLER)
-// =========================
 function renderProducts(data) {
   seller_list_two.innerHTML = data
     .map(
@@ -111,7 +93,6 @@ function fetchCatalog(category) {
     .catch((err) => console.error("Fetch error:", err));
 }
 
-// category buttons
 seller_list_item.forEach((li) => {
   li.addEventListener("click", (e) => {
     e.preventDefault();
@@ -124,9 +105,6 @@ seller_list_item.forEach((li) => {
   });
 });
 
-// =========================
-//  ADD TO CART
-// =========================
 function attachAddToCartHandlers(products) {
   document.querySelectorAll(".add-to-cart").forEach((btn) => {
     btn.addEventListener("click", (e) => {
