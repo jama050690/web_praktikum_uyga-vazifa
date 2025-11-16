@@ -342,8 +342,7 @@ a {
   transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
-.choose_title,
-.choose_description {
+.choose_title .choose_description {
   margin: 0 24px;
 }
 .content {
@@ -570,9 +569,6 @@ hr {
 .stars img {
   height: 16px;
 }
-div {
-  margin-right: 0;
-}
 .driver {
   border-radius: 10px;
   width: 546px;
@@ -652,7 +648,7 @@ body.dark_mode .brands_item {
   filter: invert(1) brightness(2);
 }
 
-.choose_box two {
+.two {
   width: 684px;
 }
 .service {
@@ -784,18 +780,14 @@ body.dark_mode .brands_item {
   left: 150px;
   width: 30px;
   height: 30px;
-  background-color: transparent; /* <-- fon shaffof bo‘lsin */
-  background-image: url("../images/Flask-alt.svg");
+  background-color: transparent;
+  background-image: url("../images/Folder-lock.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-/* Light Mode: oq ikonka ishlatiladi */
 body.light_mode .service_items_two::after {
   background-image: url("../images/Flask-alt-light.svg");
 }
-
-/* 2-ikon */
 .service_items_two:nth-child(2)::after {
   background-image: url("../images/Heartbeat.svg");
   background-repeat: no-repeat;
@@ -806,7 +798,6 @@ body.light_mode .service_items_two:nth-child(2)::after {
   background-image: url("../images/Heartbeat-light.svg");
 }
 
-/* 3-ikon */
 .service_items_two:nth-child(3)::after {
   background-image: url("../images/Folder-lock.svg");
   background-repeat: no-repeat;
@@ -823,7 +814,6 @@ body.light_mode .service_items_two:nth-child(3)::after {
 .footer_first_block {
   display: flex;
   justify-content: space-between;
-
   gap: 65px;
 }
 .footer_nav {
@@ -860,6 +850,125 @@ body.light_mode .service_items_two:nth-child(3)::after {
   color: var(--text-color);
   margin-bottom: 8px;
   display: inline-block;
+}
+.footer_second_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 30px 0;
+}
+
+.footer_second_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer_second_list a {
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.footer_social_icons,
+.social_icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.footer_social_icons {
+  flex-direction: column;
+}
+.social_icons {
+  display: flex;
+  justify-content: space-between;
+}
+.icons {
+  width: 32px;
+  height: 32px;
+}
+.footer_btn {
+  background: var(--btn-color);
+  border-radius: 50%;
+  padding: 25px;
+  color: var(--text-color);
+}
+.footer_btn:hover {
+  color: red;
+  cursor: pointer;
+}
+
+/* modal content */
+.card-modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.card-modal-content {
+  background: var(--bg);
+  padding: 20px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transform: scale(0.7);
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.card-modal-content.zoom {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.modal-info-box {
+  color: var(--text-color);
+}
+
+.card-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* YOPISH BUTTON */
+.card-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 28px;
+  cursor: pointer;
+  background: red;
+  color: #fff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ================= MOBILE (max-width: 480px) ================= */
@@ -1047,6 +1156,7 @@ body.light_mode .service_items_two:nth-child(3)::after {
   /* MODAL */
   .card-modal-content {
     width: 95%;
+    display: flex;
     max-height: 85vh;
     padding: 15px;
     border-radius: 14px;
@@ -1063,4 +1173,17 @@ body.light_mode .service_items_two:nth-child(3)::after {
     top: 8px;
     right: 8px;
   }
+}
+/* === MODAL BACKGROUND === */
+.card-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none; /* JS ochadi */
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* FOOTER VA HAMMA ELEMENTLARDAN YUQORI */
 }
