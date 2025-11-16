@@ -862,12 +862,6 @@ body.light_mode .service_items_two:nth-child(3)::after {
   display: inline-block;
 }
 
-@media (max-width: 768px) {
-  .footer_first_lists {
-    justify-content: center;
-    gap: 30px;
-  }
-}
 /* ================= MOBILE (max-width: 480px) ================= */
 
 @media (max-width: 480px) {
