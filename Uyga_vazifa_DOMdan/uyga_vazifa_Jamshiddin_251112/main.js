@@ -6,6 +6,7 @@ const choose_list = document.querySelector(".choose_list");
 const form_input = document.querySelector(".form_input");
 const buttons = document.querySelectorAll(".choose_button");
 const dropdowns = document.querySelectorAll(".dropdown");
+const footer_btn = document.querySelector(".footer_btn");
 
 let zoomBg;
 let zoomCard;
@@ -248,3 +249,11 @@ function activateListModal() {
     });
   });
 }
+// fotter button
+footer_btn.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});

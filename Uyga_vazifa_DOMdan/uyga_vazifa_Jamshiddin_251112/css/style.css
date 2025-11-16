@@ -912,6 +912,9 @@ footer {
   border: none;
   cursor: pointer;
 }
+.footer_btn:hover {
+  background-color: red;
+}
 .card-modal-bg {
   position: fixed;
   inset: 0;
