@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Comm – Cart</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cart.css" />
+  </head>
+
+  <body>
+    <!-- HEADER (SENING ORIGINAL KODING) -->
+    <header>
+      <section class="header_intro">
+        <div class="container">
+          <div class="intro_box">
+            <div class="intro_block">
+              <div class="dropdown"><button class="dropbtn">EN ▼</button></div>
+              <div class="dropdown"><button class="dropbtn">USD ▼</button></div>
+            </div>
+
+            <ul class="intro_list">
+              <li><i class="fa-solid fa-user"></i></li>
+              <li class="intro_list_items">My Profile</li>
+
+              <li class="intro_list_item cart-icon">
+                🛒
+                <div class="doira">0</div>
+              </li>
+              <li class="intro_list_items">Items</li>
+              <li class="intro_list_items total-header">$ 0.00</li>
+
+              <li><i class="fa-solid fa-magnifying-glass"></i></li>
+
+              <li class="intro_list_items">
+                <div class="dark">
+                  <button class="dark_note_1">&#9789;</button>
+                  <button class="dark_note_2">&#9788;</button>
+                </div>
+              </li>
+
+              <li><button class="login">Login</button></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="header_hero">
+        <div class="container">
+          <div class="hero_content">
+            <div class="logo">
+              <img src="./images/hero_logo.svg" />
+              <p class="loto_text">E-Comm</p>
+            </div>
+
+            <ul class="hero_list">
+              <li><a href="index.html">HOME</a></li>
+              <li><a>BAGS</a></li>
+              <li><a>SNEAKERS</a></li>
+              <li><a>BELT</a></li>
+              <li><a>CONTACT</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- ===== CART PAGE ===== -->
+    <section class="cart-page container">
+      <h2 class="cart-title">Shopping Cart</h2>
+
+      <div class="cart-table-header">
+        <p>PRODUCT</p>
+        <p>PRICE</p>
+        <p>QTY</p>
+        <p>UNIT PRICE</p>
+      </div>
+
+      <div class="cart-items"></div>
+
+      <!-- SUMMARY -->
+      <div class="cart-summary">
+        <p><span>Subtotal</span> <b class="subtotal">$0</b></p>
+        <p><span>Shipping fee</span> <b>$20</b></p>
+        <p><span>Coupon</span> <b>No</b></p>
+
+        <h3 class="summary-total">TOTAL <span class="total">$20</span></h3>
+
+        <div class="coupon-box">
+          <input type="text" placeholder="Voucher code" />
+          <button class="redeem">Redeem</button>
+        </div>
+
+        <button class="checkout-btn">Check out</button>
+      </div>
+    </section>
+
+    <!-- FOOTER ORIGINAL SENIKI KELADI -->
+    <footer>
+      <section class="footer_intro">
+        <div class="container">
+          <div class="footer_block">
+            <ul class="footer_list">
+              <li class="footer_logo_row">
+                <img src="./images/hero_logo.svg" />
+                <span>E-Comm</span>
+              </li>
+              <li class="footer_list_items_text">
+                Lorem Ipsum is simply dummy text of the printing...
+              </li>
+            </ul>
+
+            <div class="footer_content">
+              <ul>
+                <li class="footer_list_item">Follow us</li>
+                <li class="footer_list_items_text">
+                  Since the 1500s, when an unknown printer took...
+                </li>
+
+                <ul class="footer_icons">
+                  <li><i class="fa-brands fa-facebook-f"></i></li>
+                  <li><i class="fa-solid fa-dove"></i></li>
+                </ul>
+              </ul>
+
+              <ul>
+                <li class="footer_list_item">Contact Us</li>
+                <li class="footer_item_discreption">
+                  E-Comm, 4578 Marmora Road, Glasgow D04 89GR
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+
+    <script src="cart.js"></script>
+  </body>
+</html>

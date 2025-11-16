@@ -135,6 +135,7 @@ header {
   line-height: 18px;
 }
 .dark {
+  background: var(--bgc);
   display: flex;
   border-radius: 100px;
   justify-content: center;
@@ -225,10 +226,6 @@ header {
   position: relative;
   width: 100%;
   height: 653px;
-  background-image: url(./images/banner_img.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 .banner_title {
@@ -262,9 +259,9 @@ header {
   position: relative;
 }
 
-.banner_list_img img {
+.main_image {
   width: 100%;
-  height: 358px;
+  height: 653px;
   object-fit: cover;
 }
 
@@ -292,7 +289,7 @@ header {
 
 #carusel-btn-list-right {
   position: absolute;
-  bottom: 3rem;
+  bottom: 150px;
   right: 3rem;
   display: flex;
   gap: 0.7rem;
@@ -501,20 +498,16 @@ header {
   outline: none;
 }
 
-button {
+.submit {
   font-family: var(--font-family);
   font-weight: 600;
   font-size: 16px;
   color: #fff;
   padding: 14px 20px;
-  background: #33a0ff;
   border: none;
+  background-color: blue;
   border-radius: 0 8px 8px 0;
   cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
 }
 
 /* FOOTER */

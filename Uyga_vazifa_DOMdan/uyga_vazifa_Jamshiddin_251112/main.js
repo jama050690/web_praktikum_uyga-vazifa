@@ -9,6 +9,7 @@ const dropdowns = document.querySelectorAll(".dropdown");
 
 const baseUrl = "https://cars-project-six.vercel.app/";
 var bannerImages = [];
+
 var bannerImageIndex = 0;
 
 // Dark mode
