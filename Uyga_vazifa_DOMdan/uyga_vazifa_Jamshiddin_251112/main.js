@@ -7,6 +7,10 @@ const form_input = document.querySelector(".form_input");
 const buttons = document.querySelectorAll(".choose_button");
 const dropdowns = document.querySelectorAll(".dropdown");
 
+let zoomBg;
+let zoomCard;
+let zoomClose;
+
 const baseUrl = "https://cars-project-six.vercel.app/";
 var bannerImages = [];
 
@@ -38,7 +42,6 @@ const changeMode = () => {
 
 // Banner images change
 const changeBannerImage = (index) => {
-  console.log("banner rasmi o'zgardi indiks: ", index);
   const item = bannerImages[index];
   main_enter_content.innerHTML = `
     <div class="main_enter_box">
@@ -66,10 +69,7 @@ const getBannerImages = () => {
     })
     .then((data) => {
       bannerImages = data;
-      console.log(
-        "banner rasmlari API dan olindi, soni: ",
-        bannerImages.length
-      );
+      console.log(bannerImages.length);
       changeBannerImage(bannerImageIndex);
       addEventsToBannerBtnsRight();
     })
@@ -143,7 +143,6 @@ const fetchCatalog = (cars) => {
     })
     .then((data) => {
       catalogEl(data);
-      console.log("catalog olindi");
     })
     .catch((err) => console.error("Fetch error:", err));
 };
@@ -158,15 +157,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   getBannerImages();
   fetchCatalog(`bmw`);
-  console.log(
-    "DOM contenti yuklab bo`lindi va qolgan hodisalarni yuklash boshlandi"
-  );
 
   // Choose section buttons
   buttons.forEach((item) => {
     item.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log("section tugmalariga reaktiv hodisalar ulandi");
 
       fetchCatalog(e.target.value);
       for (let i of buttons) {
@@ -182,7 +177,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     dropBtn.onclick = (e) => {
       e.stopPropagation();
-      console.log("dropdownga reaktiv hodisa ulandi");
       dropdowns.forEach((d) => {
         if (d !== dropdown) d.classList.remove("active");
       });
@@ -190,8 +184,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     };
 
     items.forEach((item) => {
-      console.log("dropdown elementlariga reaktiv hodisa ulandi");
-
       item.onclick = () => {
         dropBtn.textContent = item.textContent + " ▼";
         dropdown.classList.remove("active");
@@ -219,7 +211,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   zoomClose.onclick = (e) => {
     e.preventDefault();
-    console.log("Zoom close reaktiv hodisasi ulandi");
 
     zoomCard.classList.remove("zoom");
     zoomBg.style.display = "none";
@@ -227,7 +218,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   zoomBg.onclick = (e) => {
     e.preventDefault();
-    console.log("ZoomBg reaktiv hodisasi ulandi");
 
     if (e.target === zoomBg) {
       zoomCard.classList.remove("zoom");
@@ -246,7 +236,6 @@ function activateListModal() {
   cards.forEach((card) => {
     card.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log("card elementlari hodisalari ulandi");
 
       zoomCard.innerHTML = card.innerHTML;
       zoomCard.appendChild(zoomClose);
