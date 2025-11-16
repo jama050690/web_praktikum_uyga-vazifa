@@ -3,21 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-Comm – Cart</title>
+    <title>Cart Page – E-Comm</title>
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
 
   <body>
-    <!-- HEADER (SENING ORIGINAL KODING) -->
+    <!-- HEADER (xuddi index.html dagidek) -->
     <header>
       <section class="header_intro">
         <div class="container">
           <div class="intro_box">
             <div class="intro_block">
-              <div class="dropdown"><button class="dropbtn">EN ▼</button></div>
-              <div class="dropdown"><button class="dropbtn">USD ▼</button></div>
+              <div class="dropdown">
+                <button class="dropbtn">EN ▼</button>
+              </div>
+              <div class="dropdown">
+                <button class="dropbtn">USD ▼</button>
+              </div>
             </div>
 
             <ul class="intro_list">
@@ -40,74 +48,90 @@
                 </div>
               </li>
 
-              <li><button class="login">Login</button></li>
+              <li>
+                <button class="login">
+                  Login
+                  <img src="./images/next.svg" alt="Next" />
+                </button>
+              </li>
             </ul>
           </div>
         </div>
       </section>
 
+      <!-- NAV -->
       <section class="header_hero">
         <div class="container">
           <div class="hero_content">
             <div class="logo">
-              <img src="./images/hero_logo.svg" />
+              <img src="./images/hero_logo.svg" alt="Logo" />
               <p class="loto_text">E-Comm</p>
             </div>
 
             <ul class="hero_list">
-              <li><a href="index.html">HOME</a></li>
-              <li><a>BAGS</a></li>
-              <li><a>SNEAKERS</a></li>
-              <li><a>BELT</a></li>
-              <li><a>CONTACT</a></li>
+              <li class="hero_list_item">
+                <a href="index.html"><span class="kok">HOME</span></a>
+              </li>
+              <li class="hero_list_item"><a href="#">BAGS</a></li>
+              <li class="hero_list_item"><a href="#">SNEAKERS</a></li>
+              <li class="hero_list_item"><a href="#">BELT</a></li>
+              <li class="hero_list_item"><a href="#">CONTACT</a></li>
             </ul>
           </div>
         </div>
       </section>
     </header>
 
-    <!-- ===== CART PAGE ===== -->
-    <section class="cart-page container">
-      <h2 class="cart-title">Shopping Cart</h2>
+    <!-- CART PAGE -->
+    <main>
+      <section class="cart-page">
+        <div class="container">
+          <h2 class="cart-title">Shopping Cart</h2>
 
-      <div class="cart-table-header">
-        <p>PRODUCT</p>
-        <p>PRICE</p>
-        <p>QTY</p>
-        <p>UNIT PRICE</p>
-      </div>
+          <div class="cart-table-header">
+            <p>PRODUCT</p>
+            <p>PRICE</p>
+            <p>QTY</p>
+            <p>UNIT PRICE</p>
+          </div>
 
-      <div class="cart-items"></div>
+          <div class="cart-items"></div>
 
-      <!-- SUMMARY -->
-      <div class="cart-summary">
-        <p><span>Subtotal</span> <b class="subtotal">$0</b></p>
-        <p><span>Shipping fee</span> <b>$20</b></p>
-        <p><span>Coupon</span> <b>No</b></p>
+          <div class="cart-summary">
+            <p><span>Subtotal</span> <b class="subtotal">$0</b></p>
+            <p><span>Shipping fee</span> <b>$20</b></p>
+            <p><span>Coupon</span> <b>No</b></p>
 
-        <h3 class="summary-total">TOTAL <span class="total">$20</span></h3>
+            <h3>
+              TOTAL
+              <span class="total">$20</span>
+            </h3>
 
-        <div class="coupon-box">
-          <input type="text" placeholder="Voucher code" />
-          <button class="redeem">Redeem</button>
+            <div class="coupon-box">
+              <input type="text" placeholder="Voucher code" />
+              <button class="redeem">Redeem</button>
+            </div>
+
+            <button class="checkout-btn">Check out</button>
+          </div>
         </div>
+      </section>
+    </main>
 
-        <button class="checkout-btn">Check out</button>
-      </div>
-    </section>
-
-    <!-- FOOTER ORIGINAL SENIKI KELADI -->
+    <!-- FOOTER (index.html dagidek) -->
     <footer>
       <section class="footer_intro">
         <div class="container">
           <div class="footer_block">
             <ul class="footer_list">
               <li class="footer_logo_row">
-                <img src="./images/hero_logo.svg" />
+                <img src="./images/hero_logo.svg" alt="Logo" />
                 <span>E-Comm</span>
               </li>
               <li class="footer_list_items_text">
-                Lorem Ipsum is simply dummy text of the printing...
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever. Since the 1500s, when an unknown printer.
               </li>
             </ul>
 
@@ -115,9 +139,9 @@
               <ul>
                 <li class="footer_list_item">Follow us</li>
                 <li class="footer_list_items_text">
-                  Since the 1500s, when an unknown printer took...
+                  Since the 1500s, when an unknown printer took a galley of type
+                  and scrambled.
                 </li>
-
                 <ul class="footer_icons">
                   <li><i class="fa-brands fa-facebook-f"></i></li>
                   <li><i class="fa-solid fa-dove"></i></li>
@@ -127,9 +151,23 @@
               <ul>
                 <li class="footer_list_item">Contact Us</li>
                 <li class="footer_item_discreption">
-                  E-Comm, 4578 Marmora Road, Glasgow D04 89GR
+                  E-Comm , 4578 Marmora Road, Glasgow D04 89GR
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="footer_end">
+        <div class="container">
+          <div class="footer_box">
+            <img class="footer_box_img" src="./images/enn_text.png" alt="Img" />
+            <div>
+              <img src="./images/Western-union.png" alt="img" />
+              <img src="./images/master_card.png" alt="img" />
+              <img src="./images/Paypal.png" alt="img" />
+              <img src="./images/visa_card.png" alt="Img" />
             </div>
           </div>
         </div>

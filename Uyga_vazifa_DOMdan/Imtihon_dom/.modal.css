@@ -1,39 +1,44 @@
 .cart-page {
-  padding-top: 50px;
+  padding: 50px 0 120px;
+  background: #ffffff;
 }
 
 .cart-title {
-  font-size: 28px;
+  font-size: 26px;
+  font-weight: 600;
   margin-bottom: 30px;
-  font-weight: 700;
 }
 
+/* HEADER ROW */
 .cart-table-header {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  border-bottom: 2px solid #e5e5e5;
-  padding: 15px 0;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr;
+  padding: 15px 10px;
+  border-bottom: 2px solid #e6e6e6;
   font-weight: 600;
   color: #7e7e7e;
 }
 
+/* EACH ITEM ROW */
 .cart-item {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  padding: 20px 0;
-  border-bottom: 1px solid #ececec;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr;
+  padding: 20px 10px;
+  border-bottom: 1px solid #eeeeee;
   align-items: center;
 }
 
+/* LEFT SIDE: remove + img + title */
 .cart-info {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .cart-info img {
-  width: 90px;
+  width: 120px;
   height: auto;
+  object-fit: cover;
 }
 
 .remove-btn {
@@ -42,6 +47,12 @@
   cursor: pointer;
 }
 
+/* LINE ITEM TEXT */
+.cart-item p {
+  font-size: 16px;
+}
+
+/* QTY BUTTONS */
 .cart-qty {
   display: flex;
   align-items: center;
@@ -49,40 +60,57 @@
 }
 
 .cart-qty button {
-  width: 26px;
+  width: 30px;
   height: 26px;
+  border-radius: 4px;
   border: 1px solid #ccc;
-  background: white;
+  background: #fff;
   cursor: pointer;
 }
 
+/* SUMMARY BLOCK */
 .cart-summary {
-  width: 300px;
+  width: 320px;
   margin-left: auto;
-  padding-top: 30px;
+  margin-top: 40px;
 }
 
 .cart-summary p {
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 6px 0;
 }
 
-.summary-total {
-  margin-top: 20px;
-  font-size: 22px;
+.cart-summary h3 {
   display: flex;
   justify-content: space-between;
+  margin-top: 18px;
+  font-size: 24px;
 }
 
+/* COUPON + BUTTON */
+.coupon-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.coupon-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* CHECKOUT BUTTON */
 .checkout-btn {
   margin-top: 20px;
   width: 100%;
-  background: #3a8dff;
+  padding: 14px;
   border: none;
-  padding: 12px;
-  color: white;
-  font-size: 16px;
   border-radius: 6px;
+  background: #33a0ff;
+  color: #fff;
+  font-size: 16px;
   cursor: pointer;
 }
