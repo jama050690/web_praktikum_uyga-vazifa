@@ -22,6 +22,10 @@ darkEl.addEventListener("click", () => {
   localStorage.setItem("mode", isDark ? "dark" : "light");
   applyMode();
 });
+// login section
+document.querySelector(".login").addEventListener("click", () => {
+  window.location.href = "./login/index.html";
+});
 
 // ============== CART LOCALSTORAGE ==============
 let cart = JSON.parse(localStorage.getItem("cart") || "[]");

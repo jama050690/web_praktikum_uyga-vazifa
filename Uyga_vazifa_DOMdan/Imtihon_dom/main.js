@@ -140,32 +140,3 @@ cartIcon.addEventListener("click", () => {
   window.location.href = "./modal/cart.html";
 });
 console.log(location.pathname);
-// function attachAddToCartHandlers(products) {
-//   document.querySelectorAll(".add-to-cart").forEach((btn) => {
-//     btn.addEventListener("click", (e) => {
-//       e.stopPropagation();
-//       const id = Number(btn.dataset.id);
-//       const product = products.find((p) => p.id === id);
-//       if (!product) return;
-
-//       const existing = cart.find((item) => item.id === id);
-//       if (existing) {
-//         existing.qty += 1;
-//       } else {
-//         cart.push({
-//           id: product.id,
-//           title: product.title,
-//           price: product.price,
-//           image: product.image,
-//           qty: 1,
-//         });
-//       }
-
-//       saveCart();
-//       updateHeaderCart();
-//     });
-//   });
-// }
-
-// // initial load
-// fetchCatalog("all");
