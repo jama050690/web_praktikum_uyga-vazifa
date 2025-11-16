@@ -44,11 +44,12 @@ function renderProducts(data) {
       (item) => `
       <li class="seller_list_two_items">
       <img src="${item.image}" alt="${item.title}" />
-      <div class="seller_card_body">
+      <div class="seller_box">
       <p class="seller_list_two_items_text">
       ${item.title}
       </p>
       <img src="./images/Stars.svg" alt="Stars" />
+      </div>
       <div class="seller_text">
       <p class="narx">$${(item.price * 1.8).toFixed(2)}</p>
       <p class="skidka"><b>24% Off</b></p>
@@ -56,8 +57,7 @@ function renderProducts(data) {
       <b>$${item.price.toFixed(2)}</b>
       </p>
       <button class="add-cart" data-id="${item.id}">🛒</button>
-      </div>
-      </div>
+          </div>
       </li>
       `
     )
