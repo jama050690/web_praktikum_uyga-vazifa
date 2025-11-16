@@ -137,6 +137,6 @@ function attachAddToCartHandlers(data) {
 updateHeaderCart();
 
 cartIcon.addEventListener("click", () => {
-  window.location.href = "./modal/cart.html";
+  window.location.href = "./modal.html";
 });
 console.log(location.pathname);

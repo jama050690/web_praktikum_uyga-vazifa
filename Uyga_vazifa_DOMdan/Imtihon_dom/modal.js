@@ -94,7 +94,7 @@ function updateSummary() {
   const subtotal = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
 
   subtotalEl.textContent = "$" + subtotal.toFixed(2);
-  totalEl.textContent = "$" + (subtotal + 20).toFixed(2); // shipping 20
+  totalEl.textContent = "$" + (subtotal + 20).toFixed(2);
 }
 
 // ============== EVENT DELEGATION (remove / qty) ==============
