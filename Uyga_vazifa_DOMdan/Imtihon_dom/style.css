@@ -440,6 +440,13 @@ header {
   font-weight: 700;
   font-size: 16px;
 }
+.seller_text {
+  display: flex;
+  justify-content: space-around;
+}
+.add-cart:active {
+  background-color: red;
+}
 
 .seller_link {
   font-family: var(--font-family);

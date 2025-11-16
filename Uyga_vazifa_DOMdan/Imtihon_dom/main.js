@@ -3,11 +3,11 @@ const sun = document.querySelector(".dark_note_2");
 const moon = document.querySelector(".dark_note_1");
 const seller_list_item = document.querySelectorAll(".seller_list_item");
 const seller_list_two = document.querySelector(".seller_list_two");
-const url = "https://fake-store-six-peach.vercel.app";
-const cartIcon = document.querySelector(".cart-icon");
+const cartIcon = document.querySelector(".intro_list_item");
 const badgeEl = document.querySelector(".doira");
 const headerTotalEl = document.querySelector(".total-header");
 
+const url = "https://fake-store-six-peach.vercel.app";
 // dark mode
 var isDark = false;
 
@@ -43,23 +43,23 @@ function renderProducts(data) {
     .map(
       (item) => `
       <li class="seller_list_two_items">
-        <img src="${item.image}" alt="${item.title}" />
-        <div class="seller_card_body">
-          <p class="seller_list_two_items_text">
-            ${item.title}
-          </p>
-          <img src="./images/Stars.svg" alt="Stars" />
-          <div class="seller_text">
-            <p class="narx">$${(item.price * 1.8).toFixed(2)}</p>
-            <p class="skidka"><b>24% Off</b></p>
-            <button class="add-cart" data-id="${item.id}">🛒</button>
-          </div>
-          <p class="price">
-            <b>$${item.price.toFixed(2)}</b>
-          </p>
-        </div>
+      <img src="${item.image}" alt="${item.title}" />
+      <div class="seller_card_body">
+      <p class="seller_list_two_items_text">
+      ${item.title}
+      </p>
+      <img src="./images/Stars.svg" alt="Stars" />
+      <div class="seller_text">
+      <p class="narx">$${(item.price * 1.8).toFixed(2)}</p>
+      <p class="skidka"><b>24% Off</b></p>
+      <p class="price">
+      <b>$${item.price.toFixed(2)}</b>
+      </p>
+      <button class="add-cart" data-id="${item.id}">🛒</button>
+      </div>
+      </div>
       </li>
-    `
+      `
     )
     .join("");
 
@@ -89,9 +89,9 @@ seller_list_item.forEach((li) => {
     fetchCatalog(category);
   });
 });
+fetchCatalog("all");
 
 // localga ma'lumot uzatish
-
 let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
 function saveCart() {
@@ -106,12 +106,40 @@ function updateHeaderCart() {
   headerTotalEl.textContent = "$ " + totalPrice.toFixed(2);
 }
 
+function attachAddToCartHandlers(data) {
+  const btns = document.querySelectorAll(".add-cart");
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = parseInt(btn.dataset.id);
+      const product = data.find((p) => p.id === id);
+
+      let existing = cart.find((p) => p.id === id);
+
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          title: product.title,
+          price: product.price,
+          qty: 1,
+          image: product.image,
+        });
+      }
+
+      saveCart();
+      updateHeaderCart();
+    });
+  });
+}
+
 updateHeaderCart();
 
 cartIcon.addEventListener("click", () => {
-  window.location.href = "modal";
+  window.location.href = "./modal/cart.html";
 });
-
+console.log(location.pathname);
 // function attachAddToCartHandlers(products) {
 //   document.querySelectorAll(".add-to-cart").forEach((btn) => {
 //     btn.addEventListener("click", (e) => {
