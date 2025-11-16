@@ -1,4 +1,3 @@
-// ============== DARK MODE (xuddi main.js dagidek) ==============
 const darkEl = document.querySelector(".dark");
 const sun = document.querySelector(".dark_note_2");
 const moon = document.querySelector(".dark_note_1");
