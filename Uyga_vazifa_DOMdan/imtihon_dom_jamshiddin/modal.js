@@ -1,7 +1,7 @@
 const darkEl = document.querySelector(".dark");
 const sun = document.querySelector(".dark_note_2");
 const moon = document.querySelector(".dark_note_1");
-
+const cartIcon = document.querySelector(".cart-icon");
 let isDark = localStorage.getItem("mode") === "dark";
 
 function applyMode() {
@@ -124,3 +124,9 @@ cartItemsEl.addEventListener("click", (e) => {
 });
 
 renderCart();
+
+// index.html ga ya'ni asosiy menyuga qaytish
+cartIcon.addEventListener("click", () => {
+  window.location.href = "./index.html";
+});
+console.log(location.pathname);

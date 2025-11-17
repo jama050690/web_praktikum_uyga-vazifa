@@ -1,6 +1,52 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* root */
+:root {
+  --font-family: "Poppins", sans-serif;
+  --bgc-item: #e3e3e3;
+  --bg: #ffffff;
+  --bgc: #ffffff;
+  --text-color: #202c36;
+}
+
+.dark_mode {
+  --bgc-item: #2b3945;
+  --bg: #202c36;
+  --bgc: #2b3945;
+  --text-color: #ffffff;
+}
+
 .cart-page {
+  position: relative;
   padding: 50px 0 120px;
-  background: #ffffff;
+  background: var(--bgc);
 }
 
 .cart-title {
@@ -16,7 +62,8 @@
   padding: 15px 10px;
   border-bottom: 2px solid #e6e6e6;
   font-weight: 600;
-  color: #7e7e7e;
+  background: var(--bgc-item);
+  color: var(--text-color);
 }
 
 /* EACH ITEM ROW */
@@ -26,6 +73,7 @@
   padding: 20px 10px;
   border-bottom: 1px solid #eeeeee;
   align-items: center;
+  background: var(--bgc);
 }
 
 /* LEFT SIDE: remove + img + title */
@@ -64,15 +112,17 @@
   height: 26px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  background: #fff;
+  background: var(--bg);
   cursor: pointer;
 }
 
 /* SUMMARY BLOCK */
 .cart-summary {
   width: 320px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   margin-left: auto;
   margin-top: 40px;
+  background: var(--bgc);
 }
 
 .cart-summary p {
@@ -90,27 +140,38 @@
 
 /* COUPON + BUTTON */
 .coupon-box {
+  width: 369px;
+  height: 60px;
+  position: absolute;
+  top: 60%;
+  right: 29%;
   display: flex;
+  align-items: center;
   gap: 10px;
   margin-top: 18px;
 }
 
 .coupon-box input {
+  width: 248px;
+  height: 100%;
   flex: 1;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 6px 0 0 6px;
   border: 1px solid #ddd;
+  border-right: none;
 }
 
 /* CHECKOUT BUTTON */
-.checkout-btn {
-  margin-top: 20px;
-  width: 100%;
+.redeem {
+  margin-left: -12px;
+  border-left: none;
+  width: 118px;
+  height: 60px;
   padding: 14px;
   border: none;
-  border-radius: 6px;
+  border-radius: 0 6px 6px 0;
   background: #33a0ff;
-  color: #fff;
+  color: var(--text-color);
   font-size: 16px;
   cursor: pointer;
 }
