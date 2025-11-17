@@ -459,28 +459,6 @@ header {
   margin: 15px;
 }
 
-/* .cupon_input {
-  width: 248px;
-  flex: 1;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-
-/* CHECKOUT BUTTON */
-.redeem {
-  padding: 19px 21px 15px 21px;
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 18px;
-  background: #33a0ff;
-  color: #fff;
-  cursor: pointer;
-}
-*/
-
-
-
 /* Faqat mahsulot rasmi */
 .seller_list_two_items > img {
   width: 100%;
