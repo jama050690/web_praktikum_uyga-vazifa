@@ -46,7 +46,7 @@ body {
 .cart-page {
   position: relative;
   padding: 50px 0 120px;
-  background: var(--bgc);
+  background: var(--bg);
 }
 
 .cart-title {
@@ -118,7 +118,8 @@ body {
 
 /* SUMMARY BLOCK */
 .cart-summary {
-  width: 320px;
+  width: 374px;
+  margin-right: 169px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   margin-left: auto;
   margin-top: 40px;
@@ -138,13 +139,12 @@ body {
   font-size: 24px;
 }
 
-/* COUPON + BUTTON */
 .coupon-box {
   width: 369px;
   height: 60px;
   position: absolute;
-  top: 60%;
-  right: 28%;
+  top: 56%;
+  right: 42%;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -161,7 +161,6 @@ body {
   border-right: none;
 }
 
-/* CHECKOUT BUTTON */
 .redeem {
   margin-left: -12px;
   border-left: none;
@@ -174,4 +173,16 @@ body {
   color: var(--text-color);
   font-size: 16px;
   cursor: pointer;
+}
+
+/* CHECKOUT BUTTON */
+.checkout-btn {
+  width: 374px;
+  height: 60px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--text-color);
+  border-radius: 6px;
+  background-color: #33a0ff;
 }
