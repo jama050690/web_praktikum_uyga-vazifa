@@ -119,6 +119,7 @@ header {
 
 .intro_list_item {
   position: relative;
+  cursor: pointer;
 }
 
 .doira {
@@ -133,6 +134,9 @@ header {
   color: #fff;
   text-align: center;
   line-height: 18px;
+}
+.doira:active {
+  color: rebeccapurple;
 }
 .dark {
   background: var(--bgc);
@@ -385,6 +389,7 @@ header {
   font-weight: 400;
   font-size: 16px;
   color: var(--text-color);
+  cursor: pointer;
 }
 
 .active {
@@ -458,7 +463,12 @@ header {
   font-weight: 700;
   color: #33a0ff;
 }
-
+.add-cart {
+  cursor: pointer;
+}
+.add-cart:active {
+  background-color: red;
+}
 .seller_link {
   position: relative;
   font-family: var(--font-family);
