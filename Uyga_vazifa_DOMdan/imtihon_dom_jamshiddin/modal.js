@@ -125,8 +125,16 @@ cartItemsEl.addEventListener("click", (e) => {
 
 renderCart();
 
-// index.html ga ya'ni asosiy menyuga qaytish
-cartIcon.addEventListener("click", () => {
-  window.location.href = "./index.html";
-});
-console.log(location.pathname);
+if (cartIcon) {
+  cartIcon.addEventListener("click", () => {
+    const loadingEl = document.getElementById("loading");
+
+    if (loadingEl) {
+      loadingEl.style.display = "block";
+    }
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 500);
+  });
+}

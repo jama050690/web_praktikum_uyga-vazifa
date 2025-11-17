@@ -136,7 +136,16 @@ function attachAddToCartHandlers(data) {
 
 updateHeaderCart();
 
-cartIcon.addEventListener("click", () => {
-  window.location.href = "./modal.html";
-});
-console.log(location.pathname);
+if (cartIcon) {
+  cartIcon.addEventListener("click", () => {
+    const loadingEl = document.getElementById("loading");
+
+    if (loadingEl) {
+      loadingEl.style.display = "block";
+    }
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 500);
+  });
+}

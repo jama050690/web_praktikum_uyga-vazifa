@@ -94,7 +94,9 @@ body {
   color: red;
   cursor: pointer;
 }
-
+.remove-btn:active {
+  opacity: 0.7;
+}
 /* LINE ITEM TEXT */
 .cart-item p {
   font-size: 16px;
@@ -162,7 +164,7 @@ body {
 }
 
 .redeem {
-  margin-left: -12px;
+  margin-left: -10px;
   border-left: none;
   width: 118px;
   height: 60px;
@@ -173,6 +175,9 @@ body {
   color: var(--text-color);
   font-size: 16px;
   cursor: pointer;
+}
+.redeem:active {
+  border: 2px solid black;
 }
 
 /* CHECKOUT BUTTON */
@@ -185,4 +190,20 @@ body {
   color: var(--text-color);
   border-radius: 6px;
   background-color: #33a0ff;
+  cursor: pointer;
+  border: none;
+}
+.checkout-btn:active {
+  color: red;
+}
+#loading {
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  z-index: 999999;
 }
