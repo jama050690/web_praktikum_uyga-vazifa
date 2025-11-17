@@ -308,7 +308,6 @@ header {
   display: flex;
   z-index: 9999;
 }
-
 .banner_img {
   width: 100%;
   z-index: 0;
@@ -341,14 +340,47 @@ header {
   display: block;
   margin: -70px 0;
 }
-.banner_item_text {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+.narx_1 {
+  left: 53px;
+}
+.narx_2 {
+  bottom: 30px;
+  left: 143px;
+}
+.narx_3 {
+  left: 53px;
+  top: 102px;
 }
 
-.narx {
+.banner_card_skidka_1 {
+  left: 100px;
+}
+.banner_card_skidka_2 {
+  left: 226px;
+  bottom: 30px;
+}
+.banner_card_skidka_3 {
+  left: 140px;
+  top: 102px;
+}
+.asl_narx_1 {
+  bottom: 40px;
+  right: 15px;
+}
+
+.asl_narx_2 {
+  top: 21px;
+  right: 37px;
+}
+
+.asl_narx_3 {
+  bottom: 15px;
+  right: 33px;
+}
+.narx_1,
+.narx_2,
+.narx_3 {
+  position: absolute;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 18px;
@@ -357,8 +389,10 @@ header {
   text-decoration: line-through;
   color: #9098b1;
 }
-
-.skidka {
+.banner_card_skidka_1,
+.banner_card_skidka_2,
+.banner_card_skidka_3 {
+  position: absolute;
   font-family: var(--font-family);
   font-weight: 700;
   font-size: 18px;
@@ -366,8 +400,10 @@ header {
   letter-spacing: 0.03em;
   color: #fb7181;
 }
-
-.asl_narx {
+.asl_narx_1,
+.asl_narx_2,
+.asl_narx_3 {
+  position: absolute;
   font-family: var(--font3);
   font-weight: 700;
   font-size: 30px;
@@ -375,27 +411,12 @@ header {
   letter-spacing: 0.02em;
   color: #40bfff;
 }
-.one {
-  position: absolute;
-}
-.a {
-  position: absolute;
-  bottom: 20px;
-}
-.two {
-  top: 8px;
-}
-
-.three {
-  bottom: 55px;
-}
 
 /* SELLER SECTION */
 .seller {
   padding-top: 260px; /* banner karta pastda turgani uchun */
   padding-bottom: 113px;
 }
-
 .seller_title {
   font-family: var(--font-family);
   font-weight: 600;
@@ -404,14 +425,12 @@ header {
   text-align: center;
   margin-bottom: 26px;
 }
-
 .seller_list {
   display: flex;
   justify-content: center;
   gap: 30px;
   margin-bottom: 23px;
 }
-
 .seller_list_item {
   font-family: var(--font-family);
   font-weight: 400;
@@ -419,7 +438,6 @@ header {
   color: var(--text-color);
   cursor: pointer;
 }
-
 .active {
   color: #33a0ff;
 }
