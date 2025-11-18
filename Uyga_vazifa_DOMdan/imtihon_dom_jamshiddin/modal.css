@@ -30,14 +30,12 @@ body {
 /* root */
 :root {
   --font-family: "Poppins", sans-serif;
-  --bgc-item: #e3e3e3;
   --bg: #ffffff;
   --bgc: #ffffff;
   --text-color: #202c36;
 }
 
 .dark_mode {
-  --bgc-item: #2b3945;
   --bg: #202c36;
   --bgc: #2b3945;
   --text-color: #ffffff;
@@ -62,7 +60,7 @@ body {
   padding: 15px 10px;
   border-bottom: 2px solid #e6e6e6;
   font-weight: 600;
-  background: var(--bgc-item);
+  background: var(--bgc);
   color: var(--text-color);
 }
 

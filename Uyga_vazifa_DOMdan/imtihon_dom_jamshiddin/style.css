@@ -27,11 +27,13 @@ body {
   --font-family: "Poppins", sans-serif;
   --bgc-item: #e3e3e3;
   --bg: #ffffff;
+  --dark-mode: #000;
   --bgc: #ffffff;
   --text-color: #202c36;
 }
 
 .dark_mode {
+  --dark-mode: #fff;
   --bgc-item: #2b3945;
   --bg: #202c36;
   --bgc: #2b3945;
@@ -141,7 +143,7 @@ header {
   color: rebeccapurple;
 }
 .dark {
-  background: var(--bgc);
+  background: var(--bg);
   display: flex;
   border-radius: 100px;
   justify-content: center;
@@ -156,12 +158,18 @@ header {
   cursor: pointer;
   transition: 0.5s;
   border-radius: 100px;
-  width: 58px;
-  height: 58px;
+  width: 34px;
+  height: 34px;
 }
 
+.dark_note_1 {
+  color: #000;
+  background: var(--bg);
+}
 .dark_note_2 {
   display: none;
+  background: var(--bg);
+  color: var(--text-color);
 }
 .dark_mode {
   background-color: var(--bg);
@@ -169,7 +177,6 @@ header {
 }
 
 .light_mode {
-  background-color: var(--bgc);
   color: var(--text-color);
 }
 
@@ -315,14 +322,19 @@ header {
   display: block;
 }
 .banner_list_item {
-  background: var(--bgc-item);
+  background: var(--bgc);
   border-radius: 12px;
   padding: 31px 6px 15px 13px;
   position: relative;
   overflow: hidden;
   text-align: center;
+  transition: 0.5s;
   list-style: none;
   width: 417px;
+  cursor: pointer;
+}
+.banner_list_item:hover {
+  transform: scale(1.25);
 }
 .banner_item_title {
   max-width: 202px;
@@ -457,6 +469,10 @@ header {
   padding: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   margin: 15px;
+  cursor: pointer;
+}
+.seller_list_two_items:hover {
+  transform: scale(1.35);
 }
 
 /* Faqat mahsulot rasmi */
