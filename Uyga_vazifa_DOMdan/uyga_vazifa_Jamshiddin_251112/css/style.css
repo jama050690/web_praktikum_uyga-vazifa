@@ -993,6 +993,9 @@ body.light_mode .service_items_two:nth-child(3)::after {
   cursor: pointer;
 }
 
+.btn-arrow:active {
+  background-color: var(--btn-color);
+}
 #carusel-btn-list-left {
   position: absolute;
   bottom: 2rem;
