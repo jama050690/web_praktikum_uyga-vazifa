@@ -6,18 +6,26 @@ const seller_list_two = document.querySelector(".seller_list_two");
 const cartIcon = document.querySelector(".intro_list_item");
 const badgeEl = document.querySelector(".doira");
 const headerTotalEl = document.querySelector(".total-header");
-
 const url = "https://fake-store-six-peach.vercel.app";
+const MODE = "mode";
 // dark mode
 var isDark = false;
 
 darkEl.addEventListener("click", (e) => {
   e.preventDefault();
   isDark = !isDark;
-  localStorage.setItem("mode", `${isDark}`);
+  localStorage.setItem(MODE, `${isDark}`);
   changeMode();
 });
-
+document.addEventListener("DOMContentLoaded", (e) => {
+  e.preventDefault();
+  const currentMode = localStorage.getItem(MODE);
+  if (currentMode) {
+    isDark = currentMode == "true";
+    console.log("current mode", currentMode);
+    changeMode();
+  }
+});
 const changeMode = () => {
   if (isDark) {
     document.body.classList.add("dark_mode");

@@ -2,7 +2,8 @@ const darkEl = document.querySelector(".dark");
 const sun = document.querySelector(".dark_note_2");
 const moon = document.querySelector(".dark_note_1");
 const cartIcon = document.querySelector(".cart-icon");
-let isDark = localStorage.getItem("mode") === "dark";
+const MODE = "mode";
+var isDark = false;
 
 function applyMode() {
   if (isDark) {
@@ -19,8 +20,18 @@ applyMode();
 
 darkEl.addEventListener("click", () => {
   isDark = !isDark;
-  localStorage.setItem("mode", isDark ? "dark" : "light");
+  localStorage.setItem(MODE, `${isDark}`);
   applyMode();
+});
+
+document.addEventListener("DOMContentLoaded", (e) => {
+  e.preventDefault();
+  const currentMode = localStorage.getItem(MODE);
+  if (currentMode) {
+    isDark = currentMode == "true";
+    console.log("current mode", currentMode);
+    applyMode();
+  }
 });
 // login section
 document.querySelector(".login").addEventListener("click", () => {
