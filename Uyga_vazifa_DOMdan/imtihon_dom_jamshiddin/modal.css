@@ -144,9 +144,6 @@ body {
 .coupon-box {
   width: 369px;
   height: 60px;
-  position: absolute;
-  top: 56%;
-  right: 42%;
   display: flex;
   align-items: center;
   gap: 10px;
