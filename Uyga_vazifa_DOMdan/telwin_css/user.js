@@ -98,20 +98,3 @@ document
 
     console.log("Image saved at:", data.url);
   });
-
-const fileInput = document.getElementById("uploadImg");
-
-fileInput.addEventListener("change", async (e) => {
-  const file = e.target.files[0];
-  const formData = new FormData();
-  formData.append("image", file);
-
-  const res = await fetch("http://localhost:3001/upload", {
-    method: "POST",
-    body: formData,
-  });
-
-  const data = await res.json();
-
-  console.log("Saved:", data);
-});
