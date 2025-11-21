@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-      <div class="container px-5 bg-[var(--bgc)] mx-auto">
+      <div class="container px-5 mx-auto">
         <section class="flex items-center justify-between py-4.5">
           <div class="flex items-center gap-4">
             <img src="./images/Logo.svg" alt="Logo" />
@@ -95,10 +95,11 @@
             </button>
 
             <button
-              class="login flex items-center justify-center gap-3 leading-6 cursor-pointer rounded-full bg-[var(--login-color)] text-[var(--login-text)] px-8 py-4 text-white"
+              id="logoutBtn"
+              class="flex items-center justify-center gap-3 leading-6 cursor-pointer rounded-full bg-[var(--login-color)] text-[var(--login-text)] px-8 py-4 text-white"
             >
-              <span>Login</span>
-              <img class="w-5 h-5" src="/images/Login.svg" alt="Next" />
+              <span>Logout</span>
+              <i class="fa-solid fa-right-from-bracket"></i>
             </button>
           </div>
         </section>
@@ -107,18 +108,16 @@
 
     <main>
       <div class="container w-[1240px] mx-auto px-5">
-        <div class="bg-[var(--bgc)]">
-          <h1
-            class="text-5xl font-family:[var(--font-family)] text-[var(--text-color)] text-center my-5 font-bold"
-          >
-            <b> Hello!</b>
-          </h1>
-          <p
-            class="text-center text-[var(--text-color)] text-2xl my-4 font-family:[var(--font-family)]"
-          >
-            I'm a creative <span id="lang"></span> web developer
-          </p>
-        </div>
+        <h1
+          class="text-5xl font-family:[var(--font-family)] text-[var(--text-color)] text-center my-5 font-bold"
+        >
+          <b> Hello!</b>
+        </h1>
+        <p
+          class="text-center text-[var(--text-color)] text-2xl my-4 font-family:[var(--font-family)]"
+        >
+          I'm a creative <span id="lang"></span> web developer
+        </p>
         <div class="flex gap-x-15 items-center">
           <div
             class="my-2 w-full px-5 py-7 shadow-lg bg-[color:var(--bgc)] relative rounded-3xl overflow-hidden"
@@ -139,7 +138,7 @@
             </label>
           </div>
 
-          <div class="my-4 bg-[var(--bgc)] shadow-lg rounded-lg px-5 py-10">
+          <div class="my-4 shadow-lg rounded-lg px-5 py-10">
             <p
               class="text-3xl text-[var(--text-color)] leading-[150%] font-medium font-family:[var(--font-family)]"
             >
@@ -155,9 +154,7 @@
               professional web developer.
             </p>
           </div>
-          <div
-            class="my-4 bg-[var(--bgc)] shadow-lg w-[300px] rounded-lg px-4 py-3"
-          >
+          <div class="my-4 shadow-lg w-[300px] rounded-lg px-4 py-3">
             <p
               class="text-3xl text-[var(--text-color)] my-5 font-family:[var(--font-family)]"
             >
@@ -194,12 +191,6 @@
             id="edit "
           >
             Edit
-          </button>
-          <button
-            class="rounded-full active:bg-red-700 mx-auto cursor-pointer bg-[var(--login-color)] [var(--text-color)] text-center px-10 py-5"
-            id="logout"
-          >
-            Logout
           </button>
         </div>
       </div>

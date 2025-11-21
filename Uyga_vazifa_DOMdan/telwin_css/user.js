@@ -1,5 +1,5 @@
 const nameEl = document.getElementById("name");
-const logoutBtn = document.getElementById("logout");
+const logoutBtn = document.getElementById("logoutBtn");
 const editEl = document.getElementById("edit");
 const darkEl = document.getElementById("dark");
 const modeIcon = document.getElementById("modeIcon");
@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("User not found! Please, login again!");
     window.location.href = "./auth/index.html";
   }
+
   if (currentUser.profileUrl) {
     profile_photoEl.src = currentUser.profileUrl;
   }
@@ -51,11 +52,6 @@ const changeMode = () => {
     modeIcon.src = "/images/Dark_mode.svg";
   }
 };
-
-// login section
-document.querySelector(".login").addEventListener("click", () => {
-  window.location.href = "./auth/index.html";
-});
 
 // logout button
 logoutBtn.addEventListener("click", () => {
