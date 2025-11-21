@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>cars ptoject</title>
+  </head>
+  <body>
+    <header>
+      <div class="container px-5 mx-auto">
+        <section
+          class="flex items-center bg-[var(--bgc)] justify-between py-4.5"
+        >
+          <div class="flex items-center gap-4">
+            <img src="./images/Logo.svg" alt="Logo" />
+            <h1
+              class="text-lg font-medium text-center leading-6 py-4.5 mx-8"
+              style="color: var(--text-color); font-family: var(--font-family)"
+            >
+              Categories
+            </h1>
+          </div>
+          <div class="relative inline-block mx-4 dropdown-menu group">
+            <div class="cursor-pointer nav-text">About Us ▼</div>
+
+            <div
+              class="dropdown-content hidden group-hover:block absolute bg-[var(--bgc)] min-w-[140px] shadow-md rounded-md z-[100]"
+            >
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                About Us
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Company
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Team
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Careers
+              </div>
+            </div>
+          </div>
+
+          <div class="relative inline-block mx-4 dropdown-menu group">
+            <div class="cursor-pointer nav-text">Help Center ▼</div>
+
+            <div
+              class="dropdown-content hidden group-hover:block absolute bg-[var(--bgc)] min-w-[140px] shadow-md rounded-md z-[100]"
+            >
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Help Center
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Helps
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Support
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                FAQs
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <p class="color:var(--text-color)"><b>+998957990034</b></p>
+            <button
+              id="dark"
+              class="cursor-pointer p-3 rounded-full bg-[var(--bgc)]"
+            >
+              <img
+                id="modeIcon"
+                src="/images/Dark_mode.svg"
+                alt="Dark_mode"
+                class="w-6 h-6 transition-all duration-300"
+              />
+            </button>
+
+            <button
+              class="login flex items-center justify-center gap-3 leading-6 cursor-pointer rounded-full bg-[var(--login-color)] text-[var(--login-text)] px-8 py-4 text-white"
+            >
+              <span>Login</span>
+              <img class="w-5 h-5" src="/images/Login.svg" alt="Next" />
+            </button>
+          </div>
+        </section>
+      </div>
+    </header>
+    <main>
+      <div class="container px-5 mx-auto">
+        <div class="banner-box relative w-full h-auto relative"></div>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Find the car of your dreams"
+          class="px-[15px] rounded-[100px] bg-white w-[600px] h-[66px] absolute right-[450px] bottom-[100px] shadow-lg text-gray-800 placeholder:text-gray-400 placeholder:italic"
+        />
+        <img
+          class="absolute left-[66.3%] cursor-pointer bottom-[14.3%]"
+          src="./images/search-lopa.svg"
+          alt="Search"
+        />
+        <section class="car_cards my-[100px]">
+          <div class="bg-[var(--bgc)]">
+            <h2
+              class="text-[36px] font-medium text-center my-1"
+              style="color: var(--text-color); font-family: var(--font-family)"
+            >
+              Choose the car of your dreams
+            </h2>
+            <p class="text-base text-center leading-normal font-semibold">
+              We provide our customers with the most incredible driving
+              emotions.
+              <br />
+              That is why there are only world-class cars in our fleet
+            </p>
+          </div>
+          <ul class="flex justify-center gap-4 my-6">
+            <li
+              class="car_btn active rounded-full py-5 px-10 text-base items-center font-medium cursor-pointer bg-[var(--bgc)] text-[var(--text-color)] font-[var(--font-family)]"
+            >
+              BMW
+            </li>
+            <li
+              class="car_btn rounded-full py-5 px-10 text-base items-center font-medium bg-[var(--bgc)] cursor-pointer text-[var(--text-color)] font-[var(--font-family)]"
+            >
+              Mercedes
+            </li>
+            <li
+              class="car_btn rounded-full py-5 px-10 text-base items-center font-medium bg-[var(--bgc)] cursor-pointer text-[var(--text-color)] font-[var(--font-family)]"
+            >
+              Chevrolet
+            </li>
+            <li
+              class="car_btn rounded-full py-5 px-10 text-base items-center font-medium bg-[var(--bgc)] cursor-pointer text-[var(--text-color)] font-[var(--font-family)]"
+            >
+              Lexus
+            </li>
+          </ul>
+          <ul class="choose_list grid grid-cols-3 gap-5 w-[1200px]"></ul>
+          <button
+            id="viewAllCarsBtn"
+            class="all_btn rounded-full active:bg-red-700 py-5 px-10 text-base flex justify-center mx-auto my-10 font-medium cursor-pointer bg-[var(--login-color)] text-[var(--text-color)]"
+          >
+            View all cars
+          </button>
+        </section>
+      </div>
+    </main>
+    <script src="./main.js"></script>
+  </body>
+</html>

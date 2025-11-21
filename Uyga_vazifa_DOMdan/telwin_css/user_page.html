@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/output.css" />
+    <title>User Profile</title>
+  </head>
+  <body>
+    <header>
+      <div class="container px-5 bg-[var(--bgc)] mx-auto">
+        <section class="flex items-center justify-between py-4.5">
+          <div class="flex items-center gap-4">
+            <img src="./images/Logo.svg" alt="Logo" />
+            <h1
+              class="text-lg font-medium text-center leading-6 py-4.5 mx-8"
+              style="color: var(--text-color); font-family: var(--font-family)"
+            >
+              Categories
+            </h1>
+          </div>
+          <div class="relative inline-block mx-4 dropdown-menu group">
+            <div class="cursor-pointer nav-text">About Us ▼</div>
+
+            <div
+              class="dropdown-content hidden group-hover:block absolute bg-[var(--bgc)] min-w-[140px] shadow-md rounded-md z-[100]"
+            >
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                About Us
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Company
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Team
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Careers
+              </div>
+            </div>
+          </div>
+
+          <div class="relative inline-block mx-4 dropdown-menu group">
+            <div class="cursor-pointer nav-text">Help Center ▼</div>
+
+            <div
+              class="dropdown-content hidden group-hover:block absolute bg-[var(--bgc)] min-w-[140px] shadow-md rounded-md z-[100]"
+            >
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Help Center
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Helps
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                Support
+              </div>
+              <div
+                class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
+              >
+                FAQs
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <p class="color:var(--text-color)"><b>+998957990034</b></p>
+            <button
+              id="dark"
+              class="cursor-pointer p-3 rounded-full bg-[var(--bgc)]"
+            >
+              <img
+                id="modeIcon"
+                src="/images/Dark_mode.svg"
+                alt="Dark_mode"
+                class="w-6 h-6 transition-all duration-300"
+              />
+            </button>
+
+            <button
+              class="login flex items-center justify-center gap-3 leading-6 cursor-pointer rounded-full bg-[var(--login-color)] text-[var(--login-text)] px-8 py-4 text-white"
+            >
+              <span>Login</span>
+              <img class="w-5 h-5" src="/images/Login.svg" alt="Next" />
+            </button>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main>
+      <div class="container w-[1240px] mx-auto px-5">
+        <div class="bg-[var(--bgc)]">
+          <h1
+            class="text-5xl font-family:[var(--font-family)] text-[var(--text-color)] text-center my-5 font-bold"
+          >
+            <b> Hello!</b>
+          </h1>
+          <p
+            class="text-center text-[var(--text-color)] text-2xl my-4 font-family:[var(--font-family)]"
+          >
+            I'm a creative <span id="lang"></span> web developer
+          </p>
+        </div>
+        <div class="flex gap-x-15 items-center">
+          <div
+            class="my-2 w-full px-5 py-7 shadow-lg bg-[color:var(--bgc)] relative rounded-3xl overflow-hidden"
+          >
+            <img
+              id="previewImage"
+              class="w-[400px] h-[300px] rounded-3xl object-cover"
+              src="./images/no_img.jpg"
+            />
+
+            <input type="file" id="uploadImg" accept="image/*" class="hidden" />
+
+            <label
+              for="uploadImg"
+              class="cursor-pointer px-4 py-2 absolute bottom-4 left-1/2 -translate-x-1/2 bg-blue-500 text-white rounded-lg"
+            >
+              Upload Image
+            </label>
+          </div>
+
+          <div class="my-4 bg-[var(--bgc)] shadow-lg rounded-lg px-5 py-10">
+            <p
+              class="text-3xl text-[var(--text-color)] leading-[150%] font-medium font-family:[var(--font-family)]"
+            >
+              About me
+            </p>
+            <p
+              class="text-lg text-[var(--text-color)] w-[400px] leading-[200%] font-family:[var(--font-family)] font-medium"
+            >
+              To create innovative solutions in the field of web development,
+              build efficient and user-friendly web applications using modern
+              technologies, and continuously enhance skills and experience
+              through ongoing learning and practice in order to become a
+              professional web developer.
+            </p>
+          </div>
+          <div
+            class="my-4 bg-[var(--bgc)] shadow-lg w-[300px] rounded-lg px-4 py-3"
+          >
+            <p
+              class="text-3xl text-[var(--text-color)] my-5 font-family:[var(--font-family)]"
+            >
+              Details
+            </p>
+            <p
+              class="text-lg text-[var(--text-color)] font-family:[var(--font-family)] leading-[150%] bg-[var(--bgc)]font-medium mx-4"
+            >
+              <b>Name:</b> <br />
+              <span id="name"></span>
+            </p>
+            <p
+              class="text-lg font-family:[var(--font-family)] text-[var(--text-color)] leading-[150%] bg-[var(--bgc)]font-medium mx-4"
+            >
+              <b>Age:</b> <br />
+              35
+            </p>
+            <p
+              class="text-lg text-[var(--text-color)] leading-[150%] font-family:[var(--font-family)] bg-[var(--bgc)]font-medium mx-4"
+            >
+              <b>Location:</b> <br />
+              <i>Toshkent shaxar,Chilonzor tumani,8-mavz, 22-uy </i>
+            </p>
+            <p class="flex my-4 mx-4">
+              <i class="fa-brands fa-telegram w-[80px]"></i>
+              <i class="fa-brands fa-linkedin w-[80px]"></i>
+              <i class="fa-brands fa-square-github w-[80px]"></i>
+            </p>
+          </div>
+        </div>
+        <div class="flex justify-center gap-3 my-10">
+          <button
+            class="rounded-full active:bg-red-700 cursor-pointer mx-auto bg-[var(--login-color)] [var(--text-color)] text-center px-10 py-5"
+            id="edit "
+          >
+            Edit
+          </button>
+          <button
+            class="rounded-full active:bg-red-700 mx-auto cursor-pointer bg-[var(--login-color)] [var(--text-color)] text-center px-10 py-5"
+            id="logout"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </main>
+    <script src="./user.js"></script>
+  </body>
+</html>
