@@ -1,13 +1,11 @@
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
-const registerBtn = document.getElementById("register_btn");
-const loginBtn = document.getElementById("login_btn");
-
 let users = [];
-
+const USERS = "users";
 // functions
 /**user registration function */
 function registerUser() {
+  users = JSON.parse(localStorage.getItem(USERS)) || [];
   const emailText = emailInput.value.trim();
   const passwordText = passwordInput.value.trim();
   let nameInput = document.getElementById("name");
@@ -16,21 +14,22 @@ function registerUser() {
     alert("Iltimos, barcha maydonlarni to'ldiring!");
     return;
   }
-  const existingUser = localStorage.getItem(emailText);
-  if (existingUser) {
+
+  let user = users.find((user) => user.email == emailText);
+  if (user) {
     alert("Siz oldin ro'yhatdan o'tgansiz! Iltimos login qiling.");
     window.location.href = "./login.html";
     return;
   }
 
-  const user = {
+  user = {
     id: users.length + 1,
     name: nameText,
     email: emailText,
     password: passwordText,
   };
   users.push(user);
-  localStorage.setItem("users", JSON.stringify(users)); // all users
+  localStorage.setItem(USERS, JSON.stringify(users)); // all users
   let count = Number(localStorage.getItem("count"));
   count += 1;
   localStorage.setItem("count", count);
@@ -41,6 +40,7 @@ function registerUser() {
   alert(
     `Muvaffaqtiyatli ro'yhatdan o'tganinggiz bilan tabriklayman, ${user.name}!`
   );
+  window.location.href = "./login.html";
 }
 
 /**
@@ -48,16 +48,39 @@ function registerUser() {
  */
 function loginUser() {
   // login
-  const user = JSON.parse(localStorage.getItem(emailText));
-  if (user && user.password === passwordText) {
-    alert(`Login muvaffaqiyatli amalga oshirildi,${user.name}!`);
+  const userEmail = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+  users = JSON.parse(localStorage.getItem(USERS)) || [];
+
+  const user = users.find((user) => user.email == userEmail);
+  console.log(user);
+
+  if (user && user.password === password) {
+    // alert(`Login muvaffaqiyatli amalga oshirildi,${user.name}!`);
     localStorage.setItem("logged_in_user", user.email);
     window.location.href = "../user_page/index.html";
+  } else {
+    let errMessage;
+    if (!user) {
+      errMessage = "Foydalanuvchi topilmadi!";
+    } else {
+      errMessage =
+        "Parolingiz xato kiritildi. Parolingizi tekshirib qayta urinib ko'ring";
+    }
+
+    console.log(errMessage);
+    alert(errMessage);
   }
-  console.log(errMessage);
-  alert(errMessage);
 }
 
-//events
-registerBtn.addEventListener("click", registerUser);
-loginBtn.addEventListener("click", loginUser);
+document.addEventListener("DOMContentLoaded", (e) => {
+  e.preventDefault();
+  const currentUrl = window.location.href;
+  if (currentUrl.includes("login")) {
+    document.getElementById("login_btn").addEventListener("click", loginUser);
+  } else {
+    document
+      .getElementById("register_btn")
+      .addEventListener("click", registerUser);
+  }
+});

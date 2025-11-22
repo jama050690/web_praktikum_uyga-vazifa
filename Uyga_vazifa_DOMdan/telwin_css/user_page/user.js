@@ -6,6 +6,8 @@ const modeIcon = document.getElementById("modeIcon");
 var currentUser; // user object
 var currentUserEmail; // user email
 const LOGGED_USER = "logged_in_user";
+const USERS = "users";
+var users = [];
 
 const profile_photoEl = document.getElementById("previewImage");
 
@@ -45,13 +47,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!currentUserEmail) {
     alert("User not found! Please, login again!");
-    window.location.href = "./auth/login.html";
+    window.location.href = "../auth/login.html";
     return;
   }
 
-  currentUser = JSON.parse(localStorage.getItem(currentUserEmail));
+  users = JSON.parse(localStorage.getItem(USERS)) || [];
+
+  currentUser = users.find((user) => user.email == currentUserEmail);
 
   // Profile Photo
+  // console.log(currentUser);
+
   if (currentUser.profileUrl) {
     profile_photoEl.src = currentUser.profileUrl;
   }
@@ -71,15 +77,16 @@ logoutBtn.addEventListener("click", () => {
 //   img put
 document
   .getElementById("uploadImg")
-  .addEventListener("change", async function (event) {
+  .addEventListener("change", async (event) => {
+    event.preventDefault();
     const file = event.target.files[0];
     if (!file) return;
 
     const reader = new FileReader();
 
     reader.onload = function (e) {
+      e.preventDefault();
       profile_photoEl.src = e.target.result;
-      localStorage.setItem(currentUserEmail, JSON.stringify(currentUser));
     };
 
     reader.readAsDataURL(file);
@@ -94,14 +101,14 @@ document
 
     const data = await response.json();
 
-    console.log(`backend response: ${data}`);
-
     // REAL FILE PATH FROM BACKEND
     currentUser.profileUrl = data.url;
 
-    // Save user info
-    localStorage.setItem(currentUserEmail, JSON.stringify(currentUser));
+    users = users.filter((user) => user.email != LOGGED_USER);
+    users.push(currentUser);
 
+    // Save user info
+    localStorage.setItem(USERS, JSON.stringify(users));
     console.log("Image saved at:", data.url);
   });
 
