@@ -13,6 +13,20 @@ const profile_photoEl = document.getElementById("previewImage");
 const MODE = "mode";
 let isDark = false;
 
+// FUNCTION lar
+const changeMode = () => {
+  if (isDark) {
+    document.body.classList.add("dark_mode");
+    document.body.classList.remove("light_mode");
+    modeIcon.src = "/images/Sun_mode.svg";
+  } else {
+    document.body.classList.add("light_mode");
+    document.body.classList.remove("dark_mode");
+    modeIcon.src = "/images/Dark_mode.svg";
+  }
+};
+
+// EVENT lar
 darkEl.addEventListener("click", (e) => {
   e.preventDefault();
   isDark = !isDark;
@@ -28,30 +42,23 @@ document.addEventListener("DOMContentLoaded", () => {
   changeMode();
 
   currentUserEmail = localStorage.getItem(LOGGED_USER);
-  if (currentUserEmail) {
-    currentUser = JSON.parse(localStorage.getItem(currentUserEmail));
-    nameEl.textContent = currentUser.name;
-  } else {
+
+  if (!currentUserEmail) {
     alert("User not found! Please, login again!");
     window.location.href = "./auth/index.html";
+    return;
   }
 
+  currentUser = JSON.parse(localStorage.getItem(currentUserEmail));
+
+  // Profile Photo
   if (currentUser.profileUrl) {
     profile_photoEl.src = currentUser.profileUrl;
   }
-});
 
-const changeMode = () => {
-  if (isDark) {
-    document.body.classList.add("dark_mode");
-    document.body.classList.remove("light_mode");
-    modeIcon.src = "/images/Sun_mode.svg";
-  } else {
-    document.body.classList.add("light_mode");
-    document.body.classList.remove("dark_mode");
-    modeIcon.src = "/images/Dark_mode.svg";
-  }
-};
+  // Name
+  nameEl.textContent = currentUser.name || "Unknown";
+});
 
 // logout button
 logoutBtn.addEventListener("click", () => {
@@ -94,3 +101,82 @@ document
 
     console.log("Image saved at:", data.url);
   });
+
+// Modalni ochish
+editEl.addEventListener("click", (e) => {
+  e.preventDefault();
+  const editBox = document.createElement("div");
+  editBox.className =
+    "fixed inset-0 bg-black/60 flex justify-center items-center z-[999]";
+
+  // Modal card content
+  editBox.innerHTML = `
+  <div class="relative bg-white w-[350px] p-5 rounded-2xl">
+    <h3 class="text-2xl font-semibold mb-3">About Me</h3>
+
+    <input id="ediText" type="text" value="${currentUser?.about_text || ""}"
+        class="w-full my-2 px-3 py-2 border rounded" />
+
+    <div class="border-t border-gray-300 pt-3">
+      <p><b>Age:</b></p>
+      <input id="editAge" type="text" value="${currentUser?.age || ""}"
+        class="w-full my-2 px-3 py-2 border rounded" />
+
+      <p><b>Location:</b></p>
+      <input id="editLocation" type="text" value="${
+        currentUser?.location || ""
+      }"
+        class="w-full my-2 px-3 py-2 border rounded" />
+        <p class="flex my-4 mx-4">
+              <i class="fa-brands fa-telegram w-[80px]"></i>
+              <i class="fa-brands fa-linkedin w-[80px]"></i>
+              <i class="fa-brands fa-square-github w-[80px]"></i>
+        </p>
+      <div class="flex justify-center my-6">
+        <button id="save"
+          class="rounded-full bg-blue-600 text-white px-10 py-3 hover:bg-blue-700">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+`;
+
+  document.body.appendChild(editBox);
+
+  // Close button
+  const editClose = document.createElement("span");
+  editClose.className =
+    "absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-red-600 text-white text-xl cursor-pointer hover:bg-red-700 transition";
+  editClose.innerHTML = "&times;";
+
+  // Append close button to modal
+  editBox.querySelector("div").appendChild(editClose);
+
+  // Close event
+  editClose.addEventListener("click", () => {
+    editBox.classList.add("hidden");
+  });
+
+  // save modal button
+  const saveBtn = editBox.querySelector("#save");
+
+  saveBtn.addEventListener("click", () => {
+    const newText = document.getElementById("ediText").value.trim();
+    const newAge = document.getElementById("editAge").value.trim();
+    const newLocation = document.getElementById("editLocation").value.trim();
+
+    // Yangilash
+    currentUser.aboutMe = newText;
+    currentUser.age = newAge;
+    currentUser.location = newLocation;
+
+    alert("Ma'lumotlar saqlandi!");
+    editBox.classList.add("hidden");
+
+    // Sahifadagi UI ni ham yangilash
+    profileAbout.textContent = newText || "No information provided.";
+    profileAge.textContent = newAge || "Not set";
+    profileLocation.textContent = newLocation || "Not set";
+  });
+});

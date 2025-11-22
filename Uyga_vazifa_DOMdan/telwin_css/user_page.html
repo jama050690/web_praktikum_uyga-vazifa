@@ -51,7 +51,6 @@
               </div>
             </div>
           </div>
-
           <div class="relative inline-block mx-4 dropdown-menu group">
             <div class="cursor-pointer nav-text">Help Center ▼</div>
 
@@ -96,7 +95,7 @@
 
             <button
               id="logoutBtn"
-              class="flex items-center justify-center gap-3 leading-6 cursor-pointer rounded-full bg-[var(--login-color)] text-[var(--login-text)] px-8 py-4 text-white"
+              class="flex items-center justify-center gap-3 active:text-red-600 leading-6 cursor-pointer rounded-full bg-[var(--login-color)] text-[var(--login-text)] px-8 py-4 text-white"
             >
               <span>Logout</span>
               <i class="fa-solid fa-right-from-bracket"></i>
@@ -145,7 +144,8 @@
               About me
             </p>
             <p
-              class="text-lg text-[var(--text-color)] w-[400px] leading-[200%] font-family:[var(--font-family)] font-medium"
+              id="profileAbout"
+              class="text-lg text-[var(--text-color)] w-[400px] overflow-wrap: break-word; leading-[200%] font-family:[var(--font-family)] font-medium"
             >
               To create innovative solutions in the field of web development,
               build efficient and user-friendly web applications using modern
@@ -170,25 +170,35 @@
               class="text-lg font-family:[var(--font-family)] text-[var(--text-color)] leading-[150%] bg-[var(--bgc)]font-medium mx-4"
             >
               <b>Age:</b> <br />
-              35
+              <span id="profileAge">35</span>
             </p>
             <p
               class="text-lg text-[var(--text-color)] leading-[150%] font-family:[var(--font-family)] bg-[var(--bgc)]font-medium mx-4"
             >
               <b>Location:</b> <br />
-              <i>Toshkent shaxar,Chilonzor tumani,8-mavz, 22-uy </i>
+              <i id="profileLocation"
+                >Toshkent shaxar,Chilonzor tumani,8-mavz, 22-uy
+              </i>
             </p>
             <p class="flex my-4 mx-4">
-              <i class="fa-brands fa-telegram w-[80px]"></i>
-              <i class="fa-brands fa-linkedin w-[80px]"></i>
-              <i class="fa-brands fa-square-github w-[80px]"></i>
+              <a href="https://t.me/Jama_9133" target="_blank">
+                <i class="fa-brands fa-telegram w-[80px]"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/jamshiddin-babajonov-168705382/"
+              >
+                <i class="fa-brands fa-linkedin w-[80px]"></i
+              ></a>
+              <a href="https://github.com/jama050690">
+                <i class="fa-brands fa-square-github w-[80px]"></i
+              ></a>
             </p>
           </div>
         </div>
         <div class="flex justify-center gap-3 my-10">
           <button
             class="rounded-full active:bg-red-700 cursor-pointer mx-auto bg-[var(--login-color)] [var(--text-color)] text-center px-10 py-5"
-            id="edit "
+            id="edit"
           >
             Edit
           </button>

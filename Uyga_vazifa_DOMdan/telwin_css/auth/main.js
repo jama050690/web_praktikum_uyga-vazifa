@@ -20,6 +20,16 @@ function add() {
       return;
     }
 
+    // Email avval ro'yhatdan o'tganmi?
+    const existingUser = localStorage.getItem(emailText);
+
+    if (existingUser) {
+      alert("Siz oldin ro'yhatdan o'tgansiz! Iltimos login qiling.");
+      // Login sahifaga yuborish
+      window.location.href = "./index.html";
+      return;
+    }
+
     const user = {
       id: users.length + 1,
       name: nameText,
@@ -27,7 +37,8 @@ function add() {
       password: passwordText,
     };
 
-    localStorage.setItem(user.email, JSON.stringify(user));
+    localStorage.setItem(user.email, JSON.stringify(user)); // all users
+    localStorage.setItem("currentUser", JSON.stringify(user)); // active user
     let count = Number(localStorage.getItem("count"));
     count += 1;
     localStorage.setItem("count", count);
@@ -38,13 +49,11 @@ function add() {
     alert(
       `Muvaffaqtiyatli ro'yhatdan o'tganinggiz bilan tabriklayman, ${user.name}!`
     );
-    const loginLink = document.getElementById("login-link");
-    loginLink.click();
   } else {
     // login
     const user = JSON.parse(localStorage.getItem(emailText));
     if (user && user.password === passwordText) {
-      alert("Login muvaffaqiyatli amalga oshirildi!");
+      alert(`Login muvaffaqiyatli amalga oshirildi,${user.name}!`);
       localStorage.setItem("logged_in_user", user.email);
       window.location.href = "../user_page.html";
     } else {
@@ -63,9 +72,3 @@ function add() {
 function renderTasks() {}
 
 addBtn.addEventListener("click", add);
-
-// [emailInput, passwordInput].forEach((input) => {
-//   input.addEventListener("keypress", (e) => {
-//     if (e.key === "Enter") add();
-//   });
-// });
