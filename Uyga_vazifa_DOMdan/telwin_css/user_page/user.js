@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!currentUserEmail) {
     alert("User not found! Please, login again!");
-    window.location.href = "./auth/index.html";
+    window.location.href = "./auth/login.html";
     return;
   }
 
@@ -65,6 +65,7 @@ logoutBtn.addEventListener("click", () => {
   localStorage.removeItem(LOGGED_USER);
   window.location.reload();
 });
+
 // local pagega saqlaash va chaqirish
 
 //   img put
@@ -92,6 +93,8 @@ document
     });
 
     const data = await response.json();
+
+    console.log(`backend response: ${data}`);
 
     // REAL FILE PATH FROM BACKEND
     currentUser.profileUrl = data.url;

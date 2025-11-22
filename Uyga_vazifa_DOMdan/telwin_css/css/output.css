@@ -596,6 +596,9 @@
   .px-\[15px\] {
     padding-inline: 15px;
   }
+  .px-\[70px\] {
+    padding-inline: 70px;
+  }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
@@ -619,6 +622,12 @@
   }
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
+  }
+  .py-\[70px\] {
+    padding-block: 70px;
+  }
+  .py-\[100px\] {
+    padding-block: 100px;
   }
   .pt-3 {
     padding-top: calc(var(--spacing) * 3);
@@ -714,6 +723,10 @@
     --tw-shadow: 0 10px 25px var(--tw-shadow-color, rgba(0,0,0,0.08));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .shadow-\[0_10px_25px_rgba\(0\,0\,0\,0\.15\)\] {
+    --tw-shadow: 0 10px 25px var(--tw-shadow-color, rgba(0,0,0,0.15));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .shadow-lg {
     --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -782,9 +795,35 @@
       }
     }
   }
+  .hover\:text-blue-500 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-blue-500);
+      }
+    }
+  }
+  .hover\:text-blue-600 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-blue-600);
+      }
+    }
+  }
+  .hover\:text-gray-900 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gray-900);
+      }
+    }
+  }
   .active\:bg-\[var\(--login-color\)\] {
     &:active {
       background-color: var(--login-color);
+    }
+  }
+  .active\:bg-blue-700 {
+    &:active {
+      background-color: var(--color-blue-700);
     }
   }
   .active\:bg-red-700 {

@@ -38,7 +38,7 @@ const changeMode = () => {
 
 // login section
 document.querySelector(".login").addEventListener("click", () => {
-  window.location.href = "./auth/index.html";
+  window.location.href = "./auth/login.html";
 });
 
 // render Banner
