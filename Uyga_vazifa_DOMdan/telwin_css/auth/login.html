@@ -3,39 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./common.css" />
+    <link rel="stylesheet" href="../css/output.css" />
     <title>Register</title>
   </head>
   <body>
-    <section class="my-3"></section>
-    <div class="container">
-      <form class="login-form">
-        <h2>Login</h2>
-        <div class="form-control">
-          <label for="email">Login</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            required
-          />
-        </div>
-        <div class="form-control">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter your password"
-            required
-          />
-        </div>
-        <button id="login_btn" type="button">Login</button>
-        <p class="register-link">
-          "Don't have an account?"
-          <a href="./register.html">Register</a>
-        </p>
-      </form>
-    </div>
+    <section class="my-3">
+      <div class="ontainer relative">
+        <form class="login-form">
+          <h2>Login</h2>
+          <div class="form-control">
+            <label for="email">Login</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <button id="login_btn" type="button">Login</button>
+          <p class="register-link">
+            "Don't have an account?"
+            <a href="./register.html">Register</a>
+          </p>
+        </form>
+      </div>
+    </section>
     <script src="./auth.js"></script>
   </body>
 </html>
