@@ -27,7 +27,7 @@
             <div class="cursor-pointer nav-text">About Us ▼</div>
 
             <div
-              class="dropdown-content hidden group-hover:block absolute bg-[var(--bgc)] min-w-[140px] shadow-md rounded-md z-[100]"
+              class="dropdown-content hidden group-hover:block absolute bg-(--bgc) min-w-[140px] shadow-md rounded-md z-50"
             >
               <div
                 class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -56,7 +56,7 @@
             <div class="cursor-pointer nav-text">Help Center ▼</div>
 
             <div
-              class="dropdown-content hidden group-hover:block absolute bg-[var(--bgc)] min-w-[140px] shadow-md rounded-md z-[100]"
+              class="dropdown-content hidden group-hover:block absolute bg-(--bgc) min-w-[140px] shadow-md rounded-md z-50"
             >
               <div
                 class="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -84,7 +84,7 @@
             <p class="color:var(--text-color)"><b>+998957990034</b></p>
             <button
               id="dark"
-              class="cursor-pointer p-3 rounded-full bg-[var(--bgc)]"
+              class="cursor-pointer p-3 rounded-full bg-(--bgc)"
             >
               <img
                 id="modeIcon"
@@ -95,7 +95,7 @@
             </button>
 
             <button
-              class="login flex items-center justify-center gap-3 leading-6 cursor-pointer rounded-full bg-[var(--login-color)] text-[var(--login-text)] px-8 py-4 text-white"
+              class="login flex items-center justify-center gap-3 leading-6 cursor-pointer rounded-full bg-(--login-color) color:var(--login-text) px-8 py-4 text-white"
             >
               <span>Login</span>
               <i class="fa-solid fa-right-to-bracket"></i>
@@ -106,7 +106,7 @@
     </header>
     <main>
       <div class="container px-5 mx-auto">
-        <div class="banner-box relative w-full h-auto relative"></div>
+        <div class="banner-box relative w-full h-auto"></div>
         <input
           type="text"
           id="searchInput"
@@ -119,38 +119,35 @@
           alt="Search"
         />
         <section class="car_cards my-[100px]">
-          <div class="bg-[var(--bgc)]">
-            <h2
-              class="text-[36px] font-medium text-center my-1"
-              style="color: var(--text-color); font-family: var(--font-family)"
-            >
-              Choose the car of your dreams
-            </h2>
-            <p class="text-base text-center leading-normal font-semibold">
-              We provide our customers with the most incredible driving
-              emotions.
-              <br />
-              That is why there are only world-class cars in our fleet
-            </p>
-          </div>
+          <h2
+            class="text-[36px] font-medium text-center my-1"
+            style="color: var(--text-color); font-family: var(--font-family)"
+          >
+            Choose the car of your dreams
+          </h2>
+          <p class="text-base text-center leading-normal font-semibold">
+            We provide our customers with the most incredible driving emotions.
+            <br />
+            That is why there are only world-class cars in our fleet
+          </p>
           <ul class="flex justify-center gap-4 my-6">
             <li
-              class="car_btn active rounded-full py-5 px-10 text-base items-center font-medium cursor-pointer bg-[var(--bgc)] text-[var(--text-color)] font-[var(--font-family)]"
+              class="car_btn active rounded-full py-5 px-10 text-base items-center cursor-pointer bg-(--bgc) color:var(--text-color)"
             >
               BMW
             </li>
             <li
-              class="car_btn rounded-full py-5 px-10 text-base items-center font-medium bg-[var(--bgc)] cursor-pointer text-[var(--text-color)] font-[var(--font-family)]"
+              class="car_btn rounded-full py-5 px-10 text-base items-center bg-var(--bgc) cursor-pointer color:var(--text-color)"
             >
               Mercedes
             </li>
             <li
-              class="car_btn rounded-full py-5 px-10 text-base items-center font-medium bg-[var(--bgc)] cursor-pointer text-[var(--text-color)] font-[var(--font-family)]"
+              class="car_btn rounded-full py-5 px-10 text-base items-center bg-var(--bgc) cursor-pointer color:var(--text-color)"
             >
               Chevrolet
             </li>
             <li
-              class="car_btn rounded-full py-5 px-10 text-base items-center font-medium bg-[var(--bgc)] cursor-pointer text-[var(--text-color)] font-[var(--font-family)]"
+              class="car_btn rounded-full py-5 px-10 text-base items-center bg-var(--bgc) cursor-pointer color:var(--text-color)"
             >
               Lexus
             </li>
@@ -158,21 +155,50 @@
           <ul class="choose_list grid grid-cols-3 gap-5 w-[1200px]"></ul>
           <button
             id="viewAllCarsBtn"
-            class="all_btn rounded-full active:bg-red-700 py-5 px-10 text-base flex justify-center mx-auto my-10 font-medium cursor-pointer bg-[var(--login-color)] text-[var(--text-color)]"
+            class="all_btn rounded-full active:bg-red-700 py-5 px-10 text-base flex justify-center mx-auto my-10 font-medium cursor-pointer bg-(--login-color) color:-var(--text-color)"
           >
             View all cars
           </button>
         </section>
-        <section class="profil">
-          <div class="my-[100px] py-[100px] flex"></div>
-          <div class="bg-[var(--bgc)] py-[70px] px-[70px]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-            pariatur ab cum ipsam? Odio dolor quam perferendis. Maxime in non
-            magni dolor neque omnis reprehenderit perferendis nulla. Distinctio,
-            accusamus repellendus!
-          </div>
-        </section>
       </div>
+      <section class="profil bg-(--bgc)">
+        <div class="container">
+          <div class="my-[100px] bg-(--bgc) py-[100px] flex">
+            <div class="bg-(--bg) py-[70px] px-[70px]">
+              <div class="flex gap-3 my-4">
+                <img src="./images/google.svg" alt="Google" />
+                <p
+                  class="font-family-[var(--font-family)] font-medium text-base text-[#4285f4]"
+                >
+                  From Google
+                </p>
+              </div>
+              <h2
+                class="font-medium text-(--text-color) my-5 text-[38px] leading-9 te"
+              >
+                Hear what the <br />
+                community is <br />
+                saying
+              </h2>
+              <p
+                class="w-[330px] h-[3px] my-5 bg-[linear-gradient(90deg,#ea4335_19.83%,#fbbc05_65%,#34a853_82.29%,#4285f4_100%)]"
+              ></p>
+              <p class="font-medium text-(--text-color) text-sm my-3">
+                More interesting reviews on Instagram
+              </p>
+              <button
+                class="gradient-border py-4 px-12 rounded-full font-medium text-lg"
+              >
+                <span
+                  class="bg-[radial-gradient(230.93%_230.93%_at_102.01%_2.03%,_rgb(249,237,50)_0%,_rgb(238,42,123)_36%,_rgb(210,42,138)_44%,_rgb(139,42,178)_60%,_rgb(27,42,240)_83%,_rgb(0,42,255)_88%)] bg-clip-text text-transparent"
+                >
+                  Instagram
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="./main.js"></script>
   </body>
