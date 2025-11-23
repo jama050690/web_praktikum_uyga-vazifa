@@ -1,29 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
-
 body.has-bg {
   background: linear-gradient(to right, #1e3c72, #2a5298);
   --font-family: "Poppins", sans-serif;
 }
 .container {
-   max-width: 1240px;
-   padding-left:20px;
-   padding-right:20px;
-   margin-left: auto;
-   margin-right: auto;
+  max-width: 1240px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 :root {
---text-white:#ffffff;
+  --text-white: #ffffff;
   --text-color: #000;
   --bg: #ffffff;
   --bgc: #f2f2f2;
-  --text-color-2:color: #555;
-  --font-size: 18px;
-  --line-height: 24px;
-  --font-weight: 500;
+  --text-color-2: #555;
   --login-color: green;
-  --radius: 100px;
 }
 
 /* MAIN BODY */
@@ -33,7 +28,7 @@ body {
   font-family: var(--font-family);
 }
 .dark_mode {
-  --text-white:#fff;
+  --text-white: #fff;
   --text-color: #fff;
   --bg: #202c36;
   --bgc: #2b3945;
@@ -119,6 +114,13 @@ body {
 
 .gradient-border {
   background: linear-gradient(white, white) padding-box,
-              linear-gradient(90deg,#ea4335 19.83%,#fbbc05 65%,#34a853 82.29%,#4285f4 100%) border-box;
+    linear-gradient(
+        90deg,
+        #ea4335 19.83%,
+        #fbbc05 65%,
+        #34a853 82.29%,
+        #4285f4 100%
+      )
+      border-box;
   border: 2px solid transparent;
 }

@@ -22,6 +22,7 @@ ol {
 :root {
   --btn-color: #299764;
   --bg: #fff;
+  --bgc: #fff;
   --text-color: #202c36;
   --font-family: "Montserrat", sans-serif;
 }
@@ -573,7 +574,7 @@ hr {
   border-radius: 10px;
   width: 546px;
   height: 4px;
-  background: var(--bg);
+  background: #fff;
   opacity: 0.4;
 }
 .community_nav {
