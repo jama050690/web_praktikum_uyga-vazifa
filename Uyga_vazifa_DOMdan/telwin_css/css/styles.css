@@ -19,6 +19,7 @@ body.has-bg {
   --bgc: #f2f2f2;
   --text-color-2: #555;
   --login-color: green;
+  --logo-filter: invert(0);
 }
 
 /* MAIN BODY */
@@ -33,8 +34,12 @@ body {
   --bg: #202c36;
   --bgc: #2b3945;
   --login-color: #38d39f;
+  --logo-filter: invert(1) brightness(200%);
 }
-
+.logo {
+  filter: var(--logo-filter);
+  transition: 0.3s;
+}
 .section-style {
   background-color: var(--bgc);
   font-size: var(--font-size);
