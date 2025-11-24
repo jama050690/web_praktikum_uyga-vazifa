@@ -31,6 +31,7 @@ body {
 .dark_mode {
   --text-white: #fff;
   --text-color: #fff;
+  --text-color-2: #fff;
   --bg: #202c36;
   --bgc: #2b3945;
   --login-color: #38d39f;
