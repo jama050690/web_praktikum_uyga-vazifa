@@ -20,6 +20,8 @@ ol {
 }
 
 :root {
+  --icon-color: #202c36;
+  --icon_color-2: #fff;
   --btn-color: #299764;
   --bg: #fff;
   --bgc: #fff;
@@ -28,6 +30,8 @@ ol {
 }
 
 .dark_mode {
+  --icon-color: #fff;
+  --icon_color-2: #000;
   --bg: #202c36;
   --bgc: #2b3945;
   --text-color: #fff;
@@ -868,9 +872,17 @@ body.dark_mode .brands_item {
   display: flex;
   justify-content: space-between;
 }
-.icons {
-  width: 32px;
-  height: 32px;
+.icons_s {
+  background: var(--icon-color) !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.iconS {
+  color: var(--icon_color-2);
 }
 .footer_btn {
   background: var(--btn-color);
