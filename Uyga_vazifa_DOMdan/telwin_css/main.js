@@ -47,8 +47,8 @@ let bannerImageIndex = 0;
 const changeBannerImage = (index) => {
   const item = bannerImages[index];
   boxEl.innerHTML = `
-    <div class="absolute left-1/2 top-[80px] -translate-x-1/2 -translate-y-1/2">
-      <h1 class="text-white text-4xl font-bold">${item.model}</h1>
+    <div class="relative">
+      <h1 class="absolute left-1/2 top-[80px] -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold">${item.model}</h1>
     </div>
 
     <img class="w-full h-[500px] object-cover rounded-xl" src="${item.image}" />

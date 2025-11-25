@@ -11,6 +11,10 @@
     --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-600: oklch(57.7% 0.245 27.325);
     --color-red-700: oklch(50.5% 0.213 27.518);
+    --color-green-500: oklch(72.3% 0.219 149.579);
+    --color-green-600: oklch(62.7% 0.194 149.214);
+    --color-green-700: oklch(52.7% 0.154 150.069);
+    --color-green-800: oklch(44.8% 0.119 151.328);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-blue-700: oklch(48.8% 0.243 264.376);
@@ -240,11 +244,38 @@
   .top-\[40px\] {
     top: 40px;
   }
+  .top-\[50\%\] {
+    top: 50%;
+  }
+  .top-\[70\%\] {
+    top: 70%;
+  }
   .top-\[80px\] {
     top: 80px;
   }
+  .top-\[90\%\] {
+    top: 90%;
+  }
+  .top-\[98\%\] {
+    top: 98%;
+  }
   .top-\[100px\] {
     top: 100px;
+  }
+  .top-\[101\%\] {
+    top: 101%;
+  }
+  .top-\[102\%\] {
+    top: 102%;
+  }
+  .top-\[102\.5\%\] {
+    top: 102.5%;
+  }
+  .top-\[103\%\] {
+    top: 103%;
+  }
+  .top-\[105\%\] {
+    top: 105%;
   }
   .top-\[200px\] {
     top: 200px;
@@ -252,11 +283,23 @@
   .top-\[400px\] {
     top: 400px;
   }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+  .right-1 {
+    right: calc(var(--spacing) * 1);
+  }
+  .right-2 {
+    right: calc(var(--spacing) * 2);
+  }
   .right-3 {
     right: calc(var(--spacing) * 3);
   }
   .right-4 {
     right: calc(var(--spacing) * 4);
+  }
+  .right-\[4px\] {
+    right: 4px;
   }
   .right-\[40px\] {
     right: 40px;
@@ -266,6 +309,15 @@
   }
   .right-\[450px\] {
     right: 450px;
+  }
+  .right-\[850px\] {
+    right: 850px;
+  }
+  .right-\[950px\] {
+    right: 950px;
+  }
+  .bottom-0 {
+    bottom: calc(var(--spacing) * 0);
   }
   .bottom-4 {
     bottom: calc(var(--spacing) * 4);
@@ -282,6 +334,18 @@
   .bottom-\[100px\] {
     bottom: 100px;
   }
+  .bottom-\[130px\] {
+    bottom: 130px;
+  }
+  .bottom-\[470px\] {
+    bottom: 470px;
+  }
+  .bottom-\[500px\] {
+    bottom: 500px;
+  }
+  .bottom-\[550px\] {
+    bottom: 550px;
+  }
   .left-1 {
     left: calc(var(--spacing) * 1);
   }
@@ -291,11 +355,50 @@
   .left-5 {
     left: calc(var(--spacing) * 5);
   }
+  .left-\[20\%\] {
+    left: 20%;
+  }
+  .left-\[35\%\] {
+    left: 35%;
+  }
+  .left-\[37\%\] {
+    left: 37%;
+  }
+  .left-\[38\%\] {
+    left: 38%;
+  }
+  .left-\[40\%\] {
+    left: 40%;
+  }
+  .left-\[45\%\] {
+    left: 45%;
+  }
+  .left-\[50\%\] {
+    left: 50%;
+  }
   .left-\[66\.3\%\] {
     left: 66.3%;
   }
+  .left-\[70\%\] {
+    left: 70%;
+  }
+  .left-\[75\%\] {
+    left: 75%;
+  }
+  .left-\[90\%\] {
+    left: 90%;
+  }
+  .left-\[200px\] {
+    left: 200px;
+  }
+  .left-\[350\%\] {
+    left: 350%;
+  }
   .left-\[400px\] {
     left: 400px;
+  }
+  .left-\[800px\] {
+    left: 800px;
   }
   .z-10 {
     z-index: 10;
@@ -444,6 +547,9 @@
   .h-\[21px\] {
     height: 21px;
   }
+  .h-\[58px\] {
+    height: 58px;
+  }
   .h-\[66px\] {
     height: 66px;
   }
@@ -482,6 +588,9 @@
   }
   .w-\[21px\] {
     width: 21px;
+  }
+  .w-\[58px\] {
+    width: 58px;
   }
   .w-\[80px\] {
     width: 80px;
@@ -546,6 +655,11 @@
   .border-collapse {
     border-collapse: collapse;
   }
+  .translate-\[50\%\] {
+    --tw-translate-x: 50%;
+    --tw-translate-y: 50%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .-translate-x-1 {
     --tw-translate-x: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
@@ -560,6 +674,14 @@
   }
   .-translate-y-1\/2 {
     --tw-translate-y: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-y-\[-50\%\] {
+    --tw-translate-y: -50%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-y-\[50\%\] {
+    --tw-translate-y: 50%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .scale-75 {
@@ -698,6 +820,9 @@
   .border-\[\#e6e8eb\] {
     border-color: #e6e8eb;
   }
+  .border-\[var\(--btn-color\)\] {
+    border-color: var(--btn-color);
+  }
   .border-gray-300 {
     border-color: var(--color-gray-300);
   }
@@ -722,6 +847,9 @@
   .bg-\[var\(--bgc\)\] {
     background-color: var(--bgc);
   }
+  .bg-\[var\(--btn-color\)\] {
+    background-color: var(--btn-color);
+  }
   .bg-\[var\(--login-color\)\] {
     background-color: var(--login-color);
   }
@@ -739,6 +867,18 @@
   }
   .bg-blue-600 {
     background-color: var(--color-blue-600);
+  }
+  .bg-green-500 {
+    background-color: var(--color-green-500);
+  }
+  .bg-green-600 {
+    background-color: var(--color-green-600);
+  }
+  .bg-green-700 {
+    background-color: var(--color-green-700);
+  }
+  .bg-green-800 {
+    background-color: var(--color-green-800);
   }
   .bg-red-600 {
     background-color: var(--color-red-600);
@@ -773,6 +913,9 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
+  .p-\[17px\] {
+    padding: 17px;
+  }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
@@ -802,6 +945,12 @@
   }
   .px-\[15px\] {
     padding-inline: 15px;
+  }
+  .px-\[17px\] {
+    padding-inline: 17px;
+  }
+  .px-\[30px\] {
+    padding-inline: 30px;
   }
   .px-\[70px\] {
     padding-inline: 70px;
@@ -835,6 +984,12 @@
   }
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
+  }
+  .py-\[17px\] {
+    padding-block: 17px;
+  }
+  .py-\[22px\] {
+    padding-block: 22px;
   }
   .py-\[70px\] {
     padding-block: 70px;
@@ -1000,6 +1155,10 @@
   .decoration-2 {
     text-decoration-thickness: 2px;
   }
+  .shadow-2xl {
+    --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .shadow-\[0_4px_15px_rgba\(0\,0\,0\,0\.2\)\] {
     --tw-shadow: 0 4px 15px var(--tw-shadow-color, rgba(0,0,0,0.2));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -1027,6 +1186,9 @@
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
+  }
+  .outline-\[var\(--btn-color\)\] {
+    outline-color: var(--btn-color);
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
