@@ -29,7 +29,7 @@ body {
   font-family: var(--font-family);
 }
 .dark_mode {
-  --text-white: #fff;
+  --text-white: #e81212;
   --text-color: #fff;
   --text-color-2: #fff;
   --bg: #202c36;

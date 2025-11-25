@@ -770,43 +770,25 @@ body.dark_mode .brands_item {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   position: relative;
 }
-.service_items {
-  position: relative;
-}
-
-.service_items_two::after {
-  content: "";
+.icons {
   position: absolute;
   top: 20px;
-  left: 150px;
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  background-image: url("../images/Folder-lock.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  right: 20px;
 }
-body.light_mode .service_items_two::after {
-  background-image: url("../images/Flask-alt-light.svg");
+.icon-1 {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  z-index: 0;
 }
-.service_items_two:nth-child(2)::after {
-  background-image: url("../images/Heartbeat.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
+.icon-2 {
+  position: absolute;
+  top: 35px;
+  right: 17px;
+  z-index: 9999;
 }
-
-body.light_mode .service_items_two:nth-child(2)::after {
-  background-image: url("../images/Heartbeat-light.svg");
-}
-
-.service_items_two:nth-child(3)::after {
-  background-image: url("../images/Folder-lock.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-body.light_mode .service_items_two:nth-child(3)::after {
-  background-image: url("../images/Folder-lock-light.svg");
+.service_items {
+  position: relative;
 }
 
 .footer_first {
