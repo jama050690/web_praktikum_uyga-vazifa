@@ -887,8 +887,16 @@ body.dark_mode .brands_item {
 .footer_btn {
   background: var(--btn-color);
   border-radius: 50%;
-  padding: 25px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text-color);
+}
+.arrow_top {
+  color: var(--icon_color-2);
+  font-size: 18px;
 }
 .footer_btn:hover {
   color: red;
