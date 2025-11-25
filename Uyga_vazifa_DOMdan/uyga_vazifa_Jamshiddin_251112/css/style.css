@@ -87,7 +87,7 @@ body {
   top: 110%;
   left: 0;
   width: 100%;
-  background: var(--bg);
+  background: var(--bgc);
   border-radius: 6px;
   overflow: hidden;
   z-index: 9999;
