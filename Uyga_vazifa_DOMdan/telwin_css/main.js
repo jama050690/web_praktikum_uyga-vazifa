@@ -130,15 +130,17 @@ const catalogEl = (data) => {
   choose_list.innerHTML = data
     .map(
       (item) => `
-      <li class="car_card w-[387px]  cursor-pointer px-6 py-7.5 bg-[var(--bgc)]  shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
-              <h3 class="car_model font-family[var(--font-family)] my-2 text-2xl color-[var(--text-color) ]font-semibold ">${item.model}</h3>
-              <p class="text-base font-family[var(--font-family)] my-2 color-[var(--text-color) font-medium">Economy Car</p>
-              <img src="${item.image}" alt="${item.model}" />
-              <div class="my-4 flex gap-x-16.5 gap-y-6 flex-wrap">
-                <p class="flex items-center gap-2">
-                 <i class="fa-solid fa-gears"></i>5 Seats</p>
-                <p class="flex items-center gap-2"><i class="fa-solid fa-car"></i>Automatic</p>
-                <p class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i>${item.year}</p>
+             <li class="car_card w-[387px] rounded-2xl hover:translate-y-[-8px] transition-all duration-300 ease-out 
+               cursor-pointer px-6 py-7.5 bg-[var(--bgc)] shadow-[0_10px_25px_rgba(0,0,0,0.08)]
+                 hover:shadow-[0_12px_24px_rgba(0,0,0,0.15)]"> 
+                  <h3 class="car_model font-family[var(--font-family)]  my-2 text-2xl color-[var(--text-color) ]font-semibold ">${item.model}</h3>
+                    <p class="text-base font-family[var(--font-family)] my-2 color-[var(--text-color) font-medium">Economy Car</p>
+                     <img src="${item.image}" alt="${item.model}" />
+                      <div class="my-4 flex gap-x-16.5 gap-y-6 flex-wrap">
+                     <p class="flex items-center gap-2">
+                    <i class="fa-solid fa-gears"></i>5 Seats</p>
+                   <p class="flex items-center gap-2"><i class="fa-solid fa-car"></i>Automatic</p>
+                  <p class="flex items-center gap-2"><i class="fa-regular fa-calendar"></i>${item.year}</p>
                 <p class="flex items-center gap-2"><i class="fa-solid fa-sack-dollar"></i> ${item.priceEstimate}</p>
               </div>
             </li>`
