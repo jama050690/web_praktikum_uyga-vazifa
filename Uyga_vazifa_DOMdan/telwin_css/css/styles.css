@@ -130,3 +130,12 @@ body {
       border-box;
   border: 2px solid transparent;
 }
+ul li .icons_s {
+  background: var(--icon-color) !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
