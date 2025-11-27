@@ -121,22 +121,22 @@ editEl.addEventListener("click", (e) => {
 
   // Modal card content
   editBox.innerHTML = `
-  <div class="relative bg-white w-[350px] p-5 rounded-2xl">
+  <div class="modal relative bg-white w-[350px] p-5 rounded-2xl">
     <h3 class="text-2xl font-semibold mb-3">About Me</h3>
 
     <input id="ediText" type="text" value="${currentUser?.about_text || ""}"
-        class="w-full my-2 px-3 py-2 border rounded" />
+        class="w-full my-2 px-3 py-2 border rounded" required />
 
     <div class="border-t border-gray-300 pt-3">
       <p><b>Age:</b></p>
       <input id="editAge" type="text" value="${currentUser?.age || ""}"
-        class="w-full my-2 px-3 py-2 border rounded" />
+        class="w-full my-2 px-3 py-2 border rounded" required />
 
       <p><b>Location:</b></p>
       <input id="editLocation" type="text" value="${
         currentUser?.location || ""
       }"
-        class="w-full my-2 px-3 py-2 border rounded" />
+        class="w-full my-2 px-3 py-2 border rounded" required />
         <p class="flex my-4 mx-4">
               <i class="fa-brands fa-telegram w-[80px]"></i>
               <i class="fa-brands fa-linkedin w-[80px]"></i>
@@ -144,7 +144,7 @@ editEl.addEventListener("click", (e) => {
         </p>
       <div class="flex justify-center my-6">
         <button id="save"
-          class="rounded-full bg-blue-600 text-white px-10 py-3 hover:bg-blue-700">
+          class="rounded-full cursor-pointer bg-blue-600 text-white px-10 py-3 hover:bg-blue-700">
           Save
         </button>
       </div>
@@ -171,7 +171,19 @@ editEl.addEventListener("click", (e) => {
   // save modal button
   const saveBtn = editBox.querySelector("#save");
 
+  const editText = document.getElementById("ediText");
+  const editAge = document.getElementById("editAge");
+  const editLocation = document.getElementById("editLocation");
   saveBtn.addEventListener("click", () => {
+    if (
+      !editText.value.trim() ||
+      !editAge.value.trim() ||
+      !editLocation.value.trim()
+    ) {
+      alert("Iltoms qatorni to'ldiring");
+      return;
+    }
+
     const newText = document.getElementById("ediText").value.trim();
     const newAge = document.getElementById("editAge").value.trim();
     const newLocation = document.getElementById("editLocation").value.trim();
