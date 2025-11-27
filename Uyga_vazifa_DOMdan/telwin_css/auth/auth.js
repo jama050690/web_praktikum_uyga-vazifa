@@ -56,7 +56,7 @@ function loginUser() {
   console.log(user);
 
   if (user && user.password === password) {
-    // alert(`Login muvaffaqiyatli amalga oshirildi,${user.name}!`);
+    alert(`Login muvaffaqiyatli amalga oshirildi,${user.name}!`);
     localStorage.setItem("logged_in_user", user.email);
     window.location.href = "../user_page/index.html";
   } else {
@@ -73,14 +73,13 @@ function loginUser() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", (e) => {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
   const currentUrl = window.location.href;
   if (currentUrl.includes("login")) {
-    document.getElementById("login_btn").addEventListener("click", loginUser);
+    const btn = document.getElementById("login_btn");
+    if (btn) btn.addEventListener("click", loginUser);
   } else {
-    document
-      .getElementById("register_btn")
-      .addEventListener("click", registerUser);
+    const btn = document.getElementById("register_btn");
+    if (btn) btn.addEventListener("click", registerUser);
   }
 });

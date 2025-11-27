@@ -3,6 +3,7 @@ const boxEl = document.querySelector(".banner-box");
 const darkEl = document.getElementById("dark");
 const modeIcon = document.getElementById("modeIcon");
 const allBtn = document.getElementById("viewAllCarsBtn");
+const footer_btn = document.querySelector(".footer_btn ");
 const baseUrl = "https://cars-project-six.vercel.app";
 
 // Dark mode menu
@@ -274,5 +275,13 @@ searchInput.addEventListener("input", () => {
     } else {
       card.style.display = "none"; // yashirinadi
     }
+  });
+});
+// footer btn
+footer_btn.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
   });
 });

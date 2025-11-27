@@ -13,6 +13,7 @@ body.has-bg {
   margin-right: auto;
 }
 :root {
+  --icon-color: #fff;
   --text-white: #ffffff;
   --text-color: #000;
   --bg: #ffffff;
@@ -29,6 +30,7 @@ body {
   font-family: var(--font-family);
 }
 .dark_mode {
+  --icon-color: #000;
   --text-white: #e81212;
   --text-color: #fff;
   --text-color-2: #fff;
@@ -130,12 +132,15 @@ body {
       border-box;
   border: 2px solid transparent;
 }
-ul li .icons_s {
-  background: var(--icon-color) !important;
+.icons_s {
+  background: var(--text-color) !important;
   border-radius: 50% !important;
   width: 40px !important;
   height: 40px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+}
+.iconS {
+  color: var(--icon-color);
 }
