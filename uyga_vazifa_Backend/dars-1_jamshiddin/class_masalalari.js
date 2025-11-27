@@ -277,6 +277,71 @@ kutubxona.kitob_qoshish(
 );
 kutubxona.mavjud_kitoblar();
 
+console.log("------------------------------------");
+console.log("Masala-8");
+
+class Maxsulot {
+  constructor(nomi, narxi) {
+    this.nomi = nomi;
+    this.narxi = narxi;
+  }
+  chegirma_hisoblash() {}
+}
+class Elektronika extends Maxsulot {
+  constructor(nomi, narxi) {
+    super(nomi, narxi);
+  }
+  chegirma_hisoblash() {
+    return (this.narxi * 90) / 100;
+  }
+}
+class Kiyim extends Maxsulot {
+  constructor(nomi, narxi) {
+    super(nomi, narxi);
+  }
+  chegirma_hisoblash() {
+    return (this.narxi * 85) / 100;
+  }
+}
+class Oziq_ovqat extends Maxsulot {
+  constructor(nomi, narxi) {
+    super(nomi, narxi);
+  }
+  chegirma_hisoblash() {
+    return (this.narxi * 95) / 100;
+  }
+}
+class Savatcha {
+  constructor() {
+    this.maxsulotlar = [];
+  }
+  maxsulot_qoshish(maxsulot) {
+    this.maxsulotlar.push(maxsulot);
+    console.log(`${maxsulot.nomi} savatchaga qo'shildi`);
+  }
+  umumiy_qiymat() {
+    let umumiy_qiymat = this.maxsulotlar.reduce(
+      (sum, maxsulot) => sum + maxsulot.narxi,
+      0
+    );
+    let chegirma_qiymat = this.maxsulotlar.reduce(
+      (sum, maxsulot) => sum + maxsulot.chegirma_hisoblash(),
+      0
+    );
+    console.log("Maxsulotlarni umimiy qiymati: ", umumiy_qiymat);
+    console.log("MAxsulotlarni chegirma qiymati: ", chegirma_qiymat);
+  }
+}
+
+const elektronika = new Elektronika("Telefon", 1_500_000);
+const kiyim = new Kiyim("Kastyum", 1_000_000);
+const oziq_ovqat = new Oziq_ovqat("Olma", 50_000);
+const savatcha = new Savatcha();
+savatcha.maxsulot_qoshish(elektronika);
+savatcha.maxsulot_qoshish(kiyim);
+savatcha.maxsulot_qoshish(oziq_ovqat);
+savatcha.umumiy_qiymat();
+
 // class Animals {
 //   eat() {
 //     console.log(`${this.name} ovqat yeydi`);
