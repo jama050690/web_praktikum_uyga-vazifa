@@ -36,3 +36,19 @@ console.log(culculator.add(3, 6));
 console.log(culculator.minus(8, 6));
 console.log(culculator.multiply(3, 6));
 console.log(culculator.divided(6, 0));
+
+class Book {
+  constructor(nomi, muallifi, sahifallar_soni) {
+    this.name = nomi;
+    this.writter = muallifi;
+    this.allpagenumber = sahifallar_soni;
+  }
+
+  info_Book() {
+    return `Kitob nomi: ${this.name}, muallifi: ${this.writter}, sahifalari: ${this.allpagenumber}`;
+  }
+}
+
+const book = new Book("Mukammal Dasturlash 2", "Javlon Abdullo", 296);
+
+console.log(book.info_Book());
