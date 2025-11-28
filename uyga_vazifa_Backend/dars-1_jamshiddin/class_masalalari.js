@@ -591,3 +591,136 @@ console.log(inson.tanishuv());
 console.log(student.tanishuv());
 console.log(ustoz.tanishuv());
 console.log(ishchi.tanishuv());
+
+console.log("------------------------------------");
+console.log("Masala-13");
+
+class Hammatransport {
+  constructor(nomi, tezligi, sigʻimi) {
+    this.nomi = nomi;
+    this.tezligi = tezligi;
+    this.sigʻimi = sigʻimi;
+  }
+  harakatlanish() {}
+  toʻxtash() {}
+}
+class YerTransporti extends Hammatransport {
+  constructor(nomi, tezligi, sigʻimi, gʻildiraklar_soni) {
+    super(nomi, tezligi, sigʻimi);
+    this.gʻildiraklar_soni = gʻildiraklar_soni;
+  }
+  harakatlanish() {}
+  toʻxtash() {}
+}
+class SuvTransporti extends Hammatransport {
+  constructor(nomi, tezligi, sigʻimi, suvdagi_tezligi) {
+    super(nomi, tezligi, sigʻimi);
+    this.suvdagi_tezligi = suvdagi_tezligi;
+  }
+}
+class HavoTransporti extends Hammatransport {
+  constructor(nomi, tezligi, sigʻimi, balandligi) {
+    super(nomi, tezligi, sigʻimi);
+    this.balandligi = balandligi;
+  }
+}
+class Moshina extends YerTransporti {
+  constructor(nomi, tezligi, sigʻimi, gʻildiraklar_soni) {
+    super(nomi, tezligi, sigʻimi, gʻildiraklar_soni);
+  }
+
+  harakatlanish() {
+    return `${this.nomi} shaharda ${this.tezligi} km/soat tezlikda harakat qiladi,u ${this.sigʻimi}ta insonga mo'ljalangan, unda ${this.gʻildiraklar_soni} ta gʻildirak bor.`;
+  }
+
+  toʻxtash() {
+    return `${this.nomi} ${this.tezligi} km/soat tezlikda ketmoqda, unda ${this.gʻildiraklar_soni} ta gʻildirak bor u ${this.sigʻimi}ta insonga mo'ljalangan, u faqat belgilangan joylarda toʻxtaydi.`;
+  }
+}
+
+class Avtobus extends YerTransporti {
+  constructor(nomi, tezligi, sigʻimi, gʻildiraklar_soni) {
+    super(nomi, tezligi, sigʻimi, gʻildiraklar_soni);
+  }
+
+  harakatlanish() {
+    return `${this.nomi} ${this.tezligi} km/soat tezlikda yuradi, u ${this.sigʻimi} ta yo‘lovchini tashiy oladi va ${this.gʻildiraklar_soni} ta gʻildirakka ega.`;
+  }
+
+  toʻxtash() {
+    return `${this.nomi} yoʻlovchilarni tashiydi, ${this.sigʻimi} ta odam sigʻadi va u faqat bekatlarda toʻxtaydi.`;
+  }
+}
+
+class Kema extends SuvTransporti {
+  constructor(nomi, tezligi, sigʻimi, suvdagi_tezligi) {
+    super(nomi, tezligi, sigʻimi, suvdagi_tezligi);
+  }
+  harakatlanish() {
+    return `${this.nomi} kemasi ${this.tezligi} km/soat tezlikda harakat qiladi,u ${this.sigʻimi}ta insonga mo'ljalangan, uning suvdagi ${this.suvdagi_tezligi}km/soatga teng.`;
+  }
+
+  toʻxtash() {
+    return `${this.nomi} kemasi ${this.tezligi} km/soat tezlikda harakat qiladi,u ${this.sigʻimi}ta insonga mo'ljalangan, uning suvdagi ${this.suvdagi_tezligi}km/soatga teng va u faqat bandargohda to'xtaydi.`;
+  }
+}
+
+class Qayiq extends SuvTransporti {
+  constructor(nomi, tezligi, sigʻimi, suvdagi_tezligi) {
+    super(nomi, tezligi, sigʻimi, suvdagi_tezligi);
+  }
+
+  harakatlanish() {
+    return `${this.nomi}  ${this.tezligi} km/soat tezlikda harakat qiladi,u ${this.sigʻimi}ta insonga mo'ljalangan, uning suvdagi ${this.suvdagi_tezligi}km/soatga teng.`;
+  }
+  toʻxtash() {
+    return `${this.nomi} kemasi ${this.tezligi} km/soat tezlikda harakat qiladi,u ${this.sigʻimi}ta insonga mo'ljalangan, uning suvdagi ${this.suvdagi_tezligi}km/soatga teng va u faqat sohillarda turadi.`;
+  }
+}
+
+class Samolyot extends HavoTransporti {
+  constructor(nomi, tezligi, sigʻimi, balandligi) {
+    super(nomi, tezligi, sigʻimi, balandligi);
+  }
+
+  harakatlanish() {
+    return `${this.nomi} samolyot ${this.tezligi} km/soat tezlikda harakat qiladi,u ${this.sigʻimi}ta insonga mo'ljalangan, u ${this.balandligi}m gacha chiqadi .`;
+  }
+  toʻxtash() {
+    return `${this.nomi} samolyot ${this.tezligi} km/soat tezlikda harakat qiladi,u ${this.sigʻimi}ta insonga mo'ljalangan, u ${this.balandligi}m gacha chiqadi  va u faqat airoportda to'xtaydi .`;
+  }
+}
+
+class Vertolyot extends HavoTransporti {
+  constructor(nomi, tezligi, sigʻimi, balandligi) {
+    super(nomi, tezligi, sigʻimi, balandligi);
+  }
+  harakatlanish() {
+    return `${this.nomi} vertolyoti ${this.tezligi} km/soat tezlikda harakat qiladi,u ${this.sigʻimi}ta insonga mo'ljalangan, u ${this.balandligi}m gacha chiqadi .`;
+  }
+  toʻxtash() {
+    return `${this.nomi} vertolyoti ${this.tezligi} km/soat tezlikda harakat qiladi,u ${this.sigʻimi}ta insonga mo'ljalangan, u ${this.balandligi}m gacha chiqadi  va u faqat airodromda to'xtaydi .`;
+  }
+}
+
+const mashina = new Moshina("BMw", 70, 5, 4);
+const avtobus = new Avtobus("Mersedec", 50, 50, 4);
+const kema = new Kema("Titanic", 50, 30_000, 50);
+const qayiq = new Qayiq("OqKid", 5, 6, 5);
+const samalyot = new Samolyot("Boin", 1000, 770, 20_000);
+const vertolyot = new Vertolyot("Burgut", 70, 50, 10_000);
+
+console.log(mashina.harakatlanish());
+console.log(mashina.toʻxtash());
+console.log(avtobus.harakatlanish());
+console.log(avtobus.toʻxtash());
+
+console.log(kema.harakatlanish());
+console.log(kema.toʻxtash());
+console.log(qayiq.harakatlanish());
+console.log(qayiq.toʻxtash());
+
+console.log(samalyot.harakatlanish());
+console.log(samalyot.toʻxtash());
+console.log(vertolyot.harakatlanish());
+console.log(vertolyot.toʻxtash());
