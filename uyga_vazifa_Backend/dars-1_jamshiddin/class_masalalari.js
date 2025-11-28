@@ -354,7 +354,7 @@ class Xodim {
   }
 
   maosh_hisoblash() {
-    throw new Error("Bu metod override qilinishi kerak!");
+    console.log("Bu metod override qilinishi kerak!");
   }
 }
 
@@ -470,6 +470,72 @@ const qush = new Qush("Qushcha", 7);
 it.ovoz_chiqarish();
 mushuk.ovoz_chiqarish();
 qush.ovoz_chiqarish();
+
+console.log("------------------------------------");
+console.log("Masala-11");
+
+class Shakl {
+  constructor(rang) {
+    this.rang = rang;
+  }
+
+  malumot() {
+    console.log("Bu metod override qilinadi");
+  }
+  yuza_hisoblash() {
+    console.log("Bu metod override qilinadi");
+  }
+}
+class Doira extends Shakl {
+  constructor(rang, radius) {
+    super(rang);
+    this.radius = radius;
+  }
+  yuza_hisoblash() {
+    return Math.PI * this.radius ** 2;
+  }
+  malumot() {
+    return `Doira rangi ${this.rang} radusi ${
+      this.radius
+    } yuzasi ${this.yuza_hisoblash()} `;
+  }
+}
+class Kvadrat extends Shakl {
+  constructor(rang, tomon) {
+    super(rang);
+    this.tomon = tomon;
+  }
+  yuza_hisoblash() {
+    return this.tomon ** 2;
+  }
+  malumot() {
+    return `Kvadratni rangi ${this.rang} tomoni ${
+      this.tomon
+    } yuzasi ${this.yuza_hisoblash()} `;
+  }
+}
+class Uchburchak extends Shakl {
+  constructor(rang, a, b) {
+    super(rang);
+    this.a = a;
+    this.b = b;
+  }
+  yuza_hisoblash() {
+    return (this.a * this.b) / 2;
+  }
+  malumot() {
+    return `Uchburchani rangi ${this.rang} tomon ${this.a} ${
+      this.b
+    } yuzasi ${this.yuza_hisoblash()}`;
+  }
+}
+const doira = new Doira("qora", 30);
+const kvadrat = new Kvadrat("qizil", 20);
+const uchburchak = new Uchburchak("yashil", 5, 6);
+console.log(doira.malumot());
+console.log(kvadrat.malumot());
+console.log(uchburchak.malumot());
+
 // class Product {
 //   constructor(id, name, price, quantity) {
 //     this.id = id;
