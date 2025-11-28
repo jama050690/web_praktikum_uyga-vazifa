@@ -342,6 +342,87 @@ savatcha.maxsulot_qoshish(kiyim);
 savatcha.maxsulot_qoshish(oziq_ovqat);
 savatcha.umumiy_qiymat();
 
+console.log("------------------------------------");
+console.log("Masala-9");
+class Xodim {
+  #ismi;
+  #ish_malakasi;
+
+  constructor(ismi, ish_malakasi) {
+    this.#ismi = ismi;
+    this.#ish_malakasi = ish_malakasi;
+  }
+
+  maosh_hisoblash() {
+    throw new Error("Bu metod override qilinishi kerak!");
+  }
+}
+
+class Dasturchi extends Xodim {
+  #soatlik_tolov;
+  #ishlangan_soat;
+  constructor(ismi, ish_malakasi, soatlik_tolov, ishlangan_soat) {
+    super(ismi, ish_malakasi);
+    this.#soatlik_tolov = soatlik_tolov;
+    this.#ishlangan_soat = ishlangan_soat;
+  }
+  maosh_hisoblash() {
+    return this.#soatlik_tolov * this.#ishlangan_soat;
+  }
+}
+class Dizayner extends Xodim {
+  #oylik_maosh;
+  #bonus;
+  constructor(ismi, ish_malakasi, oylik_maosh, bonus) {
+    super(ismi, ish_malakasi);
+    this.#oylik_maosh = oylik_maosh;
+    this.#bonus = bonus;
+  }
+  maosh_hisoblash() {
+    return this.#oylik_maosh + this.#bonus;
+  }
+}
+class Menejer extends Xodim {
+  #asosiy_maosh;
+  #jamoa_bonusi;
+  constructor(ismi, ish_malakasi, asosiy_maosh, jamoa_bonusi) {
+    super(ismi, ish_malakasi);
+    this.#asosiy_maosh = asosiy_maosh;
+    this.#jamoa_bonusi = jamoa_bonusi;
+  }
+  maosh_hisoblash() {
+    return this.#asosiy_maosh + this.#jamoa_bonusi;
+  }
+}
+class Kompaniya {
+  constructor() {
+    this.xodimlar = [];
+  }
+
+  qosh(xodim) {
+    this.xodimlar.push(xodim);
+  }
+
+  umumiy_maosh() {
+    return this.xodimlar.reduce((sum, x) => sum + x.maosh_hisoblash(), 0);
+  }
+}
+
+const dasturchi = new Dasturchi("Bekzod", "Senior", 10_000, 176);
+const dizayner = new Dizayner("Ahmad", "Middle", 9_500_000, 1_000_000);
+const menejer = new Menejer("Anvar", "Senior", 10_000_000, 2_000_000);
+
+console.log("Dasturchi  maoshi:", dasturchi.maosh_hisoblash());
+console.log("Dizayner maoshi:", dizayner.maosh_hisoblash());
+console.log("Menejer maoshi:", menejer.maosh_hisoblash());
+
+const komp = new Kompaniya();
+komp.qosh(dasturchi);
+komp.qosh(dizayner);
+komp.qosh(menejer);
+
+console.log("Kompaniya umumiy maoshi:", komp.umumiy_maosh());
+
 // class Animals {
 //   eat() {
 //     console.log(`${this.name} ovqat yeydi`);
