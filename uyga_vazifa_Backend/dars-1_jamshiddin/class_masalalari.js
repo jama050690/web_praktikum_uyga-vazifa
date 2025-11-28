@@ -423,69 +423,53 @@ komp.qosh(menejer);
 
 console.log("Kompaniya umumiy maoshi:", komp.umumiy_maosh());
 
-// class Animals {
-//   eat() {
-//     console.log(`${this.name} ovqat yeydi`);
-//   }
-//   sleep() {
-//     console.log(`${this.name} uhlaydi`);
-//   }
-// }
-// class Dog extends Animals {
-//   constructor(name) {
-//     super();
-//     this.name = name;
-//   }
-//   bark() {
-//     console.log(`${this.name} huradi vov vov vov vov`);
-//   }
-// }
-// class Cat extends Animals {
-//   constructor(name) {
-//     super();
-//     this.name = name;
-//   }
-//   meow() {
-//     console.log(`${this.name} miyovlaydi meow meow meow`);
-//   }
-// }
-// class Bird extends Animals {
-//   constructor(name) {
-//     super();
-//     this.name = name;
-//   }
+console.log("------------------------------------");
+console.log("Masala-10");
 
-//   fly() {
-//     console.log(`${this.name} uchadi osmonda`);
-//   }
-// }
-// const dog1 = new Dog("Olapar");
-// const dog2 = new Dog("Rex");
-// const cat1 = new Cat("Boroqvoy");
-// const cat2 = new Cat("Momiqvoy");
+class Hayvonlar {
+  constructor(ismi, yoshi) {
+    this.ismi = ismi;
+    this.yoshi = yoshi;
+  }
+  ovoz_chiqarish() {}
+}
+class It extends Hayvonlar {
+  constructor(ismi, yoshi) {
+    super(ismi, yoshi);
+  }
+  ovoz_chiqarish() {
+    console.log(
+      `Ismi: ${this.ismi} yoshi: ${this.yoshi} huradi: vov vov vov vov`
+    );
+  }
+}
+class Mushuk extends Hayvonlar {
+  constructor(ismi, yoshi) {
+    super(ismi, yoshi);
+  }
+  ovoz_chiqarish() {
+    console.log(
+      ` Ismi: ${this.ismi} yoshi: ${this.yoshi} miyovlaydi: meow meow meow`
+    );
+  }
+}
+class Qush extends Hayvonlar {
+  constructor(ismi, yoshi) {
+    super(ismi, yoshi);
+  }
 
-// const bird = new Bird("Qushcha");
+  ovoz_chiqarish() {
+    console.log(`Ismi: ${this.ismi} yoshi: ${this.yoshi} ovozi:chi chi chi `);
+  }
+}
 
-// dog1.eat();
-// dog1.sleep();
-// dog1.bark();
+const it = new It("Rex", 4);
+const mushuk = new Mushuk("Baroqvoy", 5);
+const qush = new Qush("Qushcha", 7);
 
-// dog2.eat();
-// dog2.sleep();
-// dog2.bark();
-
-// cat1.eat();
-// cat1.sleep();
-// cat1.meow();
-
-// cat2.eat();
-// cat2.sleep();
-// cat2.meow();
-
-// bird.eat();
-// bird.sleep();
-// bird.fly();
-
+it.ovoz_chiqarish();
+mushuk.ovoz_chiqarish();
+qush.ovoz_chiqarish();
 // class Product {
 //   constructor(id, name, price, quantity) {
 //     this.id = id;
