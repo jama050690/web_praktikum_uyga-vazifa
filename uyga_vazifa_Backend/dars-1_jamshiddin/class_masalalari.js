@@ -724,3 +724,88 @@ console.log(samalyot.harakatlanish());
 console.log(samalyot.toʻxtash());
 console.log(vertolyot.harakatlanish());
 console.log(vertolyot.toʻxtash());
+
+console.log("------------------------------------");
+console.log("Masala-14");
+
+class Qurilma {
+  constructor(nomi, ishlab_chiqaruvchi, narxi) {
+    this.nomi = nomi;
+    this.ishlab_chiqaruvchi = ishlab_chiqaruvchi;
+    this.narxi = narxi;
+  }
+
+  yoqish() {
+    console.log(`On tugmasi bosildi`);
+  }
+
+  oʻchirish() {
+    console.log(`Off tugmasi bosildi`);
+  }
+
+  kafolat_muddati() {}
+}
+
+class Kompyuter extends Qurilma {
+  constructor(nomi, ishlab_chiqaruvchi, narxi, ekran_hajmi) {
+    super(nomi, ishlab_chiqaruvchi, narxi);
+    this.ekran_hajmi = ekran_hajmi;
+  }
+
+  texnik_xususiyatlar() {
+    console.log(
+      `${this.nomi} kompyuteri ${this.ishlab_chiqaruvchi} tomonidan ishlab chiqarilgan. Narxi: ${this.narxi} so'm, ekrani: ${this.ekran_hajmi} dyuym.`
+    );
+  }
+
+  kafolat_muddati() {
+    console.log("Kafolat muddati: 1 yil");
+  }
+}
+
+class Telefon extends Qurilma {
+  constructor(nomi, ishlab_chiqaruvchi, narxi, sim_karta) {
+    super(nomi, ishlab_chiqaruvchi, narxi);
+    this.sim_karta = sim_karta;
+  }
+
+  texnik_xususiyatlar() {
+    console.log(
+      `${this.nomi} telefoni ${this.ishlab_chiqaruvchi} tomonidan ishlab chiqarilgan. Narxi: ${this.narxi} so'm, sim karta: ${this.sim_karta}.`
+    );
+  }
+
+  kafolat_muddati() {
+    console.log("Kafolat muddati: 1 yil");
+  }
+}
+
+class Planshet extends Qurilma {
+  constructor(nomi, ishlab_chiqaruvchi, narxi, qulaylik) {
+    super(nomi, ishlab_chiqaruvchi, narxi);
+    this.qulaylik = qulaylik;
+  }
+
+  texnik_xususiyatlar() {
+    console.log(
+      `${this.nomi} plansheti ${this.ishlab_chiqaruvchi} tomonidan ishlab chiqarilgan. Narxi: ${this.narxi} so'm. Qulayligi: ${this.qulaylik}.`
+    );
+  }
+
+  kafolat_muddati() {
+    console.log("Kafolat muddati: 1 yil");
+  }
+}
+
+const kompyuter = new Kompyuter("Lenovo X5", "Lenovo", 15000000, 24);
+const telefon = new Telefon("iPhone 17 Pro", "Apple", 10000000, "Beeline");
+const planshet = new Planshet("A-300", "Samsung", 13000000, "Ixcham va yengil");
+
+kompyuter.texnik_xususiyatlar();
+kompyuter.kafolat_muddati();
+
+telefon.texnik_xususiyatlar();
+telefon.kafolat_muddati();
+
+planshet.texnik_xususiyatlar();
+planshet.kafolat_muddati();
