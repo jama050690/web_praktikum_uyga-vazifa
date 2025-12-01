@@ -7,7 +7,7 @@ console.log(typeof c);
 
 // // // 2-masala
 
-// console.log(typeof ({} = null));
+console.log(typeof ({} = null));
 
 // // 3-masala
 console.log(false + null / 3);
@@ -29,7 +29,7 @@ var d = 13.6;
 console.log(f / n == typeof d);
 
 // 7-masala
-// console.log(([] = (true / null) * undefined - n));
+console.log(([] = (true / null) * undefined - n));
 
 // 8-masala
 
