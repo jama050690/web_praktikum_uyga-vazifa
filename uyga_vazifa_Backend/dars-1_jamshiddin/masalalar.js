@@ -65,23 +65,3 @@ console.log(typeof [string](fan) - -1);
 
 var j = 45;
 console.log(typeof j[{}]);
-
-/*
-1)undefined
-object
-undefined
-2)0
-3)NaN
-4)object
-5)false
-6)NaN
-7)Type error
-8)NaN
-9)false
-10)bravo
-11)false
-12)NaN
-13)false
-14)Refrence error
-15)undefined
-*/

@@ -54,12 +54,12 @@ const changeBannerImage = (index) => {
 
     <img class="w-full h-[500px] object-cover rounded-xl" src="${item.image}" />
 
-    <div id="carusel-btn-list-right" class="absolute right-[40px] bottom-[50px] flex gap-3">
+    <div id="carusel-btn-list-right" class="absolute right-[40px] bottom-[70px] flex gap-3">
       <div class="btn-arrow text-3xl active:bg-[var(--login-color)] px-4 py-2 rounded-full bg-white cursor-pointer text-black">&lt;</div>
       <div class="btn-arrow text-3xl active:bg-[var(--login-color)]  px-4 py-2 rounded-full bg-white cursor-pointer text-black">&gt;</div>
     </div>
 
-    <div id="carusel-btn-list-left" class="absolute left-5 bottom-5 flex items-center gap-2"></div>
+    <div id="carusel-btn-list-left" class="absolute left-8 bottom-[75px] flex items-center gap-2"></div>
   `;
 
   addEventsToBannerBtnsRight();
