@@ -1,0 +1,14 @@
+[
+  {
+    "name": "--jamshiddin",
+    "age": 35
+  },
+  {
+    "name": "--bekzod",
+    "age": 30
+  },
+  {
+    "text": "Jamshid",
+    "day": 25
+  }
+]
