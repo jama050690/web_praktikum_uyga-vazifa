@@ -17,7 +17,7 @@ fs.readFile("./kitob.json", "utf8", (err, data) => {
 
       books.filter((book) => {
         if (book.name.toLowerCase().includes(bookname)) {
-          console.log(book);
+          console.table(book);
         }
       });
     } catch (e) {

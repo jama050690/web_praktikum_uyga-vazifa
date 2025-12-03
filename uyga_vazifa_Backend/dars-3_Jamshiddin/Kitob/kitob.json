@@ -1,6 +1,16 @@
 [
-  { "name": "Ufq", "price": 40000 },
-  { "name": "Ikki eshik orasida", "price": 50000 },
-  { "name": "Otamdan qolgan dalalar", "price": 60000 },
-  { "name": "Farishtalar orasida", "price": 70000 }
+  { "name": "Ufq", "muallif": "Said Ahmad", "price": 40000 },
+  {
+    "name": "Ikki eshik orasida",
+    "muallif": "O'tkir Hoshimov",
+    "price": 50000
+  },
+  {
+    "name": "Otamdan qolgan dalalar",
+    "muallif": "O'tkir Hoshimov",
+    "price": 60000
+  },
+  { "name": "Mexrondan chayon", "muallif": "Abdulla Qodiriy", "price": 70000 },
+  { "name": "Chol va Dengiz", "muallif": "Ernest Hemingway", "price": 80000 },
+  { "name": "Graf Morto Kristo", "muallif": "Aleksandr Dyuma", "price": 90000 }
 ]
