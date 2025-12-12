@@ -14,7 +14,7 @@ async function getPostById(id) {
 }
 
 /**
- * 
+ *
  * @returns
  */
 async function getAllUsers() {
@@ -44,22 +44,42 @@ document.addEventListener("DOMContentLoaded", (e) => {
   getAllUsers().then((result) => {
     let userList = "";
     result.names.forEach((name) => {
-      userList += `<li> ${name}</li>`;
+      userList += `<p class="text-2xl text-black w-[1200px]  rounded-2xl border-1  bg-orange-400">
+  ${name}
+</p>`;
     });
     users.innerHTML = userList;
   });
 
+  //3-vazifa --> ekranga chiqarish
   formEl.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    let albumId = inputEl.value.toLowerCase().trim();
-    boxEl.innerHTML = `<h2 style="color:blue,font-size:32px;"><b>Natija:</b></h2>`;
+    let albumId = inputEl.value.trim();
+    boxEl.innerHTML = `
+    <div class="p-4 border ">
+      <h2 class="text-xl font-bold mb-2">Natija:</h2>
+      <p><b>ID:</b> ${albumId}</p>
+      <p>Yuklanmoqda...</p>
+    </div>
+  `;
+
     const result = await getAlbumById(albumId);
 
     if (result.error) {
-      boxEl.innerHTML += `<p style="color:red">${result.error}</p>`;
+      boxEl.innerHTML += `<p>${result.error}</p>`;
     } else {
-      boxEl.innerHTML += `<p>ID: ${albumId} → ${result.data.title}</p>`;
+      const userId = result.data.userId;
+      const title = result.data.title;
+
+      boxEl.innerHTML = `
+      <div class="p-4 ">
+        <h2 class="text-xl font-bold mb-2">Natija:</h2>
+        <p><b>ID:</b> ${albumId}</p>
+        <p><b>User ID:</b> ${userId}</p>
+        <p><b>Title:</b> ${title}</p>
+      </div>
+    `;
     }
   });
 });

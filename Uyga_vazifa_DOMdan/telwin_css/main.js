@@ -50,7 +50,7 @@ const changeBannerImage = (index) => {
   boxEl.innerHTML = `
     <div class="relative w-full h-full">
       
-      <img class="w-full h-[500px] object-cover rounded-xl" src="${item.image}" />
+      <img class="w-full  h-[500px] object-cover rounded-xl" src="${item.image}" />
       
       <h1 class="absolute left-1/2 top-[80px] -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold">${item.model}</h1>
     
@@ -61,7 +61,7 @@ const changeBannerImage = (index) => {
             <div class="btn-arrow text-3xl active:bg-[var(--login-color)]  px-4 py-2 rounded-full bg-white cursor-pointer text-black">&gt;</div>
         </div>
       </div>
-      
+
     </div>
   `;
 

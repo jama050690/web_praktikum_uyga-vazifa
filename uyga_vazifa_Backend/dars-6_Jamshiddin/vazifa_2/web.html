@@ -3,24 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/output.css" />
     <title>Backend</title>
   </head>
   <body>
-    <!-- 2-vazifa -->
-    <ul class="userNames"></ul>
-
-    <!-- 3-vazifa -->
-    <form class="form">
-      <input
-        type="number"
-        name="name"
-        id="input"
-        placeholder="Write text please"
-        required
-      />
-      <button type="submit">Search</button>
-    </form>
-    <div class="box"></div>
+    <div class="container my-5">
+      <!-- 2-vazifa -->
+      <div class="userNames flex gap-4 list-none flex-wrap text-center"></div>
+    </div>
+    <div class="container items-center mt-10 flex flex-col justify-center">
+      <!-- 3-vazifa -->
+      <div class="bg-blue-800 p-5 w-[500px] h-[250px] rounded-3xl border">
+        <form class="form flex justify-center gap-3">
+          <input
+            class="bg-white pl-2 w-[300px] rounded-xl"
+            type="number"
+            name="name"
+            id="input"
+            placeholder="Write text please"
+            required
+          />
+          <button
+            class="bg-red-600 cursor-pointer rounded-[10px] text-white p-3"
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
+        <div
+          class="box items-center mt-3 text-center text-[14px] text-white"
+        ></div>
+      </div>
+    </div>
     <script src="./homework_2.js"></script>
   </body>
 </html>
