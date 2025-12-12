@@ -13,13 +13,8 @@ function loadUserData(userId) {
         reject(`Error: User ${userId} topilmadi`);
       }
     }, 1000);
-  });
+  })
+    .then((data) => console.log(data))
+    .catch((err) => console.error(err));
 }
-
-loadUserData(2)
-  .then((data) => console.log(data))
-  .catch((err) => console.error(err));
-
-loadUserData(3)
-  .then((data) => console.log(data))
-  .catch((err) => console.error(err));
+loadUserData(6);

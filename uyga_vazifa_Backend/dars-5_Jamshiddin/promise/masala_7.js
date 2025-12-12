@@ -1,7 +1,7 @@
 // 7. Retry mexanizmi
 // Agar Promise xato bilan tugasa, uni 3 marta qayta urinish mexanizmini yarating.
 
-function retryPromise(promisefn, retries = 3, delay = 1000) {
+function retryPromise(promisefn, retries = 3, delay = 2000) {
   return new Promise((resolve, reject) => {
     const attempt = () => {
       promisefn()

@@ -19,7 +19,7 @@ function promiseWithTimeout(promise, timeout) {
   });
 }
 const samplePromise = new Promise((resolve) => {
-  setTimeout(() => resolve("Ma'lumot olindi"), 1500);
+  setTimeout(() => resolve("Ma'lumot olindi"), 2000);
 });
 
 promiseWithTimeout(samplePromise, 1000).then(console.log).catch(console.error);

@@ -29,11 +29,11 @@ const changeMode = () => {
   if (isDark) {
     document.body.classList.add("dark_mode");
     document.body.classList.remove("light_mode");
-    modeIcon.src = "/images/Sun_mode.svg";
+    modeIcon.src = "./images/Sun_mode.svg";
   } else {
     document.body.classList.add("light_mode");
     document.body.classList.remove("dark_mode");
-    modeIcon.src = "/images/Dark_mode.svg";
+    modeIcon.src = "./images/Dark_mode.svg";
   }
 };
 
@@ -48,18 +48,21 @@ let bannerImageIndex = 0;
 const changeBannerImage = (index) => {
   const item = bannerImages[index];
   boxEl.innerHTML = `
-    <div class="relative">
+    <div class="relative w-full h-full">
+      
+      <img class="w-full h-[500px] object-cover rounded-xl" src="${item.image}" />
+      
       <h1 class="absolute left-1/2 top-[80px] -translate-x-1/2 -translate-y-1/2 text-white text-4xl font-bold">${item.model}</h1>
+    
+      <div class="absolute left-8 right-[40px] bottom-[20px] flex justify-between">
+        <div id="carusel-btn-list-left" class="flex items-center gap-2"></div>
+        <div id="carusel-btn-list-right" class="flex gap-3">
+            <div class="btn-arrow text-3xl active:bg-[var(--login-color)] px-4 py-2 rounded-full bg-white cursor-pointer text-black">&lt;</div>
+            <div class="btn-arrow text-3xl active:bg-[var(--login-color)]  px-4 py-2 rounded-full bg-white cursor-pointer text-black">&gt;</div>
+        </div>
+      </div>
+      
     </div>
-
-    <img class="w-full h-[500px] object-cover rounded-xl" src="${item.image}" />
-
-    <div id="carusel-btn-list-right" class="absolute right-[40px] bottom-[70px] flex gap-3">
-      <div class="btn-arrow text-3xl active:bg-[var(--login-color)] px-4 py-2 rounded-full bg-white cursor-pointer text-black">&lt;</div>
-      <div class="btn-arrow text-3xl active:bg-[var(--login-color)]  px-4 py-2 rounded-full bg-white cursor-pointer text-black">&gt;</div>
-    </div>
-
-    <div id="carusel-btn-list-left" class="absolute left-8 bottom-[75px] flex items-center gap-2"></div>
   `;
 
   addEventsToBannerBtnsRight();
