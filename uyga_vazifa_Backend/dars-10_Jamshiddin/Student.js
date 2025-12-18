@@ -1,11 +1,14 @@
 import express from "express";
-import cors from "cors";
+import { promises as fs } from "fs";
 
 const server = express();
 
 server.students(express.json());
 server.students(cors());
 server.students(express.static("public"));
+
+const FILE = path.join("database/students.json");
+
 
 // GET hamma talabarlar
 server.get("/students", (req, res) => {
