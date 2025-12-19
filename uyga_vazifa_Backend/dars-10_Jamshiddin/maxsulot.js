@@ -45,7 +45,7 @@ function validateMaxsulot(data, isPatch = false) {
 
 /* QO‘SHIMCHA ROUTELAR */
 server.get("/api/mahsulotlar/tugagan", async (req, res) => {
-  console.log("TUGAGAN ROUTE ISHLADI");
+
 
   const items = await readMaxsulotlar();
   const tugaganlar = items.filter((m) => Number(m.miqdor) === 0);
