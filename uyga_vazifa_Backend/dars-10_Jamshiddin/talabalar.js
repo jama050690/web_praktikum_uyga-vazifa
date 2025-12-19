@@ -1,8 +1,5 @@
 // expressni chaqirishh
 import express from "express";
-// Fs chaqirdim
-import { promises as fs } from "fs";
-
 // Server yaratish express orqali
 const server = express();
 // exress orqali jsonga parselash
@@ -21,12 +18,12 @@ function generateID() {
 }
 
 // GET hamma talabalarni chaqrish
-server.get("/talabalar", (req, res) => {
+server.get("/api/talabalar", (req, res) => {
   res.json(talabalar);
 });
 
 // GET talabani id orqali chaqirish
-server.get("/talabalar/:id", (req, res) => {
+server.get("/api/talabalar/:id", (req, res) => {
   const id = req.params.id;
   const talaba = talabalar[id];
 
@@ -38,36 +35,38 @@ server.get("/talabalar/:id", (req, res) => {
 });
 
 // CREATE  metodi orqali  talaba ma'lumotini butunlay yaratish
-server.post("/talabalar", (req, res) => {
+server.post("/api/talabalar", (req, res) => {
+  const error = validateTalaba(req.body);
+  if (error) {
+    return res.status(400).json({ error });
+  }
+
   const newId = generateID();
-
-  const newTalaba = {
-    id: newId,
-    ...req.body,
-  };
-
+  const newTalaba = { id: newId, ...req.body };
   talabalar[newId] = newTalaba;
 
   res.status(201).json(newTalaba);
 });
 
 //  PUT metodi orqali id topilgan talaba ma'lumotini butunlay o'zgartirish
-server.put("/talabalar/:id", (req, res) => {
+server.put("/api/talabalar:id", (req, res) => {
   const id = req.params.id;
 
   if (!talabalar[id]) {
     return res.status(404).json({ error: "talaba not found" });
   }
-  talabalar[id] = {
-    id,
-    ...req.body,
-  };
 
+  const error = validateTalaba(req.body);
+  if (error) {
+    return res.status(400).json({ error });
+  }
+
+  talabalar[id] = { id: Number(id), ...req.body };
   res.json(talabalar[id]);
 });
 
 //  PATCH metodi orqali id topilgan talaba ma'lumotini ma'lum bir qismini o'zgartirish
-server.patch("/talabalar/:id", (req, res) => {
+server.patch("/api/talabalar/:id", (req, res) => {
   const id = req.params.id;
 
   if (!talabalar[id]) {
@@ -83,7 +82,7 @@ server.patch("/talabalar/:id", (req, res) => {
 });
 
 //  DELETE metodi orqali id topilgan talaba ma'lumotini butunlay o'chirish
-server.delete("/talabalar/:id", (req, res) => {
+server.delete("/api/talabalar/:id", (req, res) => {
   const id = req.params.id;
 
   if (!talabalar[id]) {
@@ -96,66 +95,59 @@ server.delete("/talabalar/:id", (req, res) => {
 });
 
 // Qo'shimcha routlar uchun
+
 //  Guruh bo'yicha talabalarni filtrlash
 
-app.get("/api/talabalar", (req, res) => {
-  const { guruh, kurs, ball } = req.query;
+server.get("/api/talabalar", (req, res) => {
+  const { guruh, kurs, sort, otlichniklar } = req.query;
 
-  fs.readFile("./public/talabalar.json", "utf8", (error, data) => {
-    if (error) {
-      return res.status(404).json({
-        message: "Bu fayl mavjud emas",
-      });
-    }
+  let result = Object.values(talabalar);
 
-    let talabalar = JSON.parse(data);
-
-    // Guruh bo‘yicha filter
-    if (guruh) {
-      talabalar = talabalar.filter((t) => t.guruh === guruh);
-    }
-
-    // Kurs bo‘yicha filter
-    if (kurs) {
-      talabalar = talabalar.filter((t) => t.kurs == kurs);
-    }
-
-    res.json(talabalar);
-  });
-});
-
-//  Ball bo'yicha saralash: /api/talabalar?sort=ball
-
-app.get("/api/talabalar", (req, res) => {
-  const { sort } = req.query;
-
-  fs.readFile("./public/talabalar.json", "utf8", (err, data) => {
-    if (err) {
-      return res.status(404).json({ message: "Fayl topilmadi" });
-    }
-
-    let talabalar = JSON.parse(data);
-
-    if (sort === "ball") {
-      talabalar.sort((a, b) => a.ball - b.ball);
-    }
-
-    res.json(talabalar);
-  });
-});
-
-// 60 balldan yuqori talabalarni ko'rish: /api/talabalar/otlichniklar
-
-app.get("/api/talabalar", async (req, res) => {
-  try {
-    const data = await fs.readFile("./public/talabalar.json", "utf8");
-    const talabalar = JSON.parse(data);
-
-    res.json(talabalar);
-  } catch (err) {
-    res.status(404).json({ message: "Fayl topilmadi" });
+  // Guruh bo‘yicha
+  if (guruh) {
+    result = result.filter((t) => t.guruh === guruh);
   }
+
+  // Kurs bo‘yicha
+  if (kurs) {
+    result = result.filter((t) => t.kurs == kurs);
+  }
+
+  // Otlichniklar (60+)
+  if (otlichniklar === "true") {
+    result = result.filter((t) => t.ball > 60);
+  }
+
+  // Ball bo‘yicha sort
+  if (sort === "ball") {
+    result.sort((a, b) => a.ball - b.ball);
+  }
+
+  res.json(result);
 });
+
+// ====== VALIDATION ======
+function validateTalaba(data) {
+  const { ism, familiya, yosh, kurs, ball } = data;
+
+  if (!ism || !familiya) {
+    return "Ism va familiya bo‘sh bo‘lmasligi kerak";
+  }
+
+  if (yosh < 16 || yosh > 30) {
+    return "Yosh 16–30 oralig‘ida bo‘lishi kerak";
+  }
+
+  if (kurs < 1 || kurs > 4) {
+    return "Kurs 1–4 oralig‘ida bo‘lishi kerak";
+  }
+
+  if (ball < 0 || ball > 100) {
+    return "Ball 0–100 oralig‘ida bo‘lishi kerak";
+  }
+
+  return null;
+}
 
 // Server posti va API si
 server.listen(3000, () => {
