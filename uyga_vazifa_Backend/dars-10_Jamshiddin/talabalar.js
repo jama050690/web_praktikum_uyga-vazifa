@@ -103,58 +103,95 @@ server.put("/api/talabalar/:id", (req, res) => {
 });
 
 //  PATCH metodi orqali id topilgan talaba ma'lumotini ma'lum bir qismini o'zgartirish
-server.patch("/api/talabalar/:id", (req, res) => {
-  const id = req.params.id;
+server.patch("/api/talabalar/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
 
-  if (!talabalar[id]) {
-    return res.status(404).json({ message: "talaba not found" });
+    const talabalar = await readTalabalar();
+
+    const index = talabalar.findIndex((t) => Number(t.id) === id);
+
+    if (index === -1) {
+      return res.status(404).json({ message: "talaba not found" });
+    }
+
+    // eski + yangi ma’lumotlarni birlashtiramiz
+    talabalar[index] = {
+      ...talabalar[index],
+      ...req.body,
+      id: talabalar[index].id, // id o‘zgarmasligi shart
+    };
+
+    await writeTalabalar(talabalar);
+
+    res.json({
+      message: "talaba updated",
+      talaba: talabalar[index],
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
   }
-
-  Object.assign(talabalar[id], req.body);
-
-  res.json({
-    message: "talaba updated",
-    talaba: talabalar[id],
-  });
 });
 
 //  DELETE metodi orqali id topilgan talaba ma'lumotini butunlay o'chirish
-server.delete("/api/talabalar/:id", (req, res) => {
-  const id = req.params.id;
+server.delete("/api/talabalar/:id", async (req, res) => {
+  try {
+    const id = Number(req.params.id);
 
-  if (!talabalar[id]) {
-    return res.status(404).json({ message: "talaba not found" });
+    const talabalar = await readTalabalar();
+    const index = talabalar.findIndex((t) => Number(t.id) === id);
+
+    if (index === -1) {
+      return res.status(404).json({ message: "talaba not found" });
+    }
+
+    // o‘chiramiz
+    const deletedTalaba = talabalar.splice(index, 1)[0];
+
+    // faylga qayta yozamiz
+    await writeTalabalar(talabalar);
+
+    res.json({
+      message: "talaba deleted successfully",
+      talaba: deletedTalaba,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
   }
-
-  delete talabalar[id];
-
-  res.json({ message: "talaba deleted successfully" });
 });
 
 // Qo'shimcha routlar uchun
 //  Guruh bo'yicha talabalarni filtrlash
-server.get("/api/talabalar", (req, res) => {
-  const { guruh, kurs, sort, otlichniklar } = req.query;
+server.get("/api/talabalar", async (req, res) => {
+  try {
+    const { guruh, kurs, sort, otlichniklar } = req.query;
 
-  let result = Object.values(talabalar);
+    const talabalar = await readTalabalar();
+    let result = talabalar; // 👈 MUHIM
 
-  if (guruh) {
-    result = result.filter((t) => t.guruh === guruh);
+    if (guruh) {
+      result = result.filter((t) => t.guruh === guruh);
+    }
+
+    if (kurs) {
+      result = result.filter((t) => Number(t.kurs) === Number(kurs));
+    }
+
+    if (otlichniklar === "true") {
+      result = result.filter((t) => Number(t.ball) > 60);
+    }
+
+    if (sort === "ball") {
+      result.sort((a, b) => a.ball - b.ball);
+    }
+
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
   }
-
-  if (kurs) {
-    result = result.filter((t) => t.kurs == kurs);
-  }
-
-  if (otlichniklar === "true") {
-    result = result.filter((t) => t.ball > 60);
-  }
-
-  if (sort === "ball") {
-    result.sort((a, b) => a.ball - b.ball);
-  }
-
-  res.json(result);
 });
 
 // VALIDATION

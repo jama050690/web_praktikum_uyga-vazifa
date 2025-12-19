@@ -21,10 +21,10 @@
     "id": 3,
     "ism": "O'lmasbek",
     "familiya": "Ruziboyev",
-    "yosh": 23,
+    "yosh": 26,
     "guruh": "N4",
     "kurs": 2,
-    "ball": 88
+    "ball": 58
   },
   {
     "id": 4,
@@ -34,14 +34,5 @@
     "guruh": "N4",
     "kurs": 2,
     "ball": 80
-  },
-  {
-    "id": 5,
-    "ism": "Gulnoza",
-    "familiya": "Urazboyeva",
-    "yosh": 20,
-    "guruh": "N4",
-    "kurs": 3,
-    "ball": 90
   }
 ]
