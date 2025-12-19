@@ -8,7 +8,7 @@ const DB_FILE = "todo_list/vazifalar.json";
 
 /*Faylni o'qib olish funksiyasi */
 
-async function readTodo() {
+async function readVazifa() {
   try {
     const data = await fs.readFile(DB_FILE, "utf8");
     return JSON.parse(data);
@@ -17,7 +17,7 @@ async function readTodo() {
   }
 }
 
-async function writeTodo(data) {
+async function writeVazifa(data) {
   await fs.writeFile(DB_FILE, JSON.stringify(data, null, 2));
 }
 
@@ -56,7 +56,7 @@ function validateTodo(data, isPatch = false) {
 
 // /* QO‘SHIMCHA ROUTELAR */
 // server.get("/api/vazifalar/tugagan", async (req, res) => {
-//   const items = await readTodo();
+//   const items = await readVazifa();
 //   const tugaganlar = items.filter((m) => Number(m.miqdor) === 0);
 
 //   res.json(tugaganlar);
@@ -64,7 +64,7 @@ function validateTodo(data, isPatch = false) {
 
 // /** ENG QIMMAT 5 TA */
 // server.get("/api/to_do/eng-qimmat", async (req, res) => {
-//   const items = await readTodo();
+//   const items = await readVazifa();
 
 //   const result = [...items].sort((a, b) => b.narx - a.narx).slice(0, 5);
 
@@ -73,23 +73,20 @@ function validateTodo(data, isPatch = false) {
 
 /* CRUD */
 
-/** BARCHA vazifalar + FILTER */
-server.get("/vazifalar", async (req, res) => {
-  try {
-    const data = await fs.readFile("todo_list/vazifalar.json", "utf8");
-    res.json(JSON.parse(data));
-  } catch (err) {
-    console.error(err);
-    res.status(404).json({ message: "vazifalar.json topilmadi" });
-  }
+/** BARCHA VAZIFALAR */
+server.get("/api/vazifalar", async (req, res) => {
+  const items = await readVazifa();
+  res.json(items);
 });
 
-/** BITTA MAHSULOT (ID) */
+/** BITTA VAZIFA (ID) */
 server.get("/api/vazifalar/:id", async (req, res) => {
-  const items = await readTodo();
-  const item = items.find((m) => m.id === Number(req.params.id));
+  const items = await readVazifa();
+  const item = items.find((v) => v.id === Number(req.params.id));
 
-  if (!item) return res.status(404).json({ message: "Mahsulot topilmadi" });
+  if (!item) {
+    return res.status(404).json({ message: "Vazifa topilmadi" });
+  }
 
   res.json(item);
 });
@@ -99,15 +96,20 @@ server.post("/api/vazifalar", async (req, res) => {
   const error = validateTodo(req.body);
   if (error) return res.status(400).json({ error });
 
-  const items = await readTodo();
+  const items = await readVazifa();
 
   const newItem = {
     id: generateID(items),
-    ...req.body,
+    sarlavha: req.body.sarlavha,
+    tavsif: req.body.tavsif || "",
+    status: req.body.status || "yangi",
+    muhimlik: req.body.muhimlik || "o'rta",
+    muddat: req.body.muddat,
+    yaratilganVaqt: new Date().toISOString(),
   };
 
   items.push(newItem);
-  await writeTodo(items);
+  await writeVazifa(items);
 
   res.status(201).json(newItem);
 });
@@ -117,27 +119,12 @@ server.put("/api/vazifalar/:id", async (req, res) => {
   const error = validateTodo(req.body);
   if (error) return res.status(400).json({ error });
 
-  const items = await readTodo();
-  const index = items.findIndex((m) => m.id === Number(req.params.id));
+  const items = await readVazifa();
+  const index = items.findIndex((v) => v.id === Number(req.params.id));
 
-  if (index === -1)
-    return res.status(404).json({ message: "Mahsulot topilmadi" });
-
-  items[index] = { id: items[index].id, ...req.body };
-  await writeTodo(items);
-
-  res.json(items[index]);
-});
-
-server.patch("/api/vazifalar/:id", async (req, res) => {
-  const error = validateTodo(req.body, true);
-  if (error) return res.status(400).json({ error });
-
-  const items = await readTodo();
-  const index = items.findIndex((m) => m.id === Number(req.params.id));
-
-  if (index === -1)
+  if (index === -1) {
     return res.status(404).json({ message: "Vazifa topilmadi" });
+  }
 
   items[index] = {
     ...items[index],
@@ -145,20 +132,43 @@ server.patch("/api/vazifalar/:id", async (req, res) => {
     id: items[index].id,
   };
 
-  await writeTodo(items);
+  await writeVazifa(items);
+  res.json(items[index]);
+});
+
+/** UPDATE (PATCH) */
+server.patch("/api/vazifalar/:id", async (req, res) => {
+  const error = validateTodo(req.body, true);
+  if (error) return res.status(400).json({ error });
+
+  const items = await readVazifa();
+  const index = items.findIndex((v) => v.id === Number(req.params.id));
+
+  if (index === -1) {
+    return res.status(404).json({ message: "Vazifa topilmadi" });
+  }
+
+  items[index] = {
+    ...items[index],
+    ...req.body,
+    id: items[index].id,
+  };
+
+  await writeVazifa(items);
   res.json(items[index]);
 });
 
 /** DELETE */
 server.delete("/api/vazifalar/:id", async (req, res) => {
-  const items = await readTodo();
-  const index = items.findIndex((m) => m.id === Number(req.params.id));
+  const items = await readVazifa();
+  const index = items.findIndex((v) => v.id === Number(req.params.id));
 
-  if (index === -1)
+  if (index === -1) {
     return res.status(404).json({ message: "Vazifa topilmadi" });
+  }
 
   const deleted = items.splice(index, 1)[0];
-  await writeTodo(items);
+  await writeVazifa(items);
 
   res.json(deleted);
 });
