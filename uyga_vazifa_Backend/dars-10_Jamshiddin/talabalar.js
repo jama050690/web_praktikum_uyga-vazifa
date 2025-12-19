@@ -30,7 +30,14 @@ function generateID() {
 }
 
 // In-memory database (API uchun)
-const talabalar = {};
+const talabalar = [];
+
+// OTLICHNIKLAR API NI CHAQIRISH
+server.get("/api/talabalar/otlichniklar", async (req, res) => {
+  const talabalar = await readTalabalar();
+  const result = talabalar.filter((t) => Number(t.ball) > 60);
+  res.json(result);
+});
 
 // GET hamma talabalarni chaqrish (public/talabalar.json dan)
 server.get("/talabalar.json", async (req, res) => {
@@ -164,23 +171,18 @@ server.delete("/api/talabalar/:id", async (req, res) => {
 
 // Qo'shimcha routlar uchun
 //  Guruh bo'yicha talabalarni filtrlash
-server.get("/api/talabalar", async (req, res) => {
+server.get("/api/talabalar/", async (req, res) => {
   try {
-    const { guruh, kurs, sort, otlichniklar } = req.query;
-
+    const { guruh, kurs, sort } = req.query;
+    const key = req.params.key;
     const talabalar = await readTalabalar();
-    let result = talabalar; // 👈 MUHIM
+    let result = talabalar;
 
     if (guruh) {
       result = result.filter((t) => t.guruh === guruh);
     }
-
     if (kurs) {
       result = result.filter((t) => Number(t.kurs) === Number(kurs));
-    }
-
-    if (otlichniklar === "true") {
-      result = result.filter((t) => Number(t.ball) > 60);
     }
 
     if (sort === "ball") {
