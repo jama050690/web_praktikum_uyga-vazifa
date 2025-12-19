@@ -30,7 +30,7 @@ function generateID(items) {
 
 function validateTodo(data, isPatch = false) {
   //  Sarlavha
-  if (!isPatch && (!data.sarlavha || data.sarlavha.trim().length < 3)) {
+  if (!isPatch && (!data.sarlavha || data.sarlavha.trim().length < 6)) {
     return "Sarlavha bo'sh bo'lmasligi kerak";
   }
 
@@ -54,22 +54,101 @@ function validateTodo(data, isPatch = false) {
   return null;
 }
 
-// /* QO‘SHIMCHA ROUTELAR */
-// server.get("/api/vazifalar/tugagan", async (req, res) => {
-//   const items = await readVazifa();
-//   const tugaganlar = items.filter((m) => Number(m.miqdor) === 0);
+/* QO‘SHIMCHA ROUTELAR */
+server.get("/api/vazifalar", async (req, res) => {
+  try {
+    const { status, muhimlik } = req.query;
+    const vazifalar = await readVazifa();
 
-//   res.json(tugaganlar);
-// });
+    let result = vazifalar;
 
-// /** ENG QIMMAT 5 TA */
-// server.get("/api/to_do/eng-qimmat", async (req, res) => {
-//   const items = await readVazifa();
+    if (status) {
+      result = result.filter((v) => v.status === status);
+    }
 
-//   const result = [...items].sort((a, b) => b.narx - a.narx).slice(0, 5);
+    if (muhimlik) {
+      result = result.filter((v) => v.muhimlik === muhimlik);
+    }
 
-//   res.json(result);
-// });
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+// Bugunki vazifalar
+server.get("/api/vazifalar/bugun", async (req, res) => {
+  try {
+    const vazifalar = await readVazifa();
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const result = vazifalar.filter((v) => {
+      if (!v.muddat) return false;
+      const d = new Date(v.muddat);
+      d.setHours(0, 0, 0, 0);
+      return d.getTime() === today.getTime();
+    });
+
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+// Kech qolgan vazifalar
+server.get("/api/vazifalar/kech-qolgan", async (req, res) => {
+  try {
+    const vazifalar = await readVazifa();
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const result = vazifalar.filter((v) => {
+      if (!v.muddat) return false;
+
+      const d = new Date(v.muddat);
+      d.setHours(0, 0, 0, 0);
+
+      return d < today && v.status !== "tugallangan";
+    });
+
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+// Patch statsus
+server.patch("/api/vazifalar/:id/status", async (req, res) => {
+  try {
+    const { status } = req.body;
+    const allowedStatus = ["yangi", "jarayonda", "tugallangan"];
+
+    if (!allowedStatus.includes(status)) {
+      return res.status(400).json({
+        error: "Status faqat belgilangan qiymatlardan biri bo'lishi kerak",
+      });
+    }
+
+    const vazifalar = await readVazifa();
+    const index = vazifalar.findIndex((v) => v.id === Number(req.params.id));
+
+    if (index === -1) {
+      return res.status(404).json({ message: "Vazifa topilmadi" });
+    }
+
+    vazifalar[index].status = status;
+    await writeVazifa(vazifalar);
+
+    res.json(vazifalar[index]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
 
 /* CRUD */
 
