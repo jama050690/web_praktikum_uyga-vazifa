@@ -40,7 +40,7 @@ server.get("/api/talabalar/otlichniklar", async (req, res) => {
 });
 
 // GET hamma talabalarni chaqrish (public/talabalar.json dan)
-server.get("/talabalar.json", async (req, res) => {
+server.get("/mahsulotlar", async (req, res) => {
   try {
     const data = await fs.readFile("public/talabalar.json", "utf8");
     res.json(JSON.parse(data));

@@ -5,8 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node talabalar.js",
-    "dev": "node --watch student.js"
+    "start": "node maxsulot.js",
+    "dev": "node --watch maxsulotlar.js"
   },
   "keywords": [],
   "author": "",
