@@ -4,7 +4,7 @@ import fs from "node:fs/promises";
 const server = express();
 server.use(express.json());
 
-const DB_FILE = "public/maxsulotlar.json";
+const DB_FILE = "do'kon_api/maxsulotlar.json";
 
 /*Faylni o'qib olish funksiyasi */
 
@@ -45,8 +45,6 @@ function validateMaxsulot(data, isPatch = false) {
 
 /* QO‘SHIMCHA ROUTELAR */
 server.get("/api/mahsulotlar/tugagan", async (req, res) => {
-
-
   const items = await readMaxsulotlar();
   const tugaganlar = items.filter((m) => Number(m.miqdor) === 0);
 
