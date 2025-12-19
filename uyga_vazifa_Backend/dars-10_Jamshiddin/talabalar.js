@@ -1,11 +1,23 @@
 // expressni chaqirishh
 import express from "express";
+// Fs chaqirdim
+import fs from "node:fs/promises";
+
 // Server yaratish express orqali
 const server = express();
 // exress orqali jsonga parselash
 server.use(express.json());
 
-const talabalar = {};
+// Talabalar.json faylni o'qisb olish va ma'lumot uzatish
+async function readTalabalar() {
+  const data = await fs.readFile("public/talabalar.json", "utf8");
+  return JSON.parse(data);
+}
+
+async function writeTalabalar(data) {
+  await fs.writeFile("public/talabalar.json", JSON.stringify(data, null, 2));
+}
+
 // Avto id berish funksiyasi
 function generateID() {
   let maxID = 0;
@@ -17,9 +29,18 @@ function generateID() {
   return maxID + 1;
 }
 
-// GET hamma talabalarni chaqrish
-server.get("/api/talabalar", (req, res) => {
-  res.json(talabalar);
+// In-memory database (API uchun)
+const talabalar = {};
+
+// GET hamma talabalarni chaqrish (public/talabalar.json dan)
+server.get("/talabalar.json", async (req, res) => {
+  try {
+    const data = await fs.readFile("public/talabalar.json", "utf8");
+    res.json(JSON.parse(data));
+  } catch (err) {
+    console.error(err);
+    res.status(404).json({ message: "talabalar.json topilmadi" });
+  }
 });
 
 // GET talabani id orqali chaqirish
@@ -35,21 +56,37 @@ server.get("/api/talabalar/:id", (req, res) => {
 });
 
 // CREATE  metodi orqali  talaba ma'lumotini butunlay yaratish
-server.post("/api/talabalar", (req, res) => {
-  const error = validateTalaba(req.body);
-  if (error) {
-    return res.status(400).json({ error });
+server.post("/api/talabalar", async (req, res) => {
+  try {
+    const error = validateTalaba(req.body);
+    if (error) {
+      return res.status(400).json({ error });
+    }
+
+    //  Fayldan o‘qiymiz
+    const talabalar = await readTalabalar();
+
+    //  Avto ID
+    const newId = talabalar.length ? talabalar[talabalar.length - 1].id + 1 : 1;
+
+    //  Yangi talaba
+    const newTalaba = { id: newId, ...req.body };
+
+    // Array’ga qo‘shamiz
+    talabalar.push(newTalaba);
+
+    //  Faylga yozamiz
+    await writeTalabalar(talabalar);
+
+    res.status(201).json(newTalaba);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
   }
-
-  const newId = generateID();
-  const newTalaba = { id: newId, ...req.body };
-  talabalar[newId] = newTalaba;
-
-  res.status(201).json(newTalaba);
 });
 
 //  PUT metodi orqali id topilgan talaba ma'lumotini butunlay o'zgartirish
-server.put("/api/talabalar:id", (req, res) => {
+server.put("/api/talabalar/:id", (req, res) => {
   const id = req.params.id;
 
   if (!talabalar[id]) {
@@ -95,30 +132,24 @@ server.delete("/api/talabalar/:id", (req, res) => {
 });
 
 // Qo'shimcha routlar uchun
-
 //  Guruh bo'yicha talabalarni filtrlash
-
 server.get("/api/talabalar", (req, res) => {
   const { guruh, kurs, sort, otlichniklar } = req.query;
 
   let result = Object.values(talabalar);
 
-  // Guruh bo‘yicha
   if (guruh) {
     result = result.filter((t) => t.guruh === guruh);
   }
 
-  // Kurs bo‘yicha
   if (kurs) {
     result = result.filter((t) => t.kurs == kurs);
   }
 
-  // Otlichniklar (60+)
   if (otlichniklar === "true") {
     result = result.filter((t) => t.ball > 60);
   }
 
-  // Ball bo‘yicha sort
   if (sort === "ball") {
     result.sort((a, b) => a.ball - b.ball);
   }
@@ -126,7 +157,7 @@ server.get("/api/talabalar", (req, res) => {
   res.json(result);
 });
 
-// ====== VALIDATION ======
+// VALIDATION
 function validateTalaba(data) {
   const { ism, familiya, yosh, kurs, ball } = data;
 

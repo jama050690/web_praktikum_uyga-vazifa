@@ -1,7 +1,7 @@
 [
   {
     "ism": "O'lmasbek",
-    "familya": "Ruziboyev",
+    "familiya": "Ruziboyev",
     "yosh": 23,
     "guruh": "N4",
     "kurs": 2,
@@ -9,7 +9,7 @@
   },
   {
     "ism": "Tolmas",
-    "familya": "Urinov",
+    "familiya": "Urinov",
     "yosh": 18,
     "guruh": "N4",
     "kurs": 1,
@@ -17,7 +17,7 @@
   },
   {
     "ism": "Suhrob",
-    "familya": "Amirov",
+    "familiya": "Amirov",
     "yosh": 20,
     "guruh": "N4",
     "kurs": 1,
@@ -25,7 +25,7 @@
   },
   {
     "ism": "Gulnoza",
-    "familya": "Urazboyeva",
+    "familiya": "Urazboyeva",
     "yosh": 20,
     "guruh": "N4",
     "kurs": 3,
@@ -33,7 +33,7 @@
   },
   {
     "ism": "Sardor",
-    "familya": "Sunattulaye",
+    "familiya": "Sunattulaye",
     "yosh": 16,
     "guruh": "N4",
     "kurs": 1,
