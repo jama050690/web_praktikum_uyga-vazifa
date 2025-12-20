@@ -134,29 +134,29 @@ POST /api/kitoblar
 
 # Qo‘shimcha route’lar
 
-# Status bo‘yicha filtrlash
+# Janr bo'yicha filtrlash:
 
-GET /api/kitoblar?status=tugallangan
+GET /api/kitoblar?janr=roman
 
-# Muhimlik bo‘yicha filtrlash
+# Muallif bo'yicha qidirish:
 
-GET /api/kitoblar?muhimlik=yuqori
+GET /api/kitoblar?muallif=Abdulla%20Qodiriy
 
-# Bugungi kitoblar
+# Mavjud kitoblar:
 
-GET /api/kitoblar/bugun
+Get /api/kitoblar/mavjud
 
-# Muddati o‘tgan kitoblar
+# Olingan kitoblar:
 
-GET /api/kitoblar/kech-qolgan
+Get /api/kitoblar/olingan
 
-## kitob statusini o‘zgartirish
+# Kitob olish:
 
-# PATCH /api/kitoblar/1/status
+POST /api/kitoblar/:id/ol
 
-{
-"status": "tugallangan"
-}
+# Kitob qaytarish:
+
+POST /api/kitoblar/:id/qaytarish
 
 ## Validatsiya qoidalari
 
@@ -167,7 +167,7 @@ Sahifalar 1 dan katta bo'lishi kerak
 # Xato javobi:
 
 {
-"error": "Status faqat belgilangan qiymatlardan biri bo'lishi kerak"
+"error": "Nashr yili 1800-2024 oralig'ida bo'lishi kerak"
 }
 
 ## HTTP Status kodlari

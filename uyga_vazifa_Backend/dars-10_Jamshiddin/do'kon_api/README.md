@@ -1,7 +1,7 @@
 # Do'kon_api
 
 Ushbu loyiha Node.js yordamida yozilgan **Do'kon_Api CRUD API** bo‘lib,  
-vazifalarni yaratish, ko‘rish, yangilash, o‘chirish va filtrlash imkonini beradi.  
+mahsulotlarni yaratish, ko‘rish, yangilash, o‘chirish va filtrlash imkonini beradi.  
 Ma’lumotlar JSON faylda saqlanadi va API Postman orqali tekshiriladi.
 
 ---
@@ -29,120 +29,169 @@ pnpm dev
 
 http://localhost:3000
 
-### Vazifa modeli
+### mahsulot modeli
 
-## Har bir vazifa quyidagi maydonlarga ega:
+## Har bir mahsulot quyidagi maydonlarga ega:
 
-id — avtomatik yaratiladi
-sarlavha — vazifa nomi
-tavsif — vazifa tavsifi
-status — yangi | jarayonda | tugallangan
-muhimlik — past | o'rta | yuqori
-muddat — sana
-yaratilganVaqt — avtomatik yaratiladi
+{
+"nomi": "Mahsulot nomi",
+"narx": maxsulot narxi(sonda),
+"kategoriya": (elektronika,kiyim-kechak,oziq-ovqat..),
+"miqdor": Miqdori sonda,
+"tavsif": "Qaysi nomdagi yoki ishlab chiqaruvchi"
+}
 
 ### API Endpoint’lar
 
-## barcha vazifalarni olish
+## barcha mahsulotlarni olish
 
-GET /api/vazifalar
+GET /api/mahsulotlar
 
 ## Response:
 
 [
 {
 "id": 1,
-"sarlavha": "Backend API yozish",
-"tavsif": "Todo CRUD",
-"status": "yangi",
-"muhimlik": "yuqori",
-"muddat": "2025-12-25",
-"yaratilganVaqt": "2025-12-19T16:00:00.000Z"
+"nomi": "Televizor",
+"narx": 5000000,
+"kategoriya": "elektronika",
+"miqdor": 100,
+"tavsif": "Samsung HD-Line"
+},
+{
+"id": 2,
+"nomi": "Hurmo",
+"narx": 15000,
+"kategoriya": "Oziq-ovqat",
+"miqdor": 150,
+"tavsif": "Hom hali yetilmagan"
+},
+{
+"id": 3,
+"nomi": "Koditsioner",
+"narx": 5500000,
+"kategoriya": "elektronika",
+"miqdor": 60,
+"tavsif": "Samsung Fresh_Air"
+},
+{
+"id": 4,
+"nomi": "Kir-moshina",
+"narx": 3500000,
+"kategoriya": "elektronika",
+"miqdor": 90,
+"tavsif": "Samsung clear-tech"
+},
+{
+"id": 5,
+"nomi": "Palto",
+"narx": 500000,
+"kategoriya": "kiyim-kechak",
+"miqdor": 0,
+"tavsif": "Ayiq mp'ynasidan",
+"n": 9000000
+},
+{
+"id": 6,
+"nomi": "Banan",
+"narx": 50000,
+"kategoriya": "Oziq-ovqat",
+"miqdor": 50,
+"tavsif": "Portugaliaya"
 }
 ]
 
-## Bitta vazifani olish
+## Bitta mahsulotni olish
 
-GET /api/vazifalar/1
+GET /api/mahsulotlar/6
 
 {
-"id": 1,
-"sarlavha": "Backend API yozish",
-"status": "yangi"
+"id": 6,
+"nomi": "Banan",
+"narx": 50000,
+"kategoriya": "Oziq-ovqat",
+"miqdor": 50,
+"tavsif": "Portugaliaya"
 }
 
-## Yangi vazifa qo‘shish
+## Yangi mahsulot qo‘shish
 
-POST /api/vazifalar
-
+POST /api/mahsulotlar
 {
-"sarlavha": "Frontend qilish",
-"tavsif": "React bilan",
-"status": "yangi",
-"muhimlik": "o'rta",
-"muddat": "2025-12-30"
+
+"nomi": "Banan",
+"narx": 50000,
+"kategoriya": "Oziq-ovqat",
+"miqdor": 50,
+"tavsif": "Portugaliaya"
 }
 
 ## Response:
 
 {
-"message": "Vazifa muvaffaqiyatli qo'shildi"
+"message": "mahsulot muvaffaqiyatli qo'shildi"
 }
 
-## Vazifani yangilash
+## mahsulotni yangilash
 
-# PUT /api/vazifalar/1
+# PUT /api/mahsulotlar/1
 
 {
-"status": "jarayonda"
+
+"nomi": "Palto",
+"narx": 500000,
+"kategoriya": "kiyim-kechak",
+"miqdor": 0,
+"tavsif": "Ayiq mp'ynasidan",
+"n": 9000000
 }
 
-## Vazifani o‘chirish
+## mahsulotni o‘chirish
 
-# DELETE /api/vazifalar/1
+# DELETE /api/mahsulotlar/1
 
 {
-"message": "Vazifa o'chirildi"
+"message": "mahsulot o'chirildi"
 }
 
 # Qo‘shimcha route’lar
 
-# Status bo‘yicha filtrlash
+# KAtegoriya bo‘yicha filtrlash
 
-GET /api/vazifalar?status=tugallangan
+GET /api/mahsulotlar?kategoriya=elektronika
 
-# Muhimlik bo‘yicha filtrlash
+# NArx oralig'i bo‘yicha filtrlash
 
-GET /api/vazifalar?muhimlik=yuqori
+GET /api/mahsulotlar?minNarx=1000&maxNarx=5000
 
-# Bugungi vazifalar
+# Omborda tugagan mahsulotlar:
 
-GET /api/vazifalar/bugun
+GET /api/mahsulotlar/tugagan
 
-# Muddati o‘tgan vazifalar
+# Eng qimmat 5 ta mahsulot:
 
-GET /api/vazifalar/kech-qolgan
+GET /api/mahsulotlar/eng-qimmat
 
-## Vazifa statusini o‘zgartirish
+## mahsulot statusini o‘zgartirish
 
-# PATCH /api/vazifalar/1/status
+# PATCH /api/mahsulotlar/1/status
 
 {
-"status": "tugallangan"
+"kategoriya": "kiyim-kechak"
 }
 
 ## Validatsiya qoidalari
 
-Sarlavha bo‘sh bo‘lmasligi kerak
-
-Status faqat: yangi, jarayonda, tugallangan
-
-Muddat bugungi sanadan oldin bo‘lmasligi kerak
+Nomi kamida 3 ta belgidan iborat bo'lishi kerak
+Narx 0 dan katta bo'lishi kerak
+Miqdor 0 yoki undan katta bo'lishi kerak
+Kategoriya ro'yxatdan birini tanlash
 
 # Xato javobi:
 
 {
-"error": "Status faqat belgilangan qiymatlardan biri bo'lishi kerak"
+"error": " Nomi kamida 3 ta belgidan iborat bo'lishi kerak
+"
 }
 
 ## HTTP Status kodlari
