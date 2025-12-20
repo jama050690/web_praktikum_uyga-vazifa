@@ -83,7 +83,7 @@ export async function olKitob(id) {
   if (index === -1) return null;
 
   if (kitoblar[index].holat === "olingan") {
-    return "ALREADY_TAKEN";
+    return "Allaqachon olingan";
   }
 
   kitoblar[index].holat = "olingan";
@@ -97,7 +97,7 @@ export async function qaytarKitob(id) {
   if (index === -1) return null;
 
   if (kitoblar[index].holat === "mavjud") {
-    return "NOT_TAKEN";
+    return "Olinmagan";
   }
 
   kitoblar[index].holat = "mavjud";

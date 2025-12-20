@@ -4,7 +4,7 @@ import { validateKitob } from "./kitob_validations.js";
 // Get metodida barcha kitoblrni chaqirish va ularga parametr berish
 export async function getAll(req, res) {
   const { janr, muallif, holat, sort } = req.query;
-  let data = await service.readkitoblar();
+  let data = await service.readKitoblar();
 
   if (janr) {
     data = data.filter((k) => k.janr === janr);
@@ -71,16 +71,16 @@ export async function qaytarKitob(req, res) {
 }
 
 export async function create(req, res) {
-  const error = validatekitob(req.body);
+  const error = validateKitob(req.body);
   if (error) return res.status(400).json({ error });
 
-  const newkitob = await service.createkitob(req.body);
-  res.status(201).json(newkitob);
+  const newKitob = await service.createKitob(req.body);
+  res.status(201).json(newKitob);
 }
 
 export async function updatePut(req, res) {
   const id = Number(req.params.id);
-  const error = validatekitob(req.body);
+  const error = req.body;
   if (error) return res.status(400).json({ error });
 
   const updated = await service.updatePut(id, req.body);
@@ -108,7 +108,7 @@ export async function remove(req, res) {
 }
 export async function mavjudKitoblar(req, res) {
   try {
-    const kitoblar = await service.readkitoblar();
+    const kitoblar = await service.readKitoblar();
     const result = kitoblar.filter((k) => k.holat === "mavjud");
     res.json(result);
   } catch (err) {
@@ -118,7 +118,7 @@ export async function mavjudKitoblar(req, res) {
 
 export async function filterKitoblar(req, res) {
   const { janr, muallif } = req.query;
-  let data = await service.readkitoblar();
+  let data = await service.readKitoblar();
 
   if (janr) data = data.filter((k) => k.janr === janr);
   if (muallif) data = data.filter((k) => k.muallif == muallif);

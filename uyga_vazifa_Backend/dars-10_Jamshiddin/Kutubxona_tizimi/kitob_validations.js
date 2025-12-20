@@ -1,12 +1,12 @@
 export function validateKitob(data) {
-  const { nomi, muallif, nashryili, sahifalar, holat } = data;
+  const { nomi, muallif, nashrYili, sahifalar, holat, olgOdam } = data;
 
   if (!nomi || !muallif) {
     return "Nomi va muallif bo'sh bo'lmasligi kerak";
   }
 
-  if (typeof nashryili !== "number" || nashryili < 1880 || nashryili > 2024) {
-    return "Nashr yili 1880–2024 oralig'ida bo'lishi kerak";
+  if (typeof nashrYili !== "number" || nashrYili < 1880 || nashrYili > 2024) {
+    return "Nashr yili 1880-2024 oralig'ida bo'lishi kerak";
   }
 
   if (typeof sahifalar !== "number" || sahifalar < 1) {
