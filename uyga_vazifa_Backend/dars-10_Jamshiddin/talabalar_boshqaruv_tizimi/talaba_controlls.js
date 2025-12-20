@@ -1,11 +1,27 @@
-import * as service from "../services/talabalar.service.js";
-import { validateTalaba } from "../utils/validation.js";
+import * as service from "./talaba_services.js";
+import { validateTalaba } from "./talaba_validations.js";
 
+// Get metodida barcha talabalrni chaqirish va ularga parametr berish
 export async function getAll(req, res) {
-  const data = await service.readTalabalar();
+  const { guruh, kurs, kur, sort } = req.query;
+  const realKurs = kurs ?? kur;
+
+  let data = await service.readTalabalar();
+
+  if (guruh) {
+    data = data.filter((t) => t.guruh === guruh);
+  }
+
+  if (realKurs) {
+    data = data.filter((t) => Number(t.kurs) === Number(realKurs));
+  }
+
+  if (sort === "ball") {
+    data.sort((a, b) => a.ball - b.ball);
+  }
+
   res.json(data);
 }
-
 export async function getById(req, res) {
   const id = Number(req.params.id);
   const talaba = await service.findById(id);

@@ -1,7 +1,6 @@
 import fs from "node:fs/promises";
 
-const DB_FILE = "public/talabalar.json";
-
+const DB_FILE = "talabalar.json";
 /* ===== AVTO ID FUNKSIYASI ===== */
 export function generateId(talabalar) {
   return talabalar.length ? Math.max(...talabalar.map((t) => t.id)) + 1 : 1;
@@ -26,9 +25,7 @@ export async function findById(id) {
 
 export async function createTalaba(body) {
   const talabalar = await readTalabalar();
-
   const id = generateId(talabalar);
-
   const newTalaba = { id, ...body };
   talabalar.push(newTalaba);
 

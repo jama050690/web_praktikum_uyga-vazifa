@@ -9,22 +9,6 @@
     "ball": 88
   },
   {
-    "ism": "Gulnoza",
-    "familiya": "Urazboyeva",
-    "yosh": 20,
-    "guruh": "N4",
-    "kurs": 3,
-    "ball": 90
-  },
-  {
-    "ism": "Tolmas",
-    "familiya": "Urinov",
-    "yosh": 18,
-    "guruh": "N4",
-    "kurs": 1,
-    "ball": 86
-  },
-  {
     "id": 2,
     "ism": "Suhrob",
     "familiya": "Amirov",
@@ -50,5 +34,14 @@
     "guruh": "N4",
     "kurs": 2,
     "ball": 58
+  },
+  {
+    "id": 5,
+    "ism": "Gulnoza",
+    "familiya": "Urazboyeva",
+    "yosh": 20,
+    "guruh": "N4",
+    "kurs": 3,
+    "ball": 90
   }
 ]

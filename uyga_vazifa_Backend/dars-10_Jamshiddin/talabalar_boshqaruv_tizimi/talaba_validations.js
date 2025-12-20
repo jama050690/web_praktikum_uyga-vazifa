@@ -1,4 +1,5 @@
 export function validateTalaba(data) {
+  // Validation berish
   const { ism, familiya, yosh, kurs, ball } = data;
 
   if (!ism || !familiya) {

@@ -7,19 +7,23 @@ import {
   updatePatch,
   remove,
   otlichniklar,
-  filterTalabalar,
-} from "../controllers/talabalar.controller.js";
+} from "./talaba_controlls.js";
 
 const router = Router();
 
+// 🔹 LIST + FILTER
 router.get("/", getAll);
-router.get("/otlichniklar", otlichniklar);
-router.get("/filter", filterTalabalar);
-router.get("/:id", getById);
 
+// 🔹 SPECIAL
+router.get("/otlichniklar", otlichniklar);
+
+// 🔹 CRUD
 router.post("/", create);
 router.put("/:id", updatePut);
 router.patch("/:id", updatePatch);
 router.delete("/:id", remove);
+
+// 🔹 ID HAR DOIM OXIRIDA
+router.get("/:id", getById);
 
 export default router;
