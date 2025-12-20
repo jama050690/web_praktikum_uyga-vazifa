@@ -33,13 +33,14 @@ http://localhost:3000
 
 ## Har bir vazifa quyidagi maydonlarga ega:
 
-id — avtomatik yaratiladi
-sarlavha — vazifa nomi
-tavsif — vazifa tavsifi
-status — yangi | jarayonda | tugallangan
-muhimlik — past | o'rta | yuqori
-muddat — sana
-yaratilganVaqt — avtomatik yaratiladi
+Vazifa modeli:
+○ id (avtomatik)
+○ sarlavha
+○ tavsif
+○ status (yangi, jarayonda, tugallangan)
+○ muhimlik (past, o'rta, yuqori)
+○ muddat (sana)
+○ yaratilganVaqt
 
 ### API Endpoint’lar
 
