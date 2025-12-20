@@ -3,8 +3,8 @@ import { validateTalaba } from "./talaba_validations.js";
 
 // Get metodida barcha talabalrni chaqirish va ularga parametr berish
 export async function getAll(req, res) {
-  const { guruh, kurs, kur, sort } = req.query;
-  const realKurs = kurs ?? kur;
+  const { guruh, kurs, sort } = req.query;
+  const realKurs = kurs;
 
   let data = await service.readTalabalar();
 
