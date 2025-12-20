@@ -6,14 +6,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DB_FILE = path.join(__dirname, "kitoblar.json");
 
-/* ===== AVTO ID ===== */
+/*---AVTO ID----  */
 export function generateId(kitoblar) {
   const ids = kitoblar.map((k) => k.id).filter((id) => Number.isInteger(id));
 
   return ids.length ? Math.max(...ids) + 1 : 1;
 }
 
-/* ===== FILE HELPERS ===== */
+/* -------FILE HELPERS ------ */
 export async function readKitoblar() {
   const data = await fs.readFile(DB_FILE, "utf8");
   return JSON.parse(data);
@@ -23,7 +23,7 @@ export async function writeKitoblar(data) {
   await fs.writeFile(DB_FILE, JSON.stringify(data, null, 2));
 }
 
-/* ===== CRUD ===== */
+/* ----------CRUD ----------*/
 export async function findById(id) {
   const kitoblar = await readKitoblar();
   return kitoblar.find((k) => k.id === id);
@@ -76,7 +76,7 @@ export async function deleteKitob(id) {
   return deleted;
 }
 
-/* ===== BUSINESS ACTIONS ===== */
+/* ------- Qo'sjimcha parametrlar---------- */
 export async function olKitob(id) {
   const kitoblar = await readKitoblar();
   const index = kitoblar.findIndex((k) => k.id === id);

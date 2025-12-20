@@ -11,19 +11,19 @@ import {
 
 const router = Router();
 
-// 🔹 LIST + FILTER
+// Filtrlash
 router.get("/", getAll);
 
-// 🔹 SPECIAL
+// Qo'shimcha parametr
 router.get("/otlichniklar", otlichniklar);
 
-// 🔹 CRUD
+//  CRUD
 router.post("/", create);
 router.put("/:id", updatePut);
 router.patch("/:id", updatePatch);
 router.delete("/:id", remove);
 
-// 🔹 ID HAR DOIM OXIRIDA
+// ID har doim oxirida
 router.get("/:id", getById);
 
 export default router;

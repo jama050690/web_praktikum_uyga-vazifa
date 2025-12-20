@@ -1,4 +1,5 @@
 export function validateKitob(data) {
+  // Validation berish
   const { nomi, muallif, nashrYili, sahifalar, holat, olgOdam } = data;
 
   if (!nomi || !muallif) {

@@ -1,7 +1,7 @@
 # Todo List API — Topshiriq
 
 Ushbu loyiha Node.js yordamida yozilgan **Todo List CRUD API** bo‘lib,  
-vazifalarni yaratish, ko‘rish, yangilash, o‘chirish va filtrlash imkonini beradi.  
+kitoblarni yaratish, ko‘rish, yangilash, o‘chirish va filtrlash imkonini beradi.  
 Ma’lumotlar JSON faylda saqlanadi va API Postman orqali tekshiriladi.
 
 ---
@@ -29,103 +29,130 @@ pnpm dev
 
 http://localhost:3000
 
-### Vazifa modeli
+### kitob modeli
 
-## Har bir vazifa quyidagi maydonlarga ega:
+## Har bir kitob quyidagi maydonlarga ega:
 
 id — avtomatik yaratiladi
-sarlavha — vazifa nomi
-tavsif — vazifa tavsifi
-status — yangi | jarayonda | tugallangan
-muhimlik — past | o'rta | yuqori
-muddat — sana
-yaratilganVaqt — avtomatik yaratiladi
+nom —
+muallif —
+janr—
+nashrYili — 1880-2024 yilgacha
+holat — (mavjud,olinga)
+olgOdam — agar olingan bo'lsa
 
 ### API Endpoint’lar
 
-## barcha vazifalarni olish
+## barcha kitoblarni olish
 
-GET /api/vazifalar
+GET /api/kitoblar
 
 ## Response:
 
 [
 {
-"id": 1,
-"sarlavha": "Backend API yozish",
-"tavsif": "Todo CRUD",
-"status": "yangi",
-"muhimlik": "yuqori",
-"muddat": "2025-12-25",
-"yaratilganVaqt": "2025-12-19T16:00:00.000Z"
+"id": 2,
+"nomi": "Mexrobdan chayon",
+"muallif": "Abdulla Qodiriy",
+"janr": "roman",
+"nashrYili": 1930,
+"sahifalar": 320,
+"holat": "olingan",
+"olgOdam": ""
+},
+{
+"id": 3,
+"nomi": "Mexrobdan chayon",
+"muallif": "Abdulla Qodiriy",
+"janr": "roman",
+"nashrYili": 1930,
+"sahifalar": 320,
+"holat": "olingan",
+"olgOdam": "Bekzod"
 }
 ]
 
-## Bitta vazifani olish
+## Bitta kitobnini olish
 
-GET /api/vazifalar/1
+GET /api/kitoblar/3
 
 {
-"id": 1,
-"sarlavha": "Backend API yozish",
-"status": "yangi"
+"id": 3,
+"nomi": "Mexrobdan chayon",
+"muallif": "Abdulla Qodiriy",
+"janr": "roman",
+"nashrYili": 1930,
+"sahifalar": 320,
+"holat": "olingan",
+"olgOdam": "Bekzod"
 }
 
-## Yangi vazifa qo‘shish
+## Yangi kitob qo‘shish
 
-POST /api/vazifalar
-
+POST /api/kitoblar
 {
-"sarlavha": "Frontend qilish",
-"tavsif": "React bilan",
-"status": "yangi",
-"muhimlik": "o'rta",
-"muddat": "2025-12-30"
+
+    "nomi": "Mexrobdan chayon",
+    "muallif": "Abdulla Qodiriy",
+    "janr": "roman",
+    "nashrYili": 1930,
+    "sahifalar": 320,
+    "holat": "olingan",
+    "olgOdam": "Bekzod"
+
 }
 
 ## Response:
 
 {
-"message": "Vazifa muvaffaqiyatli qo'shildi"
+"message": "Kitob muvaffaqiyatli qo'shildi"
 }
 
-## Vazifani yangilash
+## kitobni yangilash
 
-# PUT /api/vazifalar/1
+# PUT /api/kitoblar/1
 
 {
-"status": "jarayonda"
+
+    "nomi": "Otamdan qolgan dalalar",
+    "muallif": "Tog'ay Murod",
+    "janr": "roman",
+    "nashrYili": 1994,
+    "sahifalar": 277,
+    "holat": "olingan",
+    "olgOdam": "Dilshod"
+
 }
 
-## Vazifani o‘chirish
+## kitobni o‘chirish
 
-# DELETE /api/vazifalar/1
+# DELETE /api/kitoblar/1
 
 {
-"message": "Vazifa o'chirildi"
+"message": "kitob o'chirildi"
 }
 
 # Qo‘shimcha route’lar
 
 # Status bo‘yicha filtrlash
 
-GET /api/vazifalar?status=tugallangan
+GET /api/kitoblar?status=tugallangan
 
 # Muhimlik bo‘yicha filtrlash
 
-GET /api/vazifalar?muhimlik=yuqori
+GET /api/kitoblar?muhimlik=yuqori
 
-# Bugungi vazifalar
+# Bugungi kitoblar
 
-GET /api/vazifalar/bugun
+GET /api/kitoblar/bugun
 
-# Muddati o‘tgan vazifalar
+# Muddati o‘tgan kitoblar
 
-GET /api/vazifalar/kech-qolgan
+GET /api/kitoblar/kech-qolgan
 
-## Vazifa statusini o‘zgartirish
+## kitob statusini o‘zgartirish
 
-# PATCH /api/vazifalar/1/status
+# PATCH /api/kitoblar/1/status
 
 {
 "status": "tugallangan"
@@ -133,11 +160,9 @@ GET /api/vazifalar/kech-qolgan
 
 ## Validatsiya qoidalari
 
-Sarlavha bo‘sh bo‘lmasligi kerak
-
-Status faqat: yangi, jarayonda, tugallangan
-
-Muddat bugungi sanadan oldin bo‘lmasligi kerak
+Nomi va muallif bo'sh bo'lmasligi kerak
+Nashr yili 1800-2024 oralig'ida bo'lishi kerak
+Sahifalar 1 dan katta bo'lishi kerak
 
 # Xato javobi:
 
