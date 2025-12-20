@@ -1,7 +1,7 @@
 # Talabalar_boshqaruvi_tizimi
 
 Ushbu loyiha Node.js yordamida yozilgan **Talabar_boshqaruv_tizimi** bo‘lib,  
-vazifalarni yaratish, ko‘rish, yangilash, o‘chirish va filtrlash imkonini beradi.  
+talabalarni yaratish, ko‘rish, yangilash, o‘chirish va filtrlash imkonini beradi.  
 Ma’lumotlar JSON faylda saqlanadi va API Postman orqali tekshiriladi.
 
 ---
@@ -29,120 +29,117 @@ pnpm dev
 
 http://localhost:3000
 
-### Vazifa modeli
+### talaba modeli
 
-## Har bir vazifa quyidagi maydonlarga ega:
+## Har bir talaba quyidagi maydonlarga ega:
 
 id — avtomatik yaratiladi
-sarlavha — vazifa nomi
-tavsif — vazifa tavsifi
-status — yangi | jarayonda | tugallangan
-muhimlik — past | o'rta | yuqori
-muddat — sana
-yaratilganVaqt — avtomatik yaratiladi
+ism — talaba ismi
+familiya — talaba familyasi
+yosh- talaba yoshi
+guruh —talabanin o'qish guruhi
+kurs — talaba o'qish kursi|1|2|3|4
+ball — talaba olgan ballar (0-100)
 
 ### API Endpoint’lar
 
-## barcha vazifalarni olish
+## barcha talabalarni olish
 
-GET /api/vazifalar
+GET /api/talabalar
 
 ## Response:
 
 [
 {
 "id": 1,
-"sarlavha": "Backend API yozish",
-"tavsif": "Todo CRUD",
-"status": "yangi",
-"muhimlik": "yuqori",
-"muddat": "2025-12-25",
-"yaratilganVaqt": "2025-12-19T16:00:00.000Z"
+"ism": "Tolmas",
+"familiya": "Urinov",
+"yosh": 18,
+"guruh": "N4",
+"kurs": 1,
+"ball": 86
 }
 ]
 
-## Bitta vazifani olish
+## Bitta talabani olish
 
-GET /api/vazifalar/1
+GET /api/talabalar/1
 
 {
 "id": 1,
-"sarlavha": "Backend API yozish",
-"status": "yangi"
+"ism": "Tolmas",
+"familiya": "Urinov",
+"yosh": 18,
+"guruh": "N4",
+"kurs": 1,
+"ball": 86
 }
 
-## Yangi vazifa qo‘shish
+## Yangi talaba qo‘shish
 
-POST /api/vazifalar
+POST /api/talabalar
 
 {
-"sarlavha": "Frontend qilish",
-"tavsif": "React bilan",
-"status": "yangi",
-"muhimlik": "o'rta",
-"muddat": "2025-12-30"
+
+"ism": "Tolmas",
+"familiya": "Urinov",
+"yosh": 18,
+"guruh": "N4",
+"kurs": 1,
+"ball": 86
 }
 
 ## Response:
 
 {
-"message": "Vazifa muvaffaqiyatli qo'shildi"
+"message": "Talaba muvaffaqiyatli qo'shildi"
 }
 
-## Vazifani yangilash
+## talabani yangilash
 
-# PUT /api/vazifalar/1
+# PATCh /api/talabalar/1
 
 {
-"status": "jarayonda"
+"kurs": 1
 }
 
-## Vazifani o‘chirish
+## Talabani o‘chirish
 
-# DELETE /api/vazifalar/1
+# DELETE /api/talabalar/1
 
 {
-"message": "Vazifa o'chirildi"
+"message": "talaba o'chirildi"
 }
 
 # Qo‘shimcha route’lar
 
-# Status bo‘yicha filtrlash
+# Guruh bo‘yicha filtrlash
 
-GET /api/vazifalar?status=tugallangan
+GET /api/talabalar?guruh=N4
 
-# Muhimlik bo‘yicha filtrlash
+# Kurs bo‘yicha filtrlash
 
-GET /api/vazifalar?muhimlik=yuqori
+GET /api/talabalar?muhimlik=yuqori
 
-# Bugungi vazifalar
+# Ball bo'yicha saralash
 
-GET /api/vazifalar/bugun
+GET /api/talabalar?sort=ball
 
-# Muddati o‘tgan vazifalar
+# 60 baldan yuroqri talabalrni ko'rish
 
-GET /api/vazifalar/kech-qolgan
-
-## Vazifa statusini o‘zgartirish
-
-# PATCH /api/vazifalar/1/status
-
-{
-"status": "tugallangan"
-}
+GET /api/talabalar/otlichniklar
 
 ## Validatsiya qoidalari
 
-Sarlavha bo‘sh bo‘lmasligi kerak
-
-Status faqat: yangi, jarayonda, tugallangan
-
-Muddat bugungi sanadan oldin bo‘lmasligi kerak
+a. Ism va familiya bo'sh bo'lmasligi kerak
+b. Yosh 16-30 oralig'ida bo'lishi kerak
+c. Kurs 1-4 oralig'ida bo'lishi kerak
+d. Ball 0-100 oralig'ida bo'lishi kerak
 
 # Xato javobi:
 
 {
-"error": "Status faqat belgilangan qiymatlardan biri bo'lishi kerak"
+"error": Yosh 16-30 oralig'ida bo'lishi kerak"
 }
 
 ## HTTP Status kodlari

@@ -29,7 +29,6 @@ function generateID() {
   return maxID + 1;
 }
 
-// In-memory database (API uchun)
 const talabalar = [];
 
 // OTLICHNIKLAR API NI CHAQIRISH
@@ -40,7 +39,7 @@ server.get("/api/talabalar/otlichniklar", async (req, res) => {
 });
 
 // GET hamma talabalarni chaqrish (public/talabalar.json dan)
-server.get("/mahsulotlar", async (req, res) => {
+server.get("/talabalar", async (req, res) => {
   try {
     const data = await fs.readFile("public/talabalar.json", "utf8");
     res.json(JSON.parse(data));
@@ -70,19 +69,14 @@ server.post("/api/talabalar", async (req, res) => {
       return res.status(400).json({ error });
     }
 
-    //  Fayldan o‘qiymiz
     const talabalar = await readTalabalar();
 
-    //  Avto ID
     const newId = talabalar.length ? talabalar[talabalar.length - 1].id + 1 : 1;
 
-    //  Yangi talaba
     const newTalaba = { id: newId, ...req.body };
 
-    // Array’ga qo‘shamiz
     talabalar.push(newTalaba);
 
-    //  Faylga yozamiz
     await writeTalabalar(talabalar);
 
     res.status(201).json(newTalaba);
@@ -122,11 +116,10 @@ server.patch("/api/talabalar/:id", async (req, res) => {
       return res.status(404).json({ message: "talaba not found" });
     }
 
-    // eski + yangi ma’lumotlarni birlashtiramiz
     talabalar[index] = {
       ...talabalar[index],
       ...req.body,
-      id: talabalar[index].id, // id o‘zgarmasligi shart
+      id: talabalar[index].id,
     };
 
     await writeTalabalar(talabalar);
@@ -153,10 +146,8 @@ server.delete("/api/talabalar/:id", async (req, res) => {
       return res.status(404).json({ message: "talaba not found" });
     }
 
-    // o‘chiramiz
     const deletedTalaba = talabalar.splice(index, 1)[0];
 
-    // faylga qayta yozamiz
     await writeTalabalar(talabalar);
 
     res.json({
@@ -201,19 +192,19 @@ function validateTalaba(data) {
   const { ism, familiya, yosh, kurs, ball } = data;
 
   if (!ism || !familiya) {
-    return "Ism va familiya bo‘sh bo‘lmasligi kerak";
+    return "Ism va familiya bo'sh bo'lmasligi kerak";
   }
 
   if (yosh < 16 || yosh > 30) {
-    return "Yosh 16–30 oralig‘ida bo‘lishi kerak";
+    return "Yosh 16-30 oralig'ida bo'lishi kerak";
   }
 
   if (kurs < 1 || kurs > 4) {
-    return "Kurs 1–4 oralig‘ida bo‘lishi kerak";
+    return "Kurs 1-4 oralig'ida bo'lishi kerak";
   }
 
   if (ball < 0 || ball > 100) {
-    return "Ball 0–100 oralig‘ida bo‘lishi kerak";
+    return "Ball 0-100 oralig'ida bo'lishi kerak";
   }
 
   return null;
