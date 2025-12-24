@@ -1,5 +1,6 @@
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
+const genderInputs = document.querySelectorAll("#gender input");
 let users = [];
 const USERS = "users";
 // functions
@@ -9,6 +10,11 @@ async function registerUser() {
   const username = nameInput.value.trim();
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
+  console.log(genderInputs);
+
+  const gender = genderInputs[0].checked ? "male" : "female";
+
+  console.log(`tanlandi: `, gender);
 
   if (!username || !email || !password) {
     alert("Iltimos, barcha maydonlarni to'ldiring!");
@@ -16,19 +22,24 @@ async function registerUser() {
   }
 
   try {
-    const res = await fetch("http://localhost:3000/register", {
+    const res = await fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         username,
         email,
         password,
+        gender,
       }),
     });
 
     const data = await res.json();
 
-    if (!res.ok) {
+    console.log(`javob:`, data);
+
+    debugger;
+
+    if (res.ok) {
       // user oldin bor
       alert(data.message);
       window.location.href = "./login.html";

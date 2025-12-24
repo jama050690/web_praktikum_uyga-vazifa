@@ -1,0 +1,58 @@
+{
+  "Jamshiddin Babajanov": {
+    "id": 1,
+    "username": "Jamshiddin Babajanov",
+    "email": "jbm050690@gmail.com",
+    "password": "jam9133",
+    "gender": "male"
+  },
+  "success": {
+    "id": 2,
+    "username": "success",
+    "email": "jbm0a50690@gmail.com",
+    "password": "asasa",
+    "gender": "male"
+  },
+  "meet": {
+    "id": 3,
+    "username": "meet",
+    "email": "jbma050690@gmail.com",
+    "password": "assds",
+    "gender": "female"
+  },
+  "asa": {
+    "id": 4,
+    "username": "asa",
+    "email": "jaabm050690@gmail.com",
+    "password": "a232",
+    "gender": "male"
+  },
+  "Jamshidsdin Babajanov": {
+    "id": 5,
+    "username": "Jamshidsdin Babajanov",
+    "email": "jbm05a0690@gmail.com",
+    "password": "jam9133",
+    "gender": "female"
+  },
+  "Jamsahiddin Babajanov": {
+    "id": 6,
+    "username": "Jamsahiddin Babajanov",
+    "email": "jbm0550690@gmail.com",
+    "password": "ltyikkhkhjk9897",
+    "gender": "female"
+  },
+  "asas": {
+    "id": 7,
+    "username": "asas",
+    "email": "jbms050690@gmail.com",
+    "password": "jam9133",
+    "gender": "male"
+  },
+  "Jamshidadin Babajanov": {
+    "id": 8,
+    "username": "Jamshidadin Babajanov",
+    "email": "jbm05s0690@gmail.com",
+    "password": "ltyikkhkhjk9897",
+    "gender": "male"
+  }
+}

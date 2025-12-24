@@ -1,12 +1,16 @@
-app.post("/register", (req, res) => {
+app.post("/signup", (req, res) => {
   const { username, email, password, gender = "male" } = req.body;
 
   if (!username || !email || !password) {
-    return res.status(400).json({ message: "All fields required" });
+    return res
+      .status(400)
+      .json({ message: "All fields required", success: false });
   }
 
   if (users[username]) {
-    return res.status(400).json({ message: "User already exists" });
+    return res
+      .status(400)
+      .json({ message: "User already exists", success: false });
   }
 
   const newUser = {
@@ -22,5 +26,6 @@ app.post("/register", (req, res) => {
   res.status(201).json({
     message: "Registered successfully",
     user: newUser,
+    success: true,
   });
 });

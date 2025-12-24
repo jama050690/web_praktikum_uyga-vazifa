@@ -3,20 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="../public/css/output.css" />
     <title>Register</title>
   </head>
   <body class="has-bg">
     <div class="container min-h-screen relative">
       <div
-        class="w-[400px] rounded-3xl shadow-[0_4px_15px_rgba(0,0,0,0.2)] bg-[rgb(82,5,73)] absolute top-[200px] left-[400px] px-5 py-5"
+        class="w-[400px] rounded-3xl shadow-[0_4px_15px_rgba(0,0,0,0.2)] bg-[rgb(82,5,73)] absolute top-[100px] left-[400px] px-[20px] py-5"
       >
-        <form class="login-form px-2.5">
+        <form class="login-form px-3">
           <h2
-            class="text-center my-2.5 font-family-[var(--font-family)] text-3xl text-white"
+            class="text-center my-3 font-family-[var(--font-family)] text-3xl text-white"
           >
-            Login
+            Register
           </h2>
+          <div class="form-control flex flex-col w-[340px]">
+            <label class="my-2.5 leading-7 text-white" for="name">Name</label>
+            <input
+              class="text-base rounded-md border border-solid border-[#ccc] bg-white px-2.5 py-2.5"
+              id="name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
           <div class="form-control flex flex-col w-[340px]">
             <label class="my-2.5 leading-7 text-white" for="email">Email</label>
             <input
@@ -40,37 +49,51 @@
             />
           </div>
           <div class="form-control flex flex-col w-[340px]">
-            <label class="my-2.5 leading-7 text-white" for="password"
-              >Password</label
+            <label class="my-2.5 leading-7 text-white" for="gender"
+              >Choose your gender</label
             >
-            <input
-              class="text-base rounded-md border border-solid border-[#ccc] bg-white px-2.5 py-2.5 my-2.5"
-              id="password"
-              type="text"
-              placeholder="Enter your gender"
-              required
-            />
+            <div id="gender">
+              <input
+                class="text-base rounded-md border border-solid border-[#ccc] bg-white px-2.5 py-2.5 my-2.5"
+                id="gender-male"
+                type="radio"
+                name="gender"
+                value="male"
+              />
+              <label class="my-2.5 leading-7 text-white" for="gender-male"
+                >Male</label
+              >
+              <input
+                class="text-base rounded-md border border-solid border-[#ccc] bg-white px-2.5 py-2.5 my-2.5"
+                id="gender-female"
+                type="radio"
+                name="gender"
+                value="female"
+              />
+              <label class="my-2.5 leading-7 text-white" for="gender-female"
+                >Female</label
+              >
+            </div>
           </div>
           <button
             class="bg-red-600 text-white px-3 py-3 w-full active:bg-red-400 border-none rounded-md text-base cursor-pointer my-3"
-            id="login_btn"
+            id="register_btn"
             type="button"
           >
-            Login
+            Register
           </button>
           <p class="register-link text-center my-2 text-sm text-white">
             "Don't have an account?"
             <a
               id="login-link"
               class="text-blue-700 no-underline hover:underline decoration-2 leading-7"
-              href="./register.html"
-              >Register</a
+              href="./login.html"
+              >Login</a
             >
           </p>
         </form>
       </div>
     </div>
-
     <script src="./auth.js"></script>
   </body>
 </html>
