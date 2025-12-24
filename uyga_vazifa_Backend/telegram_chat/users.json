@@ -1,0 +1,37 @@
+{
+  "sardor": {
+    "id": 1,
+    "username": "sardor",
+    "gender": "male",
+    "password": 1122334455,
+    "email": "@leader_16.uz"
+  },
+  "daler": {
+    "id": 2,
+    "username": "daler",
+    "gender": "male",
+    "password": 87654321,
+    "email": "@daler_007.uz"
+  },
+  "tolmas": {
+    "id": 3,
+    "username": "tolmas",
+    "gender": "male",
+    "password": 12345678,
+    "email": "@tolmas_2007.uz"
+  },
+  "ahmad": {
+    "id": 4,
+    "username": "ahmad",
+    "gender": "male",
+    "password": 8877665544,
+    "email": "baron_003.uz"
+  },
+  "jama_9133": {
+    "id": 5,
+    "username": "jama_9133",
+    "gender": "male",
+    "password": "12345",
+    "email": "jbm050690@gmail.com"
+  }
+}

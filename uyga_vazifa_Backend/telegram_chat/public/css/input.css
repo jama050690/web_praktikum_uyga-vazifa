@@ -1,0 +1,36 @@
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.menu-box {
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-box span {
+  width: 6px;
+  height: 6px;
+  background: #555;
+}
+
+.menu-box span:not(:last-child) {
+  margin-bottom: 6px;
+}
