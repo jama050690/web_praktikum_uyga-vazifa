@@ -43,13 +43,14 @@ async function registerUser() {
       setTimeout(() => {
         window.location.href = "./login.html";
       }, 100);
+      return;
     }
 
     // session
     localStorage.setItem("logged_in_user", data.user.username);
 
     alert(`Xush kelibsiz, ${data.user.username}!`);
-    window.location.href = "../index.html";
+    window.location.href = "http://127.0.0.1:5500/index.html";
   } catch (err) {
     alert("Server bilan boglanib bolmadi");
   }
@@ -84,7 +85,7 @@ async function loginUser() {
     localStorage.setItem("logged_in_user", data.user.username);
 
     alert(`Xush kelibsiz, ${data.user.username}!`);
-    window.location.href = "../index.html";
+    window.location.href = "http://127.0.0.1:5500/index.html";
   } catch (err) {
     alert("Server bilan bog'lanib bo'lmadi");
   }

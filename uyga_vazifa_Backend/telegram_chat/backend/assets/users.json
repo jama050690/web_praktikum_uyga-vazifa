@@ -1,1 +1,16 @@
-[]
+{
+  "Jamshiddin Babajanov": {
+    "id": 1,
+    "username": "Jamshiddin Babajanov",
+    "email": "jbm050690@gmail.com",
+    "password": "ltyikkhkhjk9897",
+    "gender": "female"
+  },
+  "meet": {
+    "id": 2,
+    "username": "meet",
+    "email": "asdscvwefq4",
+    "password": "ewfdwfdw",
+    "gender": "male"
+  }
+}
