@@ -37,13 +37,12 @@ async function registerUser() {
 
     console.log(`javob:`, data);
 
-    debugger;
-
-    if (res.ok) {
+    if (!res.ok) {
       // user oldin bor
       alert(data.message);
-      window.location.href = "./login.html";
-      return;
+      setTimeout(() => {
+        window.location.href = "./login.html";
+      }, 100);
     }
 
     // session

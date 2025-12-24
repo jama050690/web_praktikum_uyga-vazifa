@@ -13,6 +13,8 @@
     --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-300: oklch(87.2% 0.01 258.338);
+    --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-sm: 0.875rem;
@@ -177,26 +179,29 @@
   }
 }
 @layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
   .absolute {
     position: absolute;
   }
   .relative {
     position: relative;
   }
+  .top-1\/2 {
+    top: calc(1/2 * 100%);
+  }
   .top-\[100px\] {
     top: 100px;
-  }
-  .top-\[140px\] {
-    top: 140px;
   }
   .top-\[200px\] {
     top: 200px;
   }
-  .left-\[400px\] {
-    left: 400px;
+  .right-4 {
+    right: calc(var(--spacing) * 4);
   }
-  .left-\[460px\] {
-    left: 460px;
+  .left-\[300px\] {
+    left: 300px;
   }
   .container {
     width: 100%;
@@ -228,20 +233,14 @@
   .my-3 {
     margin-block: calc(var(--spacing) * 3);
   }
-  .my-\[30px\] {
-    margin-block: 30px;
+  .my-6 {
+    margin-block: calc(var(--spacing) * 6);
   }
   .mt-\[20px\] {
     margin-top: 20px;
   }
-  .mr-\[15px\] {
-    margin-right: 15px;
-  }
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
-  }
-  .ml-\[6px\] {
-    margin-left: 6px;
   }
   .ml-\[13px\] {
     margin-left: 13px;
@@ -297,6 +296,10 @@
   .flex-1 {
     flex: 1;
   }
+  .-translate-y-1\/2 {
+    --tw-translate-y: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -314,9 +317,6 @@
   }
   .justify-center {
     justify-content: center;
-  }
-  .gap-2 {
-    gap: calc(var(--spacing) * 2);
   }
   .gap-\[30px\] {
     gap: 30px;
@@ -343,9 +343,6 @@
   }
   .rounded-\[7px\] {
     border-radius: 7px;
-  }
-  .rounded-\[8px\] {
-    border-radius: 8px;
   }
   .rounded-full {
     border-radius: calc(infinity * 1px);
@@ -385,6 +382,9 @@
   .border-\[\#ebebeb\] {
     border-color: #ebebeb;
   }
+  .border-gray-300 {
+    border-color: var(--color-gray-300);
+  }
   .bg-\[\#ebebeb\] {
     background-color: #ebebeb;
   }
@@ -411,9 +411,6 @@
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
-  }
-  .p-4 {
-    padding: calc(var(--spacing) * 4);
   }
   .px-2\.5 {
     padding-inline: calc(var(--spacing) * 2.5);
@@ -445,8 +442,8 @@
   .py-\[15px\] {
     padding-block: 15px;
   }
-  .py-\[20px\] {
-    padding-block: 20px;
+  .pr-12 {
+    padding-right: calc(var(--spacing) * 12);
   }
   .text-center {
     text-align: center;
@@ -470,6 +467,10 @@
     --tw-leading: calc(var(--spacing) * 7);
     line-height: calc(var(--spacing) * 7);
   }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
+  }
   .font-\[600\] {
     --tw-font-weight: 600;
     font-weight: 600;
@@ -482,6 +483,9 @@
   }
   .text-blue-700 {
     color: var(--color-blue-700);
+  }
+  .text-gray-400 {
+    color: var(--color-gray-400);
   }
   .text-white {
     color: var(--color-white);
@@ -560,6 +564,21 @@
 }
 .menu-box span:not(:last-child) {
   margin-bottom: 6px;
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
@@ -652,6 +671,9 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
       --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
       --tw-border-style: solid;

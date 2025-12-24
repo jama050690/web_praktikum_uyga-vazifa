@@ -3,29 +3,18 @@
   <head>
     <meta charset="UTF-8" />
 
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="
-        default-src 'self';
-        style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline';
-        font-src 'self' https://cdnjs.cloudflare.com data:;
-        img-src 'self' data:;
-      "
-    />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="./public/css/input.css" />
     <link rel="stylesheet" href="./public/css/output.css" />
     <title>Web Chat</title>
   </head>
 
-  <body class="">
+  <body>
     <div class="container h-screen flex mx-auto px-5 flex h-full">
       <!-- USERS -->
-      <div class="w-1/3 border-r border-[#ebebeb] p-4 flex flex-col">
+      <div class="w-1/3 border-r border-[#ebebeb] flex flex-col">
         <!-- HEADER -->
         <div class="flex items-center py-[15px] justify-between bg-[#ededed]">
           <img
@@ -48,20 +37,20 @@
         </div>
 
         <!-- INPUT (DOIM PASTDA) -->
-        <div class="p-2 ml-[6px] mr-[15px] flex gap-2 my-[30px]">
+        <div class="relative w-full my-6">
           <input
-            id="msg"
             type="text"
             placeholder="Search"
-            class="flex-1 appearance-none rounded-[8px] px-[20px] py-[20px] border border-[#cccccc] text-[#94928f] focus:outline-none focus:ring-0 focus:border-[#cccccc]"
+            class="w-full rounded-lg px-4 pr-12 py-3 border border-gray-300 focus:outline-none"
           />
 
-          <a href="">
-            <i
-              class="fa-solid fa-magnifying-glass absolute left-[460px] top-[140px]"
-            ></i
-          ></a>
+          <span
+            class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center text-gray-400 pointer-events-none"
+          >
+            <i class="fa-solid fa-magnifying-glass leading-none"></i>
+          </span>
         </div>
+
         <!-- USERS LIST -->
         <ul id="users" class="flex-1 mb-4"></ul>
       </div>
@@ -69,7 +58,7 @@
       <!-- CHAT -->
       <div class="flex-1 flex flex-col bg-[#f7f7f7]">
         <div
-          id="messages"
+          id="mess"
           class="flex items-center py-[15px] justify-between bg-[#ededed]"
         >
           <img
@@ -86,7 +75,7 @@
 
         <div class="text-center mt-[20px]">
           <a
-            class="text-[32px] text-blue-500 font-[600] hover:text--300"
+            class="text-[32px] text-blue-500 font-[600] hover:text-grey-300"
             href="#"
             >Show Previous Message!</a
           >
@@ -101,15 +90,16 @@
         >
           <i class="fa-regular fa-face-smile"></i>
           <input
-            id="msg"
+            id="msgs"
             type="text"
             placeholder="Search"
-            class="appearance-none w-[85%] rounded-[7px] px-[15px] py-[15px] border border-[#cccccc] text-[#94928f] focus:outline-none focus:ring-0 focus:border-[#cccccc]"
+            class="appearance-none w-[85%] rounded-[7px] bg-white px-[15px] py-[15px] border border-[#cccccc] text-[#94928f] focus:outline-none focus:ring-0 focus:border-[#cccccc]"
           />
           <i class="fa-solid fa-microphone"></i>
           <i class="fa-solid fa-paper-plane"></i>
         </div>
       </div>
     </div>
+    <script src="./public/js/main.js"></script>
   </body>
 </html>

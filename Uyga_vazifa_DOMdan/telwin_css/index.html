@@ -7,6 +7,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+
     <link rel="stylesheet" href="./css/output.css" />
     <title>My project</title>
   </head>
@@ -112,18 +113,22 @@
     <div
       class="absolute left-1/2 -translate-x-1/2 top-[610px] /* mobile → 200px pastga tushirildi */ sm:top-[580px] /* sm → 20px pastga tushirildi */ md:top-[600px] /* md → 20px past */ lg:top-[520px] /* lg → 20px past */ w-[90%] sm:w-[380px] md:w-[450px] lg:w-[550px] z-[999]"
     >
-      <div class="relative">
-        <input
-          type="text"
-          class="w-full h-[55px] md:h-[66px] px-5 md:px-8 rounded-full shadow-xl bg-white"
-          placeholder="Find the car of your dreams"
-        />
+      <div class="p-2 ml-[6px] mr-[15px] my-[30px]">
+        <div class="relative">
+          <input
+            id="msg"
+            type="text"
+            placeholder="Search"
+            class="w-full appearance-none rounded-[8px] px-[20px] pr-14 py-[20px] border border-[#cccccc] text-[#94928f] focus:outline-none focus:ring-0 focus:border-[#cccccc]"
+          />
 
-        <button
-          class="absolute right-2 top-1/2 -translate-y-1/2 bg-green-600 rounded-full p-2 md:p-3"
-        >
-          <i class="fa-solid fa-magnifying-glass text-white"></i>
-        </button>
+          <button
+            type="button"
+            class="absolute right-3 top-1/2 -translate-y-1/2 bg-green-600 text-white w-8 h-8 rounded-full flex items-center justify-center"
+          >
+            <i class="fa-solid fa-magnifying-glass text-sm"></i>
+          </button>
+        </div>
       </div>
     </div>
 

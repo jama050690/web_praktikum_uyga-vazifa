@@ -1,20 +1,3 @@
-@tailwind utilities;
-
-@layer base {
-  * {
-    box-sizing: border-box;
-  }
-
-  ol,
-  ul {
-    list-style: none;
-  }
-
-  a {
-    text-decoration: none;
-  }
-}
-
 body {
   background: linear-gradient(to right, hsl(228, 95%, 15%), #0a2ab994);
   font-family: Arial, sans-serif;

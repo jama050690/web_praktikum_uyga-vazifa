@@ -4,7 +4,7 @@ import cors from "cors";
 
 const app = express();
 const PORT = 3000;
-const USERS_FILE = "./users.json";
+const USERS_FILE = "assets/users.json";
 
 /* ================= MIDDLEWARE ================= */
 app.use(
@@ -100,5 +100,4 @@ app.listen(PORT, () => {
   console.log(` Server running on http://localhost:${PORT}`);
 });
 
-/* ================= EXPORT DEFAULT ================= */
-export default app;
+
