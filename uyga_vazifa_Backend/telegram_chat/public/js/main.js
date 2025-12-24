@@ -1,5 +1,11 @@
 const usersList = document.getElementById("users");
-const message = document.querySelector(".message");
+const messageBox = document.querySelector(".message");
+
+const loggedUser = localStorage.getItem("logged_in_user");
+
+if (!loggedUser) {
+  window.location.href = "../auth/login.html";
+}
 
 // LOAD USERS
 document.getElementById("load").onclick = async () => {
@@ -10,46 +16,39 @@ document.getElementById("load").onclick = async () => {
   renderUsers(users);
 };
 
-// ADD USER
-document.getElementById("add").onclick = async () => {
-  const user = {
-    username: document.getElementById("username").value,
-    email: document.getElementById("email").value,
-    gender: "male",
-    password: "12345",
-  };
-
-  message.addEventListener("click",(e)=>{
-    e.preventDefault();
-    
-  })
-
-  await fetch("http://localhost:3000/users", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
-  });
-
-  alert("User added");
-};
-
-// DELETE USER
-document.getElementById("delete").onclick = async () => {
-  await fetch("http://localhost:3000/users", {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username: "ali" }),
-  });
-
-  alert("User ali deleted");
-};
-
 // RENDER USERS
 function renderUsers(users) {
   Object.values(users).forEach((u) => {
     const li = document.createElement("li");
-    li.className = "p-2 border-b";
+    li.className = "p-2 border-b cursor-pointer hover:bg-gray-100";
     li.textContent = `${u.username} (${u.email})`;
+
+    // ⭐ USER BOSILGANDA
+    li.onclick = () => loadMessages(u.username);
+
     usersList.appendChild(li);
+  });
+}
+
+// LOAD MESSAGES
+async function loadMessages(username) {
+  const res = await fetch(
+    `http://localhost:3000/messages?username=${username}`
+  );
+  const messages = await res.json();
+
+  messageBox.innerHTML = "";
+
+  messages.forEach((m) => {
+    const div = document.createElement("div");
+
+    div.className =
+      m.from === "me"
+        ? "bg-blue-500 text-white p-2 rounded-lg ml-auto w-fit"
+        : "bg-gray-200 p-2 rounded-lg w-fit";
+
+    div.textContent = m.text;
+
+    messageBox.appendChild(div);
   });
 }

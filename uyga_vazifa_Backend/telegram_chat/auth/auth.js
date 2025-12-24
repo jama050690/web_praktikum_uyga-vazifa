@@ -4,77 +4,85 @@ let users = [];
 const USERS = "users";
 // functions
 /**user registration function */
-function registerUser() {
-  users = JSON.parse(localStorage.getItem(USERS)) || [];
-  const emailText = emailInput.value.trim();
-  const passwordText = passwordInput.value.trim();
-  let nameInput = document.getElementById("name");
-  let nameText = nameInput.value.trim();
-  if (nameText === "" || emailText === "" || passwordText === "") {
+async function registerUser() {
+  const nameInput = document.getElementById("name");
+  const username = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  if (!username || !email || !password) {
     alert("Iltimos, barcha maydonlarni to'ldiring!");
     return;
   }
 
-  let user = users.find((user) => user.email == emailText);
-  if (user) {
-    alert("Siz oldin ro'yhatdan o'tgansiz! Iltimos login qiling.");
-    window.location.href = "./login.html";
-    return;
-  }
+  try {
+    const res = await fetch("http://localhost:3000/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+      }),
+    });
 
-  user = {
-    id: users.length + 1,
-    name: nameText,
-    email: emailText,
-    password: passwordText,
-  };
-  users.push(user);
-  localStorage.setItem(USERS, JSON.stringify(users)); // all users
-  let count = Number(localStorage.getItem("count"));
-  count += 1;
-  localStorage.setItem("count", count);
-  nameInput.value = "";
-  emailInput.value = "";
-  passwordInput.value = "";
-  console.log(users);
-  alert(
-    `Muvaffaqtiyatli ro'yhatdan o'tganinggiz bilan tabriklayman, ${user.name}!`
-  );
-  window.location.href = "./login.html";
+    const data = await res.json();
+
+    if (!res.ok) {
+      // user oldin bor
+      alert(data.message);
+      window.location.href = "./login.html";
+      return;
+    }
+
+    // session
+    localStorage.setItem("logged_in_user", data.user.username);
+
+    alert(`Xush kelibsiz, ${data.user.username}!`);
+    window.location.href = "../index.html";
+  } catch (err) {
+    alert("Server bilan boglanib bolmadi");
+  }
 }
 
 /**
  * user login function
  */
-function loginUser() {
-  // login
-  const userEmail = emailInput.value.trim();
+async function loginUser() {
+  const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
-  users = JSON.parse(localStorage.getItem(USERS)) || [];
 
-  const user = users.find((user) => user.email == userEmail);
-  console.log(user);
+  if (!email || !password) {
+    alert("Email va parolni kiriting");
+    return;
+  }
 
-  if (user && user.password === password) {
-    alert(`Login muvaffaqiyatli amalga oshirildi,${user.name}!`);
-    localStorage.setItem("logged_in_user", user.email);
-    window.location.href = "../user_page/index.html";
-  } else {
-    let errMessage;
-    if (!user) {
-      errMessage = "Foydalanuvchi topilmadi!";
-    } else {
-      errMessage =
-        "Parolingiz xato kiritildi. Parolingizi tekshirib qayta urinib ko'ring";
+  try {
+    const res = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message);
+      return;
     }
 
-    console.log(errMessage);
-    alert(errMessage);
+    localStorage.setItem("logged_in_user", data.user.username);
+
+    alert(`Xush kelibsiz, ${data.user.username}!`);
+    window.location.href = "../index.html";
+  } catch (err) {
+    alert("Server bilan bog'lanib bo'lmadi");
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const currentUrl = window.location.href;
+
   if (currentUrl.includes("login")) {
     const btn = document.getElementById("login_btn");
     if (btn) btn.addEventListener("click", loginUser);
