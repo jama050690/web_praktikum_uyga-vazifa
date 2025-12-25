@@ -117,6 +117,26 @@ app.get("/users", (req, res) => {
   res.json(users);
 });
 
+app.get("/messages", (req, res) => {
+  const { username } = req.query;
+
+  if (!username) {
+    return res.status(400).json({ message: "username is required" });
+  }
+
+  // TEMP: fake data
+  const messages = {
+    "Jamshiddin Babajanov": [
+      { text: "Salom", time: "13:01" },
+      { text: "Qalaysan?", time: "13:02" },
+    ],
+    meet: [{ text: "meet (asdswwefq4)", time: "13:04" }],
+    Jamshiddin: [{ text: "Hello", time: "13:00" }],
+  };
+
+  res.json(messages[username] || []);
+});
+
 app.listen(PORT, () => {
   console.log(` Server running on http://localhost:${PORT}`);
 });

@@ -1,5 +1,8 @@
 const usersList = document.getElementById("users");
-const messageBox = document.querySelector(".message");
+const messageBox = document.getElementById("messages");
+const chatUsername = document.getElementById("chat-username");
+const chatEmail = document.getElementById("chat-email");
+const chatAvatar = document.getElementById("chat-avatar");
 const BASE_API = "http://localhost:3000";
 //  logged user
 let loggedUser;
@@ -42,8 +45,9 @@ async function renderUsers() {
         if (u.username === loggedUser.username) return;
 
         const li = document.createElement("li");
-        li.className = "p-2 border-b cursor-pointer hover:bg-gray-100";
-
+        li.className =
+          "w-full px-4 py-5 border border-gray-300 rounded-[12px] cursor-pointer " +
+          "hover:bg-gray-100 transition";
         const now = new Date();
         const time = `${now.getHours()}:${String(now.getMinutes()).padStart(
           2,
@@ -51,8 +55,10 @@ async function renderUsers() {
         )}`;
 
         li.textContent = `${u.username} (${u.email}) ${time}`;
-
-        li.onclick = () => loadMessages(u.username);
+        li.onclick = () => {
+          setActiveChatUser(u);
+          loadMessages(u.username);
+        };
 
         usersList.appendChild(li);
       });
@@ -61,7 +67,15 @@ async function renderUsers() {
 }
 // LOAD MESSAGES
 async function loadMessages(username) {
-  const res = await fetch(`${BASE_API}/messages?username=${username}`);
+  const res = await fetch(
+    `${BASE_API}/messages?username=${encodeURIComponent(username)}`
+  );
+
+  if (!res.ok) {
+    console.error("Failed to load messages", res.status);
+    return;
+  }
+
   const messages = await res.json();
 
   messageBox.innerHTML = "";
@@ -80,3 +94,19 @@ async function loadMessages(username) {
     messageBox.appendChild(div);
   });
 }
+function setActiveChatUser(user) {
+  chatUsername.textContent = user.username;
+  chatEmail.textContent = user.email;
+
+  chatAvatar.src = user.avatar || "./public/images/avatar1.png";
+}
+li.onclick = () => {
+  document
+    .querySelectorAll("#users li")
+    .forEach((el) => el.classList.remove("bg-gray-200"));
+
+  li.classList.add("bg-gray-200");
+
+  setActiveChatUser(u);
+  loadMessages(u.username);
+};
