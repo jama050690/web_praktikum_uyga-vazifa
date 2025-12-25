@@ -5,8 +5,8 @@ import cors from "cors";
 const app = express();
 const PORT = 3000;
 const USERS_FILE = "assets/users.json";
+const USER_IDS_FILE = "assets/user_id_list.json";
 
-/* ================= MIDDLEWARE ================= */
 app.use(
   cors({
     origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
@@ -14,26 +14,31 @@ app.use(
 );
 app.use(express.json());
 
-/* ================= LOAD USERS (DB) ================= */
-let users = {};
+let users = [];
+let user_id_list = {};
 
 try {
   const data = fs.readFileSync(USERS_FILE, "utf8");
+
+  const userIds = fs.readFileSync(USER_IDS_FILE, "utf8");
   users = JSON.parse(data);
+  console.log(users.length);
+
+  user_id_list = JSON.parse(userIds);
 } catch {
-  users = {};
+  users = [];
+  user_id_list = {};
 }
 
-/* ================= HELPERS ================= */
 function saveUsers() {
+  fs.writeFileSync(USER_IDS_FILE, JSON.stringify(user_id_list, null, 2));
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 }
 
 function generateID() {
-  return Math.max(0, ...Object.values(users).map((u) => u.id || 0)) + 1;
+  return Math.max(0, users[users.length - 1].id + 1);
 }
 
-/* ================= REGISTER ================= */
 app.post("/signup", (req, res) => {
   const { username, email, password, gender = "male" } = req.body;
 
@@ -57,7 +62,8 @@ app.post("/signup", (req, res) => {
     gender,
   };
 
-  users[username] = newUser;
+  users.push(newUser);
+  user_id_list[username] = newUser.id;
   saveUsers();
 
   res.status(201).json({
@@ -66,11 +72,10 @@ app.post("/signup", (req, res) => {
   });
 });
 
-/* ================= LOGIN ================= */
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
-  const user = Object.values(users).find((u) => u.email === email);
+  const user = users.find((u) => u.email === email);
 
   if (!user) {
     return res.status(404).json({
@@ -83,21 +88,35 @@ app.post("/login", (req, res) => {
       message: "Parol notog'ri",
     });
   }
+  let tomorrow_date = new Date();
+  tomorrow_date.setDate(tomorrow_date.getDate() + 1);
+  const formatted_date = tomorrow_date.toISOString();
+  const token = `Token_for_${
+    user.username
+  }@from&${new Date().toISOString()}. Valid until&&${formatted_date}`;
+  console.log(token);
 
   res.json({
     message: "Login muvaffaqiyatli",
     user,
+    access_token: token,
   });
 });
 
-/* ================= USERS LIST (CHAT UCHUN) ================= */
 app.get("/users", (req, res) => {
+  const authHeader = req.headers.authorization;
+  const token = authHeader?.split(" ")[1];
+  if (!token) {
+    res.status(401).json({
+      message:
+        "Unauthorized access. Iltimos, login qilib qayta urinib ko'ring!",
+    });
+  }
+  console.log("mana: ", users.length);
+
   res.json(users);
 });
 
-/* ================= START SERVER ================= */
 app.listen(PORT, () => {
   console.log(` Server running on http://localhost:${PORT}`);
 });
-
-

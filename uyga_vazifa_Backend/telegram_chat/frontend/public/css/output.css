@@ -200,8 +200,8 @@
   .right-4 {
     right: calc(var(--spacing) * 4);
   }
-  .left-\[300px\] {
-    left: 300px;
+  .left-\[200px\] {
+    left: 200px;
   }
   .container {
     width: 100%;

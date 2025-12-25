@@ -3,6 +3,8 @@ const passwordInput = document.getElementById("password");
 const genderInputs = document.querySelectorAll("#gender input");
 let users = [];
 const USERS = "users";
+let token;
+let logged_in_user;
 // functions
 /**user registration function */
 async function registerUser() {
@@ -37,7 +39,7 @@ async function registerUser() {
 
     console.log(`javob:`, data);
 
-    if (!res.ok) {
+    if (res.ok) {
       // user oldin bor
       alert(data.message);
       setTimeout(() => {
@@ -45,12 +47,6 @@ async function registerUser() {
       }, 100);
       return;
     }
-
-    // session
-    localStorage.setItem("logged_in_user", data.user.username);
-
-    alert(`Xush kelibsiz, ${data.user.username}!`);
-    window.location.href = "http://127.0.0.1:5500/index.html";
   } catch (err) {
     alert("Server bilan boglanib bolmadi");
   }
@@ -83,9 +79,12 @@ async function loginUser() {
     }
 
     localStorage.setItem("logged_in_user", data.user.username);
-
+    console.log(data);
+    debugger;
+    token = data.access_token;
+    localStorage.setItem("access_token", token);
     alert(`Xush kelibsiz, ${data.user.username}!`);
-    window.location.href = "http://127.0.0.1:5500/index.html";
+    window.location.href = "/index.html";
   } catch (err) {
     alert("Server bilan bog'lanib bo'lmadi");
   }
@@ -95,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentUrl = window.location.href;
 
   if (currentUrl.includes("login")) {
+    returning_user_check();
     const btn = document.getElementById("login_btn");
     if (btn) btn.addEventListener("click", loginUser);
   } else {
@@ -102,3 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btn) btn.addEventListener("click", registerUser);
   }
 });
+
+function returning_user_check() {
+  token = localStorage.getItem("access_token") || "";
+  logged_in_user = localStorage.getItem("logged_in_user") || "";
+  if (token && logged_in_user) {
+    alert("Welcome back, ", logged_in_user);
+    window.location.href = "/index.html";
+  }
+}
