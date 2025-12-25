@@ -34,3 +34,10 @@
 .menu-box span:not(:last-child) {
   margin-bottom: 6px;
 }
+.menu-box span {
+  display: block;
+  width: 6px;
+  height: 10px;
+  background: #555;
+  margin: 3px 0;
+}

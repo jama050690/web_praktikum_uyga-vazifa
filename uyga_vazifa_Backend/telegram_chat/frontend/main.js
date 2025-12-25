@@ -1,8 +1,8 @@
 const usersList = document.getElementById("users");
 const messageBox = document.getElementById("messages");
-const chatUsername = document.getElementById("chat-username");
-const chatEmail = document.getElementById("chat-email");
-const chatAvatar = document.getElementById("chat-avatar");
+const menuBtn = document.getElementById("menuBtn");
+const menuDropdown = document.getElementById("menuDropdown");
+
 const BASE_API = "http://localhost:3000";
 //  logged user
 let loggedUser;
@@ -46,7 +46,7 @@ async function renderUsers() {
 
         const li = document.createElement("li");
         li.className =
-          "w-full px-4 py-5 border border-gray-300 rounded-[12px] cursor-pointer " +
+          "w-full px-4 py-5 border flex justify-between border-gray-300 rounded-[12px] cursor-pointer " +
           "hover:bg-gray-100 transition";
         const now = new Date();
         const time = `${now.getHours()}:${String(now.getMinutes()).padStart(
@@ -54,7 +54,16 @@ async function renderUsers() {
           "0"
         )}`;
 
-        li.textContent = `${u.username} (${u.email}) ${time}`;
+        li.innerHTML = `
+  <span class="font-medium text-gray-800">
+    ${u.username}
+  </span>
+
+  <span class="text-sm text-gray-500">
+    ${time}
+  </span>
+`;
+
         li.onclick = () => {
           setActiveChatUser(u);
           loadMessages(u.username);
@@ -96,17 +105,16 @@ async function loadMessages(username) {
 }
 function setActiveChatUser(user) {
   chatUsername.textContent = user.username;
-  chatEmail.textContent = user.email;
 
   chatAvatar.src = user.avatar || "./public/images/avatar1.png";
 }
-li.onclick = () => {
-  document
-    .querySelectorAll("#users li")
-    .forEach((el) => el.classList.remove("bg-gray-200"));
 
-  li.classList.add("bg-gray-200");
+// Dropdown profile user
+menuBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  menuDropdown.classList.toggle("hidden");
+});
 
-  setActiveChatUser(u);
-  loadMessages(u.username);
-};
+document.addEventListener("click", () => {
+  menuDropdown.classList.add("hidden");
+});
