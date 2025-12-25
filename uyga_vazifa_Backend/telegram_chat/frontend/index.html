@@ -32,7 +32,7 @@
           <!-- MENU (ENG O‘NGDA) -->
           <div class="ml-auto relative">
             <!-- MENU ICON -->
-            <div id="menuBtn" class="menu-box cursor-pointer">
+            <div class="menuBtn cursor-pointer">
               <span></span>
               <span></span>
               <span></span>
@@ -41,8 +41,7 @@
             <!-- DROPDOWN (BOSILMAGUNCHA YASHIRIN) -->
 
             <div
-              id="menuDropdown"
-              class="hidden absolute right-0 top-full mt-2 w-[260px] bg-white border border-gray-300 rounded-xl shadow-lg z-50 overflow-visible"
+              class="menuDropdown hidden absolute right-0 top-full mt-2 w-[260px] bg-white border border-gray-300 rounded-xl shadow-lg z-50 overflow-visible"
             >
               <div
                 class="flex items-center gap-4 px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 cursor-pointer whitespace-nowrap"
@@ -91,24 +90,60 @@
       </div>
 
       <!-- CHAT -->
+      <!-- Chat user header -->
+
       <div class="flex-1 flex flex-col bg-[#f7f7f7]">
-        <div
-          id="mess"
-          class="flex items-center py-[15px] justify-between bg-[#ededed]"
-        >
-          <img
-            class="w-[50px] h-[50px] rounded-full"
-            src="./public/images/avatar6.png"
-            alt="User"
-          />
-          <div class="menu-box cursor-pointer">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="flex items-center py-[15px] justify-between bg-[#ededed]">
+          <div class="flex items-center gap-3">
+            <img
+              id="chatAvatar"
+              class="w-[50px] h-[50px] rounded-full"
+              src="./public/images/avatar6.png"
+              alt="User"
+            />
+
+            <span id="chatUsername" class="font-medium text-gray-800">
+              Select user
+            </span>
+          </div>
+
+          <div class="ml-auto relative">
+            <div class="menuBtn cursor-pointer">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <!-- DROPDOWN (BOSILMAGUNCHA YASHIRIN) -->
+
+            <div
+              class="menuDropdown hidden absolute right-0 top-full mt-2 w-[260px] bg-white border border-gray-300 rounded-xl shadow-lg z-50 overflow-visible"
+            >
+              <div
+                class="flex items-center gap-4 px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 cursor-pointer whitespace-nowrap"
+              >
+                <i class="fa-solid fa-user min-w-[16px] text-center"></i>
+                <span id="logout-btn">Logout</span>
+              </div>
+
+              <div
+                class="flex items-center gap-4 px-4 py-2 text-sm text-gray-800 hover:bg-gray-100 cursor-pointer whitespace-nowrap"
+              >
+                <i
+                  class="fa-solid fa-group-arrows-rotate min-w-[16px] text-center"
+                ></i>
+                <span>Create group</span>
+              </div>
+
+              <div
+                class="flex items-center gap-4 px-4 py-2 text-sm text-red-500 hover:bg-gray-100 cursor-pointer whitespace-nowrap"
+              >
+                <i class="fa-solid fa-list-check min-w-[16px] text-center"></i>
+                <span>Settings</span>
+              </div>
+            </div>
           </div>
         </div>
         <!-- Chat Messages -->
-        <!-- Chat user header -->
         <div class="flex flex-col flex-1 min-h-0">
           <div id="messages" class="flex-1 overflow-y-auto px-4 py-3 space-y-3">
             <div class="text-center mt-4">
@@ -130,10 +165,10 @@
             class="appearance-none w-[85%] rounded-[7px] bg-white px-[15px] py-[15px] border border-[#cccccc] text-[#94928f] focus:outline-none focus:ring-0 focus:border-[#cccccc]"
           />
           <i class="fa-solid fa-microphone"></i>
-          <i class="fa-solid fa-paper-plane"></i>
+          <i id="sendBtn" class="fa-solid fa-paper-plane cursor-pointer"></i>
         </div>
       </div>
     </div>
-    <script src="./main.js"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

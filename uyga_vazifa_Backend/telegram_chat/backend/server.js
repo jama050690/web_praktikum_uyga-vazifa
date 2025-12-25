@@ -36,7 +36,8 @@ function saveUsers() {
 }
 
 function generateID() {
-  return Math.max(0, users[users.length - 1].id + 1);
+  if (!users.length) return 1;
+  return Math.max(...users.map((u) => u.id)) + 1;
 }
 
 app.post("/signup", (req, res) => {
@@ -48,7 +49,7 @@ app.post("/signup", (req, res) => {
     });
   }
 
-  if (users[username]) {
+  if (users.find((u) => u.username === username)) {
     return res.status(400).json({
       message: "Bu username allaqachon mavjud",
     });
@@ -112,30 +113,65 @@ app.get("/users", (req, res) => {
         "Unauthorized access. Iltimos, login qilib qayta urinib ko'ring!",
     });
   }
-  console.log("mana: ", users.length);
 
   res.json(users);
 });
 
-app.get("/messages", (req, res) => {
-  const { username } = req.query;
+app.post("/messages", (req, res) => {
+  const { from, to, text } = req.body;
 
-  if (!username) {
-    return res.status(400).json({ message: "username is required" });
+  if (!from || !to || !text) {
+    return res.status(400).json({ message: "Invalid data" });
   }
 
-  // TEMP: fake data
-  const messages = {
-    "Jamshiddin Babajanov": [
-      { text: "Salom", time: "13:01" },
-      { text: "Qalaysan?", time: "13:02" },
-    ],
-    meet: [{ text: "meet (asdswwefq4)", time: "13:04" }],
-    Jamshiddin: [{ text: "Hello", time: "13:00" }],
-  };
+  const messages = JSON.parse(fs.readFileSync("./messages.json", "utf8"));
 
-  res.json(messages[username] || []);
+  const now = new Date();
+  const time = `${now.getHours()}:${String(now.getMinutes()).padStart(2, "0")}`;
+
+  messages.push({
+    from,
+    to,
+    text,
+    time,
+  });
+
+  fs.writeFileSync("./messages.json", JSON.stringify(messages, null, 2));
+
+  res.json({ success: true });
 });
+app.get("/messages", (req, res) => {
+  const { username, with: withUser } = req.query;
+
+  let messages = [];
+  try {
+    messages = JSON.parse(fs.readFileSync("./messages.json", "utf8"));
+  } catch {
+    messages = [];
+  }
+
+  // Chat oynasi uchun (2 tomonlama)
+  if (username && withUser) {
+    const filtered = messages.filter(
+      (m) =>
+        (m.from === username && m.to === withUser) ||
+        (m.from === withUser && m.to === username)
+    );
+    return res.json(filtered);
+  }
+
+  // Users list uchun (oxirgi xabar)
+  if (withUser) {
+    const filtered = messages.filter(
+      (m) => m.from === withUser || m.to === withUser
+    );
+    return res.json(filtered);
+  }
+
+  res.json(messages);
+});
+
+// server.js yoki messages route
 
 app.listen(PORT, () => {
   console.log(` Server running on http://localhost:${PORT}`);

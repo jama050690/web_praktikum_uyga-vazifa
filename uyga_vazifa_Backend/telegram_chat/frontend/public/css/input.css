@@ -15,7 +15,7 @@
   }
 }
 
-.menu-box {
+.menuBtn {
   text-align: center;
   width: 40px;
   height: 40px;
@@ -25,16 +25,16 @@
   justify-content: center;
 }
 
-.menu-box span {
+.menuBtn span {
   width: 6px;
   height: 6px;
   background: #555;
 }
 
-.menu-box span:not(:last-child) {
+.menuBtn span:not(:last-child) {
   margin-bottom: 6px;
 }
-.menu-box span {
+.menuBtn span {
   display: block;
   width: 6px;
   height: 10px;

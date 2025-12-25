@@ -1,15 +1,18 @@
 const usersList = document.getElementById("users");
 const messageBox = document.getElementById("messages");
-const menuBtn = document.getElementById("menuBtn");
-const menuDropdown = document.getElementById("menuDropdown");
-
+const menuBtns = document.querySelectorAll(".menuBtn");
+const menuDropdowns = document.querySelectorAll(".menuDropdown");
+const chatUsername = document.getElementById("chatUsername");
+const chatAvatar = document.getElementById("chatAvatar");
 const BASE_API = "http://localhost:3000";
 //  logged user
 let loggedUser;
 let token;
+let users;
+const LOGGED_IN_USR = "logged_in_user";
 //  DOM tayyor bo‘lganda
 document.addEventListener("DOMContentLoaded", () => {
-  loggedUser = localStorage.getItem("logged_in_user");
+  loggedUser = localStorage.getItem(LOGGED_IN_USR);
   token = localStorage.getItem("access_token");
 
   if (!loggedUser || !token) {
@@ -30,7 +33,7 @@ async function renderUsers() {
   await fetch(`${BASE_API}/users`, {
     method: "GET",
     headers: {
-      Authorization: `${token}`,
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
   })
@@ -42,19 +45,20 @@ async function renderUsers() {
 
       users.forEach((u) => {
         // O‘zingni o‘zingga chiqarmaslik (ixtiyoriy)
-        if (u.username === loggedUser.username) return;
+        for (const u of users) {
+          if (u.username === loggedUser.username) return;
 
-        const li = document.createElement("li");
-        li.className =
-          "w-full px-4 py-5 border flex justify-between border-gray-300 rounded-[12px] cursor-pointer " +
-          "hover:bg-gray-100 transition";
-        const now = new Date();
-        const time = `${now.getHours()}:${String(now.getMinutes()).padStart(
-          2,
-          "0"
-        )}`;
+          const li = document.createElement("li");
+          li.className =
+            "w-full px-4 py-5 border-none active:bg-blue-600 flex justify-between  cursor-pointer " +
+            "hover:bg-gray-100 transition";
+          const now = new Date();
+          const time = `${now.getHours()}:${String(now.getMinutes()).padStart(
+            2,
+            "0"
+          )}`;
 
-        li.innerHTML = `
+          li.innerHTML = `
   <span class="font-medium text-gray-800">
     ${u.username}
   </span>
@@ -63,58 +67,120 @@ async function renderUsers() {
     ${time}
   </span>
 `;
+          li.onclick = () => {
+            // oldingi aktivlarni olib tashla
+            document.querySelectorAll("#users li").forEach((item) => {
+              item.classList.remove("bg-blue-600", "text-white");
+            });
 
-        li.onclick = () => {
-          setActiveChatUser(u);
-          loadMessages(u.username);
-        };
+            // hozirgi bosilgan li ni aktiv qil
+            li.classList.add("bg-blue-600", "text-white");
 
-        usersList.appendChild(li);
+            setActiveChatUser(u);
+            loadMessages(u.username);
+          };
+          usersList.appendChild(li);
+        }
       });
     })
     .catch((error) => console.error(error));
 }
 // LOAD MESSAGES
+
 async function loadMessages(username) {
   const res = await fetch(
-    `${BASE_API}/messages?username=${encodeURIComponent(username)}`
+    `${BASE_API}/messages?username=${encodeURIComponent(username)}`,
+    {
+      headers: {
+        Authorization: token,
+      },
+    }
   );
 
-  if (!res.ok) {
-    console.error("Failed to load messages", res.status);
-    return;
-  }
-
   const messages = await res.json();
-
   messageBox.innerHTML = "";
 
   messages.forEach((m) => {
     const div = document.createElement("div");
 
-    const isMine = m.from === loggedUser.username;
+    const isMine = m.from === loggedUser;
 
     div.className = isMine
       ? "bg-blue-500 text-white p-2 rounded-lg ml-auto w-fit"
       : "bg-gray-200 p-2 rounded-lg w-fit";
 
     div.textContent = m.text;
-
     messageBox.appendChild(div);
   });
 }
-function setActiveChatUser(user) {
-  chatUsername.textContent = user.username;
 
+let activeChatUser = null;
+
+sendBtn.onclick = sendMessage;
+async function sendMessage() {
+  const text = msgInput.value.trim();
+  if (!text || !activeChatUser) return;
+
+  await fetch(`${BASE_API}/messages`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify({
+      from: loggedUser.username,
+      to: activeChatUser.username,
+      text,
+    }),
+  });
+
+  msgInput.value = "";
+
+  // chatni qayta yuklash
+  loadMessages(activeChatUser.username);
+
+  // users listni yangilash
+  renderUsers();
+}
+function setActiveChatUser(user) {
+  if (!user || !user.username) return;
+
+  activeChatUser = user;
+
+  chatUsername.textContent = user.username;
   chatAvatar.src = user.avatar || "./public/images/avatar1.png";
 }
 
+async function getLastMessage(username) {
+  const res = await fetch(`${BASE_API}/messages?with=${username}`);
+  const msgs = await res.json();
+  return msgs[msgs.length - 1];
+}
+
 // Dropdown profile user
-menuBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  menuDropdown.classList.toggle("hidden");
+
+menuBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    // shu btn'ga tegishli dropdown
+    const dropdown = btn.nextElementSibling;
+
+    // boshqa dropdownlarni yop
+    menuDropdowns.forEach((dd) => {
+      if (dd !== dropdown) dd.classList.add("hidden");
+    });
+
+    dropdown.classList.toggle("hidden");
+  });
 });
 
 document.addEventListener("click", () => {
-  menuDropdown.classList.add("hidden");
+  menuDropdowns.forEach((dd) => dd.classList.add("hidden"));
+});
+
+document.getElementById("logout-btn").addEventListener("click", () => {
+  alert("Logout successful!");
+  localStorage.setItem(LOGGED_IN_USR, "");
+  window.location.reload();
 });
