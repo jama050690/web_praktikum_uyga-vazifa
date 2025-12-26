@@ -27,7 +27,7 @@ app.get("/talabalar", (req, res) => {
 
 // CREATE
 app.post("/talabalar", (req, res) => {
-  const { name } = req.body;
+  const { name, age } = req.body;
 
   if (name?.trim()) {
     users.push({

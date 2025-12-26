@@ -6,34 +6,47 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <%- include('partials/header') %>
+    <div class="container">
+      <header><%- include('partials/header') %></header>
+      <main>
+        <h2>Talaba qo'shish</h2>
 
-    <main>
-      <h2>Talaba qo‘shish</h2>
+        <form method="POST" class="form" action="/talabalar">
+          <input
+            type="text"
+            class="input_name"
+            name="name"
+            placeholder="Talaba ismi va familyasi "
+            required
+          />
+          <input
+            type="number"
+            class="yosh"
+            name="age"
+            placeholder="Talaba yoshi"
+            required
+          />
+          <button type="submit">Add</button>
+        </form>
 
-      <form method="POST" action="/talabalar">
-        <input type="text" name="name" placeholder="Talaba ismi" required />
-        <button type="submit">Add</button>
-      </form>
+        <h3>Talabalar ro'yhati</h3>
+        <table border="1">
+          <tr>
+            <th>ID</th>
+            <th>Ism</th>
+            <th>Yosh</th>
+          </tr>
 
-      <h3>Foydalanuvchilar</h3>
-      <table border="1">
-        <tr>
-          <th>ID</th>
-          <th>Ism</th>
-          <th>Yosh</th>
-        </tr>
-
-        <% users.forEach(user => { %>
-        <tr class="<%= user.age < 21 ? 'red' : '' %>">
-          <td><%= user.id %></td>
-          <td><%= user.name %></td>
-          <td><%= user.age %></td>
-        </tr>
-        <% }) %>
-      </table>
-    </main>
-
+          <% users.forEach(user => { %>
+          <tr class="<%= user.age < 21 ? 'red' : 'green' %>">
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.age %></td>
+          </tr>
+          <% }) %>
+        </table>
+      </main>
+    </div>
     <%- include('partials/footer') %>
   </body>
 </html>

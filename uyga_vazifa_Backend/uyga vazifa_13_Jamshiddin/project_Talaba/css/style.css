@@ -1,3 +1,19 @@
+body {
+  background: linear-gradient(to right, hsl(228, 95%, 15%), #0a2ab994);
+}
+.countainer {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+header {
+  display: flex;
+  align-items: center;
+  gap: 600px;
+}
+
 .red {
   color: red;
   font-weight: bold;
@@ -17,4 +33,36 @@ td {
   border: 1px solid #ccc;
   padding: 8px;
   text-align: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  border: slod 3px black;
+  gap: 12px;
+}
+.input_name {
+  width: 400px;
+  padding: 16px 24px;
+  color: black;
+  background: white;
+  border-radius: 6px;
+}
+
+.yosh {
+  width: 400px;
+  padding: 16px 24px;
+  color: black;
+  background: white;
+  border-radius: 6px;
+}
+button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: blue;
+  color: white;
+  cursor: pointer;
+}
+button:active {
+  background: red;
 }
