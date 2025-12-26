@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Students</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <main>
+      <h2>Talaba qo‘shish</h2>
+
+      <form method="POST" action="/talabalar">
+        <input type="text" name="name" placeholder="Talaba ismi" required />
+        <button type="submit">Add</button>
+      </form>
+
+      <h3>Foydalanuvchilar</h3>
+      <table border="1">
+        <tr>
+          <th>ID</th>
+          <th>Ism</th>
+          <th>Yosh</th>
+        </tr>
+
+        <% users.forEach(user => { %>
+        <tr class="<%= user.age < 21 ? 'red' : '' %>">
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td><%= user.age %></td>
+        </tr>
+        <% }) %>
+      </table>
+    </main>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>
