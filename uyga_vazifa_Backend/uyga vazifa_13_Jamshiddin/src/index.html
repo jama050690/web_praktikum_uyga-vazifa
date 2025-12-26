@@ -3,14 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <title>Vazifa</title>
   </head>
   <body>
+    <!-- 1-vazifa: loop -->
+    <h3>Kurslar</h3>
     <ul>
-      <% courses.forEach((course) => { %>
+      <% courses.forEach(course => { %>
       <li><%= course %></li>
       <% }) %>
     </ul>
+
+    <!-- 2-vazifa: rang -->
+    <h3 class="<%= score < 80 ? 'red' : 'green' %>">
+      Sizning balling: <%= score %>
+    </h3>
+
+    <!-- 3-vazifa: table -->
+    <h3>Foydalanuvchilar</h3>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Ism</th>
+        <th>Yosh</th>
+      </tr>
+
+      <% users.forEach(user => { %>
+      <tr class="<%= user.age < 21 ? 'red' : '' %>">
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.age %></td>
+      </tr>
+      <% }) %>
+    </table>
   </body>
 </html>

@@ -5,21 +5,33 @@ import ejs from "ejs";
 const app = express();
 
 app.get("/index.html", async (req, res) => {
-  let template = await fs.readFile("./src/index.html", "utf8");
+  const template = await fs.readFile("./src/index.html", "utf8");
 
-  let html = ejs.render(template, {
-    courses: ["Java", "Node", "React"],
+  // 1-vazifa: loop
+  const courses = ["Java", "Node", "React"];
+
+  // 2-vazifa: rang
+  const score = 78;
+
+  // 3-vazifa: real data
+  const users = [
+    { id: 1, name: "Ali", age: 20 },
+    { id: 2, name: "Vali", age: 25 },
+    { id: 3, name: "Sami", age: 18 },
+  ];
+
+  const html = ejs.render(template, {
+    courses,
+    score,
+    users,
   });
 
   res.send(html);
 });
 
 app.get("/css/:filename", async (req, res) => {
-  const view = await fs.readFile(`./src/css/${req.params.filename}`, "utf8");
-
-  res.set("Content-Type", "text/css");
-
-  res.send(view);
+  const css = await fs.readFile(`./css/${req.params.filename}`, "utf8");
+  res.type("css").send(css);
 });
 
-app.listen(3000, () => console.log(3000));
+app.listen(3000, () => console.log("Server running on 3000"));
