@@ -2,8 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Students</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="/css/style.css" />
+    <title>Students</title>
   </head>
   <body>
     <div class="container">
@@ -26,15 +30,22 @@
             placeholder="Talaba yoshi"
             required
           />
+          <input
+            type="number"
+            class="yosh"
+            name="age"
+            placeholder="Talaba kursi"
+            required
+          />
           <button type="submit">Add</button>
         </form>
 
         <h3>Talabalar ro'yhati</h3>
         <table border="1">
           <tr>
-            <th>ID</th>
-            <th>Ism</th>
-            <th>Yosh</th>
+            <th class="box">ID</th>
+            <th class="box">Ism</th>
+            <th class="box">Yosh</th>
           </tr>
 
           <% users.forEach(user => { %>
@@ -46,7 +57,7 @@
           <% }) %>
         </table>
       </main>
+      <%- include('partials/footer') %>
     </div>
-    <%- include('partials/footer') %>
   </body>
 </html>
