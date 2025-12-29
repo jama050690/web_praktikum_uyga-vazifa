@@ -22,7 +22,12 @@ app.get("/index.html", async (req, res) => {
     title: "Welcome to our website!",
     projectName: "My Gallery",
     descreption: "The next level image gallery",
+    telegramUsername: "Jama_9133",
+    whatsapUsername: 998957990034,
     emailUsername: "jbm050690@gmail.com",
+    instagramUsername: "jamshiddinbabajonov",
+    linkedinUsername: "jamshiddin-babajonov-168705382",
+    githupUsername: "jama050690",
     images,
   });
   res.send(result);
