@@ -134,7 +134,9 @@ app.post("/messages", (req, res) => {
     return res.status(400).json({ message: "Invalid data" });
   }
 
-  const messages = JSON.parse(fs.readFileSync("./messages.json", "utf8"));
+  const messages = JSON.parse(
+    fs.readFileSync("./assets/messages.json", "utf8")
+  );
 
   const now = new Date();
   const time = `${now.getHours()}:${String(now.getMinutes()).padStart(2, "0")}`;
@@ -146,7 +148,7 @@ app.post("/messages", (req, res) => {
     time,
   });
 
-  fs.writeFileSync("./messages.json", JSON.stringify(messages, null, 2));
+  fs.writeFileSync("./assets/messages.json", JSON.stringify(messages, null, 2));
 
   res.json({ success: true });
 });
@@ -155,7 +157,7 @@ app.get("/messages", (req, res) => {
 
   let messages = [];
   try {
-    messages = JSON.parse(fs.readFileSync("./messages.json", "utf8"));
+    messages = JSON.parse(fs.readFileSync("/assets/messages.json", "utf8"));
   } catch {
     messages = [];
   }

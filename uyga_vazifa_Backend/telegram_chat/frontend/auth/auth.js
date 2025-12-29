@@ -80,7 +80,6 @@ async function loginUser() {
 
     localStorage.setItem("logged_in_user", data.user.username);
     console.log(data);
-    debugger;
     token = data.access_token;
     localStorage.setItem("access_token", token);
     alert(`Xush kelibsiz, ${data.user.username}!`);

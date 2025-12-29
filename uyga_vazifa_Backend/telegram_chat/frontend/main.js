@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   token = localStorage.getItem("access_token");
 
   if (!loggedUser || !token) {
-    window.location.href = "./auth/login.html";
+    window.location.href = "/auth/login.html";
   }
   const loadBtn = document.getElementById("load");
 
@@ -178,9 +178,11 @@ menuBtns.forEach((btn) => {
 document.addEventListener("click", () => {
   menuDropdowns.forEach((dd) => dd.classList.add("hidden"));
 });
+console.log("log outdan oldinki ");
 
 document.getElementById("logout-btn").addEventListener("click", () => {
-  alert("Logout successful!");
-  localStorage.setItem(LOGGED_IN_USR, "");
-  window.location.reload();
+  console.log("Logout bosildi");
+  localStorage.removeItem(LOGGED_IN_USR);
+  localStorage.removeItem("access_token");
+  window.location.href = "/aut/login.html";
 });
