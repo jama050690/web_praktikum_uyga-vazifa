@@ -6,16 +6,6 @@ const PORT = 3000;
 const app = express();
 
 //  DATA
-const images = [
-  {
-    image: {
-      full: "/images/01.jpg",
-      thumb: "/images/02.jpg",
-    },
-    name: "Diam compus accumsan",
-    description: "lorem in contact is not problem",
-  },
-];
 
 //  STATIC
 app.use("/images", express.static("images"));
