@@ -6,19 +6,21 @@ const app = express();
 const images = [
   {
     image: {
-      full: "images/full/01.jbg",
-      thumb: "images/thumb/01.jbg",
+      full: "images/(01).jpg",
+      thumb: "images/(02).jpg",
     },
     name: "Diam compus accumsan",
-    descreption: "lorem in contact is not problem",
+    description: "lorem in contact is not problem",
   },
 ];
 
-app.use(`/images`, express.static(`public/../images`));
-app.use(`/assets`, express.static(`public/../assets`));
-app.get("/index.html", async (req, res) => {
-  const home = await fs.readFile("./index.html", "utf8");
-  const result = ejs.render(home, {
+app.use("/images", express.static("public/images"));
+app.use("/assets", express.static("public/assets"));
+app.get("/", async (req, res) => {
+  const home = await fs.readFile("./view/index.html", "utf8");
+  const home_1 = await fs.readFile("./view/elements.html", "utf8");
+  const home_2 = await fs.readFile("./view/generic.html", "utf8");
+  const result = ejs.render(home, home_1, home_2, {
     title: "Welcome to our website!",
     projectName: "My Gallery",
     descreption: "The next level image gallery",
