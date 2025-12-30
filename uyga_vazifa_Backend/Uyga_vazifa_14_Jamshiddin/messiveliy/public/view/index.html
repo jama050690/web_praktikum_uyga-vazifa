@@ -12,9 +12,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
     <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
+      ><link rel="stylesheet" href="/assets/css/noscript.css"
     /></noscript>
   </head>
   <body class="is-preload">
@@ -24,12 +24,14 @@
       <div id="intro">
         <h1>
           This is<br />
-          Massively
+          My websyte
         </h1>
         <p>
           A free, fully responsive HTML5 + CSS3 site template designed by
-          <a href="https://twitter.com/ajlkn">@ajlkn</a> for
-          <a href="https://html5up.net">HTML5 UP</a><br />
+          <a href="https://www.linkedin.com/in/<%=linkedinUsername%>"
+            >LinkIden</a
+          >
+          for <a href="https://html5up.net">HTML5 UP</a><br />
           and released for free under the
           <a href="https://html5up.net/license">Creative Commons license</a>.
         </p>
@@ -46,34 +48,54 @@
 
       <!-- Header -->
       <header id="header">
-        <a href="index.html" class="logo">Massively</a>
+        <a href="/index.html" class="logo">Massively</a>
       </header>
 
       <!-- Nav -->
       <nav id="nav">
         <ul class="links">
-          <li class="active"><a href="index.html">This is Massively</a></li>
-          <li><a href="generic.html">Generic Page</a></li>
-          <li><a href="elements.html">Elements Reference</a></li>
+          <li class="active"><a href="/index.html">This is Massively</a></li>
+          <li><a href="/generic.html">Generic Page</a></li>
+          <li><a href="/elements.html">Elements Reference</a></li>
         </ul>
         <ul class="icons">
           <li>
-            <a href="#" class="icon brands fa-twitter"
-              ><span class="label">Twitter</span></a
+            <a
+              target="_blank"
+              href="https://t.me/<%=telegramUsername%>"
+              class="icon brands fa-telegram"
+              ><span class="label">Telegram</span></a
             >
           </li>
           <li>
-            <a href="#" class="icon brands fa-facebook-f"
-              ><span class="label">Facebook</span></a
+            <a
+              target="_blank"
+              href="https://wa.me/<%=whatsappUsername%>"
+              class="icon brands fa-whatsapp"
+              ><span class="label">Whatsap</span></a
             >
           </li>
           <li>
-            <a href="#" class="icon brands fa-instagram"
+            <a
+              target="_blank"
+              href="https://instagram.com/<%=instagramUsername%>"
+              class="icon brands fa-instagram"
               ><span class="label">Instagram</span></a
             >
           </li>
           <li>
-            <a href="#" class="icon brands fa-github"
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/<%=linkedinUsername%>"
+              class="icon brands fa-linkedin-in"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://github.com/<%=githupUsername%>"
+              class="icon brands fa-github"
               ><span class="label">GitHub</span></a
             >
           </li>
@@ -100,7 +122,7 @@
             </p>
           </header>
           <a href="#" class="image main"
-            ><img src="images/pic(01).jpg" alt=""
+            ><img src="/images/pic(01).jpg" alt=""
           /></a>
           <ul class="actions special">
             <li><a href="#" class="button large">Full Story</a></li>
@@ -120,7 +142,7 @@
               </h2>
             </header>
             <a href="#" class="image fit"
-              ><img src="images/pic(02).jpg" alt=""
+              ><img src="/images/pic(02).jpg" alt=""
             /></a>
             <p>
               Donec eget ex magna. Interdum et malesuada fames ac ante ipsum
@@ -142,7 +164,7 @@
               </h2>
             </header>
             <a href="#" class="image fit"
-              ><img src="images/pic(03).jpg" alt=""
+              ><img src="/images/pic(03).jpg" alt=""
             /></a>
             <p>
               Donec eget ex magna. Interdum et malesuada fames ac ante ipsum
@@ -164,7 +186,7 @@
               </h2>
             </header>
             <a href="#" class="image fit"
-              ><img src="images/pic(04).jpg" alt=""
+              ><img src="/images/pic(04).jpg" alt=""
             /></a>
             <p>
               Donec eget ex magna. Interdum et malesuada fames ac ante ipsum
@@ -208,7 +230,7 @@
               </h2>
             </header>
             <a href="#" class="image fit"
-              ><img src="images/pic(06).jpg" alt=""
+              ><img src="/images/pic(06).jpg" alt=""
             /></a>
             <p>
               Donec eget ex magna. Interdum et malesuada fames ac ante ipsum
@@ -230,7 +252,7 @@
               </h2>
             </header>
             <a href="#" class="image fit"
-              ><img src="images/pic(07).jpg" alt=""
+              ><img src="/images/pic(07).jpg" alt=""
             /></a>
             <p>
               Donec eget ex magna. Interdum et malesuada fames ac ante ipsum
@@ -286,38 +308,60 @@
           <section class="alt">
             <h3>Address</h3>
             <p>
-              1234 Somewhere Road #87257<br />
-              Nashville, TN 00000-0000
+              Toshkent city,chilanzor destrict<br />
+              Quarter 20,Building 8, Entrance 3, Apartment 31
             </p>
           </section>
           <section>
             <h3>Phone</h3>
-            <p><a href="#">(000) 000-0000</a></p>
+            <p><a href="#">(+998) 95-799-00-34</a></p>
           </section>
           <section>
             <h3>Email</h3>
-            <p><a href="#">info@untitled.tld</a></p>
+            <p>
+              <a href="https://mail.google.com/<%= emailUsername %>">Email</a>
+            </p>
           </section>
           <section>
             <h3>Social</h3>
             <ul class="icons alt">
               <li>
-                <a href="#" class="icon brands alt fa-twitter"
-                  ><span class="label">Twitter</span></a
+                <a
+                  target="_blank"
+                  href="https://t.me/<%=telegramUsername%>"
+                  class="icon brands fa-telegram"
+                  ><span class="label">Telegram</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon brands alt fa-facebook-f"
-                  ><span class="label">Facebook</span></a
+                <a
+                  target="_blank"
+                  href="https://wa.me/<%=whatsappUsername%>"
+                  class="icon brands fa-whatsapp"
+                  ><span class="label">Whatsap</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon brands alt fa-instagram"
+                <a
+                  target="_blank"
+                  href="https://instagram.com/<%=instagramUsername%>"
+                  class="icon brands fa-instagram"
                   ><span class="label">Instagram</span></a
                 >
               </li>
               <li>
-                <a href="#" class="icon brands alt fa-github"
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/<%=linkedinUsername%>"
+                  class="icon brands fa-linkedin-in"
+                  ><span class="label">LinkedIn</span></a
+                >
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://github.com/<%=githupUsername%>"
+                  class="icon brands fa-github"
                   ><span class="label">GitHub</span></a
                 >
               </li>
@@ -336,12 +380,12 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>
