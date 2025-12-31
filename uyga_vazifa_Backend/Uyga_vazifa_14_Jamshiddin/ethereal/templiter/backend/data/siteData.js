@@ -11,11 +11,21 @@ export default {
   position: "Forward",
   ballonDor: 8,
 
+  facebookUsername: "leomessi",
+  youtubeUsername: "@leomessi",
+  instagramUsername: "leomessi",
+  tiktokUsername: "@leomessi",
   career: [
-    { title: "Barcelona", text: "Legendary years...", image: "messi(02).webp" }
+    { title: "Barcelona", text: "Legendary years...", image: "messi(02).webp" },
   ],
 
   gallery: ["messi(01).webp", "messi(02).webp"],
-
-  instagramUsername: "leomessi"
+  images: [
+    {
+      full: "gallery/fulls/messi(01).webp",
+      thumb: "gallery/thumbs/messi(01).webp",
+      name: "World Cup 2022",
+      description: "Champion moment",
+    },
+  ],
 };
