@@ -1,69 +1,54 @@
 import express from "express";
-import ejs from "ejs";
-import { promises as fs } from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
 const PORT = 3000;
 
+// __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-//  STATIC
+// VIEW ENGINE
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "../src/views"));
+
+// STATIC
 app.use("/assets", express.static(path.join(__dirname, "../public/assets")));
 app.use("/images", express.static(path.join(__dirname, "../public/images")));
 
-// ROUTE
-app.get("/index.html", async (req, res) => {
-  try {
-    const filePath = path.join(__dirname, "../src/view/index.html");
-    const home = await fs.readFile(filePath, "utf8");
+// DATA
+const siteData = {
+  title: "Lionel Messi | Profile",
+  projectName: "Lionel Messi",
+  descreption: "World Champion • Football Legend",
 
-    const result = ejs.render(home, {
-      title: "Welcome to our website!",
-      projectName: "My Gallery",
-      descreption: "The next level image gallery",
-      telegramUsername: "Jama_9133",
-      whatsappUsername: "998957990034",
-      emailUsername: "jbm050690@gmail.com",
-      instagramUsername: "jamshiddinbabajonov",
-      linkedinUsername: "jamshiddin-babajonov-168705382",
-      githubUsername: "jama050690",
-      images: [],
-    });
+  telegramUsername: "Jama_9133",
+  whatsappUsername: "998957990034",
+  instagramUsername: "jamshiddinbabajonov",
+  linkedinUsername: "jamshiddin-babajonov-168705382",
+  githubUsername: "jama050690",
 
-    res.send(result);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Index file not found");
-  }
-});
-app.get("/index-demo.html", async (req, res) => {
-  try {
-    const filePath = path.join(__dirname, "../src/view/index-demo.html");
-    const home = await fs.readFile(filePath, "utf8");
+  images: [
+    {
+      full: "gallery/fulls/messi(01).webp",
+      thumb: "gallery/thumbs/messi(01).webp",
+      name: "World Cup 2022",
+      descreption: "Champion moment",
+    },
+  ],
+};
 
-    const result = ejs.render(home, {
-      title: "Welcome to our website!",
-      projectName: "My Gallery",
-      descreption: "The next level image gallery",
-      telegramUsername: "Jama_9133",
-      whatsappUsername: "998957990034",
-      emailUsername: "jbm050690@gmail.com",
-      instagramUsername: "jamshiddinbabajonov",
-      linkedinUsername: "jamshiddin-babajonov-168705382",
-      githubUsername: "jama050690",
-      images: [],
-    });
-
-    res.send(result);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Index file not found");
-  }
+// ROUTES
+app.get("/index", (req, res) => {
+  res.render("index", siteData);
 });
 
-app.listen(PORT, () =>
-  console.log(` Server running: http://localhost:${PORT}`)
-);
+app.get("/demo", (req, res) => {
+  res.render("index-demo", siteData);
+});
+
+// START
+app.listen(PORT, () => {
+  console.log(` Server running: http://localhost:${PORT}`);
+});

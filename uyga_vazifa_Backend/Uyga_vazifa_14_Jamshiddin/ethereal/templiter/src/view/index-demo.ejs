@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper" class="divided">
+      <!-- HERO -->
+      <section
+        class="banner style1 orient-left content-align-left image-position-right fullscreen"
+      >
+        <div class="content">
+          <h1><%= projectName %></h1>
+          <p class="major"><%= description %></p>
+        </div>
+        <div class="image">
+          <img src="images/<%= heroImage %>" alt="" />
+        </div>
+      </section>
+
+      <!-- SPOTLIGHT -->
+      <% if (career?.length) { %> <% career.forEach(item => { %>
+      <section
+        class="spotlight style1 orient-right content-align-left image-position-center"
+      >
+        <div class="content">
+          <h2><%= item.title %></h2>
+          <p><%= item.text %></p>
+        </div>
+        <div class="image">
+          <img src="images/<%= item.image %>" alt="" />
+        </div>
+      </section>
+      <% }) %> <% } %>
+
+      <!-- GALLERY -->
+      <% if (gallery?.length) { %>
+      <section class="wrapper style1 align-center">
+        <div class="gallery style2 medium lightbox">
+          <% gallery.forEach(img => { %>
+          <article>
+            <a href="images/gallery/fulls/<%= img %>" class="image">
+              <img src="images/gallery/thumbs/<%= img %>" />
+            </a>
+          </article>
+          <% }) %>
+        </div>
+      </section>
+      <% } %>
+
+      <!-- FOOTER -->
+      <footer class="wrapper style1 align-center">
+        <div class="inner">
+          <ul class="icons">
+            <li>
+              <a
+                href="https://t.me/<%= telegramUsername %>"
+                class="icon brands fa-telegram"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/<%= githubUsername %>"
+                class="icon brands fa-github"
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
