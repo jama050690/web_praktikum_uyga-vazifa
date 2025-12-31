@@ -10,6 +10,10 @@ const PORT = 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+//  STATIC
+app.use("/assets", express.static(path.join(__dirname, "../public/assets")));
+app.use("/images", express.static(path.join(__dirname, "../public/images")));
+
 // ROUTE
 app.get("/index.html", async (req, res) => {
   try {
@@ -61,5 +65,5 @@ app.get("/index-demo.html", async (req, res) => {
 });
 
 app.listen(PORT, () =>
-  console.log(`✅ Server running: http://localhost:${PORT}/index.html`)
+  console.log(` Server running: http://localhost:${PORT}`)
 );
