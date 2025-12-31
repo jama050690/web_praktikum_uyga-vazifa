@@ -17,7 +17,23 @@ const images = [
 app.use(`/images`, express.static(`public/../images`));
 app.use(`/assets`, express.static(`public/../assets`));
 app.get("/index.html", async (req, res) => {
-  const home = await fs.readFile("./assets/index.html", "utf8");
+  const home = await fs.readFile("./src/index.html", "utf8");
+  const result = ejs.render(home, {
+    title: "Welcome to our website!",
+    projectName: "My Gallery",
+    descreption: "The next level image gallery",
+    telegramUsername: "Jama_9133",
+    whatsapUsername: 998957990034,
+    emailUsername: "jbm050690@gmail.com",
+    instagramUsername: "jamshiddinbabajonov",
+    linkedinUsername: "jamshiddin-babajonov-168705382",
+    githupUsername: "jama050690",
+    images,
+  });
+  res.send(result);
+});
+app.get("/index-demo.html", async (req, res) => {
+  const home = await fs.readFile("./src/index-demo.html", "utf8");
   const result = ejs.render(home, {
     title: "Welcome to our website!",
     projectName: "My Gallery",
