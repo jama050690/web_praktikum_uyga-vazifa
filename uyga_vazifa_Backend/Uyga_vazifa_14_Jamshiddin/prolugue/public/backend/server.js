@@ -36,8 +36,7 @@ const navItems = [
 
 // ROUTE
 app.get("/index.html", async (req, res) => {
-  const html = await fs.readFile(path.join(__dirname, "../index.html"),
-   "utf8");
+  const html = await fs.readFile(path.join(__dirname, "../index.html"), "utf8");
 
   const rendered = ejs.render(html, {
     title: "Welcome to our website!",

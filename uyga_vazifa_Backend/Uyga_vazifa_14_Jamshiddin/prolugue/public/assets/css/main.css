@@ -254,7 +254,10 @@ h3 {
 header {
   margin: 0 0 2em 0;
 }
-
+header img {
+  max-width: 1000px;
+  max-height: 800px;
+}
 header > p {
   margin: 1em 0 0 0;
 }
@@ -2497,6 +2500,7 @@ button:active,
 
   #main {
     margin-left: 20%;
+    
   }
 }
 
