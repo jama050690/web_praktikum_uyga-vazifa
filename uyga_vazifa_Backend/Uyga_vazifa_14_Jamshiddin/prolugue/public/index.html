@@ -21,7 +21,7 @@
         <!-- Logo -->
         <div id="logo">
           <span class="image avatar48">
-            <img src="/<%= images[9] %>" alt="My logo" />
+            <img src="/<%= images[8] %>" alt="My logo" />
           </span>
 
           <h1 id="title"><%=projectName%></h1>
@@ -106,11 +106,11 @@
           <header>
             <img src="/<%= images[5] %>" alt="My photo" />
             <h2 class="alt">Hi! I'm <strong>Wepdeveloper</strong></h2>
-            <p>description<br /></p>
+            <p><%=description%><br /></p>
           </header>
 
           <footer>
-            <a href="#portfolio" class="button scrolly">Magna Aliquam</a>
+            <a href="#portfolio" class="button scrolly"><%=button%></a>
           </footer>
         </div>
       </section>
@@ -119,7 +119,7 @@
       <section id="portfolio" class="two">
         <div class="container">
           <header>
-            <h2><%=titles%></h2>
+            <h2><%=navItems[0].text%></h2>
           </header>
 
           <p><%=description%></p>
@@ -128,56 +128,13 @@
             <div class="col-4 col-12-mobile">
               <article class="item">
                 <a href="#" class="image fit"
-                  ><img src="/<%= images[7] %>" alt=""
-                /></a>
-                <header>
-                  <h3><%=titles%></h3>
-                </header>
-              </article>
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="/<%= images[6] %>" alt="My Photo"
+                  ><img src="/<%= images[0] %>" alt="My Photo"
                 /></a>
                 <header>
                   <h3><%=titles%></h3>
                 </header>
               </article>
             </div>
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="/<%= images[1] %>" alt="My Photo"
-                /></a>
-                <header>
-                  <h3><%=titles%></h3>
-                </header>
-              </article>
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="/<%= images[2] %>" alt="My Photo"
-                /></a>
-                <header>
-                  <h3>Natoque Vitae</h3>
-                </header>
-              </article>
-            </div>
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="/<%= images[3] %>" alt="My Photo"
-                /></a>
-                <header>
-                  <h3>Dolor Penatibus</h3>
-                </header>
-              </article>
-              <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="/<%= images[4] %>" alt="My Photo"
-                /></a>
-                <header>
-                  <h3>Orci Convallis</h3>
-                </header>
-              </article>
             </div>
           </div>
         </div>
@@ -187,21 +144,14 @@
       <section id="about" class="three">
         <div class="container">
           <header>
-            <h2>About Me</h2>
+            <h2><%=navItems[1].text%></h2>
           </header>
 
           <a href="#" class="image featured"
-            ><img src="images/pic08.jpg" alt=""
+            ><img src="/<%= images[7] %>" alt="My photo"
           /></a>
 
-          <p>
-            Tincidunt eu elit diam magnis pretium accumsan etiam id urna.
-            Ridiculus ultricies curae quis et rhoncus velit. Lobortis elementum
-            aliquet nec vitae laoreet eget cubilia quam non etiam odio tincidunt
-            montes. Elementum sem parturient nulla quam placerat viverra mauris
-            non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
-            donec curae mus vel quisque sociis nec ornare iaculis.
-          </p>
+          <p><%=text%></p>
         </div>
       </section>
 
@@ -209,16 +159,10 @@
       <section id="contact" class="four">
         <div class="container">
           <header>
-            <h2>Contact</h2>
+            <h2><%=navItems[2].text%></h2>
           </header>
 
-          <p>
-            Elementum sem parturient nulla quam placerat viverra mauris non cum
-            elit tempus ullamcorper dolor. Libero rutrum ut lacinia donec curae
-            mus. Eleifend id porttitor ac ultricies lobortis sem nunc orci
-            ridiculus faucibus a consectetur. Porttitor curae mauris urna mi
-            dolor.
-          </p>
+          <p><%=description%></p>
 
           <form method="post" action="#">
             <div class="row">
@@ -232,7 +176,7 @@
                 <textarea name="message" placeholder="Message"></textarea>
               </div>
               <div class="col-12">
-                <input type="submit" value="Send Message" />
+                <input type="submit" value="<%=button%>" />
               </div>
             </div>
           </form>

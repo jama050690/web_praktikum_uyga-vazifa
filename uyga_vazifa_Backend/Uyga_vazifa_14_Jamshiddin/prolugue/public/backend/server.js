@@ -24,13 +24,12 @@ const images = [
   "images/06.avif",
   "images/07.webp",
   "images/08.avif",
-  "images/09.webp",
   "images/logo.avif",
 ];
 
 const navItems = [
   { href: "#top", icon: "fa-home", text: "Intro" },
-  { href: "#about", icon: "fa-user", text: "About" },
+  { href: "#about", icon: "fa-user", text: "About me" },
   { href: "#contact", icon: "fa-envelope", text: "Contact" },
 ];
 
@@ -49,10 +48,14 @@ app.get("/index.html", async (req, res) => {
     linkedinUsername: "jamshiddin-babajonov-168705382",
     githubUsername: "jama050690",
     titles: "This my pages",
+    button: "Send",
     images,
+    text: `To create innovative solutions in the field of web development,
+    build efficient and user-friendly web applications using modern technologies,
+   and continuously enhance skills and experience through ongoing learning and
+    practice in order to become a professional web developer.`,
     navItems,
   });
-
   res.send(rendered);
 });
 

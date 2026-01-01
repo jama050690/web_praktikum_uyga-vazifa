@@ -329,13 +329,15 @@ table {
 br.clear {
   clear: both;
 }
-
+.row img {
+  max-width: 300px;
+}
 /* Container */
 
 .container {
   margin: 0 auto;
   max-width: 100%;
-  width: 1400px;
+  width: 1440px;
 }
 
 @media screen and (min-width: 961px) and (max-width: 1880px) {
@@ -372,6 +374,8 @@ br.clear {
 
 .row {
   display: flex;
+  justify-content: first baseline;
+  gap: 10px;
   flex-wrap: wrap;
   box-sizing: border-box;
   align-items: stretch;
@@ -2500,7 +2504,6 @@ button:active,
 
   #main {
     margin-left: 20%;
-    
   }
 }
 
