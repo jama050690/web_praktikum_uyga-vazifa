@@ -16,14 +16,15 @@ app.use("/assets", express.static(path.join(__dirname, "../assets")));
 
 // DATA
 const images = [
-  {
-    image: {
-      full: "images/full/01.jpg",
-      thumb: "images/thumb/01.jpg",
-    },
-    name: "This my photos",
-    description: "lorem in contact is not problem",
-  },
+  "images/01.avif",
+  "images/02.webp",
+  "images/03.webp",
+  "/images/04.webp",
+  "images/05.webp",
+  "images/06.avif",
+  "images/07.webp",
+  "images/09.avif",
+  "images/10.webp",
 ];
 
 const navItems = [

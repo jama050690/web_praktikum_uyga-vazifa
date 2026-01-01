@@ -22,7 +22,7 @@
         <div id="logo">
           <span class="image avatar48">
             <img
-              src="/<%= images[0].image.full %>"
+              src="<%= images[0].images/10.webp %>"
               alt="<%= images[0].name %>"
             />
           </span>
@@ -51,28 +51,50 @@
         <!-- Social Icons -->
         <ul class="icons">
           <li>
-            <a href="#" class="icon brands fa-twitter"
-              ><span class="label">Twitter</span></a
+            <a
+              target="_blank"
+              href="https://t.me/<%=telegramUsername%>"
+              class="icon brands fa-telegram"
+              ><span class="label">Telegram</span></a
             >
           </li>
           <li>
-            <a href="#" class="icon brands fa-facebook-f"
-              ><span class="label">Facebook</span></a
+            <a
+              target="_blank"
+              href="https://wa.me/<%=whatsapUsername%>"
+              class="icon brands fa-whatsapp"
+              ><span class="label">Whatsap</span></a
             >
           </li>
           <li>
-            <a href="#" class="icon brands fa-github"
-              ><span class="label">Github</span></a
+            <a
+              target="_blank"
+              href="https://mail.google.com/<%= emailUsername %>"
+              class="icon style2 fa-envelope"
+            ></a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://instagram.com/<%=instagramUsername%>"
+              class="icon brands fa-instagram"
+              ><span class="label">Instagram</span></a
             >
           </li>
           <li>
-            <a href="#" class="icon brands fa-dribbble"
-              ><span class="label">Dribbble</span></a
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/<%=linkedinUsername%>"
+              class="icon brands fa-linkedin-in"
+              ><span class="label">LinkedIn</span></a
             >
           </li>
           <li>
-            <a href="#" class="icon solid fa-envelope"
-              ><span class="label">Email</span></a
+            <a
+              target="_blank"
+              href="https://github.com/<%=githubUsername%>"
+              class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
             >
           </li>
         </ul>
