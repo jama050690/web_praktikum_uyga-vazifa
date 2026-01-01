@@ -14,10 +14,10 @@ const images = [
   },
 ];
 
-app.use(`/images`, express.static(`public/../images`));
-app.use(`/assets`, express.static(`public/../assets`));
+app.use(`/images`, express.static(`public/images`));
+app.use(`/assets`, express.static(`public/assets`));
 app.get("/index.html", async (req, res) => {
-  const home = await fs.readFile("./assets/index.html", "utf8");
+  const home = await fs.readFile("./public/index.html", "utf8");
   const result = ejs.render(home, {
     title: "Welcome to our website!",
     projectName: "My Gallery",

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node public/backend/server.js",
-    "sev": "node --watch public/backend/server.js"
+    "dev": "node --watch public/backend/server.js"
   },
   "keywords": [],
   "author": "",
