@@ -19,12 +19,13 @@ const images = [
   "images/01.avif",
   "images/02.webp",
   "images/03.webp",
-  "/images/04.webp",
+  "images/04.webp",
   "images/05.webp",
   "images/06.avif",
   "images/07.webp",
-  "images/09.avif",
-  "images/10.webp",
+  "images/08.avif",
+  "images/09.webp",
+  "images/logo.avif",
 ];
 
 const navItems = [
