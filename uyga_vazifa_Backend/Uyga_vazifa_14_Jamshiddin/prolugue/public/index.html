@@ -102,16 +102,11 @@
     <div id="main">
       <!-- Intro -->
       <section id="top" class="one dark cover">
-        <div class="container">
-          <header>
-            <img src="/<%= images[5] %>" alt="My photo" />
+        <div class="box_1">
+          <header class="title_1">
             <h2 class="alt">Hi! I'm <strong>Wepdeveloper</strong></h2>
-            <p><%=description%><br /></p>
+            <p class="text_1"><%=description%><br /></p>
           </header>
-
-          <footer>
-            <a href="#portfolio" class="button scrolly"><%=button%></a>
-          </footer>
         </div>
       </section>
 
@@ -123,19 +118,19 @@
           </header>
 
           <p><%=description%></p>
-
           <div class="row">
-            <div class="col-4 col-12-mobile">
+            <% images.forEach((img, index) => { %>
+            <div class="col-3 col-12-mobile gap-1">
               <article class="item">
-                <a href="#" class="image fit"
-                  ><img src="/<%= images[0] %>" alt="My Photo"
-                /></a>
+                <a href="#" class="image fit">
+                  <img src="/<%= img %>" alt="Photo <%= index + 1 %>" />
+                </a>
                 <header>
-                  <h3><%=titles%></h3>
+                  <h3><%= titles %> <%= index + 1 %></h3>
                 </header>
               </article>
             </div>
-            </div>
+            <% }) %>
           </div>
         </div>
       </section>
@@ -187,9 +182,54 @@
     <!-- Footer -->
     <div id="footer">
       <!-- Copyright -->
-      <ul class="copyright">
-        <li>&copy; Untitled. All rights reserved.</li>
-        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      <ul class="icons">
+        <li>
+          <a
+            target="_blank"
+            href="https://t.me/<%=telegramUsername%>"
+            class="icon brands fa-telegram"
+            ><span class="label">Telegram</span></a
+          >
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://wa.me/<%=whatsapUsername%>"
+            class="icon brands fa-whatsapp"
+            ><span class="label">Whatsap</span></a
+          >
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://mail.google.com/<%= emailUsername %>"
+            class="icon style2 fa-envelope"
+          ></a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://instagram.com/<%=instagramUsername%>"
+            class="icon brands fa-instagram"
+            ><span class="label">Instagram</span></a
+          >
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/<%=linkedinUsername%>"
+            class="icon brands fa-linkedin-in"
+            ><span class="label">LinkedIn</span></a
+          >
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://github.com/<%=githubUsername%>"
+            class="icon brands fa-github"
+            ><span class="label">GitHub</span></a
+          >
+        </li>
       </ul>
     </div>
 

@@ -33,6 +33,11 @@ const navItems = [
   { href: "#contact", icon: "fa-envelope", text: "Contact" },
 ];
 
+const portfolio = images.map((img, i) => ({
+  src: img,
+  title: `Project ${i + 1}`,
+}));
+
 // ROUTE
 app.get("/index.html", async (req, res) => {
   const html = await fs.readFile(path.join(__dirname, "../index.html"), "utf8");
@@ -55,6 +60,7 @@ app.get("/index.html", async (req, res) => {
    and continuously enhance skills and experience through ongoing learning and
     practice in order to become a professional web developer.`,
     navItems,
+    portfolio,
   });
   res.send(rendered);
 });
