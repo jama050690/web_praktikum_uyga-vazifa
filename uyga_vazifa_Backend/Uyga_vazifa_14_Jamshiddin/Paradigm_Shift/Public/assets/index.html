@@ -513,67 +513,75 @@ print 'Sorted in ' + i + ' iterations.';</code></pre>
           <ul class="items">
             <li>
               <h3>Email</h3>
-              <a href="#">information@untitled.ext</a>
+              <p>
+                <a href="mailto:<%= email %>" class="icon style2 fa-envelope">
+                  <span class="label"><%= email %></span>
+                </a>
+              </p>
             </li>
             <li>
               <h3>Phone</h3>
-              <a href="#">(000) 000-0000</a>
+              <p>
+                <i class="fa-solid fa-mobile"></i>
+                <a href="tel:<%= phoneRaw %>"><%= phoneDisplay %></a>
+              </p>
             </li>
+
             <li>
               <h3>Address</h3>
-              <span>1234 Somewhere Road, Nashville, TN 00000</span>
+              <p>
+                <%= address.city %>, <%= address.district %><br />
+                <%= address.details %>
+              </p>
+            </li>
+          </ul>
+          <ul class="icons">
+            <li>
+              <a
+                target="_blank"
+                href="https://t.me/<%=telegramUsername%>"
+                class="icon brands fa-telegram"
+                ><span class="label">Telegram</span></a
+              >
             </li>
             <li>
-              <h3>Elsewhere</h3>
-              <ul class="icons">
-                <li>
-                  <a
-                    target="_blank"
-                    href="https://t.me/<%=telegramUsername%>"
-                    class="icon brands fa-telegram"
-                    ><span class="label">Telegram</span></a
-                  >
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    href="https://wa.me/<%=whatsapUsername%>"
-                    class="icon brands fa-whatsapp"
-                    ><span class="label">Whatsap</span></a
-                  >
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    href="https://mail.google.com/<%= emailUsername %>"
-                    class="icon style2 fa-envelope"
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    href="https://instagram.com/<%=instagramUsername%>"
-                    class="icon brands fa-instagram"
-                    ><span class="label">Instagram</span></a
-                  >
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/<%=linkedinUsername%>"
-                    class="icon brands fa-linkedin-in"
-                    ><span class="label">LinkedIn</span></a
-                  >
-                </li>
-                <li>
-                  <a
-                    target="_blank"
-                    href="https://github.com/<%=githubUsername%>"
-                    class="icon brands fa-github"
-                    ><span class="label">GitHub</span></a
-                  >
-                </li>
-              </ul>
+              <a
+                target="_blank"
+                href="https://wa.me/<%=whatsapUsername%>"
+                class="icon brands fa-whatsapp"
+                ><span class="label">Whatsap</span></a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://mail.google.com/<%= emailUsername %>"
+                class="icon style2 fa-envelope"
+              ></a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://instagram.com/<%=instagramUsername%>"
+                class="icon brands fa-instagram"
+                ><span class="label">Instagram</span></a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/<%=linkedinUsername%>"
+                class="icon brands fa-linkedin-in"
+                ><span class="label">LinkedIn</span></a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://github.com/<%=githubUsername%>"
+                class="icon brands fa-github"
+                ><span class="label">GitHub</span></a
+              >
             </li>
           </ul>
         </footer>

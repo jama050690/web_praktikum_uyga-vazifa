@@ -14,10 +14,10 @@ const images = [
   },
 ];
 
-app.use(`/images`, express.static(`public/../images`));
-app.use(`/assets`, express.static(`public/../assets`));
+app.use(`/images`, express.static(`public/images`));
+app.use(`/assets`, express.static(`public/assets`));
 app.get("/index.html", async (req, res) => {
-  const home = await fs.readFile("./assets/index.html", "utf8");
+  const home = await fs.readFile("./public/assets/index.html", "utf8");
   const result = ejs.render(home, {
     title: "Welcome to our website!",
     projectName: "My Gallery",
@@ -27,8 +27,16 @@ app.get("/index.html", async (req, res) => {
     emailUsername: "jbm050690@gmail.com",
     instagramUsername: "jamshiddinbabajonov",
     linkedinUsername: "jamshiddin-babajonov-168705382",
-    githupUsername: "jama050690",
+    githubUsername: "jama050690",
     images,
+    email: "example@gmail.com",
+    phoneRaw: "+998957990034",
+    phoneDisplay: "(+998) 95 799 00 34",
+    address: {
+      city: "Toshkent city",
+      district: "Chilonzor district",
+      details: "Quarter 20, Building 8, Entrance 3, Apartment 31",
+    },
   });
   res.send(result);
 });
