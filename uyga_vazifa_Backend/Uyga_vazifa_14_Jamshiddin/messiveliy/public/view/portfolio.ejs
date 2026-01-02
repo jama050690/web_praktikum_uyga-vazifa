@@ -12,45 +12,118 @@
 
   <body class="is-preload">
     <div id="wrapper" class="fade-in">
-      <!-- Intro -->
-      <article class="post featured">
-        <header class="major">
-          <h2>My Portfolio</h2>
-          <p>
-            Here are some of the projects I've worked on, showcasing my skills
-            in front-end development, responsive design, and modern web
-            technologies.
-          </p>
-        </header>
-      </article>
+      <header id="header">
+        <a href="/portfolio" class="logo">My Portfolio</a>
+      </header>
 
-      <!-- Nav -->
-      <nav>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/my-projects">Projects</a>
-        <a href="/about">About</a>
+      <nav id="nav">
+        <ul class="links">
+          <li class="<%= currentPage === 'portfolio' ? 'active' : '' %>">
+            <a href="/portfolio">Portfolio</a>
+          </li>
+
+          <li class="<%= currentPage === 'about' ? 'active' : '' %>">
+            <a href="/about">About Me</a>
+          </li>
+
+          <li class="<%= currentPage === 'projects' ? 'active' : '' %>">
+            <a href="/my_projects">My Projects</a>
+          </li>
+        </ul>
       </nav>
 
       <!-- Main -->
-      <div id="main"></div>
+      <div id="main">
+        <section class="posts">
+          <% images.forEach(img => { %>
+          <article>
+            <a href="#" class="image fit">
+              <img src="/images/<%= img %>" alt="Portfolio image" />
+            </a>
+          </article>
+          <% }) %>
+        </section>
+      </div>
+    </div>
 
-      <!-- Footer -->
-      <footer id="footer">
+    <!-- Footer -->
+    <
+    <!-- Footer -->
+    <footer id="footer">
+      <section class="split contact">
+        <section class="alt">
+          <i class="icon solid fa-home"></i>
+          <h3>Address</h3>
+          <p>
+            Toshkent city, Chilanzor district<br />
+            Quarter 20, Building 8, Entrance 3, Apartment 31
+          </p>
+        </section>
+
         <section>
+          <i class="icon solid fa-mobile-alt"></i>
+          <h3>Phone</h3>
+          <p><a href="tel:+998957990034">(+998) 95-799-00-34</a></p>
+        </section>
+
+        <section>
+          <i class="icon solid fa-address-book"></i>
           <h3><%=contacts%></h3>
           <p>
+            <i class="icon solid fa-envelope"></i>
             Email:
             <a href="mailto:<%= emailUsername %>"></a>
           </p>
         </section>
-      </footer>
 
-      <div id="copyright">
-        <ul>
-          <li>&copy; <%= new Date().getFullYear() %></li>
-          <li>Design: <a href="www.jamshiddin.uz">My website</a></li>
-        </ul>
-      </div>
+        <section>
+          <h3>Social</h3>
+          <ul class="icons alt">
+            <li>
+              <a
+                target="_blank"
+                href="https://t.me/<%= telegramUsername %>"
+                class="icon brands fa-telegram"
+              ></a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://wa.me/<%= whatsappUsername %>"
+                class="icon brands fa-whatsapp"
+              ></a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://instagram.com/<%= instagramUsername %>"
+                class="icon brands fa-instagram"
+              ></a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/<%= linkedinUsername %>"
+                class="icon brands fa-linkedin-in"
+              ></a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://github.com/<%= githupUsername %>"
+                class="icon brands fa-github"
+              ></a>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </footer>
+
+    <div id="copyright">
+      <ul>
+        <li>&copy; <%= new Date().getFullYear() %></li>
+        <li>Design: <a href="www.jamshiddin.uz">My website</a></li>
+      </ul>
     </div>
 
     <!-- Scripts -->

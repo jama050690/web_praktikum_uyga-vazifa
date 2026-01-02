@@ -8,6 +8,7 @@
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
     <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css" />
     <noscript>
       <link rel="stylesheet" href="/assets/css/noscript.css" />
     </noscript>
@@ -24,58 +25,14 @@
       <!-- Nav -->
       <nav id="nav">
         <ul class="links">
-          <li><a href="/portfolio.html">Portfolio</a></li>
-          <li><a href="/about-me.html">About_me</a></li>
-          <li class="active">
-            <a href="/my_project.html">My Projects</a>
+          <li class="<%= currentPage === 'portfolio' ? 'active' : '' %>">
+            <a href="/portfolio">Portfolio</a>
           </li>
-        </ul>
-
-        <ul class="icons">
-          <li>
-            <a
-              target="_blank"
-              href="https://t.me/<%= telegramUsername %>"
-              class="icon brands fa-telegram"
-            >
-              <span class="label">Telegram</span>
-            </a>
+          <li class="<%= currentPage === 'about' ? 'active' : '' %>">
+            <a href="/about">About Me</a>
           </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://wa.me/<%= whatsappUsername %>"
-              class="icon brands fa-whatsapp"
-            >
-              <span class="label">WhatsApp</span>
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://instagram.com/<%= instagramUsername %>"
-              class="icon brands fa-instagram"
-            >
-              <span class="label">Instagram</span>
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/<%= linkedinUsername %>"
-              class="icon brands fa-linkedin-in"
-            >
-              <span class="label">LinkedIn</span>
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              href="https://github.com/<%= githupUsername %>"
-              class="icon brands fa-github"
-            >
-              <span class="label">GitHub</span>
-            </a>
+          <li class="<%= currentPage === 'projects' ? 'active' : '' %>">
+            <a href="/my_projects">My Projects</a>
           </li>
         </ul>
       </nav>
@@ -127,6 +84,7 @@
       <footer id="footer">
         <section class="split contact">
           <section class="alt">
+            <i class="icon solid fa-home"></i>
             <h3>Address</h3>
             <p>
               Toshkent city, Chilanzor district<br />
@@ -135,14 +93,18 @@
           </section>
 
           <section>
+            <i class="icon solid fa-mobile-alt"></i>
             <h3>Phone</h3>
             <p><a href="tel:+998957990034">(+998) 95-799-00-34</a></p>
           </section>
 
           <section>
-            <h3>Email</h3>
+            <i class="icon solid fa-address-book"></i>
+            <h3><%=contacts%></h3>
             <p>
-              <a href="mailto:<%= emailUsername %>"><%= emailUsername %></a>
+              <i class="icon solid fa-envelope"></i>
+              Email:
+              <a href="mailto:<%= emailUsername %>"></a>
             </p>
           </section>
 
