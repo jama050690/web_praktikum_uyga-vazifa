@@ -62,11 +62,13 @@ const projects = [
   },
 ];
 
-// HOME / PORTFOLIO
+//  PORTFOLIO
 app.get("/portfolio", (req, res) => {
   res.render("portfolio", {
     title: "My Portfolio",
     projects,
+    contacts: "My concats",
+    emailUsername: "jbm050690@gmail.com",
   });
 });
 
@@ -93,7 +95,7 @@ app.get("/about", (req, res) => {
     title: "About Me",
     fullName: "Saidjalol Toshkhujaev",
     role: "Front-End Developer",
-    bio: "I’m a passionate Front-End Developer focused on building clean, responsive, and user-friendly web applications.",
+    bio: "I'm a passionate Front-End Developer focused on building clean, responsive, and user-friendly web applications.",
     skills: [
       "HTML5",
       "CSS3",

@@ -17,7 +17,7 @@
         <header class="major">
           <h2>My Portfolio</h2>
           <p>
-            Here are some of the projects I’ve worked on, showcasing my skills
+            Here are some of the projects I've worked on, showcasing my skills
             in front-end development, responsive design, and modern web
             technologies.
           </p>
@@ -32,53 +32,15 @@
       </nav>
 
       <!-- Main -->
-      <div id="main">
-        <!-- Portfolio Projects -->
-        <section class="posts">
-          <% portfolio.forEach(project => { %>
-          <article>
-            <header>
-              <span class="date"><%= project.date %></span>
-              <h2><%= project.title %></h2>
-            </header>
-
-            <a
-              href="<%= project.demo || '#' %>"
-              class="image fit"
-              target="_blank"
-            >
-              <img src="<%= project.image %>" alt="<%= project.title %>" />
-            </a>
-
-            <p><%= project.description %></p>
-
-            <ul class="actions special">
-              <% if (project.demo) { %>
-              <li>
-                <a href="<%= project.demo %>" class="button" target="_blank">
-                  Live Demo
-                </a>
-              </li>
-              <% } %> <% if (project.github) { %>
-              <li>
-                <a href="<%= project.github %>" class="button" target="_blank">
-                  GitHub
-                </a>
-              </li>
-              <% } %>
-            </ul>
-          </article>
-          <% }) %>
-        </section>
-      </div>
+      <div id="main"></div>
 
       <!-- Footer -->
       <footer id="footer">
         <section>
-          <h3>Contact</h3>
+          <h3><%=contacts%></h3>
           <p>
             Email:
-            <a href="mailto:<%= emailUsername %>"><%= emailUsername %></a>
+            <a href="mailto:<%= emailUsername %>"></a>
           </p>
         </section>
       </footer>
@@ -86,7 +48,7 @@
       <div id="copyright">
         <ul>
           <li>&copy; <%= new Date().getFullYear() %></li>
-          <li>Design: HTML5 UP</li>
+          <li>Design: <a href="www.jamshiddin.uz">My website</a></li>
         </ul>
       </div>
     </div>
