@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript.css" />
+    </noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="/" class="logo">My Portfolio</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="/">Portfolio</a></li>
+          <li class="active"><a href="/about">About Me</a></li>
+        </ul>
+
+        <ul class="icons">
+          <li>
+            <a
+              target="_blank"
+              href="https://github.com/<%= githupUsername %>"
+              class="icon brands fa-github"
+            >
+              <span class="label">GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/<%= linkedinUsername %>"
+              class="icon brands fa-linkedin-in"
+            >
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <h1>About Me</h1>
+            <p>
+              I’m a passionate Front-End Developer who enjoys building clean,
+              responsive, and user-friendly web applications.
+            </p>
+          </header>
+
+          <div class="image main">
+            <img src="/images/pic(10).jpg" alt="About me" />
+          </div>
+
+          <p>
+            My name is <strong><%= fullName %></strong>. I focus on creating
+            modern web interfaces using HTML, CSS, JavaScript, and frameworks
+            like React. I enjoy turning UI/UX designs into real, high-quality
+            products.
+          </p>
+
+          <p>
+            I’m a proactive learner who constantly improves skills in front-end
+            development, performance optimization, and accessibility. I enjoy
+            working in collaborative environments and solving real-world
+            problems through code.
+          </p>
+
+          <p>
+            My goal is to grow as a Front-End Developer and contribute to
+            impactful digital products while continuously learning modern web
+            technologies.
+          </p>
+
+          <!-- Skills -->
+          <h2>Skills</h2>
+          <ul>
+            <li>HTML5, CSS3, JavaScript (ES6+)</li>
+            <li>Responsive & Mobile-First Design</li>
+            <li>React, Tailwind CSS</li>
+            <li>Git & GitHub</li>
+            <li>Basic SEO & Web Performance</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section>
+          <h3>Contact</h3>
+          <p>
+            Email:
+            <a href="mailto:<%= emailUsername %>"><%= emailUsername %></a>
+          </p>
+          <p>Phone: (+998) 95-799-00-34</p>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul>
+          <li>&copy; <%= new Date().getFullYear() %></li>
+          <li>Design: HTML5 UP</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

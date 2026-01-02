@@ -1,10 +1,30 @@
 import express from "express";
-import { promises as fs } from "fs";
-import ejs from "ejs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const PORT = 3000;
 const app = express();
+const PORT = 3000;
 
+// ESM uchun __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// EJS CONFIG
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "..", "view"));
+
+// STATIC FILES
+
+app.use(
+  "/images",
+  express.static(path.join(__dirname, "..", "public", "images"))
+);
+app.use(
+  "/assets",
+  express.static(path.join(__dirname, "..", "public", "assets"))
+);
+
+// DATA
 const images = [
   "pic(01).avif",
   "pic(02).avif",
@@ -17,6 +37,7 @@ const images = [
   "07.avif",
   "08.avif",
 ];
+
 const projects = [
   {
     title: "Portfolio Website",
@@ -40,69 +61,54 @@ const projects = [
     date: "2024",
   },
 ];
-//  STATIC
-app.use("/images", express.static("public/images"));
-app.use("/assets", express.static("public/assets"));
 
-//  ROUTES
-
-// HOME
-app.get("/index.html", async (req, res) => {
-  const home = await fs.readFile("public/view/index.html", "utf8");
-
-  const result = ejs.render(home, {
-    title: "Welcome to our website!",
-    projectName: "My Gallery",
-    description: "The next level image gallery",
-    telegramUsername: "Jama_9133",
-    whatsappUsername: "998957990034",
-    instagramUsername: "jamshiddinbabajonov",
-    linkedinUsername: "jamshiddin-babajonov-168705382",
-    githupUsername: "jama050690",
-    emailUsername: "jbm050690@gmail.com",
-  });
-
-  res.send(result);
-});
-
-// ELEMENTS
-app.get("/my_projects.html", async (req, res) => {
-  const elements = await fs.readFile("public/view/my_projects.html", "utf8");
-  const result = ejs.render(elements, {
-    title: "Elements",
-    projectName: "My Gallery",
-    description: "The next level image gallery",
-    telegramUsername: "Jama_9133",
-    whatsappUsername: "998957990034",
-    instagramUsername: "jamshiddinbabajonov",
-    linkedinUsername: "jamshiddin-babajonov-168705382",
-    githupUsername: "jama050690",
-    emailUsername: "jbm050690@gmail.com",
-    images,
+// HOME / PORTFOLIO
+app.get("/portfolio", (req, res) => {
+  res.render("portfolio", {
+    title: "My Portfolio",
     projects,
   });
-  res.send(result);
 });
 
-// GENERIC
-app.get("/generic.html", async (req, res) => {
-  const generic = await fs.readFile("public/view/generic.html", "utf8");
-  const result = ejs.render(generic, {
-    title: "Generic",
+// MY PROJECTS
+app.get("/my-projects", (req, res) => {
+  res.render("my_projects", {
+    title: "My Gallery",
     projectName: "My Gallery",
     description: "The next level image gallery",
+    images,
+    projects,
     telegramUsername: "Jama_9133",
     whatsappUsername: "998957990034",
     instagramUsername: "jamshiddinbabajonov",
     linkedinUsername: "jamshiddin-babajonov-168705382",
     githupUsername: "jama050690",
     emailUsername: "jbm050690@gmail.com",
-    images,
   });
-  res.send(result);
 });
 
-// SERVER
+// ABOUT ME
+app.get("/about", (req, res) => {
+  res.render("about", {
+    title: "About Me",
+    fullName: "Saidjalol Toshkhujaev",
+    role: "Front-End Developer",
+    bio: "I’m a passionate Front-End Developer focused on building clean, responsive, and user-friendly web applications.",
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
+      "React",
+      "Tailwind CSS",
+      "Git & GitHub",
+    ],
+    email: "jbm050690@gmail.com",
+    phone: "+998 95 799 00 34",
+  });
+});
+
+// START SERVER
+
 app.listen(PORT, () => {
   console.log(` Server running on http://localhost:${PORT}`);
 });

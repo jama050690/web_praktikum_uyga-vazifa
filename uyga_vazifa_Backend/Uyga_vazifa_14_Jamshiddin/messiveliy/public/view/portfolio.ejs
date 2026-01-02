@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript.css" />
+    </noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper" class="fade-in">
+      <!-- Intro -->
+      <article class="post featured">
+        <header class="major">
+          <h2>My Portfolio</h2>
+          <p>
+            Here are some of the projects I’ve worked on, showcasing my skills
+            in front-end development, responsive design, and modern web
+            technologies.
+          </p>
+        </header>
+      </article>
+
+      <!-- Nav -->
+      <nav>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/my-projects">Projects</a>
+        <a href="/about">About</a>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Portfolio Projects -->
+        <section class="posts">
+          <% portfolio.forEach(project => { %>
+          <article>
+            <header>
+              <span class="date"><%= project.date %></span>
+              <h2><%= project.title %></h2>
+            </header>
+
+            <a
+              href="<%= project.demo || '#' %>"
+              class="image fit"
+              target="_blank"
+            >
+              <img src="<%= project.image %>" alt="<%= project.title %>" />
+            </a>
+
+            <p><%= project.description %></p>
+
+            <ul class="actions special">
+              <% if (project.demo) { %>
+              <li>
+                <a href="<%= project.demo %>" class="button" target="_blank">
+                  Live Demo
+                </a>
+              </li>
+              <% } %> <% if (project.github) { %>
+              <li>
+                <a href="<%= project.github %>" class="button" target="_blank">
+                  GitHub
+                </a>
+              </li>
+              <% } %>
+            </ul>
+          </article>
+          <% }) %>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section>
+          <h3>Contact</h3>
+          <p>
+            Email:
+            <a href="mailto:<%= emailUsername %>"><%= emailUsername %></a>
+          </p>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul>
+          <li>&copy; <%= new Date().getFullYear() %></li>
+          <li>Design: HTML5 UP</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
