@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript.css" />
+    </noscript>
+  </head>
+
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="/index.html" class="logo">My website</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/generic.html">Generic</a></li>
+          <li class="active">
+            <a href="/my_project.html">My Projects</a>
+          </li>
+        </ul>
+
+        <ul class="icons">
+          <li>
+            <a
+              target="_blank"
+              href="https://t.me/<%= telegramUsername %>"
+              class="icon brands fa-telegram"
+            >
+              <span class="label">Telegram</span>
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://wa.me/<%= whatsappUsername %>"
+              class="icon brands fa-whatsapp"
+            >
+              <span class="label">WhatsApp</span>
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://instagram.com/<%= instagramUsername %>"
+              class="icon brands fa-instagram"
+            >
+              <span class="label">Instagram</span>
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/<%= linkedinUsername %>"
+              class="icon brands fa-linkedin-in"
+            >
+              <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              href="https://github.com/<%= githupUsername %>"
+              class="icon brands fa-github"
+            >
+              <span class="label">GitHub</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- My Projects -->
+        <section class="post">
+          <header class="major">
+            <h1>My Projects</h1>
+            <p>Some of my recent works and practice projects</p>
+          </header>
+
+          <section class="posts">
+            <% projects.forEach(project => { %>
+            <article>
+              <header>
+                <span class="date"><%= project.date %></span>
+                <h2>
+                  <a href="<%= project.link %>" target="_blank">
+                    <%= project.title %>
+                  </a>
+                </h2>
+              </header>
+
+              <a href="<%= project.link %>" class="image fit" target="_blank">
+                <img
+                  src="/images/<%= project.image %>"
+                  alt="<%= project.title %>"
+                />
+              </a>
+
+              <p><%= project.description %></p>
+
+              <ul class="actions special">
+                <li>
+                  <a href="<%= project.link %>" class="button" target="_blank">
+                    View Project
+                  </a>
+                </li>
+              </ul>
+            </article>
+            <% }) %>
+          </section>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section class="alt">
+            <h3>Address</h3>
+            <p>
+              Toshkent city, Chilanzor district<br />
+              Quarter 20, Building 8, Entrance 3, Apartment 31
+            </p>
+          </section>
+
+          <section>
+            <h3>Phone</h3>
+            <p><a href="tel:+998957990034">(+998) 95-799-00-34</a></p>
+          </section>
+
+          <section>
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:<%= emailUsername %>"><%= emailUsername %></a>
+            </p>
+          </section>
+
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  target="_blank"
+                  href="https://t.me/<%= telegramUsername %>"
+                  class="icon brands fa-telegram"
+                ></a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://wa.me/<%= whatsappUsername %>"
+                  class="icon brands fa-whatsapp"
+                ></a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://instagram.com/<%= instagramUsername %>"
+                  class="icon brands fa-instagram"
+                ></a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.linkedin.com/in/<%= linkedinUsername %>"
+                  class="icon brands fa-linkedin-in"
+                ></a>
+              </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://github.com/<%= githupUsername %>"
+                  class="icon brands fa-github"
+                ></a>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="www.jamshiddin.uz">My projects</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

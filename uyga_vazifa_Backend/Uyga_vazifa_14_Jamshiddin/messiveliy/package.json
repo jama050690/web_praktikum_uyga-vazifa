@@ -1,12 +1,12 @@
 {
-  "name": "public",
+  "name": "messiveliy",
   "version": "1.0.0",
   "description": "",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "dev": "node --watch backend/server.js"
+    "start": "node public/backend/server.js",
+    "dev": "node --watch public/backend/server.js"
   },
   "keywords": [],
   "author": "",
