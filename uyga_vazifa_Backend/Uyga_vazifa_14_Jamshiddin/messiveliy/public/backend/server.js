@@ -32,14 +32,14 @@ const projects = [
     title: "Express + EJS App",
     description: "Dynamic website using Express and EJS",
     image: "06.avif",
-    link: "http://www.jamshiddin.uz/my_projects/",
+    link: "http://www.jamshiddin.uz/my_projects/RPG_Creature_Search_App/index.html",
     date: "2025",
   },
   {
     title: "Gallery Project",
     description: "Simple image gallery project",
     image: "03.webp",
-    link: "http://www.jamshiddin.uz/my_projects/",
+    link: "http://www.jamshiddin.uz/my_projects/Cash_Register/index.html",
     date: "2015",
   },
 ];

@@ -26,8 +26,8 @@ export default {
   gallery: ["messi(03).webp", "messi(04).webp"],
   images: [
     {
-      full: "gallery/fulls/messi(01).webp",
-      thumb: "gallery/thumbs/messi(01).webp",
+      full: "gallery/fulls",
+      thumb: "gallery/thumbs",
       name: "World Cup 2022",
       description: "Champion moment",
     },
