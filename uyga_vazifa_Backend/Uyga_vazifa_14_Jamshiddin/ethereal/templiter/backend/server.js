@@ -19,6 +19,7 @@ app.set("views", path.join(__dirname, "../src/view"));
 // STATIC
 app.use("/assets", express.static(path.join(__dirname, "../public/assets")));
 app.use("/images", express.static(path.join(__dirname, "../public/images")));
+console.log("IMAGES STATIC PATH =>", path.join(__dirname, "../public/images"));
 
 // ROUTES
 app.get("/", (req, res) => {

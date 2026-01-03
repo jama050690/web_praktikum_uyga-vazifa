@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%= projectName %> | Achievements</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css" />
   </head>
 
   <body class="is-preload">
@@ -15,42 +17,81 @@
       >
         <div class="content">
           <h1><%= projectName %></h1>
-          <p class="major"><%= description %></p>
+          <p class="major">Achievements & Statistics</p>
         </div>
+
         <div class="image">
-          <img src="images/<%= heroImage %>" alt="" />
+          <img src="<%= heroImage %>" alt="Lionel Messi" />
         </div>
       </section>
 
-      <!-- SPOTLIGHT -->
-      <% if (career?.length) { %> <% career.forEach(item => { %>
-      <section
-        class="spotlight style1 orient-right content-align-left image-position-center"
-      >
-        <div class="content">
-          <h2><%= item.title %></h2>
-          <p><%= item.text %></p>
-        </div>
-        <div class="image">
-          <img src="images/<%= item.image %>" alt="" />
-        </div>
-      </section>
-      <% }) %> <% } %>
-
-      <!-- GALLERY -->
-      <% if (gallery?.length) { %>
+      <!-- ACHIEVEMENTS -->
       <section class="wrapper style1 align-center">
-        <div class="gallery style2 medium lightbox">
-          <% gallery.forEach(img => { %>
-          <article>
-            <a href="images/gallery/fulls/<%= img %>" class="image">
-              <img src="images/gallery/thumbs/<%= img %>" />
-            </a>
-          </article>
-          <% }) %>
+        <div class="inner">
+          <h2>Major Trophies</h2>
+
+          <ul class="alt">
+            <li>
+              🏆 Ballon d'Or:
+              <strong><%= achievements.trophies.ballonDor %></strong>
+            </li>
+            <li>
+              🌍 World Cup:
+              <strong><%= achievements.trophies.worldCup %></strong>
+            </li>
+            <li>
+              🏆 Copa America:
+              <strong><%= achievements.trophies.copaAmerica %></strong>
+            </li>
+            <li>
+              ⭐ Champions League:
+              <strong><%= achievements.trophies.championsLeague %></strong>
+            </li>
+            <li>
+              🇪🇸 La Liga: <strong><%= achievements.trophies.laLiga %></strong>
+            </li>
+          </ul>
         </div>
       </section>
-      <% } %>
+
+      <!-- STATS -->
+      <section class="wrapper style1 align-center">
+        <div class="inner">
+          <h2>Career Statistics</h2>
+
+          <p>
+            ⚽ Total Goals: <strong><%= achievements.stats.totalGoals %></strong
+            ><br />
+            🎯 Total Assists:
+            <strong><%= achievements.stats.totalAssists %></strong>
+          </p>
+
+          <h3>By Club</h3>
+          <ul>
+            <% achievements.stats.clubs.forEach(c => { %>
+            <li>
+              <strong><%= c.name %></strong> — Goals: <%= c.goals %>, Assists:
+              <%= c.assists %>
+            </li>
+            <% }) %>
+          </ul>
+
+          <h3>National Team (Argentina)</h3>
+          <p>
+            Goals: <%= achievements.stats.nationalTeam.goals %><br />
+            Assists: <%= achievements.stats.nationalTeam.assists %>
+          </p>
+        </div>
+      </section>
+
+      <!-- NAVIGATION -->
+      <section class="wrapper style1 align-center">
+        <ul class="actions stacked">
+          <li>
+            <a href="/" class="button big wide">Profile</a>
+          </li>
+        </ul>
+      </section>
 
       <!-- FOOTER -->
       <footer class="wrapper style1 align-center">
@@ -85,11 +126,14 @@
               ></a>
             </li>
           </ul>
+
+          <p>&copy; Lionel Messi Achievements. Design: HTML5 UP.</p>
         </div>
       </footer>
     </div>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- JS -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>

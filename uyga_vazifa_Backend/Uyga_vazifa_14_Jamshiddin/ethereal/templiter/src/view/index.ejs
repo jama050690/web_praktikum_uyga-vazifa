@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title><%= projectName %></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
-    /></noscript>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <noscript>
+      <link rel="stylesheet" href="/assets/css/noscript.css" />
+    </noscript>
   </head>
 
   <body class="is-preload">
@@ -23,14 +25,15 @@
           <ul class="actions stacked">
             <li>
               <a href="#about" class="button big wide smooth-scroll-middle">
-                About Me
+                About Messi
               </a>
             </li>
           </ul>
         </div>
 
         <div class="image">
-          <img src="images/<%= heroImage %>" alt="Profile image" />
+          <!-- heroImage TO‘LIQ PATH -->
+          <img src="<%= heroImage %>" alt="Lionel Messi" />
         </div>
       </section>
 
@@ -38,47 +41,74 @@
       <section id="about" class="wrapper style1 align-center">
         <div class="inner">
           <h2>About</h2>
-          <p><%= aboutText %></p>
+          <p><%= profile.aboutText || "" %></p>
 
           <ul>
-            <li>🏳 Country: <%= country %></li>
-            <li>⚽ Position: <%= position %></li>
-            <li>🏆 Ballon d'Or: <%= ballonDor %></li>
+            <li>🏳 Country: <%= profile.personal.birthPlace %></li>
+            <li>🎂 Born: <%= profile.personal.birthDate %></li>
+            <li>⚽ Position: <%= profile.personal.position %></li>
+            <li>🏆 Family: <%= profile.personal.fullName %></li>
           </ul>
+          <img
+            src="<%= profile.personal.img %>"
+            alt="<%= profile.personal.fullName %>"
+          />
         </div>
       </section>
 
-      <!-- CAREER -->
-      <% career.forEach(item => { %>
+      <!-- CAREER START -->
+      <% if (profile.careerStart) { %>
       <section
         class="spotlight style1 orient-right content-align-left image-position-center"
       >
         <div class="content">
-          <h2><%= item.title %></h2>
-          <p><%= item.text %></p>
+          <h2>Career Start</h2>
+          <p>
+            First club: <strong><%= profile.careerStart.firstClub %></strong
+            ><br />
+            Academy year: <%= profile.careerStart.academyYear %><br />
+            Professional debut: <%= profile.careerStart.professionalDebut %><br />
+            National team debut: <%= profile.careerStart.nationalTeamDebut %>
+          </p>
         </div>
         <div class="image">
-          <img src="images/<%= item.image %>" alt="" />
+          <img src="<%= profile.careerStart.img %>" alt="Career start" />
         </div>
       </section>
-      <% }) %>
+      <% } %>
 
-      <!-- GALLERY -->
+      <!-- FAMILY -->
+      <% if (profile.family) { %>
+      <section class="wrapper style1 align-center">
+        <div class="inner">
+          <h2>Family</h2>
+          <p>Wife: <strong><%= profile.family.wife %></strong></p>
+          <p>Children: <%= profile.family.children.join(", ") %></p>
+          <% if (profile?.family?.img) { %>
+          <img src="<%= profile.family.img %>" alt="His family photo" />
+          <% } %>
+        </div>
+      </section>
+      <% } %>
+
+      <!-- GALLERY (GENERAL PHOTOS) -->
+      <% if (profile.gallery?.length > 1) { %>
       <section class="wrapper style1 align-center">
         <div class="inner">
           <h2>Gallery</h2>
         </div>
 
         <div class="gallery style2 medium lightbox">
-          <% gallery.forEach(img => { %>
+          <% profile.gallery.forEach(img => { %>
           <article>
-            <a href="images/gallery/fulls/<%= img %>" class="image">
-              <img src="images/gallery/thumbs/<%= img %>" alt="" />
+            <a href="<%= img %>" class="image">
+              <img src="<%= img %>" alt="Lionel Messi photo" />
             </a>
           </article>
           <% }) %>
         </div>
       </section>
+      <% } %>
 
       <!-- FOOTER -->
       <footer class="wrapper style1 align-center">
@@ -120,12 +150,12 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>
