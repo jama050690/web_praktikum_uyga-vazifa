@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--
+  Paradigm Shift by HTML5 UP
+-->
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <meta name="description" content="<%= metaDescription || '' %>" />
+    <meta name="keywords" content="<%= metaKeywords || '' %>" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css" />
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!--  INTRO -->
+      <section class="intro">
+        <header>
+          <h1><%= intro.title %></h1>
+          <p><%= intro.description %></p>
+
+          <ul class="actions">
+            <li>
+              <a href="#<%= sections[0]?.id %>" class="arrow scrolly">
+                <span class="label">Next</span>
+              </a>
+            </li>
+          </ul>
+        </header>
+
+        <div class="content">
+          <span class="image fill" data-position="center">
+            <img src="/<%= intro.image %>" alt="<%= intro.title %>" />
+          </span>
+        </div>
+      </section>
+
+      <!--  SECTIONS -->
+      <% sections.forEach(section => { %>
+      <section id="<%= section.id %>">
+        <header>
+          <h2><%= section.title %></h2>
+        </header>
+
+        <div class="content">
+          <p><%- section.content %></p>
+
+          <% if (section.image) { %>
+          <span class="image main">
+            <img src="/<%= section.image %>" alt="<%= section.title %>" />
+          </span>
+          <% } %>
+        </div>
+      </section>
+      <% }) %>
+
+      <!--  FEATURES  -->
+      <section>
+        <header>
+          <h2><%= features.title %></h2>
+        </header>
+
+        <div class="content">
+          <p><%- features.description %></p>
+
+          <ul class="feature-icons">
+            <% features.items.forEach(item => { %>
+            <li class="icon solid <%= item.icon %>"><%= item.text %></li>
+            <% }) %>
+          </ul>
+
+          <p><%- features.footerText %></p>
+        </div>
+      </section>
+
+      <!--  GALLERIES  -->
+      <section>
+        <header>
+          <h2><%= gallery.title %></h2>
+        </header>
+
+        <div class="content">
+          <p><%- gallery.description %></p>
+
+          <% gallery.blocks.forEach(block => { %>
+          <section>
+            <header>
+              <h3><%= block.title %></h3>
+              <p><%- block.description %></p>
+            </header>
+
+            <div class="content">
+              <div class="gallery">
+                <% images.forEach(item => { %>
+                <a
+                  href="/<%= item.image.full %>"
+                  class="<%= item.orientation %>"
+                >
+                  <img src="/<%= item.image.thumb %>" alt="<%= item.name %>" />
+                </a>
+                <% }) %>
+              </div>
+            </div>
+          </section>
+          <% }) %>
+        </div>
+      </section>
+
+      <!--  CTA  -->
+      <section>
+        <header>
+          <h2><%= cta.title %></h2>
+        </header>
+
+        <div class="content">
+          <p><%- cta.description %></p>
+
+          <ul class="actions">
+            <% cta.buttons.forEach(btn => { %>
+            <li>
+              <a
+                href="<%= btn.link %>"
+                class="button <%= btn.type %> <%= btn.size %>"
+              >
+                <%= btn.text %>
+              </a>
+            </li>
+            <% }) %>
+          </ul>
+        </div>
+      </section>
+
+      <!--  CONTACT  -->
+      <section>
+        <header>
+          <h2><%= contact.title %></h2>
+        </header>
+
+        <div class="content">
+          <p><%- contact.description %></p>
+
+          <form>
+            <div class="fields">
+              <% contact.form.forEach(field => { %>
+              <div class="field <%= field.half ? 'half' : '' %>">
+                <% if (field.type === 'textarea') { %>
+                <textarea
+                  placeholder="<%= field.placeholder %>"
+                  rows="7"
+                ></textarea>
+                <% } else { %>
+                <input
+                  type="<%= field.type %>"
+                  placeholder="<%= field.placeholder %>"
+                />
+                <% } %>
+              </div>
+              <% }) %>
+            </div>
+
+            <ul class="actions">
+              <li>
+                <input
+                  type="submit"
+                  value="<%= contact.submitText %>"
+                  class="button primary"
+                />
+              </li>
+            </ul>
+          </form>
+        </div>
+
+        <footer>
+          <ul class="items">
+            <li>
+              <h3>Email</h3>
+              <p>
+                <a
+                  href="mailto:<%= contact.email %>"
+                  class="icon style2 fa-envelope"
+                >
+                  <span class="label"><%= contact.email %></span>
+                </a>
+              </p>
+            </li>
+
+            <li>
+              <h3>Phone</h3>
+              <p>
+                <i class="icon solid fa-mobile-alt"></i>
+                <a href="tel:<%= contact.phoneRaw %>">
+                  <%= contact.phoneDisplay %>
+                </a>
+              </p>
+            </li>
+
+            <li>
+              <h3>Address</h3>
+              <p>
+                <%= contact.address.city %>, <%= contact.address.district %><br />
+                <%= contact.address.details %>
+              </p>
+            </li>
+          </ul>
+
+          <ul class="icons">
+            <% social.forEach(item => { %>
+            <li>
+              <a
+                href="<%= item.link %>"
+                class="icon brands <%= item.icon %>"
+                target="_blank"
+              >
+                <span class="label"><%= item.label %></span>
+              </a>
+            </li>
+            <% }) %>
+          </ul>
+        </footer>
+      </section>
+
+      <!--  COPYRIGHT  -->
+      <div class="copyright">
+        &copy; <%= new Date().getFullYear() %>. <%= copyright.text %>
+        <a href="<%= copyright.link %>"><%= copyright.author %></a>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>
