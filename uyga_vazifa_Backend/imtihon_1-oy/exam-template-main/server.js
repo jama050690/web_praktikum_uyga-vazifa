@@ -11,6 +11,8 @@ app.use("/css", express.static("css"));
 app.use("/js", express.static("js"));
 app.use("/lib", express.static("lib"));
 
+app.use("/public", express.static("public"));
+
 // DATA
 const tableData = [
   { scope: "#", first: "First Name", last: "Last Name", email: "Email" },
@@ -65,6 +67,15 @@ app.get("/chart", async (req, res) => {
   res.send(html);
 });
 
+app.get("/chart", async (req, res) => {
+  const view = await fs.readFile("./chart.html", "utf8");
+  const html = ejs.render(view, {
+    projectName: "My Project",
+    userName: "Jamshiddin",
+  });
+  res.send(html);
+});
+
 app.get("/blank", async (req, res) => {
   const view = await fs.readFile("./blank.html", "utf8");
   const html = ejs.render(view, {
@@ -98,6 +109,7 @@ app.get("/index", async (req, res) => {
   const html = ejs.render(view, {
     projectName: "My Project",
     userName: "Jamshiddin",
+    table: tableData,
   });
   res.send(html);
 });
