@@ -83,6 +83,23 @@
           </p>
         </div>
       </section>
+      <!-- Gallery -->
+      <% if (profile.gallery?.length > 1) { %>
+      <section class="wrapper style1 align-center">
+        <div class="inner">
+          <h2>Gallery</h2>
+        </div>
+        <div class="gallery style2 medium lightbox">
+          <% profile.gallery.forEach(img => { %>
+          <article>
+            <a href="<%= img %>" class="image">
+              <img src="<%= img %>" alt="Lionel Messi photo" />
+            </a>
+          </article>
+          <% }) %>
+        </div>
+      </section>
+      <% } %>
 
       <!-- NAVIGATION -->
       <section class="wrapper style1 align-center">
@@ -134,6 +151,11 @@
 
     <!-- JS -->
     <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/assets/js/browser.min.js"></script>
+    <script src="/assets/js/breakpoints.min.js"></script>
+    <script src="/assets/js/util.js"></script>
     <script src="/assets/js/main.js"></script>
   </body>
 </html>
