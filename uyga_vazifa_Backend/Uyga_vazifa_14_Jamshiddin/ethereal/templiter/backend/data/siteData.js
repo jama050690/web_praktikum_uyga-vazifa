@@ -4,7 +4,7 @@ export default {
   projectName: "Lionel Messi",
   description: "World Champion • Football Legend",
 
-  heroImage: "messi(01).webp",
+  heroImage: "gallery/messi(01).webp",
 
   aboutText: "Lionel Messi is an Argentine footballer...",
   country: "Argentina",
@@ -16,7 +16,11 @@ export default {
   instagramUsername: "leomessi",
   tiktokUsername: "@leomessi",
   career: [
-    { title: "Barcelona", text: "Legendary years...", image: "messi(02).webp" },
+    {
+      title: "Barcelona",
+      text: "Legendary years...",
+      image: "gallery/messi(02).webp",
+    },
   ],
 
   gallery: ["messi(03).webp", "messi(04).webp"],
