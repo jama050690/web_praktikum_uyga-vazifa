@@ -19,7 +19,7 @@ export default {
     { title: "Barcelona", text: "Legendary years...", image: "messi(02).webp" },
   ],
 
-  gallery: ["messi(01).webp", "messi(02).webp"],
+  gallery: ["messi(03).webp", "messi(04).webp"],
   images: [
     {
       full: "gallery/fulls/messi(01).webp",
