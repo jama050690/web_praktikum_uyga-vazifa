@@ -2239,6 +2239,9 @@ button:active,
 #header .icons a:hover {
   color: #fff;
 }
+#footer .icons a:hover {
+  color: #000;
+}
 
 #logo {
   position: relative;
