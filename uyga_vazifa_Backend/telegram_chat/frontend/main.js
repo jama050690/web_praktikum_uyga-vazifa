@@ -8,23 +8,25 @@ const msgInput = document.getElementById("msgs");
 const sendBtn = document.getElementById("sendBtn");
 const BASE_API = "http://localhost:3000";
 
-let loggedUser; // string username
+let loggedUser;
 let token;
 let activeChatUser = null;
 const LOGGED_IN_USR = "logged_in_user";
 
-document.addEventListener("DOMContentLoaded", () => {
-  loggedUser = localStorage.getItem(LOGGED_IN_USR);
+document.addEventListener("DOMContentLoaded", (e) => {
+  e.preventDefault();
+  loggedUser = JSON.parse(localStorage.getItem(LOGGED_IN_USR)) || {};
   token = localStorage.getItem("access_token");
   if (!loggedUser || !token) {
     window.location.href = "/auth/login.html";
     return;
   }
 
+  updateUserTitle();
   // logout
   document.addEventListener("click", (e) => {
     if (e.target.id === "logout-btn") {
-      e.stopPropagation();
+      e.preventDefault();
       localStorage.removeItem("logged_in_user");
       localStorage.removeItem("access_token");
       window.location.replace("/auth/login.html");
@@ -59,6 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fetchUsers();
 });
+
+function updateUserTitle() {
+  console.log("user title updated: ", loggedUser);
+
+  document.getElementById("user-title").textContent = loggedUser.name;
+}
 async function fetchUsers() {
   usersList.innerHTML = "";
 
@@ -67,7 +75,6 @@ async function fetchUsers() {
   });
 
   const usersData = await res.json();
-  console.log("Users:", usersData);
 
   if (!Array.isArray(usersData)) {
     console.error("Users API error:", usersData);
@@ -76,29 +83,43 @@ async function fetchUsers() {
 
   usersData.forEach((u) => {
     const li = document.createElement("li");
-    li.className = "w-full px-4 py-5 cursor-pointer hover:bg-gray-100";
+    li.className = `w-full px-4 py-5 cursor-pointer hover:bg-green-100`;
 
     li.textContent = u.name;
 
     li.onclick = () => {
+      // 🔥 remove active from all
+      document
+        .querySelectorAll("#users li")
+        .forEach((el) => el.classList.remove("selected"));
+
+      // ✅ add active to clicked one
+      li.classList.add("selected");
+
       setActiveChatUser(u);
       loadMessages(u.username);
     };
 
+    // li.onmouseover = () => {
+    //   li.className = `w-full px-4 py-5 cursor-pointer bg-green-100`;
+    // };
+
+    // li.onmouseout = () => {
+    //   li.className = `w-full px-4 py-5 cursor-pointer`;
+    // };
+
     usersList.appendChild(li);
   });
 }
-
 const authHeader = () => ({ Authorization: `Bearer ${token}` });
 
-async function loadMessages(withUser) {
+async function loadMessages(username) {
+  if (!username) return;
   const res = await fetch(
-    `${BASE_API}/messages?username=${loggedUser}&with=${withUser}`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
+    `${BASE_API}/messages?username=${encodeURIComponent(
+      loggedUser.username
+    )}&with=${encodeURIComponent(username)}`,
+    { headers: { Authorization: `Bearer ${token}` } }
   );
 
   const messages = await res.json();
@@ -106,7 +127,7 @@ async function loadMessages(withUser) {
 
   messages.forEach((m) => {
     const div = document.createElement("div");
-    const isMine = m.from === loggedUser;
+    const isMine = m.from === loggedUser.username;
 
     div.className = isMine
       ? "bg-blue-500 text-white p-2 rounded-lg ml-auto w-fit"
@@ -120,20 +141,27 @@ async function loadMessages(withUser) {
 async function sendMessage() {
   const text = msgInput ? msgInput.value.trim() : "";
   if (!text || !activeChatUser) return;
-  await fetch(`${BASE_API}/messages`, {
+
+  const res = await fetch(`${BASE_API}/messages`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       ...authHeader(),
     },
     body: JSON.stringify({
-      from: loggedUser,
       to: activeChatUser.username,
       text,
     }),
   });
+
+  const newMessage = await res.json();
   if (msgInput) msgInput.value = "";
-  loadMessages(activeChatUser.username);
+
+  // yangi xabarni UIga qo‘shish
+  const div = document.createElement("div");
+  div.className = "bg-blue-500 text-white p-2 rounded-lg ml-auto w-fit";
+  div.textContent = newMessage.text;
+  messageBox.appendChild(div);
 }
 
 function setActiveChatUser(user) {

@@ -11,6 +11,7 @@ const ASSETS_DIR = path.join(__dirname, "assets");
 const USERS_FILE = path.join(ASSETS_DIR, "users.json");
 const USER_IDS_FILE = path.join(ASSETS_DIR, "user_id_list.json");
 const MESSAGES_FILE = path.join(ASSETS_DIR, "messages.json");
+const CHAT_FILE = path.join(ASSETS_DIR, "chats.json");
 
 const app = express();
 const PORT = 3000;
@@ -39,10 +40,10 @@ app.use(express.static(path.join(__dirname, "../frontend")));
  */
 function authUserMiddleWare(req, res, next) {
   // token muddati tugamaganligi logikasi
-  console.log("Auth middleware check in progress...");
+  console.log(new Date() + ", Auth middleware check in progress...");
   const authHeader = req.headers.authorization;
 
-  console.log(authHeader);
+  // console.log(authHeader);
 
   // 1. Token bormi?
   if (!authHeader) {
@@ -50,7 +51,7 @@ function authUserMiddleWare(req, res, next) {
   }
 
   const token = authHeader.split(" ")[1]; // Bearer <token>
-  console.log("token: ", token);
+  // console.log("token: ", token);
 
   // tokenni tekshirish
   if (!token) {
@@ -74,7 +75,7 @@ function authUserMiddleWare(req, res, next) {
   if (!usernameMatch) {
     return res.status(401).json({ message: "Invalid token user" });
   }
-  console.log(usernameMatch);
+  // console.log(usernameMatch);
 
   // username ni olish 1-qism
   const username = usernameMatch[1];
@@ -89,20 +90,9 @@ function authUserMiddleWare(req, res, next) {
   // request ga user hossasiga foydalanuvchi obyektini qo'shish
   req.user = loggedInUser;
 
-  console.log("req data: ", req);
+  // console.log("req data: ", req);
 
   next(); // keyingi funksiyaga o'tish
-}
-
-function extractUsernameFromToken(token) {
-  if (!token) return null;
-
-  const prefix = "Token_for_";
-  const atIndex = token.indexOf("@");
-
-  if (!token.startsWith(prefix) || atIndex === -1) return null;
-
-  return token.slice(prefix.length, atIndex);
 }
 
 function saveUsers() {
@@ -116,6 +106,14 @@ function saveUsers() {
 function generateID() {
   if (!users.length) return 1;
   return Math.max(...users.map((u) => u.id)) + 1;
+}
+
+function generate_token(username) {
+  let tomorrow_date = new Date();
+  tomorrow_date.setDate(tomorrow_date.getDate() + 1);
+  const formatted_date = tomorrow_date.toISOString();
+  const token = `Token_for_${username}@from&${new Date().toISOString()}.Valid_until&&${formatted_date}`;
+  return token;
 }
 
 try {
@@ -198,13 +196,8 @@ app.post("/login", (req, res) => {
   }
 
   // token yaratish logikasi
-  let tomorrow_date = new Date();
-  tomorrow_date.setDate(tomorrow_date.getDate() + 1);
-  const formatted_date = tomorrow_date.toISOString();
-  const token = `Token_for_${
-    user.username
-  }@from&${new Date().toISOString()}. Valid until&&${formatted_date}`;
-  console.log(token);
+  const token = generate_token(user.username);
+  // console.log(token);
 
   res.json({
     message: "Login muvaffaqiyatli",
@@ -219,8 +212,58 @@ app.get("/users", authUserMiddleWare, (req, res) => {
   res.json(filtered);
 });
 
+app.get("/chats", authUserMiddleWare, (req, res) => {
+  const { username, with: withUser } = req.query;
+
+  let chats = [];
+  try {
+    chats = JSON.parse(fs.readFileSync(CHAT_FILE, "utf8"));
+  } catch {
+    chats = [];
+  }
+
+  return res.json(chats);
+});
+
 app.get("/messages", authUserMiddleWare, (req, res) => {
   const { username, with: withUser } = req.query;
+
+  // console.log(`/messages API chaqirildi, from: ${username}, to: ${withUser}`);
+
+  let messages = [];
+  let chats = [];
+  try {
+    chats = JSON.parse(fs.readFileSync(CHAT_FILE, "utf8"));
+    messages = JSON.parse(fs.readFileSync(MESSAGES_FILE, "utf8"));
+  } catch {
+    messages = [];
+    chats = [];
+  }
+
+  // console.log(chats.length);
+
+  const chat = chats.filter(
+    (ch) =>
+      (ch.user1 === username && ch.user2 === withUser) ||
+      (ch.user1 === withUser && ch.user2 === username)
+  );
+
+  const chatId = chat.length > 0 ? chat[0].chatId : undefined;
+  // console.log("chat: ", chatId);
+
+  const filtered = messages.filter((m) => m.chatId === chatId);
+  // console.log("msg: ", filtered);
+
+  return res.json(filtered);
+});
+
+app.post("/messages", authUserMiddleWare, (req, res) => {
+  const { to, text } = req.body;
+  const from = req.user.username;
+
+  if (!to || !text) {
+    return res.status(400).json({ message: "Recipient and text required" });
+  }
 
   let messages = [];
   try {
@@ -229,25 +272,18 @@ app.get("/messages", authUserMiddleWare, (req, res) => {
     messages = [];
   }
 
-  // Chat oynasi uchun (2 tomonlama)
-  if (username && withUser) {
-    const filtered = messages.filter(
-      (m) =>
-        (m.from === username && m.to === withUser) ||
-        (m.from === withUser && m.to === username)
-    );
-    return res.json(filtered);
-  }
+  const newMessage = {
+    id: messages.length ? Math.max(...messages.map((m) => m.id)) + 1 : 1,
+    from,
+    to,
+    text,
+    created_at: new Date().toISOString(),
+  };
 
-  // Users list uchun (oxirgi xabar)
-  if (withUser) {
-    const filtered = messages.filter(
-      (m) => m.from === withUser || m.to === withUser
-    );
-    return res.json(filtered);
-  }
+  messages.push(newMessage);
+  fs.writeFileSync(MESSAGES_FILE, JSON.stringify(messages, null, 2));
 
-  res.json(messages);
+  res.status(201).json(newMessage);
 });
 
 // start server

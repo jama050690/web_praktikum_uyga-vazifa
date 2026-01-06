@@ -1,0 +1,29 @@
+[
+  {
+    "chatId": 0,
+    "user1": "jumanazarsaidov",
+    "user2": "jamshiddinbabajonov",
+    "created_at": "2026-01-06T15:08:28.686Z",
+    "text": "allo",
+    "lastMessageTime": "2026-01-06T15:08:28.686Z",
+    "lastUser": "jumanazarsaidov"
+  },
+  {
+    "chatId": 1,
+    "user1": "tolmas",
+    "user2": "jamshiddinbabajonov",
+    "created_at": "2026-01-06T15:08:28.686Z",
+    "text": "shahlik jo'shaman sanga jo'ra, lekin qachonligini bilimman",
+    "lastMessageTime": "2026-01-06T15:08:28.686Z",
+    "lastUser": "jamshiddinbabajonov"
+  },
+  {
+    "chatId": 2,
+    "user1": "sardor",
+    "user2": "jamshiddinbabajonov",
+    "created_at": "2026-01-06T15:08:28.686Z",
+    "text": "jo'ra, axvollaring?",
+    "lastMessageTime": "2026-01-06T15:08:28.686Z",
+    "lastUser": "jamshiddinbabajonov"
+  }
+]

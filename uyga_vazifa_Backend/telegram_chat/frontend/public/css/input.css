@@ -41,3 +41,7 @@
   background: #555;
   margin: 3px 0;
 }
+
+.selected {
+  @apply bg-green-500 text-white;
+}

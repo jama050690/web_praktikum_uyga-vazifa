@@ -9,7 +9,7 @@ let logged_in_user;
 /**user registration function */
 async function registerUser() {
   const nameInput = document.getElementById("name");
-  const username = nameInput.value.trim();
+  const name = nameInput.value.trim();
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
   console.log(genderInputs);
@@ -18,7 +18,7 @@ async function registerUser() {
 
   console.log(`tanlandi: `, gender);
 
-  if (!username || !email || !password) {
+  if (!name || !email || !password) {
     alert("Iltimos, barcha maydonlarni to'ldiring!");
     return;
   }
@@ -28,7 +28,7 @@ async function registerUser() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        username,
+        name,
         email,
         password,
         gender,

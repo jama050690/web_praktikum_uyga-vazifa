@@ -16,19 +16,19 @@
     "gender": "male"
   },
   {
-    "id": 4,
-    "name": "Jamshiddin Babajanov",
-    "username": "jamshiddinbabajanov",
-    "email": "jbm050690@gmail.com",
-    "password": "jama9133",
+    "id": 5,
+    "name": "Jumanazar Saidov",
+    "username": "jumanazarsaidov",
+    "email": "js1116@gmail.com",
+    "password": "js1116",
     "gender": "male"
   },
   {
-    "id": 5,
-    "name": "Sadiov Jumanazar",
-    "username": "sadiovjumanazar",
-    "email": "js1116@gmail.com",
-    "password": "js1116",
+    "id": 6,
+    "username": "jamshiddinbabajonov",
+    "name": "Jamshiddin Babajonov",
+    "email": "jbm050690@gmail.com",
+    "password": "12121",
     "gender": "male"
   }
 ]
