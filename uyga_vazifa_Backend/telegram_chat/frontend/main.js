@@ -10,7 +10,6 @@ const BASE_API = "http://localhost:3000";
 
 let loggedUser; // string username
 let token;
-let users = [];
 let activeChatUser = null;
 const LOGGED_IN_USR = "logged_in_user";
 
@@ -23,14 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // logout
-  const logoutBtn = document.getElementById("logout-btn");
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      localStorage.removeItem(LOGGED_IN_USR);
+  document.addEventListener("click", (e) => {
+    if (e.target.id === "logout-btn") {
+      e.stopPropagation();
+      localStorage.removeItem("logged_in_user");
       localStorage.removeItem("access_token");
-      window.location.href = "/auth/login.html";
-    });
-  }
+      window.location.replace("/auth/login.html");
+    }
+  });
 
   // send actions
   if (sendBtn) sendBtn.addEventListener("click", sendMessage);
@@ -60,64 +59,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
   fetchUsers();
 });
-
 async function fetchUsers() {
   usersList.innerHTML = "";
-  try {
-    const res = await fetch(`${BASE_API}/users`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    users = await res.json();
-    users.forEach((u) => {
-      if (u.username === loggedUser) return;
-      const li = document.createElement("li");
-      li.className =
-        "w-full px-4 py-5 border-none active:bg-blue-600 flex justify-between cursor-pointer hover:bg-gray-100 transition";
-      const now = new Date();
-      const time = `${now.getHours()}:${String(now.getMinutes()).padStart(
-        2,
-        "0"
-      )}`;
-      li.innerHTML = `
-        <span class="font-medium text-gray-800">${u.username}</span>
-        <span class="text-sm text-gray-500">${time}</span>
-      `;
-      li.onclick = () => {
-        document
-          .querySelectorAll("#users li")
-          .forEach((item) =>
-            item.classList.remove("bg-blue-600", "text-white")
-          );
-        li.classList.add("bg-blue-600", "text-white");
-        setActiveChatUser(u);
-        loadMessages(u.username);
-      };
-      usersList.appendChild(li);
-    });
-  } catch (err) {
-    console.error("Users fetch error", err);
+
+  const res = await fetch(`${BASE_API}/users`, {
+    headers: authHeader(),
+  });
+
+  const usersData = await res.json();
+  console.log("Users:", usersData);
+
+  if (!Array.isArray(usersData)) {
+    console.error("Users API error:", usersData);
+    return; // ❗ crash bo‘lmasin
   }
+
+  usersData.forEach((u) => {
+    const li = document.createElement("li");
+    li.className = "w-full px-4 py-5 cursor-pointer hover:bg-gray-100";
+
+    li.textContent = u.name;
+
+    li.onclick = () => {
+      setActiveChatUser(u);
+      loadMessages(u.username);
+    };
+
+    usersList.appendChild(li);
+  });
 }
 
-async function loadMessages(username) {
-  if (!username) return;
+const authHeader = () => ({ Authorization: `Bearer ${token}` });
+
+async function loadMessages(withUser) {
   const res = await fetch(
-    `${BASE_API}/messages?username=${encodeURIComponent(username)}`,
-    { headers: { Authorization: `Bearer ${token}` } }
+    `${BASE_API}/messages?username=${loggedUser}&with=${withUser}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
   );
-  if (!res.ok) return;
+
   const messages = await res.json();
   messageBox.innerHTML = "";
+
   messages.forEach((m) => {
     const div = document.createElement("div");
     const isMine = m.from === loggedUser;
+
     div.className = isMine
       ? "bg-blue-500 text-white p-2 rounded-lg ml-auto w-fit"
       : "bg-gray-200 p-2 rounded-lg w-fit";
+
     div.textContent = m.text;
     messageBox.appendChild(div);
   });
-  messageBox.scrollTop = messageBox.scrollHeight;
 }
 
 async function sendMessage() {
@@ -127,7 +124,7 @@ async function sendMessage() {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      ...authHeader(),
     },
     body: JSON.stringify({
       from: loggedUser,
@@ -143,5 +140,5 @@ function setActiveChatUser(user) {
   if (!user || !user.username) return;
   activeChatUser = user;
   chatUsername.textContent = user.username;
-  chatAvatar.src = user.avatar || "./public/images/avatar2.png";
+  chatAvatar.src = user.avatar || "./public/images/avatar4.png";
 }

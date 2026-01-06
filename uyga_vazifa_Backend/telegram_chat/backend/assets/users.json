@@ -1,23 +1,34 @@
 [
   {
-    "id": 1,
-    "username": "Jamshiddin Babajanov",
-    "email": "jbm050690@gmail.com",
-    "password": "jama9133",
-    "gender": "male"
-  },
-  {
     "id": 2,
-    "username": "Sardor",
+    "name": "Sardor",
+    "username": "sardor",
     "email": "Sunatillayev",
     "password": "sardor008",
     "gender": "male"
   },
   {
     "id": 3,
-    "username": "Tolmas",
+    "name": "Tolmas",
+    "username": "tolmas",
     "email": "O'rinov",
     "password": "tolmas007",
+    "gender": "male"
+  },
+  {
+    "id": 4,
+    "name": "Jamshiddin Babajanov",
+    "username": "jamshiddinbabajanov",
+    "email": "jbm050690@gmail.com",
+    "password": "jama9133",
+    "gender": "male"
+  },
+  {
+    "id": 5,
+    "name": "Sadiov Jumanazar",
+    "username": "sadiovjumanazar",
+    "email": "js1116@gmail.com",
+    "password": "js1116",
     "gender": "male"
   }
 ]
