@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "from": "{\"id\":1,\"username\":\"Jamshiddin Babajanov\",\"email\":\"jbm050690@gmail.com\",\"password\":\"jama9133\",\"gender\":\"male\"}",
+    "to": "Sardor",
+    "text": "message",
+    "time": "12:13"
+  },
+  {
+    "from": "{\"id\":1,\"username\":\"Jamshiddin Babajanov\",\"email\":\"jbm050690@gmail.com\",\"password\":\"jama9133\",\"gender\":\"male\"}",
+    "to": "Sardor",
+    "text": "allo",
+    "time": "12:28"
+  },
+  {
+    "from": "{\"id\":1,\"username\":\"Jamshiddin Babajanov\",\"email\":\"jbm050690@gmail.com\",\"password\":\"jama9133\",\"gender\":\"male\"}",
+    "to": "Sardor",
+    "text": "message",
+    "time": "12:30"
+  },
+  {
+    "from": "{\"id\":1,\"username\":\"Jamshiddin Babajanov\",\"email\":\"jbm050690@gmail.com\",\"password\":\"jama9133\",\"gender\":\"male\"}",
+    "to": "Sardor",
+    "text": "message",
+    "time": "14:38"
+  },
+  {
+    "from": "{\"id\":1,\"username\":\"Jamshiddin Babajanov\",\"email\":\"jbm050690@gmail.com\",\"password\":\"jama9133\",\"gender\":\"male\"}",
+    "to": "Sardor",
+    "text": "alloa",
+    "time": "14:38"
+  },
+  {
+    "from": "{\"id\":1,\"username\":\"Jamshiddin Babajanov\",\"email\":\"jbm050690@gmail.com\",\"password\":\"jama9133\",\"gender\":\"male\"}",
+    "to": "Tolmas",
+    "text": "noskash",
+    "time": "14:38"
+  }
+]

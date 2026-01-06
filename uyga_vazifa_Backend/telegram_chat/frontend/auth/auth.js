@@ -78,12 +78,12 @@ async function loginUser() {
       return;
     }
 
-    localStorage.setItem("logged_in_user", data.user.username);
-    console.log(data);
-    token = data.access_token;
-    localStorage.setItem("access_token", token);
-    alert(`Xush kelibsiz, ${data.user.username}!`);
-    window.location.href = "/index.html";
+    // Backenddan kelgan user username va token saqlanadi
+    if (res.ok) {
+      localStorage.setItem("logged_in_user", JSON.stringify(data.user));
+      localStorage.setItem("access_token", data.access_token);
+      window.location.href = "/index.html";
+    }
   } catch (err) {
     alert("Server bilan bog'lanib bo'lmadi");
   }
@@ -105,8 +105,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function returning_user_check() {
   token = localStorage.getItem("access_token") || "";
   logged_in_user = localStorage.getItem("logged_in_user") || "";
+
   if (token && logged_in_user) {
-    alert("Welcome back, ", logged_in_user);
+    const userObj = JSON.parse(logged_in_user);
+    alert(`Welcome back, ${userObj.username}`);
     window.location.href = "/index.html";
   }
 }

@@ -38,6 +38,9 @@ try {
 }
 
 function saveUsers() {
+  console.log("Users idlist ", user_id_list);
+  console.log("Users ", users);
+
   fs.writeFileSync(USER_IDS_FILE, JSON.stringify(user_id_list, null, 2));
   fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 }
