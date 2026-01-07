@@ -29,6 +29,7 @@
     "name": "Jamshiddin Babajonov",
     "email": "jbm050690@gmail.com",
     "password": "12121",
-    "gender": "male"
+    "gender": "male",
+    "online": true
   }
 ]

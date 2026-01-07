@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== INIT UI =====
   updateUserTitle();
   fetchUsers();
-
+  loadOwnerStatus();
   // ===== LOGOUT =====
   document.addEventListener("click", (e) => {
     if (e.target.id === "logout-btn") {
@@ -124,40 +124,102 @@ async function fetchUsers() {
   });
 }
 
+function formatTime(iso) {
+  if (!iso) return "";
+
+  const d = new Date(iso);
+  return d.toLocaleTimeString("uz-UZ", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
 const authHeader = () => ({ Authorization: `Bearer ${token}` });
 
 async function loadMessages(username) {
   if (!username) return;
+
   const res = await fetch(
     `${BASE_API}/messages?username=${encodeURIComponent(
       loggedUser.username
     )}&with=${encodeURIComponent(username)}`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
+    { headers: authHeader() }
   );
 
   const messages = await res.json();
   messageBox.innerHTML = "";
 
   messages.forEach((m) => {
-    const div = document.createElement("div");
     const isMine = m.from === loggedUser.username;
 
-    div.className = isMine
-      ? "bg-blue-500 text-white p-2 rounded-lg ml-auto w-fit"
-      : "bg-gray-200 p-2 rounded-lg w-fit";
+    // wrapper (chap / o‘ng)
+    const wrapper = document.createElement("div");
+    wrapper.className = `flex w-full mb-2 ${
+      isMine ? "justify-end" : "justify-start"
+    }`;
 
-    div.textContent = m.text;
-    messageBox.appendChild(div);
+    // bubble
+    const bubble = document.createElement("div");
+    bubble.className =
+      "bg-blue-500 text-white rounded-xl px-3 py-2 max-w-[70%] min-w-[56px]";
+
+    // row (text + time bir qatorda)
+    const row = document.createElement("div");
+    row.className = "flex items-end gap-2";
+
+    // text
+    const text = document.createElement("span");
+    text.textContent = m.text;
+    text.className = "whitespace-pre-wrap";
+
+    // time
+    const time = document.createElement("span");
+    time.textContent = formatTime(m.created_at);
+    time.className = "text-[11px] text-white/70 self-end";
+
+    // yig‘ish
+    row.appendChild(text);
+    row.appendChild(time);
+    bubble.appendChild(row);
+    wrapper.appendChild(bubble);
+    messageBox.appendChild(wrapper);
   });
+
+  messageBox.scrollTop = messageBox.scrollHeight;
+}
+async function loadOwnerStatus() {
+  const statusEl = document.getElementById("ownerStatus");
+  if (!statusEl || !loggedUser?.username) return;
+
+  try {
+    const res = await fetch(`${BASE_API}/users/${loggedUser.username}/status`, {
+      headers: authHeader(),
+    });
+
+    if (!res.ok) {
+      statusEl.textContent = "offline";
+      return;
+    }
+
+    const data = await res.json();
+
+    if (data.online) {
+      statusEl.textContent = "online";
+      statusEl.className = "text-xs text-green-500";
+    } else if (data.lastSeen) {
+      statusEl.textContent = "last seen " + formatTime(data.lastSeen);
+      statusEl.className = "text-xs text-gray-500";
+    } else {
+      statusEl.textContent = "offline";
+    }
+  } catch {
+    statusEl.textContent = "offline";
+  }
 }
 
 async function sendMessage() {
-  const text = msgInput ? msgInput.value.trim() : "";
-  if (!text || !activeChatUser) return;
+  const textValue = msgInput.value.trim();
+  if (!textValue || !activeChatUser) return;
 
   const res = await fetch(`${BASE_API}/messages`, {
     method: "POST",
@@ -167,25 +229,85 @@ async function sendMessage() {
     },
     body: JSON.stringify({
       to: activeChatUser.username,
-      text,
+      text: textValue,
     }),
   });
 
   const newMessage = await res.json();
-  if (msgInput) msgInput.value = "";
+  msgInput.value = "";
 
-  // yangi xabarni UIga qo‘shish
-  const div = document.createElement("div");
-  div.className = "bg-blue-500 text-white p-2 rounded-lg ml-auto w-fit";
-  div.textContent = newMessage.text;
-  messageBox.appendChild(div);
+  // wrapper (har doim o‘ng tomonda)
+  const wrapper = document.createElement("div");
+  wrapper.className = "flex w-full mb-2 justify-end";
+
+  // bubble
+  const bubble = document.createElement("div");
+  bubble.className =
+    "bg-blue-500 text-white rounded-xl px-3 py-2 max-w-[70%] min-w-[56px]";
+
+  // row
+  const row = document.createElement("div");
+  row.className = "flex items-end gap-2";
+
+  // text
+  const text = document.createElement("span");
+  text.textContent = newMessage.text;
+  text.className = "whitespace-pre-wrap break-words";
+
+  // time
+  const time = document.createElement("span");
+  time.textContent = formatTime(newMessage.created_at);
+  time.className = "text-[11px] text-white/70 self-end";
+
+  // yig‘ish
+  row.appendChild(text);
+  row.appendChild(time);
+  bubble.appendChild(row);
+  wrapper.appendChild(bubble);
+  messageBox.appendChild(wrapper);
+
+  messageBox.scrollTop = messageBox.scrollHeight;
+}
+
+window.addEventListener("load", () => {
+  fetch(`${BASE_API}/status/online`, {
+    method: "POST",
+    headers: authHeader(),
+  });
+});
+
+window.addEventListener("beforeunload", () => {
+  navigator.sendBeacon(`${BASE_API}/status/offline`, "");
+});
+
+async function loadUserStatus(username) {
+  const res = await fetch(`${BASE_API}/users/${username}/status`);
+
+  if (!res.ok) return;
+
+  const data = await res.json();
+  const statusEl = document.getElementById("chatStatus");
+
+  if (data.online) {
+    statusEl.textContent = "online";
+    statusEl.className = "text-xs text-green-500";
+  } else if (!data.lastSeen) {
+    statusEl.textContent = "offline";
+    statusEl.className = "text-xs text-gray-400";
+  } else {
+    statusEl.textContent = "last seen " + formatTime(data.lastSeen);
+    statusEl.className = "text-xs text-gray-500";
+  }
 }
 
 function setActiveChatUser(user) {
   if (!user || !user.username) return;
+
   activeChatUser = user;
   chatUsername.textContent = user.username;
 
   const avatarNum = ((user.avatarIndex ?? 0) % 6) + 1;
   chatAvatar.src = user.avatar || `/public/images/avatar${avatarNum}.png`;
+
+  loadUserStatus(user.username);
 }

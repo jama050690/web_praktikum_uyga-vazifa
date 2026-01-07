@@ -13,6 +13,7 @@ const USERS_FILE = path.join(ASSETS_DIR, "users.json");
 const USER_IDS_FILE = path.join(ASSETS_DIR, "user_id_list.json");
 const MESSAGES_FILE = path.join(ASSETS_DIR, "messages.json");
 const CHAT_FILE = path.join(ASSETS_DIR, "chats.json");
+const USER_STATUS_FILE = path.join(ASSETS_DIR, "user_status_jama.json");
 
 const app = express();
 const PORT = 3000;
@@ -176,6 +177,19 @@ app.get("/chat-users", authUserMiddleWare, (req, res) => {
   res.json(chatUsers);
 });
 
+app.get("/chats", authUserMiddleWare, (req, res) => {
+  const { username, with: withUser } = req.query;
+
+  let chats = [];
+  try {
+    chats = JSON.parse(fs.readFileSync(CHAT_FILE, "utf8"));
+  } catch {
+    chats = [];
+  }
+
+  return res.json(chats);
+});
+
 app.get("/messages", authUserMiddleWare, (req, res) => {
   const { username, with: withUser } = req.query;
 
@@ -217,14 +231,44 @@ app.post("/messages", authUserMiddleWare, (req, res) => {
   }
 
   let messages = [];
+  let chats = [];
+
   try {
     messages = JSON.parse(fs.readFileSync(MESSAGES_FILE, "utf8"));
   } catch {
     messages = [];
   }
 
+  try {
+    chats = JSON.parse(fs.readFileSync(CHAT_FILE, "utf8"));
+  } catch {
+    chats = [];
+  }
+
+  //  chat topish
+  let chat = chats.find(
+    (c) =>
+      (c.user1 === from && c.user2 === to) ||
+      (c.user1 === to && c.user2 === from)
+  );
+
+  // 🆕 chat yo‘q bo‘lsa — yaratamiz
+  if (!chat) {
+    chat = {
+      chatId: chats.length ? Math.max(...chats.map((c) => c.chatId)) + 1 : 1,
+      user1: from,
+      user2: to,
+      lastMessage: "",
+      lastMessageTime: null,
+      lastUser: null,
+    };
+    chats.push(chat);
+  }
+
+  // 📨 yangi message
   const newMessage = {
     id: messages.length ? Math.max(...messages.map((m) => m.id)) + 1 : 1,
+    chatId: chat.chatId,
     from,
     to,
     text,
@@ -232,9 +276,59 @@ app.post("/messages", authUserMiddleWare, (req, res) => {
   };
 
   messages.push(newMessage);
+
+  // 🔄 chatni update qilamiz
+  chat.lastMessage = text;
+  chat.lastMessageTime = newMessage.created_at;
+  chat.lastUser = from;
+
   fs.writeFileSync(MESSAGES_FILE, JSON.stringify(messages, null, 2));
+  fs.writeFileSync(CHAT_FILE, JSON.stringify(chats, null, 2));
 
   res.status(201).json(newMessage);
+});
+
+// user online bo‘ldi
+app.post("/status/online", (req, res) => {
+  res.json({ ok: true });
+});
+// user offline bo‘ldi
+app.post("/status/offline", authUserMiddleWare, (req, res) => {
+  const username = req.user.username;
+  const statuses = readStatus();
+
+  if (statuses[username]) {
+    statuses[username].online = false;
+    statuses[username].lastSeen = new Date().toISOString();
+  }
+
+  writeStatus(statuses);
+  res.json({ ok: true });
+});
+
+app.get("/users/:username/status", (req, res) => {
+  let statuses = {};
+
+  try {
+    // faylni xavfsiz o‘qish
+    if (fs.existsSync(USER_STATUS_FILE)) {
+      const raw = fs.readFileSync(USER_STATUS_FILE, "utf8");
+      statuses = raw ? JSON.parse(raw) : {};
+    }
+  } catch (err) {
+    console.error("STATUS FILE READ ERROR:", err);
+    // ❗ bu yerda 500 qaytarmaymiz
+    return res.json({ online: false, lastSeen: null });
+  }
+
+  const { username } = req.params;
+
+  // agar user yo‘q bo‘lsa — bu XATO EMAS
+  if (!statuses[username]) {
+    return res.json({ online: false, lastSeen: null });
+  }
+
+  return res.json(statuses[username]);
 });
 
 // start server
