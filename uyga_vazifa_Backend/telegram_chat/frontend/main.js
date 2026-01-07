@@ -76,41 +76,47 @@ async function fetchUsers() {
 
   const usersData = await res.json();
 
-  if (!Array.isArray(usersData)) {
-    console.error("Users API error:", usersData);
-    return; // ❗ crash bo‘lmasin
-  }
+  usersData.forEach((u, i) => {
+    u.avatarIndex = i;
+    const img = document.createElement("img");
+    const avatarNum = (i % 6) + 1;
+    img.src = `/public/images/avatar${avatarNum}.png`;
+    img.alt = `${u.name} avatar`;
+    img.className = "w-8 h-8 rounded-full";
 
-  usersData.forEach((u) => {
+    const name = document.createElement("span");
+    name.textContent = u.name;
+
     const li = document.createElement("li");
-    li.className = `w-full px-4 py-5 cursor-pointer hover:bg-green-100`;
+    li.className =
+      "w-full px-4 py-5 cursor-pointer hover:bg-green-100 flex items-center gap-3";
 
-    li.textContent = u.name;
+    const time = document.createElement("span");
+    time.className = "ml-auto text-xs text-gray-500";
+    time.textContent = new Date().toLocaleTimeString("uz-UZ", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    li.appendChild(img);
+    li.appendChild(name);
+    li.appendChild(time);
 
     li.onclick = () => {
-      // 🔥 remove active from all
       document
         .querySelectorAll("#users li")
         .forEach((el) => el.classList.remove("selected"));
 
-      // ✅ add active to clicked one
       li.classList.add("selected");
 
       setActiveChatUser(u);
       loadMessages(u.username);
     };
 
-    // li.onmouseover = () => {
-    //   li.className = `w-full px-4 py-5 cursor-pointer bg-green-100`;
-    // };
-
-    // li.onmouseout = () => {
-    //   li.className = `w-full px-4 py-5 cursor-pointer`;
-    // };
-
     usersList.appendChild(li);
   });
 }
+
 const authHeader = () => ({ Authorization: `Bearer ${token}` });
 
 async function loadMessages(username) {
@@ -119,7 +125,11 @@ async function loadMessages(username) {
     `${BASE_API}/messages?username=${encodeURIComponent(
       loggedUser.username
     )}&with=${encodeURIComponent(username)}`,
-    { headers: { Authorization: `Bearer ${token}` } }
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
   );
 
   const messages = await res.json();
@@ -168,5 +178,7 @@ function setActiveChatUser(user) {
   if (!user || !user.username) return;
   activeChatUser = user;
   chatUsername.textContent = user.username;
-  chatAvatar.src = user.avatar || "./public/images/avatar4.png";
+
+  const avatarNum = ((user.avatarIndex ?? 0) % 6) + 1;
+  chatAvatar.src = user.avatar || `/public/images/avatar${avatarNum}.png`;
 }
