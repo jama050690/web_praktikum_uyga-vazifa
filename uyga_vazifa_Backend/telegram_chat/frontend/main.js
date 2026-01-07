@@ -31,59 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateUserTitle();
   fetchUsers();
 
-  // ===== CHAT ICON =====
-
-  chatIcon.onclick = async () => {
-    chatPanel.classList.remove("hidden");
-    loadChatUsers(); // chats.json asosida
-  };
-
-  closeChatPanel.onclick = () => {
-    chatPanel.classList.add("hidden");
-  };
-
-  async function loadChatUsers() {
-    const res = await fetch(`${BASE_API}/chats`, {
-      headers: authHeader(),
-    });
-    const chats = await res.json();
-
-    const me = loggedUser.username;
-    const list = document.getElementById("chatUsersList");
-    list.innerHTML = "";
-
-    chats
-      .filter((c) => c.user1 === me || c.user2 === me)
-      .forEach((c) => {
-        const other = c.user1 === me ? c.user2 : c.user1;
-
-        list.innerHTML += `
-        <li class="flex h-[90px] items-center gap-3 p-3 rounded-2xl hover:bg-blue-100  cursor-pointer">
-          <img src="/public/images/avatar1.png" class="w-10 h-10 rounded-full"/>
-          <div class="flex-1">
-            <div class="font-medium">${other}</div>
-          </div>
-          <span class="text-xs text-gray-400">
-            ${new Date(c.lastMessageTime).toLocaleTimeString()}
-          </span>
-        </li>
-      `;
-      });
-  }
-
-  li.onclick = () => {
-    document
-      .querySelectorAll("#users li")
-      .forEach((el) => el.classList.remove("selected"));
-
-    li.classList.add("selected");
-
-    setActiveChatUser(u);
-    loadMessages(u.username);
-  };
-
-  usersList.appendChild(li);
-
   // ===== LOGOUT =====
   document.addEventListener("click", (e) => {
     if (e.target.id === "logout-btn") {

@@ -21,7 +21,7 @@ let user_id_list = {};
 
 app.use(
   cors({
-    origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
+    origin: ["http://127.0.0.1:5500", "http://localhost:5501"],
   })
 );
 app.use(express.json());
@@ -174,19 +174,6 @@ app.get("/chat-users", authUserMiddleWare, (req, res) => {
   });
 
   res.json(chatUsers);
-});
-
-app.get("/chats", authUserMiddleWare, (req, res) => {
-  const { username, with: withUser } = req.query;
-
-  let chats = [];
-  try {
-    chats = JSON.parse(fs.readFileSync(CHAT_FILE, "utf8"));
-  } catch {
-    chats = [];
-  }
-
-  return res.json(chats);
 });
 
 app.get("/messages", authUserMiddleWare, (req, res) => {
