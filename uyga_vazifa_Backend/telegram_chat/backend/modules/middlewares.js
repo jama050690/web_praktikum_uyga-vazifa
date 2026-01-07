@@ -16,44 +16,49 @@ const USERS_FILE = path.join(__dirname, "../assets/users.json");
  * @param {*} next callback funksiya
  * @returns
  **/
-
 function authUserMiddleWare(req, res, next) {
-  console.log(new Date(), "Auth middleware check in progress...");
-
+  // token muddati tugamaganligi logikasi
+  console.log(new Date() + ", Auth middleware check in progress...");
   const authHeader = req.headers.authorization;
 
-  // 1️⃣ Token bormi?
+  // console.log(authHeader);
+
+  // 1. Token bormi?
   if (!authHeader) {
     return res.status(401).json({ message: "No token provided" });
   }
 
-  // 2️⃣ Bearer token
-  const [type, token] = authHeader.split(" ");
-  if (type !== "Bearer" || !token) {
+  const token = authHeader.split(" ")[1]; // Bearer <token>
+  // console.log("token: ", token);
+
+  // tokenni tekshirish
+  if (!token) {
     return res.status(401).json({ message: "Invalid token format" });
   }
 
-  // 3️⃣ Token strukturasi
+  // token haqiqiyligini tekshirish 2-qism
   const tokenParts = token.split("Valid_until&&");
   if (tokenParts.length !== 2) {
     return res.status(401).json({ message: "Invalid token structure" });
   }
 
-  // 4️⃣ Token muddati
+  // token muddati o'tib ketmaganmi?
   const expiryDate = new Date(tokenParts[1]);
   if (new Date() > expiryDate) {
     return res.status(401).json({ message: "Token expired" });
   }
 
-  // 5️⃣ Username olish
+  // user haqiqiyligini tekshirish logikasi
   const usernameMatch = token.match(/Token_for_(.*?)@/);
   if (!usernameMatch) {
     return res.status(401).json({ message: "Invalid token user" });
   }
+  // console.log(usernameMatch);
 
+  // username ni olish 1-qism
   const username = usernameMatch[1];
 
-  // 6️⃣ Users fayldan o‘qish (MUHIM QISM)
+  // 6️ Users fayldan o‘qish (MUHIM QISM)
   let users = [];
   try {
     users = JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
@@ -66,9 +71,12 @@ function authUserMiddleWare(req, res, next) {
     return res.status(401).json({ message: "User does not exist" });
   }
 
-  // 7️⃣ req.user
+  // request ga user hossasiga foydalanuvchi obyektini qo'shish
   req.user = loggedInUser;
-  next();
+
+  // console.log("req data: ", req);
+
+  next(); // keyingi funksiyaga o'tish
 }
 
 export default authUserMiddleWare;
