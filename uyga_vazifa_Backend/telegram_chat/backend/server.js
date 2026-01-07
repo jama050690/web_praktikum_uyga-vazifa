@@ -147,6 +147,35 @@ app.get("/users", authUserMiddleWare, (req, res) => {
   res.json(filtered);
 });
 
+app.get("/chat-users", authUserMiddleWare, (req, res) => {
+  const me = req.user.username;
+
+  let chats = [];
+  try {
+    chats = JSON.parse(fs.readFileSync(CHAT_FILE, "utf8"));
+  } catch {
+    chats = [];
+  }
+
+  // faqat menga tegishli chatlar
+  const myChats = chats.filter((c) => c.user1 === me || c.user2 === me);
+
+  // chat list
+  const chatUsers = myChats.map((c) => {
+    const otherUser = c.user1 === me ? c.user2 : c.user1;
+
+    return {
+      chatId: c.chatId,
+      username: otherUser,
+      lastMessage: c.text,
+      lastMessageTime: c.lastMessageTime,
+      lastUser: c.lastUser,
+    };
+  });
+
+  res.json(chatUsers);
+});
+
 app.get("/chats", authUserMiddleWare, (req, res) => {
   const { username, with: withUser } = req.query;
 

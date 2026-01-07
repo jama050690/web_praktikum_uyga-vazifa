@@ -6,6 +6,10 @@ const chatUsername = document.getElementById("chatUsername");
 const chatAvatar = document.getElementById("chatAvatar");
 const msgInput = document.getElementById("msgs");
 const sendBtn = document.getElementById("sendBtn");
+const chatIcon = document.getElementById("chatIcon");
+const chatPanel = document.getElementById("chatPanel");
+const closeChatPanel = document.getElementById("closeChatPanel");
+
 const BASE_API = "http://localhost:3000";
 
 let loggedUser;
@@ -13,28 +17,85 @@ let token;
 let activeChatUser = null;
 const LOGGED_IN_USR = "logged_in_user";
 
-document.addEventListener("DOMContentLoaded", (e) => {
-  e.preventDefault();
-  loggedUser = JSON.parse(localStorage.getItem(LOGGED_IN_USR)) || {};
+document.addEventListener("DOMContentLoaded", () => {
+  // ===== AUTH =====
+  loggedUser = JSON.parse(localStorage.getItem(LOGGED_IN_USR));
   token = localStorage.getItem("access_token");
+
   if (!loggedUser || !token) {
-    window.location.href = "/auth/login.html";
+    window.location.replace("/auth/login.html");
     return;
   }
 
+  // ===== INIT UI =====
   updateUserTitle();
-  // logout
+  fetchUsers();
+
+  // ===== CHAT ICON =====
+
+  chatIcon.onclick = async () => {
+    chatPanel.classList.remove("hidden");
+    loadChatUsers(); // chats.json asosida
+  };
+
+  closeChatPanel.onclick = () => {
+    chatPanel.classList.add("hidden");
+  };
+
+  async function loadChatUsers() {
+    const res = await fetch(`${BASE_API}/chats`, {
+      headers: authHeader(),
+    });
+    const chats = await res.json();
+
+    const me = loggedUser.username;
+    const list = document.getElementById("chatUsersList");
+    list.innerHTML = "";
+
+    chats
+      .filter((c) => c.user1 === me || c.user2 === me)
+      .forEach((c) => {
+        const other = c.user1 === me ? c.user2 : c.user1;
+
+        list.innerHTML += `
+        <li class="flex h-[90px] items-center gap-3 p-3 rounded-2xl hover:bg-blue-100  cursor-pointer">
+          <img src="/public/images/avatar1.png" class="w-10 h-10 rounded-full"/>
+          <div class="flex-1">
+            <div class="font-medium">${other}</div>
+          </div>
+          <span class="text-xs text-gray-400">
+            ${new Date(c.lastMessageTime).toLocaleTimeString()}
+          </span>
+        </li>
+      `;
+      });
+  }
+
+  li.onclick = () => {
+    document
+      .querySelectorAll("#users li")
+      .forEach((el) => el.classList.remove("selected"));
+
+    li.classList.add("selected");
+
+    setActiveChatUser(u);
+    loadMessages(u.username);
+  };
+
+  usersList.appendChild(li);
+
+  // ===== LOGOUT =====
   document.addEventListener("click", (e) => {
     if (e.target.id === "logout-btn") {
       e.preventDefault();
-      localStorage.removeItem("logged_in_user");
-      localStorage.removeItem("access_token");
+      localStorage.clear();
       window.location.replace("/auth/login.html");
     }
   });
 
-  // send actions
+  // ===== SEND MESSAGE =====
   if (sendBtn) sendBtn.addEventListener("click", sendMessage);
+
   if (msgInput) {
     msgInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
@@ -44,22 +105,21 @@ document.addEventListener("DOMContentLoaded", (e) => {
     });
   }
 
-  // dropdowns
+  // ===== DROPDOWNS =====
   menuBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
       const dropdown = btn.nextElementSibling;
-      menuDropdowns.forEach((dd) => {
-        if (dd !== dropdown) dd.classList.add("hidden");
-      });
+      menuDropdowns.forEach(
+        (dd) => dd !== dropdown && dd.classList.add("hidden")
+      );
       dropdown.classList.toggle("hidden");
     });
   });
+
   document.addEventListener("click", () => {
     menuDropdowns.forEach((dd) => dd.classList.add("hidden"));
   });
-
-  fetchUsers();
 });
 
 function updateUserTitle() {
@@ -89,7 +149,7 @@ async function fetchUsers() {
 
     const li = document.createElement("li");
     li.className =
-      "w-full px-4 py-5 cursor-pointer hover:bg-green-100 flex items-center gap-3";
+      "w-full px-4 py-5 h-[90px] rounded-2xl cursor-pointer hover:bg-green-100 flex items-center gap-3";
 
     const time = document.createElement("span");
     time.className = "ml-auto text-xs text-gray-500";
