@@ -1,3 +1,4 @@
+import { log } from "node:console";
 import fs from "node:fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -6,6 +7,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const USERS_FILE = path.join(__dirname, "../assets/users.json");
+
+function updateUserStatus(userId) {
+  let users;
+  try {
+    users = JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
+  } catch (err) {
+    console.error(err);
+    return;
+  }
+  users.forEach((user) => {
+    if (user.id === userId) {
+      user.lastOnlineTime = new Date().toISOString();
+    }
+  });
+  fs.writeFileSync(USERS_FILE, JSON.stringify(users));
+}
 
 /**
  * Foydalanuvchilarni haqiqiyligini tekshirish (authentication)
@@ -65,6 +82,7 @@ function authUserMiddleWare(req, res, next) {
   } catch (err) {
     return res.status(500).json({ message: "Users file read error" });
   }
+  console.log("usersni type: ", Array.isArray(users));
 
   const loggedInUser = users.find((u) => u.username === username);
   if (!loggedInUser) {
@@ -73,6 +91,7 @@ function authUserMiddleWare(req, res, next) {
 
   // request ga user hossasiga foydalanuvchi obyektini qo'shish
   req.user = loggedInUser;
+  updateUserStatus(loggedInUser.id);
 
   // console.log("req data: ", req);
 

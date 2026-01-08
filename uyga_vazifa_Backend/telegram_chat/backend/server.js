@@ -22,7 +22,7 @@ let user_id_list = {};
 
 app.use(
   cors({
-    origin: ["http://127.0.0.1:5500", "http://localhost:5501"],
+    origin: ["http://127.0.0.1:5500", "http://127.0.0.1:5501"],
   })
 );
 app.use(express.json());
@@ -57,7 +57,7 @@ try {
 
   const userIds = fs.readFileSync(USER_IDS_FILE, "utf8");
   users = JSON.parse(data);
-  console.log(users.length);
+  // console.log(users.length);
 
   user_id_list = JSON.parse(userIds);
 } catch {

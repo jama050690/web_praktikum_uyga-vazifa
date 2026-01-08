@@ -277,25 +277,33 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("beforeunload", () => {
-  navigator.sendBeacon(`${BASE_API}/status/offline`, "");
+  navigator.sendBeacon(`${BASE_API}/status/last`, "");
 });
 
 async function loadUserStatus(username) {
   const res = await fetch(`${BASE_API}/users/${username}/status`);
-
   if (!res.ok) return;
 
   const data = await res.json();
   const statusEl = document.getElementById("chatStatus");
+  if (!statusEl) return;
+
+  const FIVE_MIN_MS = 5 * 60 * 1000;
+  const lastMs = data.lastOnlineTime
+    ? new Date(data.lastOnlineTime).getTime()
+    : NaN;
 
   if (data.online) {
     statusEl.textContent = "online";
     statusEl.className = "text-xs text-green-500";
-  } else if (!data.lastSeen) {
+  } else if (!data.lastOnlineTime || Number.isNaN(lastMs)) {
     statusEl.textContent = "offline";
     statusEl.className = "text-xs text-gray-400";
+  } else if (Date.now() - lastMs <= FIVE_MIN_MS) {
+    statusEl.textContent = "online";
+    statusEl.className = "text-xs text-green-500";
   } else {
-    statusEl.textContent = "last seen " + formatTime(data.lastSeen);
+    statusEl.textContent = "last seen " + formatTime(data.lastOnlineTime);
     statusEl.className = "text-xs text-gray-500";
   }
 }
