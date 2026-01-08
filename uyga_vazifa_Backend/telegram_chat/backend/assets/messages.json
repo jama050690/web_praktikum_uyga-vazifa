@@ -347,5 +347,133 @@
     "to": "tolmas",
     "text": "ukam",
     "created_at": "2026-01-08T13:03:21.162Z"
+  },
+  {
+    "id": 52,
+    "chatId": 5,
+    "from": "sardorsunnatullayev",
+    "to": "tolmas",
+    "text": "aalllo",
+    "created_at": "2026-01-08T14:24:20.694Z"
+  },
+  {
+    "id": 53,
+    "chatId": 6,
+    "from": "sardorsunnatullayev",
+    "to": "jamshiddinbabajonov",
+    "text": "allllo",
+    "created_at": "2026-01-08T14:24:25.181Z"
+  },
+  {
+    "id": 54,
+    "chatId": 7,
+    "from": "sardorsunnatullayev",
+    "to": "jumanazarsaidov",
+    "text": "alllo",
+    "created_at": "2026-01-08T14:24:29.983Z"
+  },
+  {
+    "id": 55,
+    "chatId": 0,
+    "from": "jamshiddinbabajonov",
+    "to": "jumanazarsaidov",
+    "text": "aaaaaaaaaaaaaaaa",
+    "created_at": "2026-01-08T14:24:40.001Z"
+  },
+  {
+    "id": 56,
+    "chatId": 1,
+    "from": "jamshiddinbabajonov",
+    "to": "tolmas",
+    "text": "bbbbbbbbbbbbbbb",
+    "created_at": "2026-01-08T14:24:44.258Z"
+  },
+  {
+    "id": 57,
+    "chatId": 6,
+    "from": "jamshiddinbabajonov",
+    "to": "sardorsunnatullayev",
+    "text": "ccccccccccccccccccccc",
+    "created_at": "2026-01-08T14:24:49.928Z"
+  },
+  {
+    "id": 58,
+    "chatId": 4,
+    "from": "tolmas",
+    "to": "jumanazarsaidov",
+    "text": "aaaaalllllllllooooooooo",
+    "created_at": "2026-01-08T14:27:24.352Z"
+  },
+  {
+    "id": 59,
+    "chatId": 1,
+    "from": "tolmas",
+    "to": "jamshiddinbabajonov",
+    "text": "akkkaaaaaammmmmmm",
+    "created_at": "2026-01-08T14:27:34.854Z"
+  },
+  {
+    "id": 60,
+    "chatId": 5,
+    "from": "tolmas",
+    "to": "sardorsunnatullayev",
+    "text": "qayerdasan ukam",
+    "created_at": "2026-01-08T14:27:44.929Z"
+  },
+  {
+    "id": 61,
+    "chatId": 7,
+    "from": "jumanazarsaidov",
+    "to": "sardorsunnatullayev",
+    "text": "ha eshitaman",
+    "created_at": "2026-01-08T14:28:39.206Z"
+  },
+  {
+    "id": 62,
+    "chatId": 4,
+    "from": "jumanazarsaidov",
+    "to": "tolmas",
+    "text": "nima gap tolmasbek",
+    "created_at": "2026-01-08T14:28:51.511Z"
+  },
+  {
+    "id": 63,
+    "chatId": 0,
+    "from": "jumanazarsaidov",
+    "to": "jamshiddinbabajonov",
+    "text": "nima gaplar jo'ra",
+    "created_at": "2026-01-08T14:29:04.496Z"
+  },
+  {
+    "id": 64,
+    "chatId": 5,
+    "from": "sardorsunnatullayev",
+    "to": "tolmas",
+    "text": "alllo",
+    "created_at": "2026-01-08T14:30:10.591Z"
+  },
+  {
+    "id": 65,
+    "chatId": 5,
+    "from": "sardorsunnatullayev",
+    "to": "tolmas",
+    "text": "eshitaman",
+    "created_at": "2026-01-08T14:30:15.221Z"
+  },
+  {
+    "id": 66,
+    "chatId": 6,
+    "from": "sardorsunnatullayev",
+    "to": "jamshiddinbabajonov",
+    "text": "niam gap aka",
+    "created_at": "2026-01-08T14:30:21.645Z"
+  },
+  {
+    "id": 67,
+    "chatId": 7,
+    "from": "sardorsunnatullayev",
+    "to": "jumanazarsaidov",
+    "text": "akka qattasiz",
+    "created_at": "2026-01-08T14:30:31.498Z"
   }
 ]

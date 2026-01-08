@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateUserTitle();
   fetchUsers();
-  loadOwnerStatus();
+  loadOwnerStatusDynamic();
 
   // ===== LOGOUT BUTTON =====
   const logoutBtn = document.getElementById("logout-btn");
@@ -114,6 +114,7 @@ async function fetchUsers() {
     img.className = "w-8 h-8 rounded-full";
 
     const name = document.createElement("span");
+    name.className = "user-name";
     name.textContent = u.name;
 
     const time = document.createElement("span");
@@ -288,3 +289,21 @@ setInterval(() => {
     }),
   });
 }, 15000);
+
+// ============== Input Search user ==============
+
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", () => {
+  const value = searchInput.value.toLowerCase().trim();
+
+  document.querySelectorAll("#users li").forEach((li) => {
+    const name = li.querySelector(".user-name").textContent.toLowerCase();
+
+    if (name.includes(value)) {
+      li.style.display = "flex"; // yoki block
+    } else {
+      li.style.display = "none";
+    }
+  });
+});

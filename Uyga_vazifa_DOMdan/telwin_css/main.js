@@ -263,7 +263,7 @@ allBtn.addEventListener("click", () => {
 });
 
 // search button
-let currentBrandCars = []; // ✔ doim eng yuqorida
+let currentBrandCars = []; 
 let currentPage = 1;
 const searchInput = document.getElementById("searchInput");
 

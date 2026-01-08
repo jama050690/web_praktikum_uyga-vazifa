@@ -267,7 +267,7 @@ app.get("/users/:username/status", (req, res) => {
   const last = new Date(user.lastOnlineTime).getTime();
   const now = Date.now();
 
-  const online = now - last < 30000; // 30s
+  const online = now - last < 30000; 
 
   res.json({
     online,
