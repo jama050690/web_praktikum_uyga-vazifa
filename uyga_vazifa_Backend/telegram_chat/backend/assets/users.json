@@ -1,1 +1,38 @@
-[{"id":2,"name":"Sardor","username":"sardor","email":"Sunatillayev","password":"sardor008","gender":"male"},{"id":3,"name":"Tolmas","username":"tolmas","email":"O'rinov","password":"tolmas007","gender":"male"},{"id":5,"name":"Jumanazar Saidov","username":"jumanazarsaidov","email":"js1116@gmail.com","password":"js1116","gender":"male","lastOnlineTime":"2026-01-08T09:25:16.176Z"},{"id":6,"username":"jamshiddinbabajonov","name":"Jamshiddin Babajonov","email":"jbm050690@gmail.com","password":"12121","gender":"male","online":true,"lastOnlineTime":"2026-01-08T08:56:10.834Z"}]
+[
+  {
+    "id": 5,
+    "name": "Jumanazar Saidov",
+    "username": "jumanazarsaidov",
+    "email": "js1116@gmail.com",
+    "password": "js1116",
+    "gender": "male",
+    "lastOnlineTime": "2026-01-08T12:08:21.093Z"
+  },
+  {
+    "id": 6,
+    "username": "jamshiddinbabajonov",
+    "name": "Jamshiddin Babajonov",
+    "email": "jbm050690@gmail.com",
+    "password": "12121",
+    "gender": "male",
+    "online": true,
+    "lastOnlineTime": "2026-01-08T12:07:22.845Z"
+  },
+  {
+    "id": 7,
+    "username": "tolmas",
+    "name": "Tolmas",
+    "email": "tolik_007@gmail.com",
+    "password": "tol007",
+    "gender": "male"
+  },
+  {
+    "id": 8,
+    "username": "sardorsunnatullayev",
+    "name": "Sardor Sunnatullayev",
+    "email": "legoiner_2008@gmail.com",
+    "password": "legio008",
+    "gender": "male",
+    "lastOnlineTime": "2026-01-08T12:07:03.493Z"
+  }
+]

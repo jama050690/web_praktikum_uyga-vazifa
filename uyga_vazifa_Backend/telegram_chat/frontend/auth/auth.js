@@ -5,6 +5,17 @@ let users = [];
 const USERS = "users";
 let token;
 let logged_in_user;
+
+// ================= HELPERS =================
+
+function safeJSONParse(value) {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return null;
+  }
+}
+
 // functions
 /**user registration function */
 async function registerUser() {
@@ -12,11 +23,8 @@ async function registerUser() {
   const name = nameInput.value.trim();
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
-  console.log(genderInputs);
 
   const gender = genderInputs[0].checked ? "male" : "female";
-
-  console.log(`tanlandi: `, gender);
 
   if (!name || !email || !password) {
     alert("Iltimos, barcha maydonlarni to'ldiring!");
@@ -37,15 +45,14 @@ async function registerUser() {
 
     const data = await res.json();
 
-    console.log(`javob:`, data);
-
     if (res.ok) {
-      // user oldin bor
       alert(data.message);
       setTimeout(() => {
         window.location.href = "./login.html";
       }, 100);
       return;
+    } else {
+      alert(data.message);
     }
   } catch (err) {
     alert("Server bilan boglanib bolmadi");
@@ -79,10 +86,12 @@ async function loginUser() {
     }
 
     // Backenddan kelgan user username va token saqlanadi
-    if (res.ok) {
+    if (data && data.access_token && data.user) {
       localStorage.setItem("logged_in_user", JSON.stringify(data.user));
       localStorage.setItem("access_token", data.access_token);
       window.location.href = "/index.html";
+    } else {
+      alert("Login javobi noto‘g‘ri");
     }
   } catch (err) {
     alert("Server bilan bog'lanib bo'lmadi");
@@ -103,12 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function returning_user_check() {
-  token = localStorage.getItem("access_token") || "";
-  logged_in_user = localStorage.getItem("logged_in_user") || "";
+  token = localStorage.getItem("access_token");
+  const rawUser = localStorage.getItem("logged_in_user");
 
-  if (token && logged_in_user) {
-    const userObj = JSON.parse(logged_in_user);
-    alert(`Welcome back, ${userObj.username}`);
-    window.location.href = "/index.html";
-  }
+  if (!token || !rawUser) return;
+
+  const userObj = safeJSONParse(rawUser);
+  if (!userObj || !userObj.username) return;
+
+  alert(`Welcome back, ${userObj.username}`);
+  window.location.href = "/index.html";
 }

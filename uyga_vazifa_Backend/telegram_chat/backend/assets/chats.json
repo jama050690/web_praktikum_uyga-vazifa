@@ -28,5 +28,45 @@
     "lastMessageTime": "2026-01-07T14:21:08.446Z",
     "lastUser": "jamshiddinbabajonov",
     "lastMessage": "message"
+  },
+  {
+    "chatId": 3,
+    "user1": "jumanazarsaidov",
+    "user2": "sardor",
+    "lastMessage": "message",
+    "lastMessageTime": "2026-01-08T11:02:39.245Z",
+    "lastUser": "jumanazarsaidov"
+  },
+  {
+    "chatId": 4,
+    "user1": "tolmas",
+    "user2": "jumanazarsaidov",
+    "lastMessage": "nima gaplar",
+    "lastMessageTime": "2026-01-08T12:02:40.386Z",
+    "lastUser": "tolmas"
+  },
+  {
+    "chatId": 5,
+    "user1": "sardorsunnatullayev",
+    "user2": "tolmas",
+    "lastMessage": "allo",
+    "lastMessageTime": "2026-01-08T12:06:22.258Z",
+    "lastUser": "sardorsunnatullayev"
+  },
+  {
+    "chatId": 6,
+    "user1": "sardorsunnatullayev",
+    "user2": "jamshiddinbabajonov",
+    "lastMessage": "salom",
+    "lastMessageTime": "2026-01-08T12:06:27.134Z",
+    "lastUser": "sardorsunnatullayev"
+  },
+  {
+    "chatId": 7,
+    "user1": "sardorsunnatullayev",
+    "user2": "jumanazarsaidov",
+    "lastMessage": "qandaysan ukam",
+    "lastMessageTime": "2026-01-08T12:06:37.385Z",
+    "lastUser": "sardorsunnatullayev"
   }
 ]
