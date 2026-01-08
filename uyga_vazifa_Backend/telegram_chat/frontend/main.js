@@ -105,6 +105,7 @@ async function fetchUsers() {
     u.avatarIndex = i;
 
     const li = document.createElement("li");
+    li.dataset.username = u.username;
     li.className =
       "flex items-center gap-3 px-4 py-4 cursor-pointer rounded-xl hover:bg-green-100";
 
@@ -116,7 +117,7 @@ async function fetchUsers() {
     name.textContent = u.name;
 
     const time = document.createElement("span");
-    time.className = "ml-auto text-xs text-gray-500";
+    time.className = "status ml-auto text-xs text-gray-500";
     time.textContent = "…";
 
     getUserStatusText(u.username).then((t) => (time.textContent = t));
@@ -194,35 +195,44 @@ async function sendMessage() {
 }
 
 // ================= STATUS =================
-async function loadOwnerStatus() {
-  const el = document.getElementById("ownerStatus");
-  if (!el) return;
+function loadOwnerStatusDynamic() {
+  if (!loggedUser) return;
 
-  const res = await fetch(`${BASE_API}/users/${loggedUser.username}/status`);
-  const data = await res.json();
-
-  if (data.online) {
-    el.textContent = "online";
-    el.className = "text-xs text-green-500";
-  } else {
-    el.textContent = formatTime(data.lastSeen);
-    el.className = "text-xs text-gray-500";
-  }
+  getUserStatusText(loggedUser.username).then((text) => {
+    const el = document.getElementById("ownerStatus");
+    if (el) el.textContent = text;
+  });
 }
 
+loadOwnerStatusDynamic();
+
+setInterval(loadOwnerStatusDynamic, 5000);
+// Load userlar
 async function loadUserStatus(username) {
   const el = document.getElementById("chatStatus");
   if (!el) return;
 
-  const res = await fetch(`${BASE_API}/users/${username}/status`);
-  const data = await res.json();
+  try {
+    const res = await fetch(`${BASE_API}/users/${username}/status`);
+    const d = await res.json();
 
-  if (data.online) {
-    el.textContent = "online";
-    el.className = "text-xs text-green-500";
-  } else {
-    el.textContent = formatTime(data.lastSeen);
-    el.className = "text-xs text-gray-500";
+    if (!d.lastOnlineTime) {
+      el.textContent = "";
+      return;
+    }
+
+    const last = new Date(d.lastOnlineTime).getTime();
+    const now = Date.now();
+
+    if (now - last < 30000) {
+      el.textContent = "online";
+      el.className = "text-xs text-green-500";
+    } else {
+      el.textContent = formatTime(d.lastOnlineTime);
+      el.className = "text-xs text-gray-500";
+    }
+  } catch {
+    el.textContent = "";
   }
 }
 
@@ -230,13 +240,20 @@ async function getUserStatusText(username) {
   try {
     const res = await fetch(`${BASE_API}/users/${username}/status`);
     const d = await res.json();
-    if (d.online) return "online";
-    return d.lastSeen ? formatTime(d.lastSeen) : "";
+
+    if (!d.lastOnlineTime) return "";
+
+    const last = new Date(d.lastOnlineTime).getTime();
+    const now = Date.now();
+    if (now - last < 30000) {
+      return "online";
+    }
+
+    return formatTime(d.lastOnlineTime);
   } catch {
     return "";
   }
 }
-
 function setActiveChatUser(user) {
   activeChatUser = user;
   chatUsername.textContent = user.username;
@@ -247,17 +264,27 @@ function setActiveChatUser(user) {
 // ================= LOGOUT =================
 async function logout() {
   try {
-    navigator.sendBeacon(
-      `${BASE_API}/status/offline`,
-      JSON.stringify({ username: loggedUser?.username })
-    );
+    await fetch(`${BASE_API}/status/offline`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: loggedUser.username }),
+    });
   } catch {}
 
-  localStorage.removeItem("access_token");
-  localStorage.removeItem(LOGGED_IN_USR);
-
-  loggedUser = null;
-  activeChatUser = null;
-
-  window.location.replace("/auth/login.html");
+  localStorage.clear();
+  location.replace("/auth/login.html");
 }
+
+// Set interval online uchun
+setInterval(() => {
+  fetch(`${BASE_API}/status/ping`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...authHeader(),
+    },
+    body: JSON.stringify({
+      username: loggedUser.username,
+    }),
+  });
+}, 15000);

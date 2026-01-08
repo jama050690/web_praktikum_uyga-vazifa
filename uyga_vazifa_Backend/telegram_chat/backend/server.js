@@ -257,14 +257,39 @@ app.post("/status/offline", (req, res) => {
 });
 
 app.get("/users/:username/status", (req, res) => {
-  const statuses = readStatus();
-  const status = statuses[req.params.username];
+  const { username } = req.params;
+  const user = users.find((u) => u.username === username);
 
-  if (!status) {
-    return res.json({ online: false, lastSeen: null });
+  if (!user || !user.lastOnlineTime) {
+    return res.json({ online: false });
   }
 
-  res.json(status);
+  const last = new Date(user.lastOnlineTime).getTime();
+  const now = Date.now();
+
+  const online = now - last < 30000; // 30s
+
+  res.json({
+    online,
+    lastOnlineTime: user.lastOnlineTime,
+  });
+});
+
+// status ping (heartbeat)
+app.post("/status/ping", (req, res) => {
+  const { username } = req.body;
+  if (!username) {
+    return res.status(400).json({ message: "username required" });
+  }
+
+  const user = users.find((u) => u.username === username);
+  if (!user) {
+    return res.status(404).json({ message: "user not found" });
+  }
+
+  user.lastOnlineTime = new Date().toISOString();
+
+  res.json({ ok: true });
 });
 
 // start server

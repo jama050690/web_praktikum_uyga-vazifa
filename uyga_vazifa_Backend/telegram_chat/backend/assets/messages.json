@@ -315,5 +315,37 @@
     "to": "jumanazarsaidov",
     "text": "qandaysan ukam",
     "created_at": "2026-01-08T12:06:37.385Z"
+  },
+  {
+    "id": 48,
+    "chatId": 1,
+    "from": "jamshiddinbabajonov",
+    "to": "tolmas",
+    "text": "allo",
+    "created_at": "2026-01-08T12:15:26.643Z"
+  },
+  {
+    "id": 49,
+    "chatId": 7,
+    "from": "sardorsunnatullayev",
+    "to": "jumanazarsaidov",
+    "text": "aaaa",
+    "created_at": "2026-01-08T13:03:07.477Z"
+  },
+  {
+    "id": 50,
+    "chatId": 6,
+    "from": "sardorsunnatullayev",
+    "to": "jamshiddinbabajonov",
+    "text": "allloo",
+    "created_at": "2026-01-08T13:03:11.988Z"
+  },
+  {
+    "id": 51,
+    "chatId": 5,
+    "from": "sardorsunnatullayev",
+    "to": "tolmas",
+    "text": "ukam",
+    "created_at": "2026-01-08T13:03:21.162Z"
   }
 ]
