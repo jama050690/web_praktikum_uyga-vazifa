@@ -118,5 +118,101 @@
     "to": "sardorsunnatullayev",
     "text": "sardor qachon najotga kelasan",
     "created_at": "2026-01-09T06:27:58.790Z"
+  },
+  {
+    "id": 85,
+    "chatId": 0,
+    "from": "jamshiddinbabajonov",
+    "to": "jumanazarsaidov",
+    "text": "allo",
+    "created_at": "2026-01-09T15:45:26.524Z"
+  },
+  {
+    "id": 86,
+    "chatId": 6,
+    "from": "jamshiddinbabajonov",
+    "to": "sardorsunnatullayev",
+    "text": "ukam",
+    "created_at": "2026-01-09T15:45:33.666Z"
+  },
+  {
+    "id": 87,
+    "chatId": 8,
+    "from": "jamshiddinbabajonov",
+    "to": "tolmaso'rinov",
+    "text": "shashlik qachon",
+    "created_at": "2026-01-09T15:45:42.985Z"
+  },
+  {
+    "id": 88,
+    "chatId": 0,
+    "from": "jumanazarsaidov",
+    "to": "jamshiddinbabajonov",
+    "text": "nima gap",
+    "created_at": "2026-01-09T15:48:53.061Z"
+  },
+  {
+    "id": 89,
+    "chatId": 9,
+    "from": "jumanazarsaidov",
+    "to": "tolmaso'rinov",
+    "text": "nima gap shashlikchi",
+    "created_at": "2026-01-09T15:49:13.665Z"
+  },
+  {
+    "id": 90,
+    "chatId": 7,
+    "from": "jumanazarsaidov",
+    "to": "sardorsunnatullayev",
+    "text": "yaxshi nima gap",
+    "created_at": "2026-01-09T15:49:26.699Z"
+  },
+  {
+    "id": 91,
+    "chatId": 10,
+    "from": "sardorsunnatullayev",
+    "to": "tolmaso'rinov",
+    "text": "aka qatdasiz",
+    "created_at": "2026-01-09T15:51:20.798Z"
+  },
+  {
+    "id": 92,
+    "chatId": 6,
+    "from": "sardorsunnatullayev",
+    "to": "jamshiddinbabajonov",
+    "text": "eshitaman ak",
+    "created_at": "2026-01-09T15:51:28.824Z"
+  },
+  {
+    "id": 93,
+    "chatId": 7,
+    "from": "sardorsunnatullayev",
+    "to": "jumanazarsaidov",
+    "text": "tinch",
+    "created_at": "2026-01-09T15:51:37.394Z"
+  },
+  {
+    "id": 94,
+    "chatId": 10,
+    "from": "tolmaso'rinov",
+    "to": "sardorsunnatullayev",
+    "text": "ukan qattasan",
+    "created_at": "2026-01-09T15:58:04.483Z"
+  },
+  {
+    "id": 95,
+    "chatId": 8,
+    "from": "tolmaso'rinov",
+    "to": "jamshiddinbabajonov",
+    "text": "aka boryapman",
+    "created_at": "2026-01-09T15:58:19.393Z"
+  },
+  {
+    "id": 96,
+    "chatId": 9,
+    "from": "tolmaso'rinov",
+    "to": "jumanazarsaidov",
+    "text": "tinch o'zingizdachi",
+    "created_at": "2026-01-09T15:58:38.343Z"
   }
 ]
