@@ -1,426 +1,5 @@
 [
   {
-    "id": 5,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "allo",
-    "created_at": "2026-01-06T15:08:28.686Z"
-  },
-  {
-    "id": 6,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "sadiovjumanazar",
-    "text": "yaxshi?",
-    "created_at": "2026-01-06T15:08:34.786Z"
-  },
-  {
-    "id": 7,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "sadiovjumanazar",
-    "text": "hila",
-    "created_at": "2026-01-06T16:20:01.122Z"
-  },
-  {
-    "id": 8,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "sadiovjumanazar",
-    "text": "AKK",
-    "created_at": "2026-01-06T16:20:21.312Z"
-  },
-  {
-    "id": 9,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "tolmas tentak",
-    "created_at": "2026-01-07T14:08:51.890Z"
-  },
-  {
-    "id": 10,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "tolmas tentak",
-    "created_at": "2026-01-07T14:09:03.921Z"
-  },
-  {
-    "id": 11,
-    "from": "jamshiddinbabajonov",
-    "to": "jumanazarsaidov",
-    "text": "message",
-    "created_at": "2026-01-07T14:09:12.654Z"
-  },
-  {
-    "id": 12,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "to;mas tentak",
-    "created_at": "2026-01-07T14:13:26.963Z"
-  },
-  {
-    "id": 13,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "Tol ruk,t,tghb v6u;tnvluihkbvjktugihgikhj578ryighvikjiut9hbjlngkj6i8tfyhuohfkjmyigluvhkcbvjfghryuklfvhkjfjruydvlhkbjryguvibjhfnuguvhkbbj vb",
-    "created_at": "2026-01-07T14:13:42.095Z"
-  },
-  {
-    "id": 14,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "message",
-    "created_at": "2026-01-07T14:19:06.406Z"
-  },
-  {
-    "id": 17,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "t5ryfrm6uktygfdogjki",
-    "created_at": "2026-01-07T14:28:52.800Z"
-  },
-  {
-    "id": 18,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "fbgdhjftifhgkftm6jutok",
-    "created_at": "2026-01-07T14:29:02.408Z"
-  },
-  {
-    "id": 19,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "sal",
-    "created_at": "2026-01-07T14:29:27.208Z"
-  },
-  {
-    "id": 20,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "ok",
-    "created_at": "2026-01-07T14:29:36.537Z"
-  },
-  {
-    "id": 21,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "ok",
-    "created_at": "2026-01-07T14:36:09.388Z"
-  },
-  {
-    "id": 22,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "aka",
-    "created_at": "2026-01-07T14:36:15.836Z"
-  },
-  {
-    "id": 23,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "aka",
-    "created_at": "2026-01-07T14:39:47.450Z"
-  },
-  {
-    "id": 24,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "jumanazarsaidov",
-    "text": "jo'ra",
-    "created_at": "2026-01-07T14:41:34.415Z"
-  },
-  {
-    "id": 25,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "message",
-    "created_at": "2026-01-07T14:45:34.256Z"
-  },
-  {
-    "id": 26,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "jumanazarsaidov",
-    "text": "AKK",
-    "created_at": "2026-01-07T14:45:40.599Z"
-  },
-  {
-    "id": 27,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "jumanazarsaidov",
-    "text": "message",
-    "created_at": "2026-01-07T15:25:28.246Z"
-  },
-  {
-    "id": 28,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "jumanazarsaidov",
-    "text": "allo",
-    "created_at": "2026-01-07T15:30:42.307Z"
-  },
-  {
-    "id": 29,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "jumanazarsaidov",
-    "text": "akk",
-    "created_at": "2026-01-07T15:34:00.390Z"
-  },
-  {
-    "id": 30,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "aaaa",
-    "created_at": "2026-01-07T15:56:55.482Z"
-  },
-  {
-    "id": 31,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "qwdwedfwefwefwef",
-    "created_at": "2026-01-07T16:04:01.460Z"
-  },
-  {
-    "id": 32,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "message",
-    "created_at": "2026-01-07T16:04:52.414Z"
-  },
-  {
-    "id": 33,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "asdfghhjk",
-    "created_at": "2026-01-07T16:05:00.419Z"
-  },
-  {
-    "id": 34,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "asdfghjkl",
-    "created_at": "2026-01-07T16:05:07.848Z"
-  },
-  {
-    "id": 35,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "assdhfhglgthj;'tj'5'jhtk;l",
-    "created_at": "2026-01-07T16:05:18.862Z"
-  },
-  {
-    "id": 36,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "alo",
-    "created_at": "2026-01-07T16:10:05.771Z"
-  },
-  {
-    "id": 37,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "al",
-    "created_at": "2026-01-07T16:15:42.388Z"
-  },
-  {
-    "id": 38,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "jumanazarsaidov",
-    "text": "ok",
-    "created_at": "2026-01-07T16:16:53.750Z"
-  },
-  {
-    "id": 39,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "jumanazarsaidov",
-    "text": "aaaa",
-    "created_at": "2026-01-07T16:17:00.090Z"
-  },
-  {
-    "id": 40,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "jumanazarsaidov",
-    "text": "aaaaaaaaa",
-    "created_at": "2026-01-07T16:17:02.575Z"
-  },
-  {
-    "id": 41,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "bu boshqa gap",
-    "created_at": "2026-01-07T16:28:19.119Z"
-  },
-  {
-    "id": 43,
-    "chatId": 4,
-    "from": "tolmas",
-    "to": "jumanazarsaidov",
-    "text": "allo",
-    "created_at": "2026-01-08T12:02:34.403Z"
-  },
-  {
-    "id": 44,
-    "chatId": 4,
-    "from": "tolmas",
-    "to": "jumanazarsaidov",
-    "text": "nima gaplar",
-    "created_at": "2026-01-08T12:02:40.386Z"
-  },
-  {
-    "id": 45,
-    "chatId": 5,
-    "from": "sardorsunnatullayev",
-    "to": "tolmas",
-    "text": "allo",
-    "created_at": "2026-01-08T12:06:22.258Z"
-  },
-  {
-    "id": 46,
-    "chatId": 6,
-    "from": "sardorsunnatullayev",
-    "to": "jamshiddinbabajonov",
-    "text": "salom",
-    "created_at": "2026-01-08T12:06:27.134Z"
-  },
-  {
-    "id": 47,
-    "chatId": 7,
-    "from": "sardorsunnatullayev",
-    "to": "jumanazarsaidov",
-    "text": "qandaysan ukam",
-    "created_at": "2026-01-08T12:06:37.385Z"
-  },
-  {
-    "id": 48,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "allo",
-    "created_at": "2026-01-08T12:15:26.643Z"
-  },
-  {
-    "id": 49,
-    "chatId": 7,
-    "from": "sardorsunnatullayev",
-    "to": "jumanazarsaidov",
-    "text": "aaaa",
-    "created_at": "2026-01-08T13:03:07.477Z"
-  },
-  {
-    "id": 50,
-    "chatId": 6,
-    "from": "sardorsunnatullayev",
-    "to": "jamshiddinbabajonov",
-    "text": "allloo",
-    "created_at": "2026-01-08T13:03:11.988Z"
-  },
-  {
-    "id": 51,
-    "chatId": 5,
-    "from": "sardorsunnatullayev",
-    "to": "tolmas",
-    "text": "ukam",
-    "created_at": "2026-01-08T13:03:21.162Z"
-  },
-  {
-    "id": 52,
-    "chatId": 5,
-    "from": "sardorsunnatullayev",
-    "to": "tolmas",
-    "text": "aalllo",
-    "created_at": "2026-01-08T14:24:20.694Z"
-  },
-  {
-    "id": 53,
-    "chatId": 6,
-    "from": "sardorsunnatullayev",
-    "to": "jamshiddinbabajonov",
-    "text": "allllo",
-    "created_at": "2026-01-08T14:24:25.181Z"
-  },
-  {
-    "id": 54,
-    "chatId": 7,
-    "from": "sardorsunnatullayev",
-    "to": "jumanazarsaidov",
-    "text": "alllo",
-    "created_at": "2026-01-08T14:24:29.983Z"
-  },
-  {
-    "id": 55,
-    "chatId": 0,
-    "from": "jamshiddinbabajonov",
-    "to": "jumanazarsaidov",
-    "text": "aaaaaaaaaaaaaaaa",
-    "created_at": "2026-01-08T14:24:40.001Z"
-  },
-  {
-    "id": 56,
-    "chatId": 1,
-    "from": "jamshiddinbabajonov",
-    "to": "tolmas",
-    "text": "bbbbbbbbbbbbbbb",
-    "created_at": "2026-01-08T14:24:44.258Z"
-  },
-  {
-    "id": 57,
-    "chatId": 6,
-    "from": "jamshiddinbabajonov",
-    "to": "sardorsunnatullayev",
-    "text": "ccccccccccccccccccccc",
-    "created_at": "2026-01-08T14:24:49.928Z"
-  },
-  {
-    "id": 58,
-    "chatId": 4,
-    "from": "tolmas",
-    "to": "jumanazarsaidov",
-    "text": "aaaaalllllllllooooooooo",
-    "created_at": "2026-01-08T14:27:24.352Z"
-  },
-  {
-    "id": 59,
-    "chatId": 1,
-    "from": "tolmas",
-    "to": "jamshiddinbabajonov",
-    "text": "akkkaaaaaammmmmmm",
-    "created_at": "2026-01-08T14:27:34.854Z"
-  },
-  {
-    "id": 60,
-    "chatId": 5,
-    "from": "tolmas",
-    "to": "sardorsunnatullayev",
-    "text": "qayerdasan ukam",
-    "created_at": "2026-01-08T14:27:44.929Z"
-  },
-  {
     "id": 61,
     "chatId": 7,
     "from": "jumanazarsaidov",
@@ -429,36 +8,12 @@
     "created_at": "2026-01-08T14:28:39.206Z"
   },
   {
-    "id": 62,
-    "chatId": 4,
-    "from": "jumanazarsaidov",
-    "to": "tolmas",
-    "text": "nima gap tolmasbek",
-    "created_at": "2026-01-08T14:28:51.511Z"
-  },
-  {
     "id": 63,
     "chatId": 0,
     "from": "jumanazarsaidov",
     "to": "jamshiddinbabajonov",
     "text": "nima gaplar jo'ra",
     "created_at": "2026-01-08T14:29:04.496Z"
-  },
-  {
-    "id": 64,
-    "chatId": 5,
-    "from": "sardorsunnatullayev",
-    "to": "tolmas",
-    "text": "alllo",
-    "created_at": "2026-01-08T14:30:10.591Z"
-  },
-  {
-    "id": 65,
-    "chatId": 5,
-    "from": "sardorsunnatullayev",
-    "to": "tolmas",
-    "text": "eshitaman",
-    "created_at": "2026-01-08T14:30:15.221Z"
   },
   {
     "id": 66,
@@ -475,5 +30,93 @@
     "to": "jumanazarsaidov",
     "text": "akka qattasiz",
     "created_at": "2026-01-08T14:30:31.498Z"
+  },
+  {
+    "id": 69,
+    "chatId": 6,
+    "from": "jamshiddinbabajonov",
+    "to": "sardorsunnatullayev",
+    "text": "sardor ukam qattasan",
+    "created_at": "2026-01-09T05:13:51.296Z"
+  },
+  {
+    "id": 71,
+    "chatId": 0,
+    "from": "jamshiddinbabajonov",
+    "to": "jumanazarsaidov",
+    "text": "o'rtoq nima qivotsan",
+    "created_at": "2026-01-09T05:14:15.616Z"
+  },
+  {
+    "id": 72,
+    "chatId": 0,
+    "from": "jumanazarsaidov",
+    "to": "jamshiddinbabajonov",
+    "text": "nima gap jo'ra",
+    "created_at": "2026-01-09T05:48:25.830Z"
+  },
+  {
+    "id": 74,
+    "chatId": 7,
+    "from": "jumanazarsaidov",
+    "to": "sardorsunnatullayev",
+    "text": "sardorbek qandaysiz",
+    "created_at": "2026-01-09T05:48:51.409Z"
+  },
+  {
+    "id": 78,
+    "chatId": 7,
+    "from": "sardorsunnatullayev",
+    "to": "jumanazarsaidov",
+    "text": "aka rahmat o'zingiz qandaysiz",
+    "created_at": "2026-01-09T05:50:56.789Z"
+  },
+  {
+    "id": 79,
+    "chatId": 6,
+    "from": "sardorsunnatullayev",
+    "to": "jamshiddinbabajonov",
+    "text": "o'qishdaman akam",
+    "created_at": "2026-01-09T05:51:14.675Z"
+  },
+  {
+    "id": 80,
+    "chatId": 8,
+    "from": "tolmaso'rinov",
+    "to": "jamshiddinbabajonov",
+    "text": "assalomu allaykum akam",
+    "created_at": "2026-01-09T06:05:18.113Z"
+  },
+  {
+    "id": 81,
+    "chatId": 9,
+    "from": "tolmaso'rinov",
+    "to": "jumanazarsaidov",
+    "text": "asssalomu allaykum",
+    "created_at": "2026-01-09T06:05:29.878Z"
+  },
+  {
+    "id": 82,
+    "chatId": 10,
+    "from": "sardorsunnatullayev",
+    "to": "tolmaso'rinov",
+    "text": "qattasiz",
+    "created_at": "2026-01-09T06:09:43.598Z"
+  },
+  {
+    "id": 83,
+    "chatId": 6,
+    "from": "sardorsunnatullayev",
+    "to": "jamshiddinbabajonov",
+    "text": "akam qandaysiz",
+    "created_at": "2026-01-09T06:09:49.228Z"
+  },
+  {
+    "id": 84,
+    "chatId": 6,
+    "from": "jamshiddinbabajonov",
+    "to": "sardorsunnatullayev",
+    "text": "sardor qachon najotga kelasan",
+    "created_at": "2026-01-09T06:27:58.790Z"
   }
 ]

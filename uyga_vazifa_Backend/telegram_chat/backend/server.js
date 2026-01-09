@@ -142,28 +142,44 @@ app.post("/login", (req, res) => {
 });
 app.get("/users", authUserMiddleWare, (req, res) => {
   const me = req.user.username;
-  res.json(users.filter((u) => u.username !== me));
-});
 
-app.get("/chat-users", authUserMiddleWare, (req, res) => {
-  const me = req.user.username;
-
+  let messages = [];
   let chats = [];
+
   try {
+    messages = JSON.parse(fs.readFileSync(MESSAGES_FILE, "utf8"));
     chats = JSON.parse(fs.readFileSync(CHAT_FILE, "utf8"));
   } catch {}
 
-  const myChats = chats.filter((c) => c.user1 === me || c.user2 === me);
+  const result = users
+    .filter((u) => u.username !== me)
+    .map((u) => {
+      const chat = chats.find(
+        (c) =>
+          (c.user1 === me && c.user2 === u.username) ||
+          (c.user2 === me && c.user1 === u.username)
+      );
 
-  const chatUsers = myChats.map((c) => ({
-    chatId: c.chatId,
-    username: c.user1 === me ? c.user2 : c.user1,
-    lastMessage: c.lastMessage,
-    lastMessageTime: c.lastMessageTime,
-    lastUser: c.lastUser,
-  }));
+      const lastMessage = chat
+        ? messages
+            .filter((m) => m.chatId === chat.chatId)
+            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0]
+        : null;
 
-  res.json(chatUsers);
+      const unreadCount = messages.filter(
+        (m) => m.from === u.username && m.to === me && m.read_at === null
+      ).length;
+
+      return {
+        username: u.username,
+        name: u.name,
+        lastMessageText: lastMessage?.text || "",
+        lastMessageTime: lastMessage?.created_at || null,
+        unreadCount,
+      };
+    });
+
+  res.json(result);
 });
 
 app.get("/messages", authUserMiddleWare, (req, res) => {
@@ -267,7 +283,7 @@ app.get("/users/:username/status", (req, res) => {
   const last = new Date(user.lastOnlineTime).getTime();
   const now = Date.now();
 
-  const online = now - last < 30000; 
+  const online = now - last < 30000;
 
   res.json({
     online,
@@ -291,6 +307,62 @@ app.post("/status/ping", (req, res) => {
 
   res.json({ ok: true });
 });
+
+app.get("/messages/inbox", authUserMiddleWare, (req, res) => {
+  const me = req.user.username;
+
+  let messages = [];
+  try {
+    messages = JSON.parse(fs.readFileSync(MESSAGES_FILE, "utf8"));
+  } catch {}
+
+  const unread = messages.filter((m) => m.to === me && m.read_at === null);
+
+  const fromUsers = {};
+  unread.forEach((m) => {
+    fromUsers[m.from] = (fromUsers[m.from] || 0) + 1;
+  });
+
+  res.json({
+    totalUnread: unread.length,
+    fromUsers: Object.entries(fromUsers).map(([username, count]) => ({
+      username,
+      count,
+    })),
+  });
+});
+
+app.post("/messages/read", authUserMiddleWare, (req, res) => {
+  const me = req.user.username;
+  const { from } = req.body;
+
+  if (!from) return res.json({ ok: true });
+
+  let messages = [];
+  try {
+    messages = JSON.parse(fs.readFileSync(MESSAGES_FILE, "utf8"));
+  } catch {}
+
+  let updated = false;
+
+  messages.forEach((m) => {
+    if (
+      m.from === from &&
+      m.to === me &&
+      m.read_at === null
+    ) {
+      m.read_at = new Date().toISOString();
+      updated = true;
+    }
+  });
+
+  if (updated) {
+    fs.writeFileSync(MESSAGES_FILE, JSON.stringify(messages, null, 2));
+  }
+
+  res.json({ ok: true });
+});
+
 
 // start server
 app.listen(PORT, () => {
