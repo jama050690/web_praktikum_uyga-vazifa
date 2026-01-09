@@ -346,11 +346,7 @@ app.post("/messages/read", authUserMiddleWare, (req, res) => {
   let updated = false;
 
   messages.forEach((m) => {
-    if (
-      m.from === from &&
-      m.to === me &&
-      m.read_at === null
-    ) {
+    if (m.from === from && m.to === me && m.read_at === null) {
       m.read_at = new Date().toISOString();
       updated = true;
     }
@@ -362,7 +358,6 @@ app.post("/messages/read", authUserMiddleWare, (req, res) => {
 
   res.json({ ok: true });
 });
-
 
 // start server
 app.listen(PORT, () => {
